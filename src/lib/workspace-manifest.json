@@ -1,0 +1,425 @@
+{
+  "generatedAt": "2026-01-13T02:16:19.935Z",
+  "quarters": {
+    "1": {
+      "folder": "q1-python-sql",
+      "weeks": {
+        "1": {
+          "exercises": {
+            "day1_verify_setup.py": {
+              "complete": true,
+              "totalFunctions": 7,
+              "completedFunctions": 1,
+              "incompletePatterns": 0,
+              "completePatterns": 3,
+              "hash": "d067b525",
+              "lines": 165,
+              "path": "q1-python-sql/week-01/exercises/day1_verify_setup.py",
+              "modifiedAt": "2026-01-13T02:08:16.002Z"
+            },
+            "day2_variables.py": {
+              "complete": false,
+              "totalFunctions": 6,
+              "completedFunctions": 0,
+              "incompletePatterns": 9,
+              "completePatterns": 0,
+              "hash": "c94c2429",
+              "lines": 241,
+              "path": "q1-python-sql/week-01/exercises/day2_variables.py",
+              "modifiedAt": "2026-01-13T01:57:25.524Z"
+            },
+            "day3_functions.py": {
+              "complete": false,
+              "totalFunctions": 11,
+              "completedFunctions": 0,
+              "incompletePatterns": 3,
+              "completePatterns": 1,
+              "hash": "dd48fa8c",
+              "lines": 314,
+              "path": "q1-python-sql/week-01/exercises/day3_functions.py",
+              "modifiedAt": "2026-01-13T01:58:00.274Z"
+            },
+            "day4_data_structures.py": {
+              "complete": false,
+              "totalFunctions": 12,
+              "completedFunctions": 0,
+              "incompletePatterns": 2,
+              "completePatterns": 0,
+              "hash": "8230bad7",
+              "lines": 357,
+              "path": "q1-python-sql/week-01/exercises/day4_data_structures.py",
+              "modifiedAt": "2026-01-13T01:58:45.814Z"
+            }
+          }
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "2": {
+      "folder": "q2-etl-quality",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "3": {
+      "folder": "q3-dbt-mastery",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "4": {
+      "folder": "q4-aws-foundations",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "5": {
+      "folder": "q5-orchestration",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "6": {
+      "folder": "q6-aws-advanced",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "7": {
+      "folder": "q7-system-design",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    },
+    "8": {
+      "folder": "q8-interview-prep",
+      "weeks": {
+        "1": {
+          "exercises": {}
+        },
+        "2": {
+          "exercises": {}
+        },
+        "3": {
+          "exercises": {}
+        },
+        "4": {
+          "exercises": {}
+        },
+        "5": {
+          "exercises": {}
+        },
+        "6": {
+          "exercises": {}
+        },
+        "7": {
+          "exercises": {}
+        },
+        "8": {
+          "exercises": {}
+        },
+        "9": {
+          "exercises": {}
+        },
+        "10": {
+          "exercises": {}
+        },
+        "11": {
+          "exercises": {}
+        },
+        "12": {
+          "exercises": {}
+        },
+        "13": {
+          "exercises": {}
+        }
+      }
+    }
+  },
+  "summary": {
+    "totalExercises": 4,
+    "completedExercises": 1,
+    "completionRate": 25
+  },
+  "dayStatus": {
+    "1": {
+      "complete": true,
+      "file": "q1-python-sql/week-01/exercises/day1_verify_setup.py"
+    },
+    "2": {
+      "complete": false,
+      "file": "q1-python-sql/week-01/exercises/day2_variables.py"
+    },
+    "3": {
+      "complete": false,
+      "file": "q1-python-sql/week-01/exercises/day3_functions.py"
+    },
+    "4": {
+      "complete": false,
+      "file": "q1-python-sql/week-01/exercises/day4_data_structures.py"
+    }
+  }
+}

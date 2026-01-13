@@ -8,6 +8,8 @@ import { StatsCard } from '@/components/StatsCard';
 import { ProgressRing } from '@/components/ProgressRing';
 import { WeekView } from '@/components/WeekView';
 import { QuarterProgress } from '@/components/QuarterProgress';
+import { VerifiedProgressBar } from '@/components/VerifiedBadge';
+import { getVerifiedProgress, getVerifiedCompletedDays } from '@/lib/verified-progress';
 import { format, parseISO, differenceInDays } from 'date-fns';
 import { 
   Calendar, 
@@ -17,7 +19,8 @@ import {
   Clock, 
   TrendingUp,
   ChevronRight,
-  Zap
+  Zap,
+  ShieldCheck
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -29,6 +32,10 @@ export default function Dashboard() {
   const upcomingSessions = getUpcomingSessions(5);
   const currentWeekSessions = getCurrentWeekSessions();
   const progressData = getProgress(completedIds);
+  
+  // Verified progress from actual workspace code
+  const verifiedProgress = getVerifiedProgress();
+  const verifiedDays = getVerifiedCompletedDays();
   
   // Calculate days until end
   const endDate = new Date(2028, 0, 8);
@@ -57,6 +64,45 @@ export default function Dashboard() {
         <p className="text-gray-600 dark:text-gray-400 mt-1">
           {format(new Date(), 'EEEE, MMMM d, yyyy')}
         </p>
+      </div>
+
+      {/* Verified Progress Banner */}
+      <div className="mb-8 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-6 text-white">
+        <div className="flex items-center gap-3 mb-4">
+          <ShieldCheck className="w-8 h-8" />
+          <div>
+            <h2 className="text-xl font-bold">Verified Progress</h2>
+            <p className="text-green-100 text-sm">Based on actual code in your workspace - not just clicks!</p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-3 gap-4 mb-4">
+          <div className="bg-white/10 rounded-lg p-3 text-center">
+            <p className="text-3xl font-bold">{verifiedProgress.completed}</p>
+            <p className="text-green-100 text-sm">Exercises Done</p>
+          </div>
+          <div className="bg-white/10 rounded-lg p-3 text-center">
+            <p className="text-3xl font-bold">{verifiedProgress.total}</p>
+            <p className="text-green-100 text-sm">Total Exercises</p>
+          </div>
+          <div className="bg-white/10 rounded-lg p-3 text-center">
+            <p className="text-3xl font-bold">{verifiedProgress.percentage}%</p>
+            <p className="text-green-100 text-sm">Completion</p>
+          </div>
+        </div>
+        
+        <div className="h-3 bg-white/20 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-white transition-all duration-500"
+            style={{ width: `${verifiedProgress.percentage}%` }}
+          />
+        </div>
+        
+        {verifiedDays.length > 0 && (
+          <p className="mt-3 text-green-100 text-sm">
+            ✅ Verified complete: Day {verifiedDays.join(', Day ')}
+          </p>
+        )}
       </div>
 
       {/* Progress Overview */}
