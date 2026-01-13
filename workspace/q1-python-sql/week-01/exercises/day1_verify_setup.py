@@ -68,7 +68,7 @@ def my_first_function():
         'Dante Bozzuti'
     """
     # YOUR CODE HERE
-    name = ""  # Replace with your name
+    name = "Dante Bozzuti"  # Replace with your name
     return name
 
 
@@ -81,7 +81,7 @@ def add_numbers(a: int, b: int) -> int:
         8
     """
     # YOUR CODE HERE
-    pass  # Replace with your implementation
+    return a + b  # Replace with your implementation
 
 
 def is_even(number: int) -> bool:
@@ -95,7 +95,7 @@ def is_even(number: int) -> bool:
         False
     """
     # YOUR CODE HERE
-    pass  # Replace with your implementation
+    return number % 2 == 0  # Replace with your implementation
 
 
 # =============================================================================
