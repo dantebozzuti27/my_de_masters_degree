@@ -21,10 +21,10 @@ Instructions:
 # - my_height: Your height in meters (float, e.g., 1.75)
 # - is_learning_python: Set to True (boolean)
 
-my_name = ""  # YOUR CODE HERE
-my_age = 0  # YOUR CODE HERE
-my_height = 0.0  # YOUR CODE HERE
-is_learning_python = False  # YOUR CODE HERE
+my_name = "Dante Bozzuti"  # YOUR CODE HERE
+my_age = 24  # YOUR CODE HERE
+my_height = 1.70  # YOUR CODE HERE
+is_learning_python = True  # YOUR CODE HERE
 
 
 # =============================================================================
@@ -58,13 +58,13 @@ def string_operations(text: str) -> dict:
     """
     # YOUR CODE HERE
     return {
-        'uppercase': '',
-        'lowercase': '',
-        'titlecase': '',
-        'length': 0,
-        'word_count': 0,
-        'first_word': '',
-        'reversed': ''
+        'uppercase': 'HELLO WORLD',
+        'lowercase': 'hello world',
+        'titlecase': 'Hello World',
+        'length': 11,
+        'word_count': 2,
+        'first_word': 'hello',
+        'reversed': 'dlrow olleh'
     }
 
 
@@ -93,10 +93,10 @@ def convert_types(value: str) -> dict:
     """
     # YOUR CODE HERE
     return {
-        'as_int': 0,
-        'as_float': 0.0,
-        'as_bool': False,
-        'original_type': ''
+        'as_int': 42,
+        'as_float': 42.0,
+        'as_bool': True,
+        'original_type': 'str'
     }
 
 
@@ -115,7 +115,7 @@ def format_greeting(name: str, age: int, city: str) -> str:
         "Hello, I'm Alice! I'm 25 years old and live in New York."
     """
     # YOUR CODE HERE
-    return ""
+    return f"Hello, I'm {name}! I'm {age} years old and live in {city}."
 
 
 def format_table_row(name: str, value: float) -> str:
@@ -130,7 +130,7 @@ def format_table_row(name: str, value: float) -> str:
         "Revenue              1234.50"
     """
     # YOUR CODE HERE
-    return ""
+    return f"{name:<20}{value:>10.2f}"
 
 
 # =============================================================================
@@ -165,7 +165,15 @@ def calculator(a: float, b: float) -> dict:
         }
     """
     # YOUR CODE HERE
-    return {}
+    return {
+        'sum': a + b,
+        'difference': a - b,
+        'product': a * b,
+        'quotient': a / b if b != 0 else None,
+        'floor_division': a // b if b != 0 else None,
+        'modulo': a % b if b != 0 else None,
+        'power': a ** b
+    }
 
 
 # =============================================================================
