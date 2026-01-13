@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Calendar, BarChart3, Settings, BookOpen } from 'lucide-react';
+import { Home, Calendar, BarChart3, Settings, BookOpen, FolderCode } from 'lucide-react';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: Home },
   { href: '/calendar', label: 'Calendar', icon: Calendar },
   { href: '/curriculum', label: 'Curriculum', icon: BookOpen },
+  { href: '/portfolio', label: 'Portfolio', icon: FolderCode },
   { href: '/stats', label: 'Statistics', icon: BarChart3 },
   { href: '/settings', label: 'Settings', icon: Settings },
 ];

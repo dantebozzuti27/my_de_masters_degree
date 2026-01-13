@@ -1,0 +1,313 @@
+#!/usr/bin/env python3
+"""
+Day 3 Exercise: Control Flow & Functions
+=========================================
+
+Master conditionals, loops, and functions.
+
+Instructions:
+1. Complete each TODO section
+2. Run: python day3_functions.py
+3. All tests should pass ✅
+"""
+
+# =============================================================================
+# EXERCISE 1: FizzBuzz (The Classic!)
+# =============================================================================
+
+def fizzbuzz(n: int) -> list:
+    """
+    TODO: Implement FizzBuzz for numbers 1 to n.
+    
+    Rules:
+    - If divisible by 3: "Fizz"
+    - If divisible by 5: "Buzz"  
+    - If divisible by both: "FizzBuzz"
+    - Otherwise: the number as a string
+    
+    Return a list of results.
+    
+    Example:
+        >>> fizzbuzz(5)
+        ['1', '2', 'Fizz', '4', 'Buzz']
+        
+        >>> fizzbuzz(15)[-1]
+        'FizzBuzz'
+    """
+    # YOUR CODE HERE
+    result = []
+    return result
+
+
+# =============================================================================
+# EXERCISE 2: Factorial
+# =============================================================================
+
+def factorial_iterative(n: int) -> int:
+    """
+    TODO: Calculate factorial using a loop (iterative approach).
+    
+    n! = n × (n-1) × (n-2) × ... × 1
+    
+    Edge case: 0! = 1
+    
+    Example:
+        >>> factorial_iterative(5)
+        120
+        >>> factorial_iterative(0)
+        1
+    """
+    # YOUR CODE HERE
+    pass
+
+
+def factorial_recursive(n: int) -> int:
+    """
+    TODO: Calculate factorial using recursion.
+    
+    Hint: n! = n × (n-1)!
+    Base case: 0! = 1
+    
+    Example:
+        >>> factorial_recursive(5)
+        120
+    """
+    # YOUR CODE HERE
+    pass
+
+
+# =============================================================================
+# EXERCISE 3: Prime Number Checker
+# =============================================================================
+
+def is_prime(n: int) -> bool:
+    """
+    TODO: Check if n is a prime number.
+    
+    A prime number is only divisible by 1 and itself.
+    
+    Optimization: Only check divisors up to sqrt(n)
+    
+    Example:
+        >>> is_prime(2)
+        True
+        >>> is_prime(4)
+        False
+        >>> is_prime(17)
+        True
+        >>> is_prime(1)
+        False
+    """
+    # YOUR CODE HERE
+    pass
+
+
+def primes_up_to(n: int) -> list:
+    """
+    TODO: Return a list of all prime numbers up to n.
+    
+    Example:
+        >>> primes_up_to(20)
+        [2, 3, 5, 7, 11, 13, 17, 19]
+    """
+    # YOUR CODE HERE (use is_prime!)
+    pass
+
+
+# =============================================================================
+# EXERCISE 4: Temperature Converter
+# =============================================================================
+
+def celsius_to_fahrenheit(celsius: float) -> float:
+    """
+    TODO: Convert Celsius to Fahrenheit.
+    
+    Formula: F = C × 9/5 + 32
+    
+    Example:
+        >>> celsius_to_fahrenheit(0)
+        32.0
+        >>> celsius_to_fahrenheit(100)
+        212.0
+    """
+    # YOUR CODE HERE
+    pass
+
+
+def fahrenheit_to_celsius(fahrenheit: float) -> float:
+    """
+    TODO: Convert Fahrenheit to Celsius.
+    
+    Formula: C = (F - 32) × 5/9
+    
+    Example:
+        >>> fahrenheit_to_celsius(32)
+        0.0
+        >>> fahrenheit_to_celsius(212)
+        100.0
+    """
+    # YOUR CODE HERE
+    pass
+
+
+# =============================================================================
+# EXERCISE 5: Palindrome Checker
+# =============================================================================
+
+def is_palindrome(text: str) -> bool:
+    """
+    TODO: Check if text is a palindrome (reads same forwards and backwards).
+    
+    Ignore spaces and case.
+    
+    Example:
+        >>> is_palindrome("racecar")
+        True
+        >>> is_palindrome("A man a plan a canal Panama")
+        True
+        >>> is_palindrome("hello")
+        False
+    """
+    # YOUR CODE HERE
+    pass
+
+
+# =============================================================================
+# EXERCISE 6: Fibonacci Sequence
+# =============================================================================
+
+def fibonacci(n: int) -> list:
+    """
+    TODO: Return the first n numbers in the Fibonacci sequence.
+    
+    Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+    Each number is the sum of the two before it.
+    
+    Example:
+        >>> fibonacci(8)
+        [0, 1, 1, 2, 3, 5, 8, 13]
+    """
+    # YOUR CODE HERE
+    pass
+
+
+# =============================================================================
+# BONUS: Number Guessing Game
+# =============================================================================
+
+def guessing_game():
+    """
+    BONUS: Interactive number guessing game.
+    
+    - Computer picks random number 1-100
+    - Player guesses until correct
+    - Give "Higher!" or "Lower!" hints
+    - Count and report number of guesses
+    
+    This is interactive - uncomment the call at the bottom to play!
+    """
+    import random
+    
+    # YOUR CODE HERE
+    pass
+
+
+# =============================================================================
+# Tests
+# =============================================================================
+
+def run_tests():
+    print("=" * 60)
+    print("DAY 3: Control Flow & Functions - Tests")
+    print("=" * 60 + "\n")
+    
+    passed = 0
+    total = 0
+    
+    # Test FizzBuzz
+    total += 1
+    result = fizzbuzz(15)
+    if result and result[-1] == 'FizzBuzz' and result[2] == 'Fizz':
+        print("✅ fizzbuzz() works correctly")
+        passed += 1
+    else:
+        print(f"❌ fizzbuzz(15) should end with 'FizzBuzz'. Got: {result}")
+    
+    # Test Factorial (iterative)
+    total += 1
+    if factorial_iterative(5) == 120 and factorial_iterative(0) == 1:
+        print("✅ factorial_iterative() works correctly")
+        passed += 1
+    else:
+        print("❌ factorial_iterative() needs work")
+    
+    # Test Factorial (recursive)
+    total += 1
+    if factorial_recursive(5) == 120 and factorial_recursive(0) == 1:
+        print("✅ factorial_recursive() works correctly")
+        passed += 1
+    else:
+        print("❌ factorial_recursive() needs work")
+    
+    # Test is_prime
+    total += 1
+    if is_prime(2) and is_prime(17) and not is_prime(4) and not is_prime(1):
+        print("✅ is_prime() works correctly")
+        passed += 1
+    else:
+        print("❌ is_prime() needs work")
+    
+    # Test primes_up_to
+    total += 1
+    primes = primes_up_to(20)
+    expected = [2, 3, 5, 7, 11, 13, 17, 19]
+    if primes == expected:
+        print("✅ primes_up_to() works correctly")
+        passed += 1
+    else:
+        print(f"❌ primes_up_to(20) should be {expected}. Got: {primes}")
+    
+    # Test Temperature conversions
+    total += 1
+    if celsius_to_fahrenheit(0) == 32 and fahrenheit_to_celsius(32) == 0:
+        print("✅ Temperature conversions work correctly")
+        passed += 1
+    else:
+        print("❌ Temperature conversions need work")
+    
+    # Test Palindrome
+    total += 1
+    if (is_palindrome("racecar") and 
+        is_palindrome("A man a plan a canal Panama") and 
+        not is_palindrome("hello")):
+        print("✅ is_palindrome() works correctly")
+        passed += 1
+    else:
+        print("❌ is_palindrome() needs work")
+    
+    # Test Fibonacci
+    total += 1
+    fib = fibonacci(8)
+    expected = [0, 1, 1, 2, 3, 5, 8, 13]
+    if fib == expected:
+        print("✅ fibonacci() works correctly")
+        passed += 1
+    else:
+        print(f"❌ fibonacci(8) should be {expected}. Got: {fib}")
+    
+    # Summary
+    print("\n" + "=" * 60)
+    if passed == total:
+        print(f"🎉 ALL TESTS PASSED! ({passed}/{total})")
+        print("You're ready for Day 4!")
+    else:
+        print(f"⚠️  {passed}/{total} tests passed")
+        print("Keep working on the remaining exercises!")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    run_tests()
+    
+    # Uncomment to play the guessing game:
+    # guessing_game()
