@@ -1,65 +1,221 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useProgress } from '@/hooks/useProgress';
+import { getAllSessions, getTodaySession, getUpcomingSessions, getCurrentWeekSessions, getProgress } from '@/lib/sessions';
+import { QUARTERS } from '@/lib/curriculum';
+import { SessionCard } from '@/components/SessionCard';
+import { StatsCard } from '@/components/StatsCard';
+import { ProgressRing } from '@/components/ProgressRing';
+import { WeekView } from '@/components/WeekView';
+import { QuarterProgress } from '@/components/QuarterProgress';
+import { format, parseISO, differenceInDays } from 'date-fns';
+import { 
+  Calendar, 
+  CheckCircle2, 
+  Flame, 
+  Target, 
+  Clock, 
+  TrendingUp,
+  ChevronRight,
+  Zap
+} from 'lucide-react';
+import Link from 'next/link';
+
+export default function Dashboard() {
+  const { completedIds, streak, isLoading } = useProgress();
+  
+  const allSessions = getAllSessions();
+  const todaySession = getTodaySession();
+  const upcomingSessions = getUpcomingSessions(5);
+  const currentWeekSessions = getCurrentWeekSessions();
+  const progressData = getProgress(completedIds);
+  
+  // Calculate days until end
+  const endDate = new Date(2028, 0, 8);
+  const daysRemaining = differenceInDays(endDate, new Date());
+  
+  // Find current quarter
+  const currentQuarter = todaySession 
+    ? QUARTERS.find(q => q.id === todaySession.quarterId)
+    : QUARTERS[0];
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="p-6 max-w-6xl mx-auto">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          Welcome back! 👋
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">
+          {format(new Date(), 'EEEE, MMMM d, yyyy')}
+        </p>
+      </div>
+
+      {/* Progress Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Overall Progress</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">
+                {progressData.percentage}%
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {progressData.completed} of {progressData.total} sessions
+              </p>
+            </div>
+            <ProgressRing progress={progressData.percentage} size={80} strokeWidth={6}>
+              <span className="text-lg font-bold text-gray-900 dark:text-white">
+                {progressData.percentage}%
+              </span>
+            </ProgressRing>
+          </div>
+        </div>
+
+        <StatsCard
+          title="Current Streak"
+          value={`${streak.current} days`}
+          subtitle={`Best: ${streak.longest} days`}
+          icon={Flame}
+          color="orange"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        
+        <StatsCard
+          title="Sessions This Week"
+          value={`${currentWeekSessions.filter(s => completedIds.has(s.id)).length}/${currentWeekSessions.length}`}
+          icon={Calendar}
+          color="blue"
+        />
+        
+        <StatsCard
+          title={progressData.daysAhead >= 0 ? "Days Ahead" : "Days Behind"}
+          value={Math.abs(progressData.daysAhead)}
+          subtitle={progressData.daysAhead >= 0 ? "Keep it up!" : "Catch up time!"}
+          icon={progressData.daysAhead >= 0 ? TrendingUp : Clock}
+          color={progressData.daysAhead >= 0 ? "green" : "red"}
+        />
+      </div>
+
+      {/* Today's Session */}
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <Zap className="w-5 h-5 text-yellow-500" />
+            Today's Session
+          </h2>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+        
+        {todaySession ? (
+          <SessionCard session={todaySession} variant="full" />
+        ) : (
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 text-center">
+            <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              No Session Today
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Study sessions are Monday through Thursday. Enjoy your day off!
+            </p>
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* This Week */}
+        <div className="lg:col-span-2">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              This Week
+            </h2>
+            <Link 
+              href="/calendar"
+              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+            >
+              View Calendar
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+          
+          <WeekView 
+            sessions={currentWeekSessions}
+            weekNumber={currentWeekSessions[0]?.weekNumber ?? 1}
+          />
+        </div>
+
+        {/* Quarter Progress */}
+        <div>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              Quarters
+            </h2>
+            <Link 
+              href="/curriculum"
+              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+            >
+              View All
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+          
+          <QuarterProgress />
+        </div>
+      </div>
+
+      {/* Upcoming Sessions */}
+      <div className="mt-8">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            Upcoming Sessions
+          </h2>
+        </div>
+        
+        <div className="grid gap-3">
+          {upcomingSessions.slice(0, 5).map(session => (
+            <SessionCard
+              key={session.id}
+              session={session}
+              variant="compact"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
+      </div>
+
+      {/* Current Quarter Info */}
+      {currentQuarter && (
+        <div className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="text-blue-100 text-sm font-medium">Currently in</p>
+              <h3 className="text-2xl font-bold mt-1">{currentQuarter.name}</h3>
+              <p className="text-blue-100 mt-2">{currentQuarter.goal}</p>
+              
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-white/20 rounded-full text-sm">
+                  📁 {currentQuarter.project}
+                </span>
+                {currentQuarter.certification && (
+                  <span className="px-3 py-1 bg-yellow-400/30 rounded-full text-sm">
+                    🏆 {currentQuarter.certification}
+                  </span>
+                )}
+              </div>
+            </div>
+            
+            <div className="text-right">
+              <p className="text-4xl font-bold">{daysRemaining}</p>
+              <p className="text-blue-100 text-sm">days remaining</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
