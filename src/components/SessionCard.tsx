@@ -5,8 +5,9 @@ import { QUARTERS } from '@/lib/curriculum';
 import { getDayLabel } from '@/lib/sessions';
 import { useProgress } from '@/hooks/useProgress';
 import { format, parseISO } from 'date-fns';
-import { CheckCircle2, Circle, Calendar, Target, BookOpen, Star } from 'lucide-react';
+import { CheckCircle2, Circle, Calendar, Target, BookOpen, Star, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface SessionCardProps {
   session: StudySession;
@@ -196,6 +197,18 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
             "{sessionProgress.notes.substring(0, 100)}{sessionProgress.notes.length > 100 ? '...' : ''}"
           </p>
         )}
+      </div>
+
+      {/* View Full Lesson Link */}
+      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <Link
+          href={`/lesson/${session.dayNumber}`}
+          className="flex items-center justify-center gap-2 w-full py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+        >
+          <BookOpen className="w-5 h-5" />
+          View Full Lesson Plan
+          <ExternalLink className="w-4 h-4" />
+        </Link>
       </div>
     </div>
   );
