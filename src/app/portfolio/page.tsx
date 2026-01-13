@@ -109,7 +109,7 @@ const WORKSPACE_STRUCTURE = {
       deliverables: [
         'Resume & portfolio',
         'Mock interviews',
-        '$200k+ offer! 🎉'
+        '$200k+ offer'
       ]
     }
   ]

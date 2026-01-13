@@ -28,7 +28,7 @@ export default function LessonPage() {
             href="/curriculum"
             className="text-blue-600 hover:text-blue-700 dark:text-blue-400"
           >
-            ← Back to Curriculum
+            Back to Curriculum
           </Link>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function LessonPage() {
           </button>
         ) : (
           <div className="px-4 py-2 bg-green-600 text-white rounded-lg">
-            🎉 Curriculum Complete!
+            Curriculum Complete!
           </div>
         )}
       </div>

@@ -2,13 +2,13 @@
  * Media Resources for SDE Study Plan
  * 
  * Daily Videos: 15-20 minute focused videos per lesson
- * Weekly Podcasts: 1-2 episodes per week (free on Spotify)
+ * Weekly Podcasts: 1-2 episodes per week
  */
 
 export interface DailyVideo {
   title: string;
   url: string;
-  duration: string;  // e.g., "18:32"
+  duration: string;
   channel: string;
   description: string;
   platform: 'youtube' | 'coursera' | 'other';
@@ -17,19 +17,10 @@ export interface DailyVideo {
 export interface WeeklyPodcast {
   title: string;
   show: string;
-  spotifyUrl: string;
+  url: string;
+  spotifySearch: string;
   duration: string;
   description: string;
-  episode?: string;
-}
-
-export interface WeeklyAudiobook {
-  title: string;
-  author: string;
-  spotifyUrl?: string;
-  audibleUrl?: string;
-  description: string;
-  chapters?: string;  // Which chapters to focus on
 }
 
 // ============================================================================
@@ -480,22 +471,23 @@ export const Q1_DAILY_VIDEOS: Record<number, DailyVideo> = {
   }
 };
 
-// Weekly Podcasts (free on Spotify)
+// Weekly Podcasts - Using official podcast websites which have Spotify links
 export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
   1: [
     {
       title: "Why Python for Data Engineering?",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "45:00",
-      description: "Discussion on Python's role in modern data engineering",
-      episode: "Episode 1"
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "45 min",
+      description: "Discussion on Python's role in modern data engineering"
     },
     {
       title: "Getting Started in Data Engineering",
       show: "The Data Engineering Show",
-      spotifyUrl: "https://open.spotify.com/show/5pcFFKIDyBtLyMegiPhnWe",
-      duration: "38:00",
+      url: "https://www.dataengineeringshow.com/",
+      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
+      duration: "38 min",
       description: "Career advice for aspiring data engineers"
     }
   ],
@@ -503,8 +495,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Python Best Practices for Data Work",
       show: "Talk Python to Me",
-      spotifyUrl: "https://open.spotify.com/show/6Jn2yVIMw8mVfKxfbf0tGj",
-      duration: "55:00",
+      url: "https://talkpython.fm/",
+      spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
+      duration: "55 min",
       description: "Writing production-quality Python code"
     }
   ],
@@ -512,15 +505,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Data File Formats Deep Dive",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "48:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "48 min",
       description: "CSV, JSON, Parquet, and when to use each"
     },
     {
       title: "The Evolution of Data Formats",
       show: "The Analytics Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/5C09bq8O4jXwDajAHqWHMN",
-      duration: "42:00",
+      url: "https://roundup.getdbt.com/",
+      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
+      duration: "42 min",
       description: "From CSV to columnar formats"
     }
   ],
@@ -528,8 +523,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Object-Oriented Python in Data Pipelines",
       show: "Python Bytes",
-      spotifyUrl: "https://open.spotify.com/show/1vdXeyXkGBvHkv3FYJgjQs",
-      duration: "25:00",
+      url: "https://pythonbytes.fm/",
+      spotifySearch: "https://open.spotify.com/search/python%20bytes",
+      duration: "25 min",
       description: "When and how to use OOP in data code"
     }
   ],
@@ -537,15 +533,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "SQL in the Modern Data Stack",
       show: "The Analytics Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/5C09bq8O4jXwDajAHqWHMN",
-      duration: "50:00",
+      url: "https://roundup.getdbt.com/",
+      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
+      duration: "50 min",
       description: "Why SQL is still the foundation of data work"
     },
     {
       title: "SQL Performance Fundamentals",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "45:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "45 min",
       description: "Writing efficient SQL queries"
     }
   ],
@@ -553,8 +551,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Advanced SQL Techniques",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "52:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "52 min",
       description: "JOINs, aggregations, and query optimization"
     }
   ],
@@ -562,15 +561,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Window Functions Explained",
       show: "The Data Engineering Show",
-      spotifyUrl: "https://open.spotify.com/show/5pcFFKIDyBtLyMegiPhnWe",
-      duration: "40:00",
+      url: "https://www.dataengineeringshow.com/",
+      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
+      duration: "40 min",
       description: "Mastering SQL window functions for analytics"
     },
     {
       title: "SQL vs NoSQL for Data Engineering",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "48:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "48 min",
       description: "When to use each database type"
     }
   ],
@@ -578,8 +579,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Python and Databases",
       show: "Talk Python to Me",
-      spotifyUrl: "https://open.spotify.com/show/6Jn2yVIMw8mVfKxfbf0tGj",
-      duration: "58:00",
+      url: "https://talkpython.fm/",
+      spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
+      duration: "58 min",
       description: "Best practices for database connections in Python"
     }
   ],
@@ -587,15 +589,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Pandas for Data Engineering",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "45:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "45 min",
       description: "When to use pandas vs SQL vs Spark"
     },
     {
       title: "The Future of DataFrames",
       show: "Python Bytes",
-      spotifyUrl: "https://open.spotify.com/show/1vdXeyXkGBvHkv3FYJgjQs",
-      duration: "28:00",
+      url: "https://pythonbytes.fm/",
+      spotifySearch: "https://open.spotify.com/search/python%20bytes",
+      duration: "28 min",
       description: "Pandas, Polars, and the DataFrame ecosystem"
     }
   ],
@@ -603,8 +607,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Data Transformation Patterns",
       show: "The Analytics Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/5C09bq8O4jXwDajAHqWHMN",
-      duration: "46:00",
+      url: "https://roundup.getdbt.com/",
+      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
+      duration: "46 min",
       description: "Common patterns for transforming data"
     }
   ],
@@ -612,15 +617,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Git for Data Teams",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "42:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "42 min",
       description: "Version control best practices for data projects"
     },
     {
       title: "Code Review in Data Engineering",
       show: "The Data Engineering Show",
-      spotifyUrl: "https://open.spotify.com/show/5pcFFKIDyBtLyMegiPhnWe",
-      duration: "38:00",
+      url: "https://www.dataengineeringshow.com/",
+      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
+      duration: "38 min",
       description: "How to review data pipeline code"
     }
   ],
@@ -628,8 +635,9 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Testing Data Pipelines",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "50:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "50 min",
       description: "Unit testing, integration testing, and data validation"
     }
   ],
@@ -637,15 +645,17 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
     {
       title: "Building a Data Engineering Portfolio",
       show: "The Data Engineering Show",
-      spotifyUrl: "https://open.spotify.com/show/5pcFFKIDyBtLyMegiPhnWe",
-      duration: "44:00",
+      url: "https://www.dataengineeringshow.com/",
+      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
+      duration: "44 min",
       description: "Projects that get you hired"
     },
     {
       title: "Data Engineering Career Paths",
       show: "Data Engineering Podcast",
-      spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
-      duration: "55:00",
+      url: "https://www.dataengineeringpodcast.com/",
+      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      duration: "55 min",
       description: "From junior to senior data engineer"
     }
   ]
@@ -668,53 +678,44 @@ export function getDayMedia(dayNumber: number) {
     podcasts: weekNumber <= Object.keys(Q1_WEEKLY_PODCASTS).length 
       ? getWeeklyPodcasts(weekNumber)
       : [],
-    isNewPodcastDay: dayNumber % 4 === 1  // Podcasts start each week (day 1, 5, 9, etc.)
+    isNewPodcastDay: dayNumber % 4 === 1
   };
 }
 
-// Curated Spotify Playlists for Data Engineering
-export const SPOTIFY_PLAYLISTS = {
-  focusStudy: {
-    title: "Deep Focus for Coding",
-    url: "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ",
-    description: "Ambient music for deep work sessions"
-  },
-  lofi: {
-    title: "Lo-Fi Beats for Programming",
-    url: "https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn",
-    description: "Chill beats while you code"
-  }
-};
-
-// Data Engineering Podcast Shows (subscribe to these!)
+// Recommended Podcast Shows
 export const RECOMMENDED_PODCASTS = [
   {
     name: "Data Engineering Podcast",
-    spotifyUrl: "https://open.spotify.com/show/2iLvljRGVVIWxJvHsqceZZ",
+    url: "https://www.dataengineeringpodcast.com/",
+    spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
     frequency: "Weekly",
     description: "Deep dives into data engineering tools and practices"
   },
   {
     name: "The Data Engineering Show",
-    spotifyUrl: "https://open.spotify.com/show/5pcFFKIDyBtLyMegiPhnWe",
+    url: "https://www.dataengineeringshow.com/",
+    spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
     frequency: "Weekly",
     description: "Conversations with data engineering practitioners"
   },
   {
     name: "Talk Python to Me",
-    spotifyUrl: "https://open.spotify.com/show/6Jn2yVIMw8mVfKxfbf0tGj",
+    url: "https://talkpython.fm/",
+    spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
     frequency: "Weekly",
     description: "Python ecosystem deep dives"
   },
   {
     name: "Python Bytes",
-    spotifyUrl: "https://open.spotify.com/show/1vdXeyXkGBvHkv3FYJgjQs",
+    url: "https://pythonbytes.fm/",
+    spotifySearch: "https://open.spotify.com/search/python%20bytes",
     frequency: "Weekly",
     description: "Quick Python news and updates"
   },
   {
     name: "The Analytics Engineering Podcast",
-    spotifyUrl: "https://open.spotify.com/show/5C09bq8O4jXwDajAHqWHMN",
+    url: "https://roundup.getdbt.com/",
+    spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
     frequency: "Bi-weekly",
     description: "Modern data transformation and dbt"
   }

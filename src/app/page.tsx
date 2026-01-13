@@ -59,7 +59,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          Welcome back! 👋
+          Welcome back
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
           {format(new Date(), 'EEEE, MMMM d, yyyy')}
@@ -100,7 +100,7 @@ export default function Dashboard() {
         
         {verifiedDays.length > 0 && (
           <p className="mt-3 text-green-100 text-sm">
-            ✅ Verified complete: Day {verifiedDays.join(', Day ')}
+            Verified complete: Day {verifiedDays.join(', Day ')}
           </p>
         )}
       </div>
@@ -245,11 +245,11 @@ export default function Dashboard() {
               
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-white/20 rounded-full text-sm">
-                  📁 {currentQuarter.project}
+                  Project: {currentQuarter.project}
                 </span>
                 {currentQuarter.certification && (
                   <span className="px-3 py-1 bg-yellow-400/30 rounded-full text-sm">
-                    🏆 {currentQuarter.certification}
+                    Cert: {currentQuarter.certification}
                   </span>
                 )}
               </div>

@@ -501,7 +501,7 @@ function ExerciseCard({ exercise, index }: ExerciseCardProps) {
 
         {exercise.hints && (
           <div className="mb-4">
-            <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">💡 Hints:</h5>
+            <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Hints:</h5>
             <ul className="space-y-1">
               {exercise.hints.map((hint: string, i: number) => (
                 <li key={i} className="text-gray-500 dark:text-gray-400 text-sm italic">
