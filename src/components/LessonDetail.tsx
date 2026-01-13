@@ -19,6 +19,8 @@ import {
   AlertTriangle,
   Briefcase
 } from 'lucide-react';
+import { MediaSection } from '@/components/MediaSection';
+import { VerifiedBadge } from '@/components/VerifiedBadge';
 
 interface LessonDetailProps {
   session: StudySession;
@@ -133,6 +135,19 @@ export function LessonDetail({ session }: LessonDetailProps) {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Verified Progress Status */}
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <VerifiedBadge dayNumber={session.dayNumber} size="md" />
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          Complete the exercise in your workspace to verify progress
+        </p>
+      </div>
+
+      {/* Daily Video & Podcasts */}
+      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <MediaSection dayNumber={session.dayNumber} />
       </div>
 
       {/* Learning Objectives */}
