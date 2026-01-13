@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-13T02:35:02.357Z",
+  "generatedAt": "2026-01-13T03:10:27.675Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -18,15 +18,15 @@
               "modifiedAt": "2026-01-13T02:08:16.002Z"
             },
             "day2_variables.py": {
-              "complete": false,
+              "complete": true,
               "totalFunctions": 6,
               "completedFunctions": 0,
-              "incompletePatterns": 9,
-              "completePatterns": 0,
-              "hash": "c94c2429",
-              "lines": 241,
+              "incompletePatterns": 0,
+              "completePatterns": 1,
+              "hash": "1c93d274",
+              "lines": 249,
               "path": "q1-python-sql/week-01/exercises/day2_variables.py",
-              "modifiedAt": "2026-01-13T01:57:25.524Z"
+              "modifiedAt": "2026-01-13T03:03:13.992Z"
             },
             "day3_functions.py": {
               "complete": false,
@@ -401,8 +401,8 @@
   },
   "summary": {
     "totalExercises": 4,
-    "completedExercises": 1,
-    "completionRate": 25
+    "completedExercises": 2,
+    "completionRate": 50
   },
   "dayStatus": {
     "1": {
@@ -410,7 +410,7 @@
       "file": "q1-python-sql/week-01/exercises/day1_verify_setup.py"
     },
     "2": {
-      "complete": false,
+      "complete": true,
       "file": "q1-python-sql/week-01/exercises/day2_variables.py"
     },
     "3": {

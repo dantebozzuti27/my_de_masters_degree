@@ -87,16 +87,29 @@ export function MediaSection({ dayNumber }: MediaSectionProps) {
                     {podcast.duration}
                   </span>
                   
-                  <a
-                    href={podcast.episodeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-purple-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-50 transition-colors"
-                  >
-                    <Play className="w-4 h-4" />
-                    Listen to Episode
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="flex gap-2">
+                    <a
+                      href={podcast.episodeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white text-purple-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-50 transition-colors"
+                    >
+                      <Play className="w-4 h-4" />
+                      Listen
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    {podcast.appleUrl && (
+                      <a
+                        href={podcast.appleUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-purple-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-900 transition-colors"
+                      >
+                        Apple
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -131,26 +144,15 @@ export function MediaSection({ dayNumber }: MediaSectionProps) {
                     {book.duration}
                   </span>
                   
-                  <div className="flex gap-2">
-                    <a
-                      href={book.audibleUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white text-amber-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-amber-50 transition-colors"
-                    >
-                      Audible
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                    <a
-                      href={book.libraryUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-amber-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-amber-900 transition-colors"
-                    >
-                      Free at Library
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
+                  <a
+                    href={book.audibleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-amber-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-amber-50 transition-colors"
+                  >
+                    Listen on Audible
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
             ))}
@@ -188,22 +190,14 @@ export function AudiobookRecommendations({ quarterNumber }: { quarterNumber: num
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{book.description}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">{book.whenToListen}</p>
             
-            <div className="flex gap-3 mt-3">
+            <div className="mt-3">
               <a
                 href={book.audibleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-amber-600 hover:text-amber-700 flex items-center gap-1"
               >
-                Audible <ExternalLink className="w-3 h-3" />
-              </a>
-              <a
-                href={book.libraryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
-              >
-                Free at Library <ExternalLink className="w-3 h-3" />
+                Listen on Audible <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>

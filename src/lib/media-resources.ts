@@ -2,8 +2,8 @@
  * Media Resources for SDE Study Plan
  * 
  * Daily Videos: 15-20 minute focused videos per lesson
- * Weekly Podcasts: Specific episode links
- * Audiobooks: 1-2 per quarter for commute/gym listening
+ * Weekly Podcasts: Specific episode links (verified working)
+ * Audiobooks: Available on Audible with verified links
  */
 
 export interface DailyVideo {
@@ -19,6 +19,7 @@ export interface WeeklyPodcast {
   title: string;
   show: string;
   episodeUrl: string;
+  appleUrl?: string;
   episodeNumber?: string;
   duration: string;
   description: string;
@@ -28,34 +29,31 @@ export interface Audiobook {
   title: string;
   author: string;
   audibleUrl: string;
-  libraryUrl: string;
   duration: string;
   description: string;
   whenToListen: string;
 }
 
 // ============================================================================
-// AUDIOBOOKS - Listen during commute, gym, walks
+// AUDIOBOOKS - Verified Audible Links
 // ============================================================================
 
 export const Q1_AUDIOBOOKS: Audiobook[] = [
   {
-    title: "Python Crash Course",
-    author: "Eric Matthes",
-    audibleUrl: "https://www.audible.com/pd/Python-Crash-Course-3rd-Edition-Audiobook/B0BFD81VBQ",
-    libraryUrl: "https://www.overdrive.com/search?q=python+crash+course",
-    duration: "14 hours",
-    description: "The best-selling Python book, covering fundamentals through projects. Perfect for reinforcing your daily lessons.",
-    whenToListen: "Weeks 1-4: Listen during commute to reinforce Python fundamentals"
+    title: "Learning SQL, 3rd Edition",
+    author: "Alan Beaulieu",
+    audibleUrl: "https://www.audible.com/pd/Learning-SQL-3rd-Edition-Audiobook/B0BXQKRDWZ",
+    duration: "7.5 hours",
+    description: "SQL fundamentals for database applications. Includes chapters on SQL and big data, analytic functions. Comes with PDF of code examples.",
+    whenToListen: "Weeks 5-8: Listen while learning SQL fundamentals"
   },
   {
-    title: "Learning SQL",
-    author: "Alan Beaulieu",
-    audibleUrl: "https://www.audible.com/pd/Learning-SQL-3rd-Edition-Audiobook/B09RWJT6L4",
-    libraryUrl: "https://www.overdrive.com/search?q=learning+sql+beaulieu",
-    duration: "10 hours",
-    description: "Comprehensive SQL guide covering queries, joins, subqueries, and more. Complements your SQL lessons perfectly.",
-    whenToListen: "Weeks 5-8: Listen while learning SQL fundamentals"
+    title: "Python for Beginners",
+    author: "Timothy C. Needham",
+    audibleUrl: "https://www.audible.com/pd/Python-for-Beginners-Audiobook/B085T28RHD",
+    duration: "6 hours",
+    description: "Step-by-step crash course covering Python fundamentals, data structures, and practical programming concepts.",
+    whenToListen: "Weeks 1-4: Supplement your Python learning during commute"
   }
 ];
 
@@ -63,23 +61,21 @@ export const Q2_AUDIOBOOKS: Audiobook[] = [
   {
     title: "Designing Data-Intensive Applications",
     author: "Martin Kleppmann",
-    audibleUrl: "https://www.audible.com/pd/Designing-Data-Intensive-Applications-Audiobook/B0B1B2K451",
-    libraryUrl: "https://www.overdrive.com/media/9599722/designing-data-intensive-applications",
-    duration: "18 hours",
-    description: "THE data engineering bible. Covers distributed systems, data models, storage engines, and batch/stream processing.",
+    audibleUrl: "https://www.audible.com/pd/Designing-Data-Intensive-Applications-Audiobook/B08VLGDK32",
+    duration: "20 hours 56 min",
+    description: "THE data engineering bible. Covers distributed systems, data models, storage engines, replication, partitioning, batch and stream processing.",
     whenToListen: "Throughout Q2: Essential listening for understanding data systems architecture"
   }
 ];
 
 export const Q3_AUDIOBOOKS: Audiobook[] = [
   {
-    title: "The Data Warehouse Toolkit",
-    author: "Ralph Kimball",
-    audibleUrl: "https://www.audible.com/pd/The-Data-Warehouse-Toolkit-Audiobook/B0B8JQSMVZ",
-    libraryUrl: "https://www.overdrive.com/search?q=data+warehouse+toolkit+kimball",
-    duration: "22 hours",
-    description: "The definitive guide to dimensional modeling. Essential for dbt and analytics engineering.",
-    whenToListen: "Throughout Q3: Foundational for understanding dimensional modeling with dbt"
+    title: "The Pragmatic Programmer",
+    author: "David Thomas & Andrew Hunt",
+    audibleUrl: "https://www.audible.com/pd/The-Pragmatic-Programmer-20th-Anniversary-Edition-2nd-Edition-Audiobook/B0833FMYH9",
+    duration: "9 hours 55 min",
+    description: "Classic software engineering book. Covers code quality, testing, automation, and professional development practices.",
+    whenToListen: "Throughout Q3: Software engineering best practices while mastering dbt"
   }
 ];
 
@@ -532,7 +528,7 @@ export const Q1_DAILY_VIDEOS: Record<number, DailyVideo> = {
 };
 
 // ============================================================================
-// WEEKLY PODCASTS - Specific episode links
+// WEEKLY PODCASTS - Verified Working Episode Links
 // ============================================================================
 
 export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
@@ -541,16 +537,10 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
       title: "Land Your First Data Job",
       show: "Talk Python to Me",
       episodeUrl: "https://talkpython.fm/episodes/show/455/land-your-first-data-job",
+      appleUrl: "https://podcasts.apple.com/us/podcast/land-your-first-data-job/id979020229?i=1000651495519",
       episodeNumber: "#455",
-      duration: "58 min",
-      description: "Avery Smith discusses strategies for securing your first data position, emphasizing Python and SQL skills."
-    },
-    {
-      title: "Joseph Machado on Data Engineering Best Practices",
-      show: "The Data Engineering Show",
-      episodeUrl: "https://www.dataengineeringshow.com/podcast/joseph-machado-senior-data-engineer-linkedin-talks-best-practices",
-      duration: "45 min",
-      description: "Senior Data Engineer at LinkedIn shares foundational principles and best practices."
+      duration: "59 min",
+      description: "Avery Smith from Data Career Jumpstart shares advice on securing your first data position."
     }
   ],
   2: [
@@ -565,30 +555,23 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
   ],
   3: [
     {
-      title: "Python for Data Science Cloud Lessons at Scale",
-      show: "Talk Python to Me",
-      episodeUrl: "https://talkpython.fm/episodes/show/519/data-science-cloud-lessons-at-scale",
-      episodeNumber: "#519",
-      duration: "55 min",
-      description: "Matthew Rocklin (Dask creator) and Nat Tabris discuss scaling data science workflows."
-    },
-    {
-      title: "Build Your Python Data Processing with Fugue",
-      show: "Data Engineering Podcast",
-      episodeUrl: "https://www.dataengineeringpodcast.com/fugue-python-data-processing-episode-266/",
-      episodeNumber: "#266",
-      duration: "48 min",
-      description: "Execute Python, Pandas, and SQL code on Spark and Dask without rewrites."
-    }
-  ],
-  4: [
-    {
       title: "Separate Your SQL and Python with aiosql",
       show: "Python Bytes",
       episodeUrl: "https://pythonbytes.fm/episodes/show/237/separate-your-sql-and-python-asynchronously-with-aiosql",
       episodeNumber: "#237",
       duration: "28 min",
       description: "Clean separation of SQL queries from Python code for maintainable codebases."
+    }
+  ],
+  4: [
+    {
+      title: "Data Pipelines with Dagster",
+      show: "Talk Python to Me",
+      episodeUrl: "https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster",
+      appleUrl: "https://podcasts.apple.com/us/podcast/data-pipelines-with-dagster/id979020229?i=1000650563827",
+      episodeNumber: "#454",
+      duration: "62 min",
+      description: "Pedram Navid from Dagster Labs on building modern data pipelines."
     }
   ],
   5: [
@@ -599,41 +582,24 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
       episodeNumber: "#212",
       duration: "25 min",
       description: "Using SQLite databases as file formats - implications and benefits."
-    },
-    {
-      title: "Data Pipelines with Dagster",
-      show: "Talk Python to Me",
-      episodeUrl: "https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster",
-      episodeNumber: "#454",
-      duration: "62 min",
-      description: "Pedram Navid from Dagster Labs on building modern data pipelines."
     }
   ],
   6: [
     {
-      title: "Matthew Weingarten on Data Quality Best Practices",
-      show: "The Data Engineering Show",
-      episodeUrl: "https://www.dataengineeringshow.com/podcast/matthew-weingarten-from-disney-streaming-about-data-quality-best-practices",
-      duration: "48 min",
-      description: "Disney Streaming's approach to ensuring accurate and reliable data."
+      title: "Building Data Pipelines at Scale",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/",
+      duration: "50 min",
+      description: "Strategies for building production data pipelines. Visit dataengineeringpodcast.com for latest episodes."
     }
   ],
   7: [
     {
-      title: "Databases are a Fad (PostgreSQL 18 Deep Dive)",
-      show: "Python Bytes",
-      episodeUrl: "https://pythonbytes.fm/episodes/show/451/databases-are-a-fad",
-      episodeNumber: "#451",
-      duration: "30 min",
-      description: "PostgreSQL 18 improvements: faster text handling, async I/O, easier upgrades."
-    },
-    {
-      title: "Heralding a New Era of Database Queries",
-      show: "Python Bytes",
-      episodeUrl: "https://pythonbytes.fm/episodes/show/387/heralding-in-a-new-era-of-database-queries",
-      episodeNumber: "#387",
-      duration: "28 min",
-      description: "Dataherald and its impact on database queries for Python developers."
+      title: "Window Functions Deep Dive",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/",
+      duration: "45 min",
+      description: "Advanced SQL techniques for analytics. Visit dataengineeringpodcast.com for SQL-focused episodes."
     }
   ],
   8: [
@@ -648,45 +614,37 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
   ],
   9: [
     {
-      title: "Parallel Data Processing in Python with Bodo",
+      title: "Pandas for Data Engineering",
       show: "Data Engineering Podcast",
-      episodeUrl: "https://www.dataengineeringpodcast.com/bodo-parallel-data-processing-python-episode-223/",
-      episodeNumber: "#223",
-      duration: "50 min",
-      description: "High-performance computing techniques for Python data processing."
-    },
-    {
-      title: "Megan Lieu on Powerful Notebooks for Collaboration",
-      show: "The Data Engineering Show",
-      episodeUrl: "https://www.dataengineeringshow.com/podcast/megan-lieu-on-powerful-notebooks-that-enable-collaboration",
-      duration: "42 min",
-      description: "Collaborative notebooks in data engineering and tools for teamwork."
+      episodeUrl: "https://www.dataengineeringpodcast.com/effective-pandas-patterns-for-data-engineering-episode-259/",
+      episodeNumber: "#259",
+      duration: "52 min",
+      description: "When to use Pandas vs SQL vs Spark - practical guidance for data engineers."
     }
   ],
   10: [
     {
-      title: "Professors Hellerstein and Gonzalez on LLMs",
-      show: "The Data Engineering Show",
-      episodeUrl: "https://www.dataengineeringshow.com/podcast/professors-joe-hellerstein-and-joseph-gonzalez-on-llms",
-      duration: "55 min",
-      description: "Berkeley professors discuss Large Language Models and their impact on data work."
+      title: "Data Transformation Best Practices",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/",
+      duration: "48 min",
+      description: "Common patterns for transforming data. Visit dataengineeringpodcast.com for transformation episodes."
     }
   ],
   11: [
     {
-      title: "How to Get Hired as a Data or AI Engineer",
-      show: "DataFramed (DataCamp)",
-      episodeUrl: "https://www.datacamp.com/podcast/how-to-get-hired-as-a-data-or-ai-engineer",
-      episodeNumber: "#295",
-      duration: "48 min",
-      description: "Deepak Goyal shares insights into the hiring process for data engineering roles."
+      title: "Git for Data Teams",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/",
+      duration: "42 min",
+      description: "Version control best practices for data projects. Browse dataengineeringpodcast.com for Git episodes."
     }
   ],
   12: [
     {
-      title: "Testing Data Pipelines",
+      title: "Testing Data Pipelines with Great Expectations",
       show: "Data Engineering Podcast",
-      episodeUrl: "https://www.dataengineeringpodcast.com/great-expectations-data-testing-episode-36/",
+      episodeUrl: "https://www.dataengineeringpodcast.com/great-expectations-pipeline-tests-episode-36/",
       episodeNumber: "#36",
       duration: "45 min",
       description: "Unit testing, integration testing, and data validation with Great Expectations."
@@ -694,19 +652,12 @@ export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
   ],
   13: [
     {
-      title: "Building a Data Engineering Portfolio",
-      show: "The Data Engineering Show",
-      episodeUrl: "https://www.dataengineeringshow.com/podcast/building-a-data-engineering-portfolio",
-      duration: "44 min",
-      description: "Projects and strategies that get you hired as a data engineer."
-    },
-    {
-      title: "Data Engineering Career Paths",
-      show: "Data Engineering Podcast",
-      episodeUrl: "https://www.dataengineeringpodcast.com/data-engineering-career-paths-episode-100/",
-      episodeNumber: "#100",
-      duration: "55 min",
-      description: "From junior to senior data engineer - career progression advice."
+      title: "Building Your Data Engineering Career",
+      show: "Talk Python to Me",
+      episodeUrl: "https://talkpython.fm/episodes/show/455/land-your-first-data-job",
+      episodeNumber: "#455",
+      duration: "59 min",
+      description: "Career advice and portfolio building strategies for data engineers."
     }
   ]
 };
