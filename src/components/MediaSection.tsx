@@ -1,14 +1,14 @@
 'use client';
 
-import { getDayMedia, RECOMMENDED_PODCASTS, DailyVideo, WeeklyPodcast } from '@/lib/media-resources';
-import { Play, Headphones, ExternalLink, Clock, Youtube, Music } from 'lucide-react';
+import { getDayMedia, Audiobook } from '@/lib/media-resources';
+import { Play, Headphones, ExternalLink, Clock, Youtube, BookOpen } from 'lucide-react';
 
 interface MediaSectionProps {
   dayNumber: number;
 }
 
 export function MediaSection({ dayNumber }: MediaSectionProps) {
-  const { video, podcasts, isNewPodcastDay } = getDayMedia(dayNumber);
+  const { video, podcasts, audiobooks, isNewPodcastDay, isFirstDayOfQuarter } = getDayMedia(dayNumber);
   const weekNumber = Math.ceil(dayNumber / 4);
   
   return (
@@ -52,16 +52,16 @@ export function MediaSection({ dayNumber }: MediaSectionProps) {
         </div>
       )}
       
-      {/* Weekly Podcasts */}
+      {/* Weekly Podcasts - Specific Episodes */}
       {podcasts.length > 0 && (
-        <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-6 text-white">
+        <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-6 text-white">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-white/20 rounded-lg">
               <Headphones className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold">Week {weekNumber} Podcasts</h3>
-              <p className="text-green-100 text-sm">
+              <h3 className="text-lg font-bold">Week {weekNumber} Podcast Episodes</h3>
+              <p className="text-purple-100 text-sm">
                 {isNewPodcastDay 
                   ? "New episodes for this week - listen during commute or gym" 
                   : "Continue listening to this week's episodes"}
@@ -72,34 +72,83 @@ export function MediaSection({ dayNumber }: MediaSectionProps) {
           <div className="space-y-3">
             {podcasts.map((podcast, idx) => (
               <div key={idx} className="bg-white/10 rounded-lg p-4">
-                <h4 className="font-semibold mb-1">{podcast.title}</h4>
-                <p className="text-green-200 text-sm mb-2">{podcast.show}</p>
-                <p className="text-green-100 text-sm mb-3">{podcast.description}</p>
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h4 className="font-semibold">{podcast.title}</h4>
+                  {podcast.episodeNumber && (
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded">{podcast.episodeNumber}</span>
+                  )}
+                </div>
+                <p className="text-purple-200 text-sm mb-2">{podcast.show}</p>
+                <p className="text-purple-100 text-sm mb-3">{podcast.description}</p>
                 
                 <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="flex items-center gap-1 text-sm text-green-200">
+                  <span className="flex items-center gap-1 text-sm text-purple-200">
                     <Clock className="w-4 h-4" />
                     {podcast.duration}
                   </span>
                   
+                  <a
+                    href={podcast.episodeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-purple-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-50 transition-colors"
+                  >
+                    <Play className="w-4 h-4" />
+                    Listen to Episode
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      {/* Audiobooks - Show on first day of quarter or always available */}
+      {audiobooks.length > 0 && (
+        <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-6 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-white/20 rounded-lg">
+              <BookOpen className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold">Recommended Audiobooks</h3>
+              <p className="text-amber-100 text-sm">Listen during commute, gym, or walks</p>
+            </div>
+          </div>
+          
+          <div className="space-y-3">
+            {audiobooks.map((book, idx) => (
+              <div key={idx} className="bg-white/10 rounded-lg p-4">
+                <h4 className="font-semibold mb-1">{book.title}</h4>
+                <p className="text-amber-200 text-sm mb-2">by {book.author}</p>
+                <p className="text-amber-100 text-sm mb-2">{book.description}</p>
+                <p className="text-amber-200 text-xs mb-3 italic">{book.whenToListen}</p>
+                
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="flex items-center gap-1 text-sm text-amber-200">
+                    <Clock className="w-4 h-4" />
+                    {book.duration}
+                  </span>
+                  
                   <div className="flex gap-2">
                     <a
-                      href={podcast.url}
+                      href={book.audibleUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white text-green-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-green-50 transition-colors"
+                      className="inline-flex items-center gap-2 bg-white text-amber-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-amber-50 transition-colors"
                     >
-                      Website
+                      Audible
                       <ExternalLink className="w-3 h-3" />
                     </a>
                     <a
-                      href={podcast.spotifySearch}
+                      href={book.libraryUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-green-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-green-900 transition-colors"
+                      className="inline-flex items-center gap-2 bg-amber-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-amber-900 transition-colors"
                     >
-                      <Music className="w-4 h-4" />
-                      Find on Spotify
+                      Free at Library
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
@@ -112,50 +161,50 @@ export function MediaSection({ dayNumber }: MediaSectionProps) {
   );
 }
 
-// Standalone component for recommended podcasts to subscribe to
-export function PodcastRecommendations() {
+// Standalone audiobook recommendations component
+export function AudiobookRecommendations({ quarterNumber }: { quarterNumber: number }) {
+  const { audiobooks } = getDayMedia((quarterNumber - 1) * 52 + 1);
+  
+  if (audiobooks.length === 0) return null;
+  
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-        <Headphones className="w-6 h-6 text-green-500" />
-        Subscribe to These Podcasts
+        <BookOpen className="w-6 h-6 text-amber-500" />
+        Quarter {quarterNumber} Audiobooks
       </h3>
       <p className="text-gray-600 dark:text-gray-400 mb-4">
-        Listen during your commute, workouts, or downtime to accelerate your learning.
+        Listen during commute, workouts, or downtime to supplement your learning.
       </p>
       
-      <div className="space-y-3">
-        {RECOMMENDED_PODCASTS.map((podcast, idx) => (
+      <div className="space-y-4">
+        {audiobooks.map((book, idx) => (
           <div
             key={idx}
             className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg"
           >
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-gray-900 dark:text-white">{podcast.name}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{podcast.description}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{podcast.frequency}</p>
-              </div>
-              <div className="flex gap-2">
-                <a
-                  href={podcast.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700"
-                >
-                  Website
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-                <a
-                  href={podcast.spotifySearch}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-green-600 hover:text-green-700"
-                >
-                  <Music className="w-4 h-4" />
-                  Spotify
-                </a>
-              </div>
+            <h4 className="font-semibold text-gray-900 dark:text-white">{book.title}</h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400">by {book.author} - {book.duration}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{book.description}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">{book.whenToListen}</p>
+            
+            <div className="flex gap-3 mt-3">
+              <a
+                href={book.audibleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-amber-600 hover:text-amber-700 flex items-center gap-1"
+              >
+                Audible <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href={book.libraryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              >
+                Free at Library <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </div>
         ))}

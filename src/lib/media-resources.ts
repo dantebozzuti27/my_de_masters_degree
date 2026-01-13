@@ -2,7 +2,8 @@
  * Media Resources for SDE Study Plan
  * 
  * Daily Videos: 15-20 minute focused videos per lesson
- * Weekly Podcasts: 1-2 episodes per week
+ * Weekly Podcasts: Specific episode links
+ * Audiobooks: 1-2 per quarter for commute/gym listening
  */
 
 export interface DailyVideo {
@@ -17,14 +18,73 @@ export interface DailyVideo {
 export interface WeeklyPodcast {
   title: string;
   show: string;
-  url: string;
-  spotifySearch: string;
+  episodeUrl: string;
+  episodeNumber?: string;
   duration: string;
   description: string;
 }
 
+export interface Audiobook {
+  title: string;
+  author: string;
+  audibleUrl: string;
+  libraryUrl: string;
+  duration: string;
+  description: string;
+  whenToListen: string;
+}
+
 // ============================================================================
-// QUARTER 1: PYTHON & SQL FOUNDATIONS
+// AUDIOBOOKS - Listen during commute, gym, walks
+// ============================================================================
+
+export const Q1_AUDIOBOOKS: Audiobook[] = [
+  {
+    title: "Python Crash Course",
+    author: "Eric Matthes",
+    audibleUrl: "https://www.audible.com/pd/Python-Crash-Course-3rd-Edition-Audiobook/B0BFD81VBQ",
+    libraryUrl: "https://www.overdrive.com/search?q=python+crash+course",
+    duration: "14 hours",
+    description: "The best-selling Python book, covering fundamentals through projects. Perfect for reinforcing your daily lessons.",
+    whenToListen: "Weeks 1-4: Listen during commute to reinforce Python fundamentals"
+  },
+  {
+    title: "Learning SQL",
+    author: "Alan Beaulieu",
+    audibleUrl: "https://www.audible.com/pd/Learning-SQL-3rd-Edition-Audiobook/B09RWJT6L4",
+    libraryUrl: "https://www.overdrive.com/search?q=learning+sql+beaulieu",
+    duration: "10 hours",
+    description: "Comprehensive SQL guide covering queries, joins, subqueries, and more. Complements your SQL lessons perfectly.",
+    whenToListen: "Weeks 5-8: Listen while learning SQL fundamentals"
+  }
+];
+
+export const Q2_AUDIOBOOKS: Audiobook[] = [
+  {
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann",
+    audibleUrl: "https://www.audible.com/pd/Designing-Data-Intensive-Applications-Audiobook/B0B1B2K451",
+    libraryUrl: "https://www.overdrive.com/media/9599722/designing-data-intensive-applications",
+    duration: "18 hours",
+    description: "THE data engineering bible. Covers distributed systems, data models, storage engines, and batch/stream processing.",
+    whenToListen: "Throughout Q2: Essential listening for understanding data systems architecture"
+  }
+];
+
+export const Q3_AUDIOBOOKS: Audiobook[] = [
+  {
+    title: "The Data Warehouse Toolkit",
+    author: "Ralph Kimball",
+    audibleUrl: "https://www.audible.com/pd/The-Data-Warehouse-Toolkit-Audiobook/B0B8JQSMVZ",
+    libraryUrl: "https://www.overdrive.com/search?q=data+warehouse+toolkit+kimball",
+    duration: "22 hours",
+    description: "The definitive guide to dimensional modeling. Essential for dbt and analytics engineering.",
+    whenToListen: "Throughout Q3: Foundational for understanding dimensional modeling with dbt"
+  }
+];
+
+// ============================================================================
+// QUARTER 1: PYTHON & SQL FOUNDATIONS - DAILY VIDEOS
 // ============================================================================
 
 export const Q1_DAILY_VIDEOS: Record<number, DailyVideo> = {
@@ -471,197 +531,190 @@ export const Q1_DAILY_VIDEOS: Record<number, DailyVideo> = {
   }
 };
 
-// Weekly Podcasts - Using official podcast websites which have Spotify links
+// ============================================================================
+// WEEKLY PODCASTS - Specific episode links
+// ============================================================================
+
 export const Q1_WEEKLY_PODCASTS: Record<number, WeeklyPodcast[]> = {
   1: [
     {
-      title: "Why Python for Data Engineering?",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "45 min",
-      description: "Discussion on Python's role in modern data engineering"
+      title: "Land Your First Data Job",
+      show: "Talk Python to Me",
+      episodeUrl: "https://talkpython.fm/episodes/show/455/land-your-first-data-job",
+      episodeNumber: "#455",
+      duration: "58 min",
+      description: "Avery Smith discusses strategies for securing your first data position, emphasizing Python and SQL skills."
     },
     {
-      title: "Getting Started in Data Engineering",
+      title: "Joseph Machado on Data Engineering Best Practices",
       show: "The Data Engineering Show",
-      url: "https://www.dataengineeringshow.com/",
-      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
-      duration: "38 min",
-      description: "Career advice for aspiring data engineers"
+      episodeUrl: "https://www.dataengineeringshow.com/podcast/joseph-machado-senior-data-engineer-linkedin-talks-best-practices",
+      duration: "45 min",
+      description: "Senior Data Engineer at LinkedIn shares foundational principles and best practices."
     }
   ],
   2: [
     {
-      title: "Python Best Practices for Data Work",
-      show: "Talk Python to Me",
-      url: "https://talkpython.fm/",
-      spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
-      duration: "55 min",
-      description: "Writing production-quality Python code"
+      title: "Effective Pandas Patterns for Data Engineering",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/effective-pandas-patterns-for-data-engineering-episode-259/",
+      episodeNumber: "#259",
+      duration: "52 min",
+      description: "Matt Harrison shares advice on writing efficient data processing routines using Pandas."
     }
   ],
   3: [
     {
-      title: "Data File Formats Deep Dive",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "48 min",
-      description: "CSV, JSON, Parquet, and when to use each"
+      title: "Python for Data Science Cloud Lessons at Scale",
+      show: "Talk Python to Me",
+      episodeUrl: "https://talkpython.fm/episodes/show/519/data-science-cloud-lessons-at-scale",
+      episodeNumber: "#519",
+      duration: "55 min",
+      description: "Matthew Rocklin (Dask creator) and Nat Tabris discuss scaling data science workflows."
     },
     {
-      title: "The Evolution of Data Formats",
-      show: "The Analytics Engineering Podcast",
-      url: "https://roundup.getdbt.com/",
-      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
-      duration: "42 min",
-      description: "From CSV to columnar formats"
+      title: "Build Your Python Data Processing with Fugue",
+      show: "Data Engineering Podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/fugue-python-data-processing-episode-266/",
+      episodeNumber: "#266",
+      duration: "48 min",
+      description: "Execute Python, Pandas, and SQL code on Spark and Dask without rewrites."
     }
   ],
   4: [
     {
-      title: "Object-Oriented Python in Data Pipelines",
+      title: "Separate Your SQL and Python with aiosql",
       show: "Python Bytes",
-      url: "https://pythonbytes.fm/",
-      spotifySearch: "https://open.spotify.com/search/python%20bytes",
-      duration: "25 min",
-      description: "When and how to use OOP in data code"
+      episodeUrl: "https://pythonbytes.fm/episodes/show/237/separate-your-sql-and-python-asynchronously-with-aiosql",
+      episodeNumber: "#237",
+      duration: "28 min",
+      description: "Clean separation of SQL queries from Python code for maintainable codebases."
     }
   ],
   5: [
     {
-      title: "SQL in the Modern Data Stack",
-      show: "The Analytics Engineering Podcast",
-      url: "https://roundup.getdbt.com/",
-      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
-      duration: "50 min",
-      description: "Why SQL is still the foundation of data work"
+      title: "SQLite as a File Format",
+      show: "Python Bytes",
+      episodeUrl: "https://pythonbytes.fm/episodes/show/212/sqlite-as-a-file-format-like-docx",
+      episodeNumber: "#212",
+      duration: "25 min",
+      description: "Using SQLite databases as file formats - implications and benefits."
     },
     {
-      title: "SQL Performance Fundamentals",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "45 min",
-      description: "Writing efficient SQL queries"
+      title: "Data Pipelines with Dagster",
+      show: "Talk Python to Me",
+      episodeUrl: "https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster",
+      episodeNumber: "#454",
+      duration: "62 min",
+      description: "Pedram Navid from Dagster Labs on building modern data pipelines."
     }
   ],
   6: [
     {
-      title: "Advanced SQL Techniques",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "52 min",
-      description: "JOINs, aggregations, and query optimization"
+      title: "Matthew Weingarten on Data Quality Best Practices",
+      show: "The Data Engineering Show",
+      episodeUrl: "https://www.dataengineeringshow.com/podcast/matthew-weingarten-from-disney-streaming-about-data-quality-best-practices",
+      duration: "48 min",
+      description: "Disney Streaming's approach to ensuring accurate and reliable data."
     }
   ],
   7: [
     {
-      title: "Window Functions Explained",
-      show: "The Data Engineering Show",
-      url: "https://www.dataengineeringshow.com/",
-      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
-      duration: "40 min",
-      description: "Mastering SQL window functions for analytics"
+      title: "Databases are a Fad (PostgreSQL 18 Deep Dive)",
+      show: "Python Bytes",
+      episodeUrl: "https://pythonbytes.fm/episodes/show/451/databases-are-a-fad",
+      episodeNumber: "#451",
+      duration: "30 min",
+      description: "PostgreSQL 18 improvements: faster text handling, async I/O, easier upgrades."
     },
     {
-      title: "SQL vs NoSQL for Data Engineering",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "48 min",
-      description: "When to use each database type"
+      title: "Heralding a New Era of Database Queries",
+      show: "Python Bytes",
+      episodeUrl: "https://pythonbytes.fm/episodes/show/387/heralding-in-a-new-era-of-database-queries",
+      episodeNumber: "#387",
+      duration: "28 min",
+      description: "Dataherald and its impact on database queries for Python developers."
     }
   ],
   8: [
     {
-      title: "Python and Databases",
+      title: "From Notebooks to Production Data Systems",
       show: "Talk Python to Me",
-      url: "https://talkpython.fm/",
-      spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
-      duration: "58 min",
-      description: "Best practices for database connections in Python"
+      episodeUrl: "https://talkpython.fm/episodes/show/511/from-notebooks-to-production-data-science-systems",
+      episodeNumber: "#511",
+      duration: "55 min",
+      description: "Catherine Nelson on transitioning from exploratory notebooks to production workflows."
     }
   ],
   9: [
     {
-      title: "Pandas for Data Engineering",
+      title: "Parallel Data Processing in Python with Bodo",
       show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "45 min",
-      description: "When to use pandas vs SQL vs Spark"
+      episodeUrl: "https://www.dataengineeringpodcast.com/bodo-parallel-data-processing-python-episode-223/",
+      episodeNumber: "#223",
+      duration: "50 min",
+      description: "High-performance computing techniques for Python data processing."
     },
     {
-      title: "The Future of DataFrames",
-      show: "Python Bytes",
-      url: "https://pythonbytes.fm/",
-      spotifySearch: "https://open.spotify.com/search/python%20bytes",
-      duration: "28 min",
-      description: "Pandas, Polars, and the DataFrame ecosystem"
+      title: "Megan Lieu on Powerful Notebooks for Collaboration",
+      show: "The Data Engineering Show",
+      episodeUrl: "https://www.dataengineeringshow.com/podcast/megan-lieu-on-powerful-notebooks-that-enable-collaboration",
+      duration: "42 min",
+      description: "Collaborative notebooks in data engineering and tools for teamwork."
     }
   ],
   10: [
     {
-      title: "Data Transformation Patterns",
-      show: "The Analytics Engineering Podcast",
-      url: "https://roundup.getdbt.com/",
-      spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
-      duration: "46 min",
-      description: "Common patterns for transforming data"
+      title: "Professors Hellerstein and Gonzalez on LLMs",
+      show: "The Data Engineering Show",
+      episodeUrl: "https://www.dataengineeringshow.com/podcast/professors-joe-hellerstein-and-joseph-gonzalez-on-llms",
+      duration: "55 min",
+      description: "Berkeley professors discuss Large Language Models and their impact on data work."
     }
   ],
   11: [
     {
-      title: "Git for Data Teams",
-      show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "42 min",
-      description: "Version control best practices for data projects"
-    },
-    {
-      title: "Code Review in Data Engineering",
-      show: "The Data Engineering Show",
-      url: "https://www.dataengineeringshow.com/",
-      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
-      duration: "38 min",
-      description: "How to review data pipeline code"
+      title: "How to Get Hired as a Data or AI Engineer",
+      show: "DataFramed (DataCamp)",
+      episodeUrl: "https://www.datacamp.com/podcast/how-to-get-hired-as-a-data-or-ai-engineer",
+      episodeNumber: "#295",
+      duration: "48 min",
+      description: "Deepak Goyal shares insights into the hiring process for data engineering roles."
     }
   ],
   12: [
     {
       title: "Testing Data Pipelines",
       show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-      duration: "50 min",
-      description: "Unit testing, integration testing, and data validation"
+      episodeUrl: "https://www.dataengineeringpodcast.com/great-expectations-data-testing-episode-36/",
+      episodeNumber: "#36",
+      duration: "45 min",
+      description: "Unit testing, integration testing, and data validation with Great Expectations."
     }
   ],
   13: [
     {
       title: "Building a Data Engineering Portfolio",
       show: "The Data Engineering Show",
-      url: "https://www.dataengineeringshow.com/",
-      spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
+      episodeUrl: "https://www.dataengineeringshow.com/podcast/building-a-data-engineering-portfolio",
       duration: "44 min",
-      description: "Projects that get you hired"
+      description: "Projects and strategies that get you hired as a data engineer."
     },
     {
       title: "Data Engineering Career Paths",
       show: "Data Engineering Podcast",
-      url: "https://www.dataengineeringpodcast.com/",
-      spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
+      episodeUrl: "https://www.dataengineeringpodcast.com/data-engineering-career-paths-episode-100/",
+      episodeNumber: "#100",
       duration: "55 min",
-      description: "From junior to senior data engineer"
+      description: "From junior to senior data engineer - career progression advice."
     }
   ]
 };
 
-// Helper functions
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
+
 export function getDailyVideo(dayNumber: number): DailyVideo | null {
   return Q1_DAILY_VIDEOS[dayNumber] || null;
 }
@@ -670,53 +723,24 @@ export function getWeeklyPodcasts(weekNumber: number): WeeklyPodcast[] {
   return Q1_WEEKLY_PODCASTS[weekNumber] || [];
 }
 
-// Get all media for a specific day
-export function getDayMedia(dayNumber: number) {
-  const weekNumber = Math.ceil(dayNumber / 4);
-  return {
-    video: getDailyVideo(dayNumber),
-    podcasts: weekNumber <= Object.keys(Q1_WEEKLY_PODCASTS).length 
-      ? getWeeklyPodcasts(weekNumber)
-      : [],
-    isNewPodcastDay: dayNumber % 4 === 1
-  };
+export function getQuarterAudiobooks(quarterNumber: number): Audiobook[] {
+  switch (quarterNumber) {
+    case 1: return Q1_AUDIOBOOKS;
+    case 2: return Q2_AUDIOBOOKS;
+    case 3: return Q3_AUDIOBOOKS;
+    default: return [];
+  }
 }
 
-// Recommended Podcast Shows
-export const RECOMMENDED_PODCASTS = [
-  {
-    name: "Data Engineering Podcast",
-    url: "https://www.dataengineeringpodcast.com/",
-    spotifySearch: "https://open.spotify.com/search/data%20engineering%20podcast",
-    frequency: "Weekly",
-    description: "Deep dives into data engineering tools and practices"
-  },
-  {
-    name: "The Data Engineering Show",
-    url: "https://www.dataengineeringshow.com/",
-    spotifySearch: "https://open.spotify.com/search/the%20data%20engineering%20show",
-    frequency: "Weekly",
-    description: "Conversations with data engineering practitioners"
-  },
-  {
-    name: "Talk Python to Me",
-    url: "https://talkpython.fm/",
-    spotifySearch: "https://open.spotify.com/search/talk%20python%20to%20me",
-    frequency: "Weekly",
-    description: "Python ecosystem deep dives"
-  },
-  {
-    name: "Python Bytes",
-    url: "https://pythonbytes.fm/",
-    spotifySearch: "https://open.spotify.com/search/python%20bytes",
-    frequency: "Weekly",
-    description: "Quick Python news and updates"
-  },
-  {
-    name: "The Analytics Engineering Podcast",
-    url: "https://roundup.getdbt.com/",
-    spotifySearch: "https://open.spotify.com/search/analytics%20engineering%20podcast",
-    frequency: "Bi-weekly",
-    description: "Modern data transformation and dbt"
-  }
-];
+export function getDayMedia(dayNumber: number) {
+  const weekNumber = Math.ceil(dayNumber / 4);
+  const quarterNumber = Math.ceil(weekNumber / 13);
+  
+  return {
+    video: getDailyVideo(dayNumber),
+    podcasts: getWeeklyPodcasts(weekNumber),
+    audiobooks: getQuarterAudiobooks(quarterNumber),
+    isNewPodcastDay: dayNumber % 4 === 1,
+    isFirstDayOfQuarter: (dayNumber - 1) % 52 === 0
+  };
+}
