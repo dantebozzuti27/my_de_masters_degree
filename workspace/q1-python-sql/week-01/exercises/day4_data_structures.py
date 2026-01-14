@@ -57,7 +57,16 @@ def list_statistics(numbers: List[int]) -> Dict[str, Any]:
             'unique': [5, 2, 8, 9, 1]
         }
     """
-    pass  # Replace with your implementation
+    return {
+        'count': len(numbers),
+        'sum': sum(numbers),
+        'min': min(numbers),
+        'max': max(numbers),
+        'average': sum(numbers) / len(numbers),
+        'sorted_asc': sorted(numbers),
+        'sorted_desc': sorted(numbers, reverse=True),
+        'unique': list(dict.fromkeys(numbers))
+    }
 
 
 # =============================================================================
@@ -85,7 +94,13 @@ def transform_data(data: List[str]) -> Dict[str, List]:
             'cleaned': ['hello', 'world', 'python', 'go']
         }
     """
-    pass  # Replace with your implementation
+    return {
+        'uppercase': [s.upper() for s in data],
+        'lengths': [len(s) for s in data],
+        'first_chars': [s[0] if s else '' for s in data],
+        'long_words': [s for s in data if len(s) >= 5],
+        'cleaned': [s.strip().lower() for s in data if s.strip()]
+    }
 
 
 # =============================================================================
@@ -124,7 +139,14 @@ def analyze_user(user: Dict[str, Any]) -> Dict[str, Any]:
             'status': 'active'
         }
     """
-    pass  # Replace with your implementation
+    return {
+        'name_length': len(user['name']),
+        'email_domain': user['email'].split('@')[1],
+        'is_adult': user['age'] >= 18,
+        'skill_count': len(user['skills']),
+        'first_skill': user['skills'][0] if user['skills'] else None,
+        'status': 'active' if user['active'] else 'inactive'
+    }
 
 
 def merge_user_data(user1: Dict, user2: Dict) -> Dict:
@@ -141,7 +163,7 @@ def merge_user_data(user1: Dict, user2: Dict) -> Dict:
         >>> merge_user_data(user1, user2)
         {'name': 'Alice', 'age': 26, 'skills': ['Python', 'SQL'], 'city': 'NYC'}
     """
-    pass  # Replace with your implementation
+    return {**user1, **user2, 'skills': list(set(user1['skills'] + user2['skills']))}
 
 
 # =============================================================================
@@ -171,7 +193,13 @@ def analyze_teams(team_a: Set[str], team_b: Set[str]) -> Dict[str, Set[str]]:
             'not_in_both': {'Alice', 'Charlie', 'Diana', 'Eve'}
         }
     """
-    pass  # Replace with your implementation
+    return {
+        'all_members': team_a | team_b,
+        'in_both': team_a & team_b,
+        'only_a': team_a - team_b,
+        'only_b': team_b - team_a,
+        'not_in_both': team_a ^ team_b
+    }
 
 
 # =============================================================================
@@ -221,28 +249,28 @@ def find_table(schema: List[Dict], table_name: str) -> Optional[Dict]:
     
     Return the table dict if found, None otherwise.
     """
-    pass  # Replace with your implementation
+    return next((table for table in schema if table['table_name'] == table_name), None)
 
 
 def get_total_rows(schema: List[Dict]) -> int:
     """
     TODO: Calculate total rows across all tables.
     """
-    pass  # Replace with your implementation
+    return sum(table['row_count'] for table in schema)
 
 
 def list_table_names(schema: List[Dict]) -> List[str]:
     """
     TODO: Return a list of all table names.
     """
-    pass  # Replace with your implementation
+    return [table['table_name'] for table in schema]
 
 
 def get_tables_with_foreign_keys(schema: List[Dict]) -> List[str]:
     """
     TODO: Return names of tables that have foreign keys.
     """
-    pass  # Replace with your implementation
+    return [table['table_name'] for table in schema if table['foreign_keys']]
 
 
 def find_tables_referencing(schema: List[Dict], table_name: str) -> List[str]:
@@ -253,7 +281,8 @@ def find_tables_referencing(schema: List[Dict], table_name: str) -> List[str]:
         >>> find_tables_referencing(DATABASE_SCHEMA, 'users')
         ['orders']
     """
-    pass  # Replace with your implementation
+    return [table['table_name'] for table in schema 
+            if any(fk['references'].startswith(table_name + '.') for fk in table['foreign_keys'])]
 
 
 def schema_summary(schema: List[Dict]) -> Dict:
@@ -269,7 +298,13 @@ def schema_summary(schema: List[Dict]) -> Dict:
         'tables_with_fks': list of tables with foreign keys
     }
     """
-    pass  # Replace with your implementation
+    return {
+        'total_tables': len(schema),
+        'total_rows': get_total_rows(schema),
+        'total_columns': sum(len(table['columns']) for table in schema),
+        'largest_table': max(schema, key=lambda x: x['row_count'])['table_name'],
+        'tables_with_fks': get_tables_with_foreign_keys(schema)
+    }
 
 
 # =============================================================================
