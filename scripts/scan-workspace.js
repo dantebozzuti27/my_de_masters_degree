@@ -34,9 +34,9 @@ const INCOMPLETE_PATTERNS = [
   /^\s*pass\s*$/m,  // Just 'pass' on its own line
   /^\s*pass\s*#/m,  // pass with comment
   
-  // Return statements with placeholder values
-  /return\s*\{\s*\}/,  // return {}
-  /return\s*\[\s*\]/,  // return []
+  // Return statements with placeholder values (but not edge case returns on same line as if)
+  /^\s*return\s*\{\s*\}\s*$/m,  // return {} on its own line
+  /^\s*return\s*\[\s*\]\s*$/m,  // return [] on its own line (not after if statement)
   
   // Empty list/dict variable followed by return
   /result\s*=\s*\[\s*\]\s*\n\s*return\s+result/m,

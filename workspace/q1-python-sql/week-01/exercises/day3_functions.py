@@ -220,7 +220,7 @@ def fibonacci(n: int) -> list:
         [0, 1, 1, 2, 3, 5, 8, 13]
     """
     if n <= 0:
-        return []
+        return list()  # Empty list for invalid input
     if n == 1:
         return [0]
     
@@ -247,8 +247,25 @@ def guessing_game():
     """
     import random
     
-    # YOUR CODE HERE
-    pass
+    secret = random.randint(1, 100)
+    guesses = 0
+    
+    print("I'm thinking of a number between 1 and 100...")
+    
+    while True:
+        try:
+            guess = int(input("Your guess: "))
+            guesses += 1
+            
+            if guess < secret:
+                print("Higher!")
+            elif guess > secret:
+                print("Lower!")
+            else:
+                print(f"Correct! You got it in {guesses} guesses!")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
 
 
 # =============================================================================
