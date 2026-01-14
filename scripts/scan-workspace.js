@@ -30,9 +30,9 @@ const INCOMPLETE_PATTERNS = [
   /^\s*is_learning_python\s*=\s*False\s*#/m,
   /^\s*name\s*=\s*""\s*#.*Replace/m,
   
-  // Pass statements indicating TODO
+  // Pass statements indicating TODO (only bare 'pass' or with YOUR CODE comment)
   /^\s*pass\s*$/m,  // Just 'pass' on its own line
-  /^\s*pass\s*#/m,  // pass with comment
+  /# YOUR CODE HERE/m,  // Explicit placeholder comment
   
   // Return statements with placeholder values (but not edge case returns on same line as if)
   /^\s*return\s*\{\s*\}\s*$/m,  // return {} on its own line

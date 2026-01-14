@@ -57,8 +57,7 @@ def list_statistics(numbers: List[int]) -> Dict[str, Any]:
             'unique': [5, 2, 8, 9, 1]
         }
     """
-    # YOUR CODE HERE
-    return {}
+    pass  # Replace with your implementation
 
 
 # =============================================================================
@@ -86,8 +85,7 @@ def transform_data(data: List[str]) -> Dict[str, List]:
             'cleaned': ['hello', 'world', 'python', 'go']
         }
     """
-    # YOUR CODE HERE - use list comprehensions!
-    return {}
+    pass  # Replace with your implementation
 
 
 # =============================================================================
@@ -126,8 +124,7 @@ def analyze_user(user: Dict[str, Any]) -> Dict[str, Any]:
             'status': 'active'
         }
     """
-    # YOUR CODE HERE
-    return {}
+    pass  # Replace with your implementation
 
 
 def merge_user_data(user1: Dict, user2: Dict) -> Dict:
@@ -144,8 +141,7 @@ def merge_user_data(user1: Dict, user2: Dict) -> Dict:
         >>> merge_user_data(user1, user2)
         {'name': 'Alice', 'age': 26, 'skills': ['Python', 'SQL'], 'city': 'NYC'}
     """
-    # YOUR CODE HERE
-    return {}
+    pass  # Replace with your implementation
 
 
 # =============================================================================
@@ -175,8 +171,7 @@ def analyze_teams(team_a: Set[str], team_b: Set[str]) -> Dict[str, Set[str]]:
             'not_in_both': {'Alice', 'Charlie', 'Diana', 'Eve'}
         }
     """
-    # YOUR CODE HERE
-    return {}
+    pass  # Replace with your implementation
 
 
 # =============================================================================
@@ -226,32 +221,28 @@ def find_table(schema: List[Dict], table_name: str) -> Optional[Dict]:
     
     Return the table dict if found, None otherwise.
     """
-    # YOUR CODE HERE
-    pass
+    pass  # Replace with your implementation
 
 
 def get_total_rows(schema: List[Dict]) -> int:
     """
     TODO: Calculate total rows across all tables.
     """
-    # YOUR CODE HERE
-    pass
+    pass  # Replace with your implementation
 
 
 def list_table_names(schema: List[Dict]) -> List[str]:
     """
     TODO: Return a list of all table names.
     """
-    # YOUR CODE HERE
-    pass
+    pass  # Replace with your implementation
 
 
 def get_tables_with_foreign_keys(schema: List[Dict]) -> List[str]:
     """
     TODO: Return names of tables that have foreign keys.
     """
-    # YOUR CODE HERE
-    pass
+    pass  # Replace with your implementation
 
 
 def find_tables_referencing(schema: List[Dict], table_name: str) -> List[str]:
@@ -262,8 +253,7 @@ def find_tables_referencing(schema: List[Dict], table_name: str) -> List[str]:
         >>> find_tables_referencing(DATABASE_SCHEMA, 'users')
         ['orders']
     """
-    # YOUR CODE HERE
-    pass
+    pass  # Replace with your implementation
 
 
 def schema_summary(schema: List[Dict]) -> Dict:
@@ -279,8 +269,7 @@ def schema_summary(schema: List[Dict]) -> Dict:
         'tables_with_fks': list of tables with foreign keys
     }
     """
-    # YOUR CODE HERE
-    return {}
+    pass  # Replace with your implementation
 
 
 # =============================================================================

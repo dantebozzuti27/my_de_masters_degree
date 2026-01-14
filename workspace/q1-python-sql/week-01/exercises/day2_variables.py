@@ -29,11 +29,7 @@ These help Copilot understand your intent and generate better code.
 # - my_height: Your height in meters (float, e.g., 1.75)
 # - is_learning_python: Set to True (boolean)
 
-my_name = "Dante Bozzuti"  # YOUR CODE HERE
-my_age = 24  # YOUR CODE HERE
-my_height = 1.70  # YOUR CODE HERE
-is_learning_python = True  # YOUR CODE HERE
-
+my_name = "Dante Bozzuti"my_age = 24my_height = 1.70is_learning_python = True
 
 # =============================================================================
 # EXERCISE 2: String Operations
@@ -64,7 +60,6 @@ def string_operations(text: str) -> dict:
             'reversed': 'dlrow olleh'
         }
     """
-    # YOUR CODE HERE
     return {
         'uppercase': 'HELLO WORLD',
         'lowercase': 'hello world',
@@ -99,7 +94,6 @@ def convert_types(value: str) -> dict:
             'original_type': 'str'
         }
     """
-    # YOUR CODE HERE
     return {
         'as_int': 42,
         'as_float': 42.0,
@@ -122,7 +116,6 @@ def format_greeting(name: str, age: int, city: str) -> str:
         >>> format_greeting("Alice", 25, "New York")
         "Hello, I'm Alice! I'm 25 years old and live in New York."
     """
-    # YOUR CODE HERE
     return f"Hello, I'm {name}! I'm {age} years old and live in {city}."
 
 
@@ -137,7 +130,6 @@ def format_table_row(name: str, value: float) -> str:
         >>> format_table_row("Revenue", 1234.5)
         "Revenue              1234.50"
     """
-    # YOUR CODE HERE
     return f"{name:<20}{value:>10.2f}"
 
 
@@ -172,7 +164,6 @@ def calculator(a: float, b: float) -> dict:
             'power': 1000
         }
     """
-    # YOUR CODE HERE
     return {
         'sum': a + b,
         'difference': a - b,
