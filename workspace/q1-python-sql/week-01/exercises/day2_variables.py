@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
 """
-Day 2 Exercise: Variables and Data Types
-=========================================
+Day 2 Exercise: Variables and Data Types (AI-Enhanced)
+=======================================================
 
-Master Python's core data types through hands-on practice.
+AI-ENHANCED LEARNING APPROACH:
+- Use GitHub Copilot to help with these exercises
+- BUT: Understand what the AI generates - that's YOUR skill
+- Try writing the first attempt yourself, then see what AI suggests
 
-Instructions:
-1. Complete each TODO section
-2. Run: python day2_variables.py
-3. All tests should pass ✅
+WORKFLOW FOR EACH EXERCISE:
+1. Read the docstring carefully (the "what")
+2. Try to write it yourself first (builds muscle memory)
+3. If stuck, let Copilot suggest
+4. ALWAYS verify the AI's suggestion is correct
+5. Add comments explaining your understanding
+
+AI TIP: Notice the type hints (e.g., text: str) -> dict
+These help Copilot understand your intent and generate better code.
 """
 
 # =============================================================================

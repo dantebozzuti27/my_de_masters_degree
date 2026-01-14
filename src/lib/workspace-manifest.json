@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-13T03:10:27.675Z",
+  "generatedAt": "2026-01-14T02:39:28.828Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -8,14 +8,14 @@
           "exercises": {
             "day1_verify_setup.py": {
               "complete": true,
-              "totalFunctions": 7,
+              "totalFunctions": 9,
               "completedFunctions": 1,
-              "incompletePatterns": 0,
-              "completePatterns": 3,
-              "hash": "d067b525",
-              "lines": 165,
+              "incompletePatterns": 1,
+              "completePatterns": 4,
+              "hash": "5530c63d",
+              "lines": 238,
               "path": "q1-python-sql/week-01/exercises/day1_verify_setup.py",
-              "modifiedAt": "2026-01-13T02:08:16.002Z"
+              "modifiedAt": "2026-01-14T00:49:11.457Z"
             },
             "day2_variables.py": {
               "complete": true,
@@ -23,10 +23,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 0,
               "completePatterns": 1,
-              "hash": "1c93d274",
-              "lines": 249,
+              "hash": "2b60e13e",
+              "lines": 257,
               "path": "q1-python-sql/week-01/exercises/day2_variables.py",
-              "modifiedAt": "2026-01-13T03:03:13.992Z"
+              "modifiedAt": "2026-01-14T00:49:29.805Z"
             },
             "day3_functions.py": {
               "complete": false,
@@ -34,10 +34,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 3,
               "completePatterns": 1,
-              "hash": "dd48fa8c",
-              "lines": 314,
+              "hash": "2807a613",
+              "lines": 323,
               "path": "q1-python-sql/week-01/exercises/day3_functions.py",
-              "modifiedAt": "2026-01-13T01:58:00.274Z"
+              "modifiedAt": "2026-01-14T00:49:44.312Z"
             },
             "day4_data_structures.py": {
               "complete": false,
@@ -45,10 +45,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 2,
               "completePatterns": 0,
-              "hash": "8230bad7",
-              "lines": 357,
+              "hash": "8476a814",
+              "lines": 370,
               "path": "q1-python-sql/week-01/exercises/day4_data_structures.py",
-              "modifiedAt": "2026-01-13T01:58:45.814Z"
+              "modifiedAt": "2026-01-14T00:49:58.398Z"
             }
           }
         },

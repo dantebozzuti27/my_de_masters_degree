@@ -1,14 +1,27 @@
 #!/usr/bin/env python3
 """
-Day 4 Exercise: Data Types Deep Dive
-=====================================
+Day 4 Exercise: Data Types Deep Dive (AI-Enhanced)
+===================================================
 
-Master lists, tuples, dictionaries, and sets.
+AI-ENHANCED LEARNING APPROACH:
+- AI loves list comprehensions - learn to read them fluently
+- When AI chooses a data structure, ask WHY that one?
+- Nested structures are where you add value (business context)
 
-Instructions:
-1. Complete each TODO section
-2. Run: python day4_data_structures.py
-3. All tests should pass ✅
+KEY INSIGHT: Data Structure Selection
+When AI generates code, it picks data structures based on patterns.
+YOUR job is to verify the choice makes sense for YOUR use case:
+- Need fast lookups? Dict or Set
+- Need to maintain order? List
+- Need immutability? Tuple
+- Need unique values? Set
+
+AI TIP: When writing complex nested structures, describe them in
+plain English first. AI is great at "convert this JSON to Python dict"
+or "create a data structure for users with their orders".
+
+WEEK 1 CAPSTONE: Complete all exercises and push to GitHub.
+This is your first portfolio piece!
 """
 
 from typing import List, Dict, Set, Tuple, Any, Optional

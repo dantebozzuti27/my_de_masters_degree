@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 """
-Day 1 Exercise: Verify Development Environment Setup
-=====================================================
+Day 1 Exercise: Development Environment + AI Tools Setup
+=========================================================
 
-Run this script to verify your Python environment is correctly configured.
+AI-ENHANCED LEARNING APPROACH:
+- This exercise verifies your setup INCLUDING AI coding tools
+- Use GitHub Copilot or Cursor for the TODO sections
+- BUT: Understand what the AI generates - that's the skill
 
 Instructions:
 1. Activate your virtual environment
-2. Run: python day1_verify_setup.py
-3. All checks should pass ✅
+2. Ensure GitHub Copilot is installed and active in VS Code
+3. Run: python day1_verify_setup.py
+4. All checks should pass
 
-Your Task:
-- Complete the TODO sections below
-- Make all tests pass
-- Commit this file to git
+AI TIP: For simple functions like these, let Copilot suggest the solution,
+then verify it's correct. This is the workflow you'll use daily.
 """
 
 import sys
 import os
 from pathlib import Path
+import subprocess
 
 def check_python_version():
     """Verify Python 3.11+ is installed."""
@@ -26,11 +29,12 @@ def check_python_version():
     print(f"Python Version: {version.major}.{version.minor}.{version.micro}")
     
     if version.major >= 3 and version.minor >= 11:
-        print("✅ Python version OK (3.11+)")
+        print("OK - Python version 3.11+")
         return True
     else:
-        print("❌ Python version should be 3.11+")
-        return False
+        print("ISSUE - Python version should be 3.11+")
+        print("        Note: You can continue with 3.9+ but 3.11+ is recommended")
+        return version.minor >= 9  # Pass with 3.9+
 
 
 def check_virtual_env():
@@ -39,11 +43,11 @@ def check_virtual_env():
     
     if venv:
         print(f"Virtual Environment: {venv}")
-        print("✅ Running in virtual environment")
+        print("OK - Running in virtual environment")
         return True
     else:
-        print("❌ Not running in a virtual environment!")
-        print("   Activate with: source venv/bin/activate")
+        print("ISSUE - Not running in a virtual environment!")
+        print("        Activate with: source venv/bin/activate")
         return False
 
 
@@ -51,42 +55,80 @@ def check_working_directory():
     """Display current working directory."""
     cwd = Path.cwd()
     print(f"Working Directory: {cwd}")
-    print("✅ Working directory OK")
+    print("OK - Working directory confirmed")
     return True
+
+
+def check_copilot_extension():
+    """
+    Check if VS Code with Copilot is likely installed.
+    (This is a heuristic check - can't directly verify from Python)
+    """
+    # Check for VS Code CLI
+    try:
+        result = subprocess.run(['code', '--version'], capture_output=True, text=True, timeout=5)
+        if result.returncode == 0:
+            print(f"VS Code: Installed (version {result.stdout.split()[0]})")
+            print("TIP - Ensure GitHub Copilot extension is installed and signed in")
+            return True
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    
+    print("NOTE - Could not detect VS Code CLI")
+    print("       If using Cursor IDE, this is expected - Cursor has built-in AI")
+    return True  # Don't fail - they might be using Cursor
 
 
 # =============================================================================
 # TODO: Complete the exercises below
 # =============================================================================
+# 
+# AI APPROACH:
+# 1. Read the function docstring to understand what's needed
+# 2. Start typing and let Copilot suggest the implementation
+# 3. Review the suggestion - does it match the expected output?
+# 4. Accept (Tab) if correct, or modify as needed
+#
+# This is the AI-assisted workflow you'll use throughout the program!
+# =============================================================================
 
 def my_first_function():
     """
-    TODO: Write a function that returns your name as a string.
+    TODO: Return your name as a string.
+    
+    AI TIP: Type 'name = "' and let Copilot complete.
+    Then type 'return ' and accept the suggestion.
     
     Example:
         >>> my_first_function()
         'Dante Bozzuti'
     """
-    # YOUR CODE HERE
+    # Let Copilot suggest, then replace with YOUR name
     name = "Dante Bozzuti"  # Replace with your name
     return name
 
 
 def add_numbers(a: int, b: int) -> int:
     """
-    TODO: Write a function that adds two numbers and returns the result.
+    TODO: Add two numbers and return the result.
+    
+    AI TIP: Notice the type hints (a: int, b: int) -> int
+    These help Copilot understand your intent and generate better code.
     
     Example:
         >>> add_numbers(5, 3)
         8
     """
-    # YOUR CODE HERE
-    return a + b  # Replace with your implementation
+    # Type hints help AI - always use them
+    return a + b
 
 
 def is_even(number: int) -> bool:
     """
-    TODO: Write a function that returns True if number is even, False otherwise.
+    TODO: Return True if number is even, False otherwise.
+    
+    AI TIP: Copilot will likely suggest 'return number % 2 == 0'
+    Understand WHY: % is modulo (remainder), even numbers have 0 remainder when /2
     
     Example:
         >>> is_even(4)
@@ -94,8 +136,29 @@ def is_even(number: int) -> bool:
         >>> is_even(7)
         False
     """
-    # YOUR CODE HERE
-    return number % 2 == 0  # Replace with your implementation
+    return number % 2 == 0
+
+
+def greet_with_ai(name: str, formal: bool = False) -> str:
+    """
+    BONUS: AI-generated function - review and understand it.
+    
+    AI TIP: This function was generated by asking Copilot:
+    "Function that greets a person, formal or informal style"
+    
+    QUESTION: Can you explain what the conditional expression does?
+    
+    Example:
+        >>> greet_with_ai("Alice")
+        'Hi Alice!'
+        >>> greet_with_ai("Alice", formal=True)
+        'Good day, Alice. How may I assist you?'
+    """
+    # AI-generated code - can you explain each part?
+    if formal:
+        return f"Good day, {name}. How may I assist you?"
+    else:
+        return f"Hi {name}!"
 
 
 # =============================================================================
@@ -112,6 +175,7 @@ def run_tests():
         check_python_version(),
         check_virtual_env(),
         check_working_directory(),
+        check_copilot_extension(),
     ]
     
     print("\n" + "=" * 60)
@@ -121,27 +185,35 @@ def run_tests():
     # Test my_first_function
     name = my_first_function()
     if name and len(name) > 0:
-        print(f"✅ my_first_function() returned: '{name}'")
+        print(f"OK - my_first_function() returned: '{name}'")
         checks.append(True)
     else:
-        print("❌ my_first_function() should return your name")
+        print("ISSUE - my_first_function() should return your name")
         checks.append(False)
     
     # Test add_numbers
     result = add_numbers(5, 3)
     if result == 8:
-        print(f"✅ add_numbers(5, 3) = {result}")
+        print(f"OK - add_numbers(5, 3) = {result}")
         checks.append(True)
     else:
-        print(f"❌ add_numbers(5, 3) should be 8, got {result}")
+        print(f"ISSUE - add_numbers(5, 3) should be 8, got {result}")
         checks.append(False)
     
     # Test is_even
     if is_even(4) == True and is_even(7) == False:
-        print("✅ is_even() works correctly")
+        print("OK - is_even() works correctly")
         checks.append(True)
     else:
-        print("❌ is_even() not working correctly")
+        print("ISSUE - is_even() not working correctly")
+        checks.append(False)
+    
+    # Test greet_with_ai
+    if greet_with_ai("Test") == "Hi Test!" and "Good day" in greet_with_ai("Test", formal=True):
+        print("OK - greet_with_ai() works correctly")
+        checks.append(True)
+    else:
+        print("ISSUE - greet_with_ai() not working correctly")
         checks.append(False)
     
     # Summary
@@ -150,10 +222,11 @@ def run_tests():
     total = len(checks)
     
     if passed == total:
-        print(f"🎉 ALL CHECKS PASSED! ({passed}/{total})")
-        print("You're ready to move forward!")
+        print(f"ALL CHECKS PASSED! ({passed}/{total})")
+        print("AI-assisted development environment is ready!")
+        print("\nNext: Open day2_variables.py and use Copilot to complete it.")
     else:
-        print(f"⚠️  {passed}/{total} checks passed")
+        print(f"{passed}/{total} checks passed")
         print("Complete the TODOs and run again.")
     
     print("=" * 60 + "\n")

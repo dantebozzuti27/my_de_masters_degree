@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
 """
-Day 3 Exercise: Control Flow & Functions
-=========================================
+Day 3 Exercise: Control Flow & Functions (AI-Enhanced)
+=======================================================
 
-Master conditionals, loops, and functions.
+AI-ENHANCED LEARNING APPROACH:
+- FizzBuzz: Try it WITHOUT AI first - this is the classic interview warm-up
+- Other exercises: Use AI to help, but ALWAYS trace through the logic
+- AI often has bugs in loops (off-by-one errors) - find them!
 
-Instructions:
-1. Complete each TODO section
-2. Run: python day3_functions.py
-3. All tests should pass ✅
+CRITICAL SKILL: Debug AI-Generated Code
+Loops are where AI makes the most mistakes. Your job is to:
+1. Let AI generate the loop
+2. Trace through with sample input (manually step through)
+3. Find and fix any edge case bugs
+4. Add test cases that break the AI's version
+
+AI TIP: After AI generates a function, ask ChatGPT:
+"What edge cases might break this function?"
+Then test those edge cases.
 """
 
 # =============================================================================

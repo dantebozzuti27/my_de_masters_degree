@@ -17,7 +17,10 @@ import {
   Star,
   Lightbulb,
   AlertTriangle,
-  Briefcase
+  Briefcase,
+  Bot,
+  Sparkles,
+  Shield
 } from 'lucide-react';
 import { MediaSection } from '@/components/MediaSection';
 import { VerifiedBadge } from '@/components/VerifiedBadge';
@@ -145,6 +148,77 @@ export function LessonDetail({ session }: LessonDetailProps) {
         </p>
       </div>
 
+      {/* AI Integration Section */}
+      {lesson.aiIntegration && (
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-violet-100 dark:bg-violet-800 rounded-lg">
+              <Bot className="w-6 h-6 text-violet-600 dark:text-violet-300" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">AI-Assisted Learning</h3>
+              <p className="text-sm text-violet-600 dark:text-violet-300">
+                {lesson.aiIntegration.focusArea === 'learn-with-ai' && 'Use AI tools to accelerate learning'}
+                {lesson.aiIntegration.focusArea === 'debug-ai-code' && 'Practice debugging AI-generated code'}
+                {lesson.aiIntegration.focusArea === 'prompt-engineering' && 'Learn to write effective prompts'}
+                {lesson.aiIntegration.focusArea === 'ai-review' && 'Review and improve AI output'}
+                {lesson.aiIntegration.focusArea === 'manual-practice' && 'Manual practice to build fundamentals'}
+              </p>
+            </div>
+          </div>
+          
+          {/* AI Tools Used */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {lesson.aiIntegration.toolsUsed.map((tool, idx) => (
+              <span key={idx} className="px-3 py-1 bg-white dark:bg-gray-800 rounded-full text-sm font-medium text-violet-600 dark:text-violet-300 border border-violet-200 dark:border-violet-700">
+                {tool === 'copilot' && 'GitHub Copilot'}
+                {tool === 'chatgpt' && 'ChatGPT'}
+                {tool === 'claude' && 'Claude'}
+                {tool === 'cursor' && 'Cursor IDE'}
+                {tool === 'none' && 'No AI (Manual)'}
+              </span>
+            ))}
+          </div>
+          
+          {/* AI Tip */}
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-3">
+            <div className="flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="font-medium text-gray-900 dark:text-white mb-1">AI Tip</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{lesson.aiIntegration.aiTip}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Warning When Not to Use AI */}
+          {lesson.aiIntegration.warningWhenNotToUseAI && (
+            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-amber-800 dark:text-amber-300 mb-1">When NOT to Use AI</p>
+                  <p className="text-sm text-amber-700 dark:text-amber-400">{lesson.aiIntegration.warningWhenNotToUseAI}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Future-Proof Note */}
+      {lesson.futureProofNote && (
+        <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-blue-50 dark:bg-blue-900/20">
+          <div className="flex items-start gap-3">
+            <Lightbulb className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-medium text-blue-800 dark:text-blue-300 text-sm mb-1">Future-Proof Note (2028+)</p>
+              <p className="text-sm text-blue-700 dark:text-blue-400">{lesson.futureProofNote}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Daily Video & Podcasts */}
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <MediaSection dayNumber={session.dayNumber} />
@@ -177,7 +251,30 @@ export function LessonDetail({ session }: LessonDetailProps) {
         color="purple"
       >
         <div className="space-y-3">
-          {Object.entries(lesson.sessionPlan).map(([phase, content]) => (
+          {/* Handle new array format */}
+          {Array.isArray(lesson.sessionPlan) && lesson.sessionPlan.map((item, i) => (
+            <div key={i} className="flex gap-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
+              <div className="w-24 flex-shrink-0">
+                <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                  {item.time}
+                </span>
+              </div>
+              <div className="flex-1 flex items-center gap-3">
+                <span className={`px-2 py-1 rounded text-xs font-bold uppercase ${
+                  item.type === 'video' ? 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300' :
+                  item.type === 'learn' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                  item.type === 'practice' ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' :
+                  item.type === 'exercise' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
+                  'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300'
+                }`}>
+                  {item.type}
+                </span>
+                <p className="text-gray-700 dark:text-gray-300">{item.activity}</p>
+              </div>
+            </div>
+          ))}
+          {/* Handle old object format */}
+          {!Array.isArray(lesson.sessionPlan) && Object.entries(lesson.sessionPlan).map(([phase, content]) => (
             <div key={phase} className="flex gap-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
               <div className="w-24 flex-shrink-0">
                 <span className={`px-2 py-1 rounded text-xs font-bold uppercase ${
@@ -223,7 +320,25 @@ export function LessonDetail({ session }: LessonDetailProps) {
         color="green"
       >
         <div className="space-y-2">
-          {lesson.resources.map((resource, i) => (
+          {/* Handle new format with required/optional */}
+          {!Array.isArray(lesson.resources) && lesson.resources.required && (
+            <>
+              <h4 className="font-medium text-red-600 dark:text-red-400 text-sm mb-2">Required</h4>
+              {lesson.resources.required.map((resource, i) => (
+                <ResourceLink key={`req-${i}`} resource={resource} priority="required" />
+              ))}
+            </>
+          )}
+          {!Array.isArray(lesson.resources) && lesson.resources.optional && (
+            <>
+              <h4 className="font-medium text-gray-600 dark:text-gray-400 text-sm mb-2 mt-4">Optional</h4>
+              {lesson.resources.optional.map((resource, i) => (
+                <ResourceLink key={`opt-${i}`} resource={resource} priority="optional" />
+              ))}
+            </>
+          )}
+          {/* Handle old array format */}
+          {Array.isArray(lesson.resources) && lesson.resources.map((resource, i) => (
             <a
               key={i}
               href={resource.url}
@@ -327,11 +442,25 @@ export function LessonDetail({ session }: LessonDetailProps) {
           onToggle={() => toggleSection('mistakes')}
           color="red"
         >
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {lesson.commonMistakes.map((mistake, i) => (
-              <li key={i} className="flex items-start gap-3 text-red-700 dark:text-red-300">
-                <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>{mistake}</span>
+              <li key={i} className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                {typeof mistake === 'string' ? (
+                  <div className="flex items-start gap-3 text-red-700 dark:text-red-300">
+                    <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                    <span>{mistake}</span>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="flex items-start gap-3 text-red-700 dark:text-red-300">
+                      <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                      <span className="font-medium">{mistake.mistake}</span>
+                    </div>
+                    <div className="mt-2 ml-8 text-green-700 dark:text-green-300 text-sm">
+                      <span className="font-medium">Fix:</span> {mistake.fix}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -489,15 +618,25 @@ function ExerciseCard({ exercise, index }: ExerciseCardProps) {
       </div>
       
       <div className="p-4">
-        <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Instructions:</h5>
-        <ul className="space-y-1 mb-4">
-          {exercise.instructions.map((instruction: string, i: number) => (
-            <li key={i} className="text-gray-600 dark:text-gray-400 text-sm flex items-start gap-2">
-              <span className="text-blue-500 mt-1">•</span>
-              <span>{instruction}</span>
-            </li>
-          ))}
-        </ul>
+        {/* Handle new description format */}
+        {exercise.description && (
+          <p className="text-gray-600 dark:text-gray-400 mb-4">{exercise.description}</p>
+        )}
+        
+        {/* Handle old instructions format */}
+        {exercise.instructions && (
+          <>
+            <h5 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Instructions:</h5>
+            <ul className="space-y-1 mb-4">
+              {exercise.instructions.map((instruction: string, i: number) => (
+                <li key={i} className="text-gray-600 dark:text-gray-400 text-sm flex items-start gap-2">
+                  <span className="text-blue-500 mt-1">•</span>
+                  <span>{instruction}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {exercise.hints && (
           <div className="mb-4">
@@ -509,6 +648,15 @@ function ExerciseCard({ exercise, index }: ExerciseCardProps) {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* AI Approach for new format */}
+        {exercise.aiApproach && (
+          <div className="mb-4 p-3 bg-violet-50 dark:bg-violet-900/20 rounded-lg border border-violet-200 dark:border-violet-800">
+            <p className="text-sm text-violet-700 dark:text-violet-300">
+              <strong>AI Approach:</strong> {exercise.aiApproach}
+            </p>
           </div>
         )}
 
@@ -538,5 +686,43 @@ function ExerciseCard({ exercise, index }: ExerciseCardProps) {
         )}
       </div>
     </div>
+  );
+}
+
+// Resource Link Component
+interface ResourceLinkProps {
+  resource: { title: string; url: string; type: string; duration?: string };
+  priority: 'required' | 'optional';
+}
+
+function ResourceLink({ resource, priority }: ResourceLinkProps) {
+  return (
+    <a
+      href={resource.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+    >
+      <div className="flex items-center gap-3">
+        <span className={`px-2 py-1 rounded text-xs font-medium ${
+          priority === 'required' 
+            ? 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300' 
+            : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+        }`}>
+          {priority}
+        </span>
+        <div>
+          <p className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+            {resource.title}
+          </p>
+          {resource.duration && (
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              {resource.duration}
+            </p>
+          )}
+        </div>
+      </div>
+      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-500" />
+    </a>
   );
 }
