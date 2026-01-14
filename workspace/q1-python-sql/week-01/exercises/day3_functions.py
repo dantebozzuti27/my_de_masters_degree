@@ -43,8 +43,18 @@ def fizzbuzz(n: int) -> list:
         >>> fizzbuzz(15)[-1]
         'FizzBuzz'
     """
-    # YOUR CODE HERE
     result = []
+    
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(str(i))
+    
     return result
 
 
@@ -66,8 +76,12 @@ def factorial_iterative(n: int) -> int:
         >>> factorial_iterative(0)
         1
     """
-    # YOUR CODE HERE
-    pass
+    result = 1
+    
+    for i in range(1, n + 1):
+        result = result * i
+    
+    return result
 
 
 def factorial_recursive(n: int) -> int:
@@ -81,8 +95,10 @@ def factorial_recursive(n: int) -> int:
         >>> factorial_recursive(5)
         120
     """
-    # YOUR CODE HERE
-    pass
+    if n == 0:
+        return 1
+    else:
+        return n * factorial_recursive(n - 1)
 
 
 # =============================================================================
@@ -107,8 +123,14 @@ def is_prime(n: int) -> bool:
         >>> is_prime(1)
         False
     """
-    # YOUR CODE HERE
-    pass
+    if n < 2:
+        return False
+    
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    
+    return True
 
 
 def primes_up_to(n: int) -> list:
@@ -119,8 +141,11 @@ def primes_up_to(n: int) -> list:
         >>> primes_up_to(20)
         [2, 3, 5, 7, 11, 13, 17, 19]
     """
-    # YOUR CODE HERE (use is_prime!)
-    pass
+    result = []
+    for i in range(2, n + 1):
+        if is_prime(i):
+            result.append(i)
+    return result
 
 
 # =============================================================================
@@ -139,8 +164,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
         >>> celsius_to_fahrenheit(100)
         212.0
     """
-    # YOUR CODE HERE
-    pass
+    return celsius * 9/5 + 32
 
 
 def fahrenheit_to_celsius(fahrenheit: float) -> float:
@@ -155,8 +179,7 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
         >>> fahrenheit_to_celsius(212)
         100.0
     """
-    # YOUR CODE HERE
-    pass
+    return (fahrenheit - 32) * 5/9
 
 
 # =============================================================================
@@ -177,8 +200,8 @@ def is_palindrome(text: str) -> bool:
         >>> is_palindrome("hello")
         False
     """
-    # YOUR CODE HERE
-    pass
+    cleaned = text.lower().replace(" ", "")
+    return cleaned == cleaned[::-1]
 
 
 # =============================================================================
@@ -196,8 +219,15 @@ def fibonacci(n: int) -> list:
         >>> fibonacci(8)
         [0, 1, 1, 2, 3, 5, 8, 13]
     """
-    # YOUR CODE HERE
-    pass
+    if n <= 0:
+        return []
+    if n == 1:
+        return [0]
+    
+    result = [0, 1]
+    while len(result) < n:
+        result.append(result[-1] + result[-2])
+    return result
 
 
 # =============================================================================
