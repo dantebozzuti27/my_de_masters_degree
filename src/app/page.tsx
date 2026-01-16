@@ -1,20 +1,16 @@
 'use client';
 
 import { useProgress } from '@/hooks/useProgress';
-import { getAllSessions, getTodaySession, getUpcomingSessions, getCurrentWeekSessions, getProgress } from '@/lib/sessions';
+import { getAllSessions, getTodaySession, getUpcomingSessions, getCurrentWeekSessions } from '@/lib/sessions';
 import { QUARTERS } from '@/lib/curriculum';
 import { SessionCard } from '@/components/SessionCard';
 import { StatsCard } from '@/components/StatsCard';
 import { ProgressRing } from '@/components/ProgressRing';
 import { WeekView } from '@/components/WeekView';
 import { QuarterProgress } from '@/components/QuarterProgress';
-import { VerifiedProgressBar } from '@/components/VerifiedBadge';
-import { getVerifiedProgress, getVerifiedCompletedDays } from '@/lib/verified-progress';
-import { format, parseISO, differenceInDays } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import { 
   Calendar, 
-  CheckCircle2, 
-  Flame, 
   Target, 
   Clock, 
   TrendingUp,
@@ -25,21 +21,21 @@ import {
 import Link from 'next/link';
 
 export default function Dashboard() {
-  const { completedIds, streak, isLoading } = useProgress();
+  const { completedIds, verifiedStats, isLoading } = useProgress();
   
   const allSessions = getAllSessions();
   const todaySession = getTodaySession();
   const upcomingSessions = getUpcomingSessions(5);
   const currentWeekSessions = getCurrentWeekSessions();
-  const progressData = getProgress(completedIds);
-  
-  // Verified progress from actual workspace code
-  const verifiedProgress = getVerifiedProgress();
-  const verifiedDays = getVerifiedCompletedDays();
   
   // Calculate days until end
   const endDate = new Date(2028, 0, 8);
   const daysRemaining = differenceInDays(endDate, new Date());
+  
+  // Calculate progress based on verified completion
+  const totalSessions = allSessions.length;
+  const completedCount = completedIds.size;
+  const progressPercentage = Math.round((completedCount / totalSessions) * 100);
   
   // Find current quarter
   const currentQuarter = todaySession 
@@ -72,67 +68,53 @@ export default function Dashboard() {
           <ShieldCheck className="w-8 h-8" />
           <div>
             <h2 className="text-xl font-bold">Verified Progress</h2>
-            <p className="text-green-100 text-sm">Based on actual code in your workspace - not just clicks!</p>
+            <p className="text-green-100 text-sm">Based on actual code in your workspace</p>
           </div>
         </div>
         
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div className="bg-white/10 rounded-lg p-3 text-center">
-            <p className="text-3xl font-bold">{verifiedProgress.completed}</p>
-            <p className="text-green-100 text-sm">Exercises Done</p>
+            <p className="text-3xl font-bold">{verifiedStats.completed}</p>
+            <p className="text-green-100 text-sm">Days Complete</p>
           </div>
           <div className="bg-white/10 rounded-lg p-3 text-center">
-            <p className="text-3xl font-bold">{verifiedProgress.total}</p>
-            <p className="text-green-100 text-sm">Total Exercises</p>
+            <p className="text-3xl font-bold">{totalSessions}</p>
+            <p className="text-green-100 text-sm">Total Sessions</p>
           </div>
           <div className="bg-white/10 rounded-lg p-3 text-center">
-            <p className="text-3xl font-bold">{verifiedProgress.percentage}%</p>
-            <p className="text-green-100 text-sm">Completion</p>
+            <p className="text-3xl font-bold">{progressPercentage}%</p>
+            <p className="text-green-100 text-sm">Complete</p>
           </div>
         </div>
         
         <div className="h-3 bg-white/20 rounded-full overflow-hidden">
           <div 
             className="h-full bg-white transition-all duration-500"
-            style={{ width: `${verifiedProgress.percentage}%` }}
+            style={{ width: `${progressPercentage}%` }}
           />
         </div>
-        
-        {verifiedDays.length > 0 && (
-          <p className="mt-3 text-green-100 text-sm">
-            Verified complete: Day {verifiedDays.join(', Day ')}
-          </p>
-        )}
       </div>
 
       {/* Progress Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 col-span-1 md:col-span-2 lg:col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400">Overall Progress</p>
               <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                {progressData.percentage}%
+                {progressPercentage}%
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                {progressData.completed} of {progressData.total} sessions
+                {completedCount} of {totalSessions} sessions
               </p>
             </div>
-            <ProgressRing progress={progressData.percentage} size={80} strokeWidth={6}>
+            <ProgressRing progress={progressPercentage} size={80} strokeWidth={6}>
               <span className="text-lg font-bold text-gray-900 dark:text-white">
-                {progressData.percentage}%
+                {progressPercentage}%
               </span>
             </ProgressRing>
           </div>
         </div>
-
-        <StatsCard
-          title="Current Streak"
-          value={`${streak.current} days`}
-          subtitle={`Best: ${streak.longest} days`}
-          icon={Flame}
-          color="orange"
-        />
         
         <StatsCard
           title="Sessions This Week"
@@ -142,11 +124,11 @@ export default function Dashboard() {
         />
         
         <StatsCard
-          title={progressData.daysAhead >= 0 ? "Days Ahead" : "Days Behind"}
-          value={Math.abs(progressData.daysAhead)}
-          subtitle={progressData.daysAhead >= 0 ? "Keep it up!" : "Catch up time!"}
-          icon={progressData.daysAhead >= 0 ? TrendingUp : Clock}
-          color={progressData.daysAhead >= 0 ? "green" : "red"}
+          title="Days Remaining"
+          value={daysRemaining}
+          subtitle="Until program end"
+          icon={Clock}
+          color="purple"
         />
       </div>
 

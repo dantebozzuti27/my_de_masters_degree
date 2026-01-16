@@ -6,35 +6,28 @@ import {
   getStoredProgress,
   saveProgress,
   initializeProgress,
-  markSessionComplete,
-  markSessionIncomplete,
   updateSessionNotes,
   updateSessionRating,
-  getCompletedSessionIds,
-  calculateStreak,
   exportProgress,
   importProgress
 } from '@/lib/storage';
 import { getAllSessions } from '@/lib/sessions';
-import { getVerifiedCompletedDays } from '@/lib/verified-progress';
+import { getVerifiedCompletedDays, getVerifiedProgress } from '@/lib/verified-progress';
 
 interface ProgressContextType {
   progress: UserProgress;
   isLoading: boolean;
   completedIds: Set<string>;
-  streak: { current: number; longest: number };
+  completedDays: number[];
+  verifiedStats: { completed: number; total: number; percentage: number };
   
-  // Actions
-  toggleSession: (sessionId: string) => void;
-  completeSession: (sessionId: string, data?: Partial<SessionProgress>) => void;
-  uncompleteSession: (sessionId: string) => void;
+  // Actions (notes/ratings only - completion is verified by code)
   setNotes: (sessionId: string, notes: string) => void;
   setRating: (sessionId: string, rating: 1 | 2 | 3 | 4 | 5) => void;
   
-  // Import/Export
+  // Import/Export (for notes/ratings)
   exportData: () => string;
   importData: (json: string) => boolean;
-  resetProgress: () => void;
 }
 
 const ProgressContext = createContext<ProgressContextType | null>(null);
@@ -42,67 +35,27 @@ const ProgressContext = createContext<ProgressContextType | null>(null);
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const [progress, setProgress] = useState<UserProgress>(initializeProgress());
   const [isLoading, setIsLoading] = useState(true);
-  const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
-  const [streak, setStreak] = useState({ current: 0, longest: 0 });
+  
+  // Verified progress is the source of truth
+  const verifiedDays = getVerifiedCompletedDays();
+  const verifiedStats = getVerifiedProgress();
+  const completedIds = new Set(verifiedDays.map(day => `session-${day}`));
 
-  // Load from localStorage on mount and merge with verified progress
+  // Load notes/ratings from localStorage on mount
   useEffect(() => {
     const stored = getStoredProgress();
     if (stored) {
       setProgress(stored);
-      
-      // Merge manual progress with verified progress
-      const manualIds = getCompletedSessionIds(stored);
-      const verifiedDays = getVerifiedCompletedDays();
-      const verifiedIds = verifiedDays.map(day => `session-${day}`);
-      const mergedIds = new Set([...manualIds, ...verifiedIds]);
-      setCompletedIds(mergedIds);
-      
-      const allDates = getAllSessions().map(s => s.date);
-      setStreak(calculateStreak(stored, allDates));
-    } else {
-      // Even without stored progress, show verified progress
-      const verifiedDays = getVerifiedCompletedDays();
-      const verifiedIds = verifiedDays.map(day => `session-${day}`);
-      setCompletedIds(new Set(verifiedIds));
     }
     setIsLoading(false);
   }, []);
 
-  // Save to localStorage whenever progress changes
+  // Save notes/ratings to localStorage
   useEffect(() => {
     if (!isLoading) {
       saveProgress(progress);
-      
-      // Merge manual progress with verified progress
-      const manualIds = getCompletedSessionIds(progress);
-      const verifiedDays = getVerifiedCompletedDays();
-      const verifiedIds = verifiedDays.map(day => `session-${day}`);
-      const mergedIds = new Set([...manualIds, ...verifiedIds]);
-      setCompletedIds(mergedIds);
-      
-      const allDates = getAllSessions().map(s => s.date);
-      setStreak(calculateStreak(progress, allDates));
     }
   }, [progress, isLoading]);
-
-  const toggleSession = useCallback((sessionId: string) => {
-    setProgress(prev => {
-      if (prev.sessions[sessionId]?.completed) {
-        return markSessionIncomplete(prev, sessionId);
-      } else {
-        return markSessionComplete(prev, sessionId);
-      }
-    });
-  }, []);
-
-  const completeSession = useCallback((sessionId: string, data?: Partial<SessionProgress>) => {
-    setProgress(prev => markSessionComplete(prev, sessionId, data));
-  }, []);
-
-  const uncompleteSession = useCallback((sessionId: string) => {
-    setProgress(prev => markSessionIncomplete(prev, sessionId));
-  }, []);
 
   const setNotes = useCallback((sessionId: string, notes: string) => {
     setProgress(prev => updateSessionNotes(prev, sessionId, notes));
@@ -125,26 +78,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     return false;
   }, []);
 
-  const resetProgress = useCallback(() => {
-    const fresh = initializeProgress();
-    setProgress(fresh);
-  }, []);
-
   return (
     <ProgressContext.Provider
       value={{
         progress,
         isLoading,
         completedIds,
-        streak,
-        toggleSession,
-        completeSession,
-        uncompleteSession,
+        completedDays: verifiedDays,
+        verifiedStats,
         setNotes,
         setRating,
         exportData,
-        importData: importDataFn,
-        resetProgress
+        importData: importDataFn
       }}
     >
       {children}

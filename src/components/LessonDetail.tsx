@@ -30,7 +30,7 @@ interface LessonDetailProps {
 }
 
 export function LessonDetail({ session }: LessonDetailProps) {
-  const { progress, toggleSession, setRating, setNotes } = useProgress();
+  const { progress, completedIds, setRating, setNotes } = useProgress();
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(['objectives', 'session-plan', 'resources', 'exercises'])
   );
@@ -38,7 +38,8 @@ export function LessonDetail({ session }: LessonDetailProps) {
   const [noteText, setNoteText] = useState(progress.sessions[session.id]?.notes || '');
   
   const lesson = getLessonByDay(session.dayNumber);
-  const isCompleted = progress.sessions[session.id]?.completed ?? false;
+  // Use verified progress for completion status
+  const isCompleted = completedIds.has(session.id);
   const sessionProgress = progress.sessions[session.id];
   
   const toggleSection = (section: string) => {
@@ -49,10 +50,6 @@ export function LessonDetail({ session }: LessonDetailProps) {
       newExpanded.add(section);
     }
     setExpandedSections(newExpanded);
-  };
-
-  const handleToggleComplete = () => {
-    toggleSession(session.id);
   };
 
   const handleRating = (rating: 1 | 2 | 3 | 4 | 5) => {
@@ -97,20 +94,20 @@ export function LessonDetail({ session }: LessonDetailProps) {
               {lesson.subtitle}
             </p>
           </div>
-          <button
-            onClick={handleToggleComplete}
-            className={`p-3 rounded-full transition-all ${
+          <div
+            className={`p-3 rounded-full ${
               isCompleted 
-                ? 'bg-green-100 text-green-600 hover:bg-green-200 dark:bg-green-800 dark:text-green-300' 
-                : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600'
+                ? 'bg-green-100 text-green-600 dark:bg-green-800 dark:text-green-300' 
+                : 'bg-gray-100 text-gray-400 dark:bg-gray-700'
             }`}
+            title={isCompleted ? 'Verified complete from workspace' : 'Complete the exercise to verify'}
           >
             {isCompleted ? (
               <CheckCircle2 className="w-8 h-8" />
             ) : (
               <Circle className="w-8 h-8" />
             )}
-          </button>
+          </div>
         </div>
 
         {/* Rating (if completed) */}

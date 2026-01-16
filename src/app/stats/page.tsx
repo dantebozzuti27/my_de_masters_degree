@@ -1,29 +1,27 @@
 'use client';
 
 import { useProgress } from '@/hooks/useProgress';
-import { getAllSessions, getProgress, getSessionsByQuarter } from '@/lib/sessions';
+import { getAllSessions, getSessionsByQuarter } from '@/lib/sessions';
 import { QUARTERS, SKILL_BASELINE, CERTIFICATIONS } from '@/lib/curriculum';
 import { StatsCard } from '@/components/StatsCard';
 import { ProgressRing } from '@/components/ProgressRing';
 import { 
-  Calendar, 
-  CheckCircle2, 
-  Flame, 
   Clock, 
   Star,
   TrendingUp,
   Award,
-  Target,
   BookOpen,
-  Zap
+  ShieldCheck
 } from 'lucide-react';
-import { format, parseISO, differenceInDays, differenceInWeeks } from 'date-fns';
+import { format, parseISO, differenceInDays } from 'date-fns';
 
 export default function StatsPage() {
-  const { completedIds, streak, progress } = useProgress();
+  const { completedIds, verifiedStats, progress } = useProgress();
   
   const allSessions = getAllSessions();
-  const progressData = getProgress(completedIds);
+  const completedCount = completedIds.size;
+  const totalSessions = allSessions.length;
+  const progressPercentage = Math.round((completedCount / totalSessions) * 100);
   
   // Calculate various stats
   const startDate = new Date(2026, 0, 12);
@@ -48,7 +46,7 @@ export default function StatsPage() {
   
   // Calculate skill progress (linear interpolation based on progress)
   const skillProgress = (baseline: { start: number; target: number }) => {
-    const progressPct = progressData.percentage / 100;
+    const progressPct = progressPercentage / 100;
     return baseline.start + (baseline.target - baseline.start) * progressPct;
   };
 
@@ -77,34 +75,37 @@ export default function StatsPage() {
       </div>
 
       {/* Overall Progress Card */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white mb-8">
+      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-8 text-white mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold">Overall Progress</h2>
-            <p className="text-blue-100 mt-1">
-              {progressData.completed} of {progressData.total} sessions completed
+            <div className="flex items-center gap-2 mb-2">
+              <ShieldCheck className="w-6 h-6" />
+              <h2 className="text-2xl font-bold">Verified Progress</h2>
+            </div>
+            <p className="text-green-100 mt-1">
+              {completedCount} of {totalSessions} sessions completed
             </p>
             
             <div className="mt-6 grid grid-cols-3 gap-6">
               <div>
                 <p className="text-3xl font-bold">{daysElapsed}</p>
-                <p className="text-blue-100 text-sm">Days Elapsed</p>
+                <p className="text-green-100 text-sm">Days Elapsed</p>
               </div>
               <div>
                 <p className="text-3xl font-bold">{daysRemaining}</p>
-                <p className="text-blue-100 text-sm">Days Remaining</p>
+                <p className="text-green-100 text-sm">Days Remaining</p>
               </div>
               <div>
                 <p className="text-3xl font-bold">{totalHours}h</p>
-                <p className="text-blue-100 text-sm">Time Invested</p>
+                <p className="text-green-100 text-sm">Time Invested</p>
               </div>
             </div>
           </div>
           
-          <ProgressRing progress={progressData.percentage} size={150} strokeWidth={10}>
+          <ProgressRing progress={progressPercentage} size={150} strokeWidth={10}>
             <div className="text-center">
-              <p className="text-4xl font-bold">{progressData.percentage}%</p>
-              <p className="text-blue-100 text-sm">Complete</p>
+              <p className="text-4xl font-bold">{progressPercentage}%</p>
+              <p className="text-green-100 text-sm">Complete</p>
             </div>
           </ProgressRing>
         </div>
@@ -113,11 +114,11 @@ export default function StatsPage() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatsCard
-          title="Current Streak"
-          value={`${streak.current} days`}
-          subtitle={`Longest: ${streak.longest} days`}
-          icon={Flame}
-          color="orange"
+          title="Verified Complete"
+          value={verifiedStats.completed}
+          subtitle="Days with code"
+          icon={ShieldCheck}
+          color="green"
         />
         <StatsCard
           title="Average Rating"
@@ -127,17 +128,17 @@ export default function StatsPage() {
           color="purple"
         />
         <StatsCard
-          title="Pace Status"
-          value={progressData.daysAhead >= 0 ? `+${progressData.daysAhead}` : progressData.daysAhead}
-          subtitle={progressData.daysAhead >= 0 ? "Days ahead" : "Days behind"}
-          icon={TrendingUp}
-          color={progressData.daysAhead >= 0 ? "green" : "red"}
+          title="Days Remaining"
+          value={daysRemaining}
+          subtitle="Until program end"
+          icon={Clock}
+          color="blue"
         />
         <StatsCard
           title="Sessions with Notes"
           value={Object.values(progress.sessions).filter(s => s.notes).length}
           icon={BookOpen}
-          color="blue"
+          color="orange"
         />
       </div>
 

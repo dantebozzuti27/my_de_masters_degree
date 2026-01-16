@@ -5,16 +5,15 @@ import { useProgress } from '@/hooks/useProgress';
 import { 
   Download, 
   Upload, 
-  Trash2, 
-  AlertTriangle,
   CheckCircle2,
   Copy,
-  ExternalLink
+  ExternalLink,
+  ShieldCheck,
+  Info
 } from 'lucide-react';
 
 export default function SettingsPage() {
-  const { exportData, importData, resetProgress, completedIds } = useProgress();
-  const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const { exportData, importData, completedIds, verifiedStats } = useProgress();
   const [importStatus, setImportStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [exportStatus, setExportStatus] = useState<'idle' | 'copied'>('idle');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -25,7 +24,7 @@ export default function SettingsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `sde-tracker-backup-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `sde-tracker-notes-${new Date().toISOString().split('T')[0]}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -60,11 +59,6 @@ export default function SettingsPage() {
     e.target.value = '';
   };
 
-  const handleReset = () => {
-    resetProgress();
-    setShowResetConfirm(false);
-  };
-
   return (
     <div className="p-6 max-w-2xl mx-auto">
       {/* Header */}
@@ -77,23 +71,63 @@ export default function SettingsPage() {
         </p>
       </div>
 
-      {/* Data Management */}
+      {/* How Progress Works */}
+      <div className="bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800 p-6 mb-6">
+        <div className="flex items-center gap-3 mb-3">
+          <ShieldCheck className="w-6 h-6 text-green-600 dark:text-green-400" />
+          <h2 className="text-lg font-bold text-green-800 dark:text-green-300">
+            Verified Progress System
+          </h2>
+        </div>
+        <p className="text-green-700 dark:text-green-400 text-sm mb-3">
+          Your progress is tracked by analyzing the actual code in your workspace - no checkboxes needed. 
+          Complete the exercises in your code editor, and your progress updates automatically at build time.
+        </p>
+        <div className="flex items-center gap-2 text-sm text-green-600 dark:text-green-500">
+          <Info className="w-4 h-4" />
+          <span>Progress syncs when you commit and deploy</span>
+        </div>
+      </div>
+
+      {/* Current Status */}
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-          Data Management
+          Current Progress
+        </h2>
+        
+        <div className="grid grid-cols-3 gap-4">
+          <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+            <p className="text-sm text-green-600 dark:text-green-400">Verified Complete</p>
+            <p className="text-2xl font-bold text-green-700 dark:text-green-300">{verifiedStats.completed}</p>
+          </div>
+          <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+            <p className="text-sm text-blue-600 dark:text-blue-400">Total Sessions</p>
+            <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">416</p>
+          </div>
+          <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+            <p className="text-sm text-purple-600 dark:text-purple-400">Remaining</p>
+            <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">{416 - verifiedStats.completed}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Notes & Ratings Backup */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+          Notes & Ratings Backup
         </h2>
         
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Your progress is stored locally in your browser. Export your data to back it up or transfer to another device.
+          Your notes and ratings are stored locally. Export to back them up or transfer to another device.
         </p>
 
         <div className="space-y-4">
           {/* Export */}
           <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <div>
-              <h3 className="font-medium text-gray-900 dark:text-white">Export Data</h3>
+              <h3 className="font-medium text-gray-900 dark:text-white">Export Notes</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Download your progress as a JSON file
+                Download your notes and ratings
               </p>
             </div>
             <div className="flex gap-2">
@@ -126,9 +160,9 @@ export default function SettingsPage() {
           {/* Import */}
           <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <div>
-              <h3 className="font-medium text-gray-900 dark:text-white">Import Data</h3>
+              <h3 className="font-medium text-gray-900 dark:text-white">Import Notes</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Restore progress from a backup file
+                Restore notes from a backup file
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -138,9 +172,7 @@ export default function SettingsPage() {
                 </span>
               )}
               {importStatus === 'error' && (
-                <span className="text-red-500 text-sm flex items-center gap-1">
-                  <AlertTriangle className="w-4 h-4" /> Invalid file
-                </span>
+                <span className="text-red-500 text-sm">Invalid file</span>
               )}
               <button
                 onClick={handleImportClick}
@@ -157,24 +189,6 @@ export default function SettingsPage() {
                 className="hidden"
               />
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Current Status */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-          Current Progress
-        </h2>
-        
-        <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-            <p className="text-sm text-blue-600 dark:text-blue-400">Completed Sessions</p>
-            <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">{completedIds.size}</p>
-          </div>
-          <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-            <p className="text-sm text-purple-600 dark:text-purple-400">Remaining</p>
-            <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">{416 - completedIds.size}</p>
           </div>
         </div>
       </div>
@@ -211,62 +225,9 @@ export default function SettingsPage() {
             className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
             <span className="text-gray-900 dark:text-white">AWS Skill Builder (Free Tier)</span>
-            <ExternalLink className="w-4 h-4 text-gray-400" />
+            <ExternalLink className="w-4 h-4" />
           </a>
         </div>
-      </div>
-
-      {/* Danger Zone */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-red-200 dark:border-red-900 p-6">
-        <h2 className="text-lg font-bold text-red-600 dark:text-red-400 mb-4">
-          Danger Zone
-        </h2>
-        
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="font-medium text-gray-900 dark:text-white">Reset All Progress</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              This will delete all your progress data. This action cannot be undone.
-            </p>
-          </div>
-          <button
-            onClick={() => setShowResetConfirm(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors"
-          >
-            <Trash2 className="w-4 h-4" />
-            Reset
-          </button>
-        </div>
-
-        {/* Confirmation Modal */}
-        {showResetConfirm && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md w-full">
-              <div className="flex items-center gap-3 text-red-600 dark:text-red-400 mb-4">
-                <AlertTriangle className="w-8 h-8" />
-                <h3 className="text-xl font-bold">Confirm Reset</h3>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Are you sure you want to reset all your progress? You have completed{' '}
-                <strong>{completedIds.size}</strong> sessions. This cannot be undone.
-              </p>
-              <div className="flex gap-3 justify-end">
-                <button
-                  onClick={() => setShowResetConfirm(false)}
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleReset}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                >
-                  Yes, Reset Everything
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Footer */}

@@ -16,17 +16,14 @@ interface SessionCardProps {
 }
 
 export function SessionCard({ session, variant = 'full', showDate = true }: SessionCardProps) {
-  const { progress, toggleSession, setRating, setNotes } = useProgress();
+  const { progress, completedIds, setRating, setNotes } = useProgress();
   const [showNotes, setShowNotes] = useState(false);
   const [noteText, setNoteText] = useState(progress.sessions[session.id]?.notes || '');
   
-  const isCompleted = progress.sessions[session.id]?.completed ?? false;
+  // Use verified progress for completion status
+  const isCompleted = completedIds.has(session.id);
   const sessionProgress = progress.sessions[session.id];
   const quarter = QUARTERS.find(q => q.id === session.quarterId);
-  
-  const handleToggle = () => {
-    toggleSession(session.id);
-  };
 
   const handleRating = (rating: 1 | 2 | 3 | 4 | 5) => {
     setRating(session.id, rating);
@@ -39,13 +36,13 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
 
   if (variant === 'compact') {
     return (
-      <div 
-        className={`flex items-center gap-3 p-3 rounded-lg border transition-all cursor-pointer hover:shadow-md ${
+      <Link 
+        href={`/lesson/${session.dayNumber}`}
+        className={`flex items-center gap-3 p-3 rounded-lg border transition-all hover:shadow-md ${
           isCompleted 
             ? 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800' 
             : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700'
         }`}
-        onClick={handleToggle}
       >
         {isCompleted ? (
           <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -65,7 +62,7 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
         <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
           Day {session.dayNumber}
         </span>
-      </div>
+      </Link>
     );
   }
 
@@ -86,20 +83,20 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
             {session.topic}
           </h3>
         </div>
-        <button
-          onClick={handleToggle}
-          className={`p-2 rounded-full transition-colors ${
+        <div
+          className={`p-2 rounded-full ${
             isCompleted 
-              ? 'bg-green-100 text-green-600 hover:bg-green-200 dark:bg-green-800 dark:text-green-300' 
-              : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600'
+              ? 'bg-green-100 text-green-600 dark:bg-green-800 dark:text-green-300' 
+              : 'bg-gray-100 text-gray-400 dark:bg-gray-700'
           }`}
+          title={isCompleted ? 'Verified complete' : 'Not yet complete'}
         >
           {isCompleted ? (
             <CheckCircle2 className="w-8 h-8" />
           ) : (
             <Circle className="w-8 h-8" />
           )}
-        </button>
+        </div>
       </div>
 
       {/* Meta info */}
