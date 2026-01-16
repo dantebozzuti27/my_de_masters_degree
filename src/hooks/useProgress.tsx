@@ -16,6 +16,7 @@ import {
   importProgress
 } from '@/lib/storage';
 import { getAllSessions } from '@/lib/sessions';
+import { getVerifiedCompletedDays } from '@/lib/verified-progress';
 
 interface ProgressContextType {
   progress: UserProgress;
@@ -44,15 +45,26 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [streak, setStreak] = useState({ current: 0, longest: 0 });
 
-  // Load from localStorage on mount
+  // Load from localStorage on mount and merge with verified progress
   useEffect(() => {
     const stored = getStoredProgress();
     if (stored) {
       setProgress(stored);
-      setCompletedIds(getCompletedSessionIds(stored));
+      
+      // Merge manual progress with verified progress
+      const manualIds = getCompletedSessionIds(stored);
+      const verifiedDays = getVerifiedCompletedDays();
+      const verifiedIds = verifiedDays.map(day => `session-${day}`);
+      const mergedIds = new Set([...manualIds, ...verifiedIds]);
+      setCompletedIds(mergedIds);
       
       const allDates = getAllSessions().map(s => s.date);
       setStreak(calculateStreak(stored, allDates));
+    } else {
+      // Even without stored progress, show verified progress
+      const verifiedDays = getVerifiedCompletedDays();
+      const verifiedIds = verifiedDays.map(day => `session-${day}`);
+      setCompletedIds(new Set(verifiedIds));
     }
     setIsLoading(false);
   }, []);
@@ -61,7 +73,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isLoading) {
       saveProgress(progress);
-      setCompletedIds(getCompletedSessionIds(progress));
+      
+      // Merge manual progress with verified progress
+      const manualIds = getCompletedSessionIds(progress);
+      const verifiedDays = getVerifiedCompletedDays();
+      const verifiedIds = verifiedDays.map(day => `session-${day}`);
+      const mergedIds = new Set([...manualIds, ...verifiedIds]);
+      setCompletedIds(mergedIds);
       
       const allDates = getAllSessions().map(s => s.date);
       setStreak(calculateStreak(progress, allDates));
