@@ -1,7 +1,7 @@
 'use client';
 
 import { useProgress } from '@/hooks/useProgress';
-import { getAllSessions, getTodaySession, getUpcomingSessions, getCurrentWeekSessions } from '@/lib/sessions';
+import { getAllSessions, getCurrentWeekSessions } from '@/lib/sessions';
 import { QUARTERS } from '@/lib/curriculum';
 import { SessionCard } from '@/components/SessionCard';
 import { StatsCard } from '@/components/StatsCard';
@@ -11,9 +11,7 @@ import { QuarterProgress } from '@/components/QuarterProgress';
 import { format, differenceInDays } from 'date-fns';
 import { 
   Calendar, 
-  Target, 
   Clock, 
-  TrendingUp,
   ChevronRight,
   Zap,
   ShieldCheck
@@ -24,9 +22,10 @@ export default function Dashboard() {
   const { completedIds, verifiedStats, isLoading } = useProgress();
   
   const allSessions = getAllSessions();
-  const todaySession = getTodaySession();
-  const upcomingSessions = getUpcomingSessions(5);
   const currentWeekSessions = getCurrentWeekSessions();
+  
+  // Find the next incomplete session (for users who work ahead)
+  const nextSession = allSessions.find(s => !completedIds.has(s.id));
   
   // Calculate days until end
   const endDate = new Date(2028, 0, 8);
@@ -37,9 +36,9 @@ export default function Dashboard() {
   const completedCount = completedIds.size;
   const progressPercentage = Math.round((completedCount / totalSessions) * 100);
   
-  // Find current quarter
-  const currentQuarter = todaySession 
-    ? QUARTERS.find(q => q.id === todaySession.quarterId)
+  // Find current quarter based on next session
+  const currentQuarter = nextSession 
+    ? QUARTERS.find(q => q.id === nextSession.quarterId)
     : QUARTERS[0];
 
   if (isLoading) {
@@ -132,25 +131,30 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Today's Session */}
+      {/* Next Session */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
             <Zap className="w-5 h-5 text-yellow-500" />
-            Today's Session
+            Next Up
           </h2>
+          {nextSession && (
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              Day {nextSession.dayNumber} of {totalSessions}
+            </span>
+          )}
         </div>
         
-        {todaySession ? (
-          <SessionCard session={todaySession} variant="full" />
+        {nextSession ? (
+          <SessionCard session={nextSession} variant="full" />
         ) : (
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 text-center">
-            <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              No Session Today
+          <div className="bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-700 p-8 text-center">
+            <ShieldCheck className="w-12 h-12 text-green-500 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-green-800 dark:text-green-300 mb-2">
+              All Sessions Complete!
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Study sessions are Monday through Thursday. Enjoy your day off!
+            <p className="text-green-600 dark:text-green-400">
+              You've completed the entire 2-year program. Congratulations!
             </p>
           </div>
         )}
@@ -197,22 +201,25 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Upcoming Sessions */}
+      {/* Next Sessions in Queue */}
       <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-            Upcoming Sessions
+            Coming Up Next
           </h2>
         </div>
         
         <div className="grid gap-3">
-          {upcomingSessions.slice(0, 5).map(session => (
-            <SessionCard
-              key={session.id}
-              session={session}
-              variant="compact"
-            />
-          ))}
+          {allSessions
+            .filter(s => !completedIds.has(s.id))
+            .slice(1, 6)
+            .map(session => (
+              <SessionCard
+                key={session.id}
+                session={session}
+                variant="compact"
+              />
+            ))}
         </div>
       </div>
 
