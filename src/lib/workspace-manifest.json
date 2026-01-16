@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-14T20:26:58.795Z",
+  "generatedAt": "2026-01-16T01:28:12.324Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -53,7 +53,19 @@
           }
         },
         "2": {
-          "exercises": {}
+          "exercises": {
+            "day5_comprehensions.py": {
+              "complete": true,
+              "totalFunctions": 16,
+              "completedFunctions": 0,
+              "incompletePatterns": 0,
+              "completePatterns": 2,
+              "hash": "6a8ed0ee",
+              "lines": 250,
+              "path": "q1-python-sql/week-02/exercises/day5_comprehensions.py",
+              "modifiedAt": "2026-01-16T01:24:36.014Z"
+            }
+          }
         },
         "3": {
           "exercises": {}
@@ -400,8 +412,8 @@
     }
   },
   "summary": {
-    "totalExercises": 4,
-    "completedExercises": 4,
+    "totalExercises": 5,
+    "completedExercises": 5,
     "completionRate": 100
   },
   "dayStatus": {
@@ -420,6 +432,10 @@
     "4": {
       "complete": true,
       "file": "q1-python-sql/week-01/exercises/day4_data_structures.py"
+    },
+    "5": {
+      "complete": true,
+      "file": "q1-python-sql/week-02/exercises/day5_comprehensions.py"
     }
   }
 }

@@ -248,13 +248,11 @@ function scanWorkspace() {
         }
         
         // Map file to day number
+        // Filenames use ABSOLUTE day numbers (day1, day2, ..., day52, etc.)
+        // NOT day-within-week, so we just extract the number directly
         const dayMatch = fileName.match(/day(\d+)/);
         if (dayMatch) {
-          const dayInWeek = parseInt(dayMatch[1]);
-          const weekNum = parseInt(wNum);
-          const quarterNum = parseInt(qNum);
-          const weeksBeforeThisQuarter = (quarterNum - 1) * 13;
-          const absoluteDay = (weeksBeforeThisQuarter + weekNum - 1) * 4 + dayInWeek;
+          const absoluteDay = parseInt(dayMatch[1]);
           
           manifest.dayStatus[absoluteDay] = {
             complete: exercise.complete,
