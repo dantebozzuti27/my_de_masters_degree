@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-16T01:38:14.363Z",
+  "generatedAt": "2026-01-17T20:29:52.024Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -15,7 +15,7 @@
               "hash": "5530c63d",
               "lines": 238,
               "path": "q1-python-sql/week-01/exercises/day1_verify_setup.py",
-              "modifiedAt": "2026-01-14T00:49:11.457Z"
+              "modifiedAt": "2026-01-17T19:42:48.833Z"
             },
             "day2_variables.py": {
               "complete": true,
@@ -26,7 +26,7 @@
               "hash": "d461145e",
               "lines": 248,
               "path": "q1-python-sql/week-01/exercises/day2_variables.py",
-              "modifiedAt": "2026-01-14T03:24:12.703Z"
+              "modifiedAt": "2026-01-17T19:42:48.857Z"
             },
             "day3_functions.py": {
               "complete": true,
@@ -37,7 +37,7 @@
               "hash": "f065cba3",
               "lines": 370,
               "path": "q1-python-sql/week-01/exercises/day3_functions.py",
-              "modifiedAt": "2026-01-14T03:22:17.645Z"
+              "modifiedAt": "2026-01-17T19:42:48.857Z"
             },
             "day4_data_structures.py": {
               "complete": true,
@@ -48,7 +48,7 @@
               "hash": "9f6abf36",
               "lines": 394,
               "path": "q1-python-sql/week-01/exercises/day4_data_structures.py",
-              "modifiedAt": "2026-01-14T20:26:46.700Z"
+              "modifiedAt": "2026-01-17T19:42:48.857Z"
             }
           }
         },
@@ -63,12 +63,90 @@
               "hash": "6a8ed0ee",
               "lines": 250,
               "path": "q1-python-sql/week-02/exercises/day5_comprehensions.py",
-              "modifiedAt": "2026-01-16T01:24:36.014Z"
+              "modifiedAt": "2026-01-16T15:36:48.713Z"
+            },
+            "day6_dicts_json.py": {
+              "complete": false,
+              "totalFunctions": 16,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 2,
+              "hash": "345f322f",
+              "lines": 399,
+              "path": "q1-python-sql/week-02/exercises/day6_dicts_json.py",
+              "modifiedAt": "2026-01-17T20:22:55.018Z"
+            },
+            "day7_file_io.py": {
+              "complete": false,
+              "totalFunctions": 18,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "14f455d9",
+              "lines": 483,
+              "path": "q1-python-sql/week-02/exercises/day7_file_io.py",
+              "modifiedAt": "2026-01-17T20:24:48.639Z"
+            },
+            "day8_error_handling.py": {
+              "complete": false,
+              "totalFunctions": 17,
+              "completedFunctions": 0,
+              "incompletePatterns": 2,
+              "completePatterns": 0,
+              "hash": "fdbeabcb",
+              "lines": 500,
+              "path": "q1-python-sql/week-02/exercises/day8_error_handling.py",
+              "modifiedAt": "2026-01-17T20:25:48.973Z"
             }
           }
         },
         "3": {
-          "exercises": {}
+          "exercises": {
+            "day10_functional.py": {
+              "complete": true,
+              "totalFunctions": 26,
+              "completedFunctions": 3,
+              "incompletePatterns": 1,
+              "completePatterns": 4,
+              "hash": "14e20ed4",
+              "lines": 476,
+              "path": "q1-python-sql/week-03/exercises/day10_functional.py",
+              "modifiedAt": "2026-01-17T20:27:41.618Z"
+            },
+            "day11_modules.py": {
+              "complete": false,
+              "totalFunctions": 18,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "6a212786",
+              "lines": 467,
+              "path": "q1-python-sql/week-03/exercises/day11_modules.py",
+              "modifiedAt": "2026-01-17T20:28:35.726Z"
+            },
+            "day12_utility_library.py": {
+              "complete": false,
+              "totalFunctions": 22,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e92a7e11",
+              "lines": 211,
+              "path": "q1-python-sql/week-03/exercises/day12_utility_library.py",
+              "modifiedAt": "2026-01-17T20:29:44.426Z"
+            },
+            "day9_advanced_functions.py": {
+              "complete": false,
+              "totalFunctions": 18,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 3,
+              "hash": "ac8d51ab",
+              "lines": 481,
+              "path": "q1-python-sql/week-03/exercises/day9_advanced_functions.py",
+              "modifiedAt": "2026-01-17T20:26:45.956Z"
+            }
+          }
         },
         "4": {
           "exercises": {}
@@ -412,9 +490,9 @@
     }
   },
   "summary": {
-    "totalExercises": 5,
-    "completedExercises": 5,
-    "completionRate": 100
+    "totalExercises": 12,
+    "completedExercises": 6,
+    "completionRate": 50
   },
   "dayStatus": {
     "1": {
@@ -436,6 +514,34 @@
     "5": {
       "complete": true,
       "file": "q1-python-sql/week-02/exercises/day5_comprehensions.py"
+    },
+    "6": {
+      "complete": false,
+      "file": "q1-python-sql/week-02/exercises/day6_dicts_json.py"
+    },
+    "7": {
+      "complete": false,
+      "file": "q1-python-sql/week-02/exercises/day7_file_io.py"
+    },
+    "8": {
+      "complete": false,
+      "file": "q1-python-sql/week-02/exercises/day8_error_handling.py"
+    },
+    "9": {
+      "complete": false,
+      "file": "q1-python-sql/week-03/exercises/day9_advanced_functions.py"
+    },
+    "10": {
+      "complete": true,
+      "file": "q1-python-sql/week-03/exercises/day10_functional.py"
+    },
+    "11": {
+      "complete": false,
+      "file": "q1-python-sql/week-03/exercises/day11_modules.py"
+    },
+    "12": {
+      "complete": false,
+      "file": "q1-python-sql/week-03/exercises/day12_utility_library.py"
     }
   }
 }
