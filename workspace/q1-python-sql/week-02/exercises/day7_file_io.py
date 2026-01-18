@@ -25,7 +25,8 @@ def read_entire_file(filepath: str) -> str:
         >>> print(content)
         'Hello, World!'
     """
-    pass
+    with open(filepath, 'r') as f:
+        return f.read()
 
 
 def read_file_lines(filepath: str) -> List[str]:
@@ -37,7 +38,8 @@ def read_file_lines(filepath: str) -> List[str]:
         >>> lines
         ['line 1', 'line 2', 'line 3']
     """
-    pass
+    with open(filepath, 'r') as f:
+        return [line.strip() for line in f.readlines()]
 
 
 def count_lines(filepath: str) -> int:
@@ -48,7 +50,8 @@ def count_lines(filepath: str) -> int:
         >>> count_lines('sample.txt')
         100
     """
-    pass
+    with open(filepath, 'r') as f:
+        return len(f.readlines())
 
 
 # =============================================================================
@@ -63,7 +66,8 @@ def write_text_file(filepath: str, content: str) -> None:
         >>> write_text_file('output.txt', 'Hello, World!')
         # Creates file with 'Hello, World!'
     """
-    pass
+    with open(filepath, 'w') as f:
+        f.write(content)
 
 
 def append_to_file(filepath: str, content: str) -> None:
@@ -74,7 +78,8 @@ def append_to_file(filepath: str, content: str) -> None:
         >>> append_to_file('log.txt', 'New log entry\\n')
         # Adds to end of file
     """
-    pass
+    with open(filepath, 'a') as f:
+        f.write(content)
 
 
 def write_lines(filepath: str, lines: List[str]) -> None:
@@ -87,7 +92,9 @@ def write_lines(filepath: str, lines: List[str]) -> None:
         # line 1
         # line 2
     """
-    pass
+    with open(filepath, 'w') as f:
+        for line in lines:
+            f.write(line + '\n')
 
 
 # =============================================================================
@@ -110,7 +117,11 @@ def safe_read_file(filepath: str) -> Optional[str]:
         >>> safe_read_file('missing.txt')
         None
     """
-    pass
+    try:
+        with open(filepath, 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        return None
 
 
 def process_large_file(filepath: str) -> Dict[str, int]:
@@ -128,7 +139,15 @@ def process_large_file(filepath: str) -> Dict[str, int]:
         >>> process_large_file('big.txt')
         {'lines': 1000, 'chars': 50000, 'words': 8500}
     """
-    pass
+    lines = 0
+    chars = 0
+    words = 0
+    with open(filepath, 'r') as f:
+        for line in f:
+            lines += 1
+            chars += len(line)
+            words += len(line.split())
+    return {'lines': lines, 'chars': chars, 'words': words}
 
 
 # =============================================================================
@@ -157,7 +176,9 @@ def read_csv_as_dicts(filepath: str) -> List[Dict[str, str]]:
     
     Hint: Use csv.DictReader
     """
-    pass
+    with open(filepath, 'r') as f:
+        reader = csv.DictReader(f)
+        return list(reader)
 
 
 def write_dicts_to_csv(filepath: str, data: List[Dict], fieldnames: List[str]) -> None:
@@ -171,7 +192,10 @@ def write_dicts_to_csv(filepath: str, data: List[Dict], fieldnames: List[str]) -
     
     Hint: Use csv.DictWriter
     """
-    pass
+    with open(filepath, 'w', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(data)
 
 
 def filter_csv(input_path: str, output_path: str, column: str, value: str) -> int:
@@ -183,7 +207,17 @@ def filter_csv(input_path: str, output_path: str, column: str, value: str) -> in
         >>> filter_csv('users.csv', 'engineers.csv', 'department', 'Engineering')
         25  # 25 engineers found and written
     """
-    pass
+    with open(input_path, 'r') as infile:
+        reader = csv.DictReader(infile)
+        fieldnames = reader.fieldnames
+        matching_rows = [row for row in reader if row[column] == value]
+    
+    with open(output_path, 'w', newline='') as outfile:
+        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(matching_rows)
+    
+    return len(matching_rows)
 
 
 # =============================================================================
@@ -198,7 +232,9 @@ def read_json_file(filepath: str) -> Any:
         >>> read_json_file('config.json')
         {'database': 'postgres', 'port': 5432}
     """
-    pass
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
 
 
 def write_json_file(filepath: str, data: Any, pretty: bool = True) -> None:
@@ -210,7 +246,11 @@ def write_json_file(filepath: str, data: Any, pretty: bool = True) -> None:
         >>> write_json_file('output.json', {'key': 'value'}, pretty=True)
         # Creates formatted JSON file
     """
-    pass
+    with open(filepath, 'w') as f:
+        if pretty:
+            json.dump(data, f, indent=2)
+        else:
+            json.dump(data, f)
 
 
 def merge_json_files(filepaths: List[str], output_path: str) -> Dict:
@@ -222,7 +262,14 @@ def merge_json_files(filepaths: List[str], output_path: str) -> Dict:
         >>> merge_json_files(['base.json', 'override.json'], 'merged.json')
         {'combined': 'config'}
     """
-    pass
+    result = {}
+    for filepath in filepaths:
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            result = {**result, **data}
+    with open(output_path, 'w') as f:
+        json.dump(result, f, indent=2)
+    return result
 
 
 # =============================================================================
@@ -239,7 +286,12 @@ def find_files_by_extension(directory: str, extension: str) -> List[str]:
     
     Hint: Use pathlib.Path or os.walk
     """
-    pass
+    result = []
+    for root, dirs, files in os.walk(directory):
+        for filename in files:
+            if filename.endswith(extension):
+                result.append(os.path.join(root, filename))
+    return result
 
 
 def get_file_stats(filepath: str) -> Dict[str, Any]:
@@ -256,7 +308,18 @@ def get_file_stats(filepath: str) -> Dict[str, Any]:
         >>> get_file_stats('data.csv')
         {'size_bytes': 1024000, 'size_mb': 0.98, 'exists': True, 'extension': '.csv'}
     """
-    pass
+    exists = os.path.exists(filepath)
+    if not exists:
+        return {'size_bytes': 0, 'size_mb': 0, 'exists': False, 'extension': ''}
+    size_bytes = os.path.getsize(filepath)
+    size_mb = round(size_bytes / (1024 * 1024), 2)
+    extension = os.path.splitext(filepath)[1]
+    return {
+        'size_bytes': size_bytes,
+        'size_mb': size_mb,
+        'exists': True,
+        'extension': extension
+    }
 
 
 def backup_file(filepath: str) -> str:
@@ -268,7 +331,12 @@ def backup_file(filepath: str) -> str:
         >>> backup_file('config.json')
         'config.json.bak'
     """
-    pass
+    backup_path = filepath + '.bak'
+    with open(filepath, 'r') as src:
+        content = src.read()
+    with open(backup_path, 'w') as dst:
+        dst.write(content)
+    return backup_path
 
 
 # =============================================================================
