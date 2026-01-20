@@ -19,7 +19,7 @@ export interface Lesson {
     warningWhenNotToUseAI?: string;
   };
   
-  // Session structure (90 minutes total) - supports both old and new formats
+  // Session structure (120 minutes / 2 hours total) - supports both old and new formats
   sessionPlan: SessionPlanItem[] | {
     warmup: {
       duration: number;

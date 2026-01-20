@@ -241,7 +241,7 @@ export function LessonDetail({ session }: LessonDetailProps) {
 
       {/* Session Plan */}
       <CollapsibleSection
-        title="Session Plan (90 minutes)"
+        title="Session Plan (2 hours)"
         icon={Clock}
         isExpanded={expandedSections.has('session-plan')}
         onToggle={() => toggleSection('session-plan')}

@@ -8,7 +8,7 @@ import { StatsCard } from '@/components/StatsCard';
 import { ProgressRing } from '@/components/ProgressRing';
 import { WeekView } from '@/components/WeekView';
 import { QuarterProgress } from '@/components/QuarterProgress';
-import { format, differenceInDays } from 'date-fns';
+import { format } from 'date-fns';
 import { 
   Calendar, 
   Clock, 
@@ -22,19 +22,16 @@ export default function Dashboard() {
   const { completedIds, verifiedStats, isLoading } = useProgress();
   
   const allSessions = getAllSessions();
-  const currentWeekSessions = getCurrentWeekSessions();
+  const currentWeekSessions = getCurrentWeekSessions(completedIds);
   
   // Find the next incomplete session (for users who work ahead)
   const nextSession = allSessions.find(s => !completedIds.has(s.id));
-  
-  // Calculate days until end - Aggressive 6-month plan ends July 31, 2026
-  const endDate = new Date(2026, 6, 31); // July 31, 2026
-  const daysRemaining = differenceInDays(endDate, new Date());
   
   // Calculate progress based on verified completion
   const totalSessions = allSessions.length;
   const completedCount = completedIds.size;
   const progressPercentage = Math.round((completedCount / totalSessions) * 100);
+  const sessionsRemaining = totalSessions - completedCount;
   
   // Find current quarter based on next session
   const currentQuarter = nextSession 
@@ -123,9 +120,9 @@ export default function Dashboard() {
         />
         
         <StatsCard
-          title="Days Remaining"
-          value={daysRemaining}
-          subtitle="Until program end"
+          title="Sessions Remaining"
+          value={sessionsRemaining}
+          subtitle={`${sessionsRemaining * 2} hours of study`}
           icon={Clock}
           color="purple"
         />
@@ -245,8 +242,8 @@ export default function Dashboard() {
             </div>
             
             <div className="text-right">
-              <p className="text-4xl font-bold">{daysRemaining}</p>
-              <p className="text-blue-100 text-sm">days remaining</p>
+              <p className="text-4xl font-bold">{sessionsRemaining}</p>
+              <p className="text-blue-100 text-sm">sessions remaining</p>
             </div>
           </div>
         </div>

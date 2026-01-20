@@ -4,8 +4,7 @@ import { StudySession } from '@/lib/types';
 import { QUARTERS, WEEKLY_CURRICULUM } from '@/lib/curriculum';
 import { useProgress } from '@/hooks/useProgress';
 import { SessionCard } from './SessionCard';
-import { format, parseISO } from 'date-fns';
-import { CheckCircle2, Circle } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 interface WeekViewProps {
   sessions: StudySession[];
@@ -21,8 +20,9 @@ export function WeekView({ sessions, weekNumber }: WeekViewProps) {
   const completedCount = sessions.filter(s => completedIds.has(s.id)).length;
   const isWeekComplete = completedCount === sessions.length;
 
-  const firstDate = sessions[0] ? parseISO(sessions[0].date) : new Date();
-  const lastDate = sessions[sessions.length - 1] ? parseISO(sessions[sessions.length - 1].date) : new Date();
+  // Calculate day range for this week
+  const firstDay = sessions[0]?.dayNumber ?? 1;
+  const lastDay = sessions[sessions.length - 1]?.dayNumber ?? 4;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
@@ -44,7 +44,7 @@ export function WeekView({ sessions, weekNumber }: WeekViewProps) {
               )}
             </div>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              {format(firstDate, 'MMM d')} - {format(lastDate, 'MMM d, yyyy')}
+              Days {firstDay} - {lastDay} • 8 hours total
             </p>
           </div>
           <div className="text-right">
@@ -72,7 +72,6 @@ export function WeekView({ sessions, weekNumber }: WeekViewProps) {
               key={session.id}
               session={session}
               variant="compact"
-              showDate={false}
             />
           ))}
         </div>

@@ -2,20 +2,17 @@
 
 import { StudySession } from '@/lib/types';
 import { QUARTERS } from '@/lib/curriculum';
-import { getDayLabel } from '@/lib/sessions';
 import { useProgress } from '@/hooks/useProgress';
-import { format, parseISO } from 'date-fns';
-import { CheckCircle2, Circle, Calendar, Target, BookOpen, Star, ExternalLink } from 'lucide-react';
+import { CheckCircle2, Circle, Target, BookOpen, Star, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 
 interface SessionCardProps {
   session: StudySession;
   variant?: 'compact' | 'full';
-  showDate?: boolean;
 }
 
-export function SessionCard({ session, variant = 'full', showDate = true }: SessionCardProps) {
+export function SessionCard({ session, variant = 'full' }: SessionCardProps) {
   const { progress, completedIds, setRating, setNotes } = useProgress();
   const [showNotes, setShowNotes] = useState(false);
   const [noteText, setNoteText] = useState(progress.sessions[session.id]?.notes || '');
@@ -53,11 +50,9 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
           <p className={`font-medium truncate ${isCompleted ? 'text-green-700 dark:text-green-300' : 'text-gray-900 dark:text-white'}`}>
             {session.topic}
           </p>
-          {showDate && (
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {getDayLabel(session.dayOfWeek)} • {format(parseISO(session.date), 'MMM d, yyyy')}
-            </p>
-          )}
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Week {session.weekNumber} • {quarter?.shortName}
+          </p>
         </div>
         <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
           Day {session.dayNumber}
@@ -76,8 +71,7 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
       <div className="flex items-start justify-between mb-4">
         <div>
           <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-1">
-            <Calendar className="w-4 h-4" />
-            <span>{getDayLabel(session.dayOfWeek)}, {format(parseISO(session.date), 'MMMM d, yyyy')}</span>
+            <span>Day {session.dayNumber} • Week {session.weekNumber}</span>
           </div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {session.topic}
@@ -102,7 +96,7 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
       {/* Meta info */}
       <div className="flex flex-wrap gap-2 mb-4">
         <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 rounded-full text-sm font-medium">
-          Day {session.dayNumber} of 416
+          Day {session.dayNumber} of 96
         </span>
         <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 rounded-full text-sm font-medium">
           Week {session.weekNumber}
@@ -110,21 +104,24 @@ export function SessionCard({ session, variant = 'full', showDate = true }: Sess
         <span className="px-3 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300 rounded-full text-sm font-medium">
           {quarter?.shortName}
         </span>
+        <span className="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 rounded-full text-sm font-medium">
+          2 hours
+        </span>
       </div>
 
-      {/* Quarter info */}
+      {/* Month info */}
       <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 mb-4">
         <div className="flex items-start gap-2">
           <Target className="w-5 h-5 text-gray-500 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Quarter Goal</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Month Goal</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">{quarter?.goal}</p>
           </div>
         </div>
         <div className="flex items-start gap-2 mt-3">
           <BookOpen className="w-5 h-5 text-gray-500 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Side Project</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Project</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">{quarter?.project}</p>
           </div>
         </div>

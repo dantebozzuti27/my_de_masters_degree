@@ -27,8 +27,8 @@ export interface StudySession {
   dayNumber: number;
   weekNumber: number;
   quarterId: number;
-  date: string; // ISO date string YYYY-MM-DD
-  dayOfWeek: 0 | 1 | 2 | 3; // Mon=0, Tue=1, Wed=2, Thu=3
+  date?: string; // Optional - not tied to specific dates
+  dayOfWeek?: 0 | 1 | 2 | 3; // Optional - complete at your own pace
   topic: string;
   objectives: string[];
   resources: Resource[];
@@ -60,8 +60,7 @@ export interface ProgressStats {
   totalTimeSpent: number;
   averageRating: number;
   completionRate: number;
-  daysAhead: number;
-  daysBehind: number;
+  nextSession: number;
 }
 
 export interface UserProgress {

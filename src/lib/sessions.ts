@@ -1,12 +1,12 @@
 // Session generation utilities for 6-Month Aggressive Plan
+// NO DATE DEPENDENCIES - Complete lessons at your own pace (2 hours each)
 
-import { addDays, format, parseISO, isBefore, isAfter, isEqual, startOfDay } from 'date-fns';
 import { StudySession } from './types';
 import { QUARTERS, WEEKLY_CURRICULUM } from './curriculum';
 
-// START: February 1, 2026 (aggressive 6-month plan)
-const START_DATE = new Date(2026, 1, 1); // February 1, 2026
 const TOTAL_WEEKS = 24; // 6 months = 24 weeks
+const SESSIONS_PER_WEEK = 4; // 4 sessions per week
+const TOTAL_SESSIONS = TOTAL_WEEKS * SESSIONS_PER_WEEK; // 96 total sessions
 
 function getQuarterForWeek(weekNumber: number): number {
   for (const quarter of QUARTERS) {
@@ -24,46 +24,27 @@ function getTopicsForWeek(weekNumber: number): [string, string, string, string] 
 
 export function generateAllSessions(): StudySession[] {
   const sessions: StudySession[] = [];
-  let currentDate = START_DATE;
-  let dayNumber = 0;
-  let weekNumber = 1;
 
-  // Generate sessions for 24 weeks (Mon-Thu each week)
-  while (weekNumber <= TOTAL_WEEKS) {
-    const dayOfWeekJS = currentDate.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+  // Generate 96 sessions (24 weeks × 4 sessions per week)
+  for (let dayNumber = 1; dayNumber <= TOTAL_SESSIONS; dayNumber++) {
+    const weekNumber = Math.ceil(dayNumber / SESSIONS_PER_WEEK);
+    const dayInWeek = ((dayNumber - 1) % SESSIONS_PER_WEEK) as 0 | 1 | 2 | 3;
     
-    // Only Mon (1), Tue (2), Wed (3), Thu (4)
-    if (dayOfWeekJS >= 1 && dayOfWeekJS <= 4) {
-      dayNumber++;
-      
-      const dayOfWeek = (dayOfWeekJS - 1) as 0 | 1 | 2 | 3; // Convert to our 0-3 system
-      const topics = getTopicsForWeek(weekNumber);
-      const quarterId = getQuarterForWeek(weekNumber);
-      
-      const session: StudySession = {
-        id: `session-${dayNumber}`,
-        dayNumber,
-        weekNumber,
-        quarterId,
-        date: format(currentDate, 'yyyy-MM-dd'),
-        dayOfWeek,
-        topic: topics[dayOfWeek],
-        objectives: [],
-        resources: []
-      };
-      
-      sessions.push(session);
-      
-      // After Thursday, move to next week
-      if (dayOfWeekJS === 4) {
-        weekNumber++;
-      }
-    }
+    const topics = getTopicsForWeek(weekNumber);
+    const quarterId = getQuarterForWeek(weekNumber);
     
-    currentDate = addDays(currentDate, 1);
+    const session: StudySession = {
+      id: `session-${dayNumber}`,
+      dayNumber,
+      weekNumber,
+      quarterId,
+      // No date - complete at your own pace
+      topic: topics[dayInWeek],
+      objectives: [],
+      resources: []
+    };
     
-    // Safety check to prevent infinite loop
-    if (dayNumber > 150) break;
+    sessions.push(session);
   }
 
   return sessions;
@@ -77,11 +58,6 @@ export function getAllSessions(): StudySession[] {
     _allSessions = generateAllSessions();
   }
   return _allSessions;
-}
-
-export function getSessionByDate(date: Date): StudySession | undefined {
-  const dateStr = format(startOfDay(date), 'yyyy-MM-dd');
-  return getAllSessions().find(s => s.date === dateStr);
 }
 
 export function getSessionById(id: string): StudySession | undefined {
@@ -100,55 +76,23 @@ export function getSessionsByQuarter(quarterId: number): StudySession[] {
   return getAllSessions().filter(s => s.quarterId === quarterId);
 }
 
-export function getTodaySession(): StudySession | undefined {
-  return getSessionByDate(new Date());
-}
-
-export function getCurrentWeekSessions(): StudySession[] {
-  const today = getTodaySession();
-  if (!today) {
-    // If today isn't a study day, find the current week based on date
-    const allSessions = getAllSessions();
-    const todayDate = startOfDay(new Date());
-    
-    // Find the session that's closest to today
-    for (let i = 0; i < allSessions.length; i++) {
-      const sessionDate = parseISO(allSessions[i].date);
-      if (isAfter(sessionDate, todayDate) || isEqual(sessionDate, todayDate)) {
-        return getSessionsByWeek(allSessions[i].weekNumber);
-      }
-    }
-    return getSessionsByWeek(1);
-  }
-  return getSessionsByWeek(today.weekNumber);
-}
-
 export function getNextIncompleteSession(completedIds: Set<string>): StudySession | undefined {
   return getAllSessions().find(s => !completedIds.has(s.id));
 }
 
-export function getUpcomingSessions(count: number = 5): StudySession[] {
-  const today = startOfDay(new Date());
+export function getNextIncompleteSessions(completedIds: Set<string>, count: number = 5): StudySession[] {
   return getAllSessions()
-    .filter(s => {
-      const sessionDate = parseISO(s.date);
-      return isAfter(sessionDate, today) || isEqual(sessionDate, today);
-    })
+    .filter(s => !completedIds.has(s.id))
     .slice(0, count);
 }
 
-export function getPastSessions(count: number = 5): StudySession[] {
-  const today = startOfDay(new Date());
-  return getAllSessions()
-    .filter(s => isBefore(parseISO(s.date), today))
-    .slice(-count);
-}
-
-export function getSessionsForMonth(year: number, month: number): StudySession[] {
-  return getAllSessions().filter(s => {
-    const date = parseISO(s.date);
-    return date.getFullYear() === year && date.getMonth() === month;
-  });
+export function getCurrentWeekSessions(completedIds: Set<string>): StudySession[] {
+  const nextSession = getNextIncompleteSession(completedIds);
+  if (!nextSession) {
+    // All done - return last week
+    return getSessionsByWeek(TOTAL_WEEKS);
+  }
+  return getSessionsByWeek(nextSession.weekNumber);
 }
 
 export function getProgress(completedSessionIds: Set<string>): {
@@ -156,40 +100,26 @@ export function getProgress(completedSessionIds: Set<string>): {
   total: number;
   percentage: number;
   currentDay: number;
-  expectedDay: number;
-  daysAhead: number;
+  nextDay: number;
 } {
   const allSessions = getAllSessions();
-  const today = startOfDay(new Date());
-  
-  // Find expected progress (sessions up to today)
-  const expectedSessions = allSessions.filter(s => 
-    isBefore(parseISO(s.date), today) || isEqual(parseISO(s.date), today)
-  );
-  
   const completed = completedSessionIds.size;
   const total = allSessions.length;
   const percentage = Math.round((completed / total) * 100);
   const currentDay = completed;
-  const expectedDay = expectedSessions.length;
-  const daysAhead = completed - expectedDay;
+  const nextDay = completed + 1;
 
-  return { completed, total, percentage, currentDay, expectedDay, daysAhead };
+  return { completed, total, percentage, currentDay, nextDay };
 }
 
-export function getDayLabel(dayOfWeek: 0 | 1 | 2 | 3): string {
-  const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
-  return labels[dayOfWeek];
+export function getDayLabel(dayInWeek: 0 | 1 | 2 | 3): string {
+  const labels = ['Session 1', 'Session 2', 'Session 3', 'Session 4'];
+  return labels[dayInWeek];
 }
 
-export function getShortDayLabel(dayOfWeek: 0 | 1 | 2 | 3): string {
-  const labels = ['Mon', 'Tue', 'Wed', 'Thu'];
-  return labels[dayOfWeek];
-}
-
-// Get the end date of the program
-export function getProgramEndDate(): Date {
-  return new Date(2026, 6, 31); // July 31, 2026
+export function getShortDayLabel(dayInWeek: 0 | 1 | 2 | 3): string {
+  const labels = ['S1', 'S2', 'S3', 'S4'];
+  return labels[dayInWeek];
 }
 
 // Get program summary
@@ -198,8 +128,9 @@ export function getProgramSummary() {
   return {
     totalWeeks: TOTAL_WEEKS,
     totalSessions: sessions.length,
-    startDate: START_DATE,
-    endDate: getProgramEndDate(),
+    sessionsPerWeek: SESSIONS_PER_WEEK,
+    hoursPerSession: 2,
+    totalHours: sessions.length * 2,
     months: 6
   };
 }

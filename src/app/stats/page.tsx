@@ -40,8 +40,8 @@ export default function StatsPage() {
     ? (ratingsArr.reduce((a, b) => a + b, 0) / ratingsArr.length).toFixed(1)
     : 'N/A';
   
-  // Calculate total time spent (assuming 90 min per completed session)
-  const totalMinutes = completedIds.size * 90;
+  // Calculate total time spent (assuming 120 min / 2 hours per completed session)
+  const totalMinutes = completedIds.size * 120;
   const totalHours = Math.round(totalMinutes / 60);
   
   // Calculate skill progress (linear interpolation based on progress)
