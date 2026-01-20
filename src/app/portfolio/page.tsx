@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { useProgress } from '@/hooks/useProgress';
+import { QUARTERS } from '@/lib/curriculum';
 import { 
   FolderOpen, 
   FileCode, 
@@ -9,116 +11,35 @@ import {
   Github,
   Code,
   BookOpen,
-  Trophy
+  Trophy,
+  Clock
 } from 'lucide-react';
-import Link from 'next/link';
-
-// Workspace structure - will be dynamically populated
-const WORKSPACE_STRUCTURE = {
-  quarters: [
-    {
-      id: 'q1',
-      name: 'Q1: Python & SQL Foundations',
-      folder: 'q1-python-sql',
-      weeks: 13,
-      status: 'active',
-      deliverables: [
-        'Python exercises (50+)',
-        'SQL window function queries',
-        'ETL Generator v0 scaffolding'
-      ]
-    },
-    {
-      id: 'q2',
-      name: 'Q2: ETL Patterns & Data Quality',
-      folder: 'q2-etl-quality',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'ETL pipeline implementations',
-        'Data quality framework',
-        'dbt models'
-      ]
-    },
-    {
-      id: 'q3',
-      name: 'Q3: dbt Mastery',
-      folder: 'q3-dbt-mastery',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'Complete dbt project',
-        'dbt Analytics Engineering Cert',
-        'Testing framework'
-      ]
-    },
-    {
-      id: 'q4',
-      name: 'Q4: AWS Foundations',
-      folder: 'q4-aws-foundations',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'AWS Cloud Practitioner Cert',
-        'Terraform configurations',
-        'Cloud-deployed ETL'
-      ]
-    },
-    {
-      id: 'q5',
-      name: 'Q5: Orchestration',
-      folder: 'q5-orchestration',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'Airflow DAGs',
-        'Dagster pipelines',
-        'Orchestrated data platform'
-      ]
-    },
-    {
-      id: 'q6',
-      name: 'Q6: AWS Advanced',
-      folder: 'q6-aws-advanced',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'AWS Data Engineer Cert',
-        'Serverless data pipelines',
-        'Cloud-native platform'
-      ]
-    },
-    {
-      id: 'q7',
-      name: 'Q7: System Design',
-      folder: 'q7-system-design',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'System design documents',
-        'Architecture diagrams',
-        'Governance framework'
-      ]
-    },
-    {
-      id: 'q8',
-      name: 'Q8: Interview Prep',
-      folder: 'q8-interview-prep',
-      weeks: 13,
-      status: 'upcoming',
-      deliverables: [
-        'Resume & portfolio',
-        'Mock interviews',
-        '$200k+ offer'
-      ]
-    }
-  ]
-};
 
 export default function PortfolioPage() {
-  const [selectedQuarter, setSelectedQuarter] = useState('q1');
+  const { completedIds, verifiedStats } = useProgress();
+  const [selectedMonth, setSelectedMonth] = useState(1);
 
-  const quarter = WORKSPACE_STRUCTURE.quarters.find(q => q.id === selectedQuarter);
+  const month = QUARTERS.find(q => q.id === selectedMonth);
+
+  // Calculate progress per month
+  const monthProgress = QUARTERS.map(m => {
+    // Simplified: assume ~28 days per month for progress tracking
+    const daysPerMonth = 28;
+    const startDay = (m.id - 1) * daysPerMonth + 1;
+    const endDay = m.id * daysPerMonth;
+    
+    let completed = 0;
+    for (let d = startDay; d <= endDay; d++) {
+      if (completedIds.has(`session-${d}`)) completed++;
+    }
+    
+    return {
+      ...m,
+      completed,
+      total: daysPerMonth,
+      percentage: Math.round((completed / daysPerMonth) * 100)
+    };
+  });
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -129,8 +50,30 @@ export default function PortfolioPage() {
           My Portfolio
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          Your completed work lives in <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">workspace/</code>
+          6-Month Aggressive Plan • Target: $160-170k by July 2026
         </p>
+      </div>
+
+      {/* Verified Progress */}
+      <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-6 text-white mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <CheckCircle2 className="w-6 h-6" />
+          <h2 className="text-xl font-bold">Verified Progress</h2>
+        </div>
+        <div className="grid grid-cols-3 gap-6">
+          <div>
+            <p className="text-3xl font-bold">{verifiedStats.completed}</p>
+            <p className="text-green-100 text-sm">Days Complete</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold">169</p>
+            <p className="text-green-100 text-sm">Total Days</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold">{Math.round((verifiedStats.completed / 169) * 100)}%</p>
+            <p className="text-green-100 text-sm">Overall Progress</p>
+          </div>
+        </div>
       </div>
 
       {/* GitHub Link */}
@@ -148,85 +91,51 @@ export default function PortfolioPage() {
         <ExternalLink className="w-5 h-5" />
       </a>
 
-      {/* Workspace Overview */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
-        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <FolderOpen className="w-6 h-6 text-blue-500" />
-            Workspace Structure
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
-            All your code, exercises, and projects are organized here
-          </p>
-        </div>
-
-        <div className="p-6">
-          <div className="font-mono text-sm bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto">
-            <pre className="text-gray-700 dark:text-gray-300">{`workspace/
-├── q1-python-sql/           # ← You are here
-│   ├── week-01/
-│   │   ├── exercises/
-│   │   │   ├── day1_verify_setup.py
-│   │   │   ├── day2_variables.py
-│   │   │   ├── day3_functions.py
-│   │   │   └── day4_data_structures.py
-│   │   ├── notes.md
-│   │   └── README.md
-│   ├── week-02/
-│   │   └── exercises/
-│   └── ... (weeks 3-13)
-├── q2-etl-quality/
-├── q3-dbt-mastery/
-├── q4-aws-foundations/
-├── q5-orchestration/
-├── q6-aws-advanced/
-├── q7-system-design/
-├── q8-interview-prep/
-└── projects/
-    └── etl-generator/       # Your side project`}</pre>
-          </div>
-        </div>
-      </div>
-
-      {/* Quarter Tabs */}
+      {/* Month Tabs */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-        {WORKSPACE_STRUCTURE.quarters.map(q => (
+        {monthProgress.map(m => (
           <button
-            key={q.id}
-            onClick={() => setSelectedQuarter(q.id)}
-            className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
-              selectedQuarter === q.id
+            key={m.id}
+            onClick={() => setSelectedMonth(m.id)}
+            className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors relative ${
+              selectedMonth === m.id
                 ? 'bg-blue-600 text-white'
-                : q.status === 'active'
+                : m.percentage > 0
                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800'
                 : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
-            {q.id.toUpperCase()}
+            Month {m.id}
+            {m.percentage > 0 && m.percentage < 100 && (
+              <span className="ml-2 text-xs opacity-75">({m.percentage}%)</span>
+            )}
+            {m.percentage === 100 && (
+              <CheckCircle2 className="inline-block ml-1 w-4 h-4" />
+            )}
           </button>
         ))}
       </div>
 
-      {/* Selected Quarter Detail */}
-      {quarter && (
-        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+      {/* Selected Month Detail */}
+      {month && (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
           <div className={`p-6 border-b border-gray-200 dark:border-gray-700 ${
-            quarter.status === 'active' 
+            monthProgress.find(m => m.id === month.id)?.percentage! > 0
               ? 'bg-blue-50 dark:bg-blue-900/20' 
               : 'bg-gray-50 dark:bg-gray-900'
           }`}>
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {quarter.name}
+                  {month.name}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mt-1">
-                  {quarter.weeks} weeks • Folder: <code className="bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded">{quarter.folder}/</code>
+                  Weeks {month.weeks[0]}-{month.weeks[1]} • {month.goal}
                 </p>
               </div>
-              {quarter.status === 'active' && (
-                <span className="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 rounded-full text-sm font-medium">
-                  In Progress
+              {month.certification && (
+                <span className="px-3 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300 rounded-full text-sm font-medium">
+                  🎓 {month.certification}
                 </span>
               )}
             </div>
@@ -234,72 +143,109 @@ export default function PortfolioPage() {
 
           <div className="p-6">
             <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
-              Key Deliverables
+              Key Project
             </h4>
-            <ul className="space-y-2">
-              {quarter.deliverables.map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                  <CheckCircle2 className="w-5 h-5 text-gray-300 dark:text-gray-600" />
-                  {item}
-                </li>
+            <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 mb-6">
+              <Code className="w-5 h-5 text-blue-500" />
+              {month.project}
+            </div>
+
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+              Weekly Schedule
+            </h4>
+            <div className="grid grid-cols-7 gap-2 text-center text-sm">
+              {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
+                <div key={day} className="p-2 bg-gray-50 dark:bg-gray-900 rounded">
+                  <p className="font-medium text-gray-900 dark:text-white">{day}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {i < 5 ? '2-2.5h' : i === 5 ? '6-7h' : '3-4h'}
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       )}
 
-      {/* How to Use Instructions */}
-      <div className="mt-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 text-white">
-        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <Code className="w-6 h-6" />
-          How Your Work Shows Up Here
-        </h3>
-        
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-white/10 rounded-lg p-4">
-            <p className="font-semibold mb-2">1. Do the Work</p>
-            <p className="text-sm text-blue-100">
-              Complete exercises in <code className="bg-white/20 px-1 rounded">workspace/</code> folders
-            </p>
-          </div>
-          <div className="bg-white/10 rounded-lg p-4">
-            <p className="font-semibold mb-2">2. Commit & Push</p>
-            <p className="text-sm text-blue-100">
-              <code className="bg-white/20 px-1 rounded">git add . && git commit && git push</code>
-            </p>
-          </div>
-          <div className="bg-white/10 rounded-lg p-4">
-            <p className="font-semibold mb-2">3. Auto-Deploy</p>
-            <p className="text-sm text-blue-100">
-              Vercel rebuilds automatically. Your work is live!
-            </p>
+      {/* Workspace Structure */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <FolderOpen className="w-6 h-6 text-blue-500" />
+            Workspace Structure
+          </h2>
+        </div>
+
+        <div className="p-6">
+          <div className="font-mono text-sm bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto">
+            <pre className="text-gray-700 dark:text-gray-300">{`workspace/
+├── month1-foundations/          # ← Current
+│   ├── week-01/                 # Days 1-8 (COMPLETE)
+│   ├── week-02/                 # Days 9-15
+│   │   └── exercises/
+│   │       ├── day9_classes_oop.py
+│   │       ├── day10_logging_config.py
+│   │       ├── day11_git_fundamentals.py
+│   │       └── ...
+│   ├── week-03/                 # Days 16-22
+│   ├── week-04/                 # Days 23-29
+│   └── week-05/                 # Days 30-36
+├── month2-dbt-analytics/        # Weeks 6-9
+├── month3-airflow-orchestration/ # Weeks 10-13
+├── month4-aws-certification/    # Weeks 14-17
+├── month5-interview-prep/       # Weeks 18-21
+├── month6-close-offers/         # Weeks 22-24
+└── projects/
+    ├── project1-stock-pipeline/
+    ├── project2-nba-analytics/
+    └── project3-data-quality/`}</pre>
           </div>
         </div>
       </div>
 
-      {/* Quick Start for Today */}
-      <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-          <BookOpen className="w-5 h-5 text-green-500" />
-          Quick Start for Today
+      {/* How to Use */}
+      <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 text-white">
+        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+          <BookOpen className="w-6 h-6" />
+          Daily Schedule
         </h3>
         
-        <div className="font-mono text-sm bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto">
-          <pre>{`# Navigate to your workspace
-cd /Users/dantebozzuti/cursor/Projects/Business/SDE_PATH/sde-tracker/workspace
-
-# Go to this week's folder
-cd q1-python-sql/week-01/exercises
-
-# Open VS Code
-code .
-
-# Complete the exercise
-# Then commit your work:
-git add .
-git commit -m "Complete Day 1 exercises"
-git push`}</pre>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="bg-white/10 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <Clock className="w-4 h-4" />
+              <p className="font-semibold">Weekdays (Mon-Fri)</p>
+            </div>
+            <p className="text-sm text-blue-100">
+              2-2.5h hands-on coding<br/>
+              + 1-1.5h audiobooks/podcasts during commute
+            </p>
+          </div>
+          <div className="bg-white/10 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <Code className="w-4 h-4" />
+              <p className="font-semibold">Saturday</p>
+            </div>
+            <p className="text-sm text-blue-100">
+              6-7h deep project work<br/>
+              Build, debug, deploy
+            </p>
+          </div>
+          <div className="bg-white/10 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <BookOpen className="w-4 h-4" />
+              <p className="font-semibold">Sunday</p>
+            </div>
+            <p className="text-sm text-blue-100">
+              3-4h light learning<br/>
+              Review, plan, prep
+            </p>
+          </div>
         </div>
+        
+        <p className="text-center text-blue-100 mt-4 text-sm">
+          27-30 hours/week total • Sustainable maximum intensity
+        </p>
       </div>
     </div>
   );

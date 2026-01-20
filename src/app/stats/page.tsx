@@ -1,7 +1,7 @@
 'use client';
 
 import { useProgress } from '@/hooks/useProgress';
-import { getAllSessions, getSessionsByQuarter } from '@/lib/sessions';
+import { getAllSessions, getSessionsByQuarter, getProgramSummary, getTimeForDay } from '@/lib/sessions';
 import { QUARTERS, SKILL_BASELINE, CERTIFICATIONS } from '@/lib/curriculum';
 import { StatsCard } from '@/components/StatsCard';
 import { ProgressRing } from '@/components/ProgressRing';
@@ -11,26 +11,32 @@ import {
   TrendingUp,
   Award,
   BookOpen,
-  ShieldCheck
+  ShieldCheck,
+  Calendar,
+  Target
 } from 'lucide-react';
-import { format, parseISO, differenceInDays } from 'date-fns';
 
 export default function StatsPage() {
   const { completedIds, verifiedStats, progress } = useProgress();
   
   const allSessions = getAllSessions();
+  const programSummary = getProgramSummary();
   const completedCount = completedIds.size;
   const totalSessions = allSessions.length;
   const progressPercentage = Math.round((completedCount / totalSessions) * 100);
   
-  // Calculate various stats
-  const startDate = new Date(2026, 0, 12);
-  const endDate = new Date(2028, 0, 8);
-  const today = new Date();
+  // Calculate time invested based on completed sessions and their day types
+  let totalMinutesInvested = 0;
+  allSessions.forEach(session => {
+    if (completedIds.has(session.id)) {
+      const time = getTimeForDay(session.dayOfWeek ?? 0);
+      totalMinutesInvested += time.handson;
+    }
+  });
+  const totalHoursInvested = Math.round(totalMinutesInvested / 60);
   
-  const totalDays = differenceInDays(endDate, startDate);
-  const daysElapsed = Math.max(0, differenceInDays(today, startDate));
-  const daysRemaining = Math.max(0, differenceInDays(endDate, today));
+  // Sessions remaining
+  const sessionsRemaining = totalSessions - completedCount;
   
   // Calculate average rating
   const ratingsArr = Object.values(progress.sessions)
@@ -40,27 +46,26 @@ export default function StatsPage() {
     ? (ratingsArr.reduce((a, b) => a + b, 0) / ratingsArr.length).toFixed(1)
     : 'N/A';
   
-  // Calculate total time spent (assuming 120 min / 2 hours per completed session)
-  const totalMinutes = completedIds.size * 120;
-  const totalHours = Math.round(totalMinutes / 60);
-  
   // Calculate skill progress (linear interpolation based on progress)
   const skillProgress = (baseline: { start: number; target: number }) => {
     const progressPct = progressPercentage / 100;
     return baseline.start + (baseline.target - baseline.start) * progressPct;
   };
 
-  // Completion by quarter
-  const quarterStats = QUARTERS.map(quarter => {
-    const sessions = getSessionsByQuarter(quarter.id);
+  // Completion by month
+  const monthStats = QUARTERS.map(month => {
+    const sessions = getSessionsByQuarter(month.id);
     const completed = sessions.filter(s => completedIds.has(s.id)).length;
     return {
-      ...quarter,
+      ...month,
       completed,
       total: sessions.length,
-      percentage: Math.round((completed / sessions.length) * 100)
+      percentage: sessions.length > 0 ? Math.round((completed / sessions.length) * 100) : 0
     };
   });
+
+  // Weekly breakdown for current week
+  const currentWeek = Math.ceil((completedCount + 1) / 7);
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -70,7 +75,7 @@ export default function StatsPage() {
           Statistics
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          Track your progress and performance
+          6-Month Aggressive Plan Progress
         </p>
       </div>
 
@@ -83,20 +88,20 @@ export default function StatsPage() {
               <h2 className="text-2xl font-bold">Verified Progress</h2>
             </div>
             <p className="text-green-100 mt-1">
-              {completedCount} of {totalSessions} sessions completed
+              {completedCount} of {totalSessions} days completed
             </p>
             
             <div className="mt-6 grid grid-cols-3 gap-6">
               <div>
-                <p className="text-3xl font-bold">{daysElapsed}</p>
-                <p className="text-green-100 text-sm">Days Elapsed</p>
+                <p className="text-3xl font-bold">{currentWeek}</p>
+                <p className="text-green-100 text-sm">Current Week</p>
               </div>
               <div>
-                <p className="text-3xl font-bold">{daysRemaining}</p>
+                <p className="text-3xl font-bold">{sessionsRemaining}</p>
                 <p className="text-green-100 text-sm">Days Remaining</p>
               </div>
               <div>
-                <p className="text-3xl font-bold">{totalHours}h</p>
+                <p className="text-3xl font-bold">{totalHoursInvested}h</p>
                 <p className="text-green-100 text-sm">Time Invested</p>
               </div>
             </div>
@@ -114,9 +119,9 @@ export default function StatsPage() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatsCard
-          title="Verified Complete"
+          title="Verified Days"
           value={verifiedStats.completed}
-          subtitle="Days with code"
+          subtitle="With committed code"
           icon={ShieldCheck}
           color="green"
         />
@@ -128,18 +133,64 @@ export default function StatsPage() {
           color="purple"
         />
         <StatsCard
-          title="Days Remaining"
-          value={daysRemaining}
-          subtitle="Until program end"
+          title="Total Hours"
+          value={`${programSummary.totalHours}h`}
+          subtitle={`${programSummary.handsOnHours}h hands-on`}
           icon={Clock}
           color="blue"
         />
         <StatsCard
-          title="Sessions with Notes"
-          value={Object.values(progress.sessions).filter(s => s.notes).length}
-          icon={BookOpen}
+          title="Weekly Pace"
+          value={`${programSummary.avgHoursPerWeek}h/wk`}
+          subtitle="27-30h sustainable"
+          icon={TrendingUp}
           color="orange"
         />
+      </div>
+
+      {/* Weekly Time Breakdown */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-8">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <Calendar className="w-5 h-5 text-blue-500" />
+          Weekly Time Breakdown
+        </h3>
+        
+        <div className="grid grid-cols-7 gap-2">
+          {[
+            { day: 'Mon', hours: '3.5-4h', work: '2-2.5h', passive: '1-1.5h', type: 'Office' },
+            { day: 'Tue', hours: '4h', work: '2-2.5h', passive: '1.5h', type: 'WFH' },
+            { day: 'Wed', hours: '3.5-4h', work: '2-2.5h', passive: '1-1.5h', type: 'Office' },
+            { day: 'Thu', hours: '4h', work: '2-2.5h', passive: '1.5h', type: 'WFH' },
+            { day: 'Fri', hours: '3.5-4h', work: '2-2.5h', passive: '1-1.5h', type: 'Office' },
+            { day: 'Sat', hours: '6-7h', work: '6-7h', passive: '-', type: 'Project' },
+            { day: 'Sun', hours: '3-4h', work: '3-4h', passive: '-', type: 'Light' },
+          ].map((d, i) => (
+            <div 
+              key={d.day} 
+              className={`p-3 rounded-lg text-center ${
+                i === 5 ? 'bg-purple-100 dark:bg-purple-900/30' :
+                i === 6 ? 'bg-blue-100 dark:bg-blue-900/30' :
+                'bg-gray-50 dark:bg-gray-900'
+              }`}
+            >
+              <p className="font-bold text-gray-900 dark:text-white">{d.day}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{d.type}</p>
+              <p className="text-sm font-medium text-blue-600 dark:text-blue-400">{d.hours}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                {d.work} work
+              </p>
+              {d.passive !== '-' && (
+                <p className="text-xs text-gray-400">
+                  {d.passive} audio
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+          <span className="font-bold text-gray-900 dark:text-white">27-30 hours/week</span> • Sustainable maximum intensity
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -158,7 +209,7 @@ export default function StatsPage() {
                 <div key={skill}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-gray-700 dark:text-gray-300 capitalize">
-                      {skill}
+                      {skill === 'systemDesign' ? 'System Design' : skill}
                     </span>
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -189,67 +240,65 @@ export default function StatsPage() {
         {/* Certifications */}
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
-            Certifications
+            Certification Targets
           </h3>
           
           <div className="space-y-4">
             {CERTIFICATIONS.map(cert => {
-              const targetDate = parseISO(cert.targetDate);
-              const isPast = targetDate < today;
-              const daysUntil = differenceInDays(targetDate, today);
+              const monthNum = cert.quarter;
+              const monthData = QUARTERS.find(q => q.id === monthNum);
               
               return (
                 <div
                   key={cert.name}
-                  className={`p-4 rounded-lg border-2 ${
-                    isPast
-                      ? 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900'
-                      : 'border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/20'
-                  }`}
+                  className="p-4 rounded-lg border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/20"
                 >
                   <div className="flex items-center gap-3">
-                    <Award className={`w-8 h-8 ${
-                      isPast ? 'text-gray-400' : 'text-orange-500'
-                    }`} />
+                    <Award className="w-8 h-8 text-orange-500" />
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 dark:text-white">
                         {cert.name}
                       </h4>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Q{cert.quarter} • Target: {format(targetDate, 'MMMM yyyy')}
+                        Month {monthNum} • {monthData?.shortName}
                       </p>
                     </div>
-                    {!isPast && (
-                      <div className="text-right">
-                        <p className="text-lg font-bold text-orange-600 dark:text-orange-400">
-                          {daysUntil}
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">days</p>
-                      </div>
-                    )}
+                    <Target className="w-5 h-5 text-orange-400" />
                   </div>
                 </div>
               );
             })}
           </div>
+          
+          <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <Target className="w-5 h-5 text-green-500" />
+              <h4 className="font-semibold text-gray-900 dark:text-white">
+                End Goal
+              </h4>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400">
+              Land <span className="font-bold text-green-600 dark:text-green-400">$160-170k</span> Data Engineer role by July 2026
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Quarter Progress Breakdown */}
+      {/* Month Progress Breakdown */}
       <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
-          Progress by Quarter
+          Progress by Month
         </h3>
         
         <div className="space-y-4">
-          {quarterStats.map(quarter => (
-            <div key={quarter.id} className="flex items-center gap-4">
+          {monthStats.map(month => (
+            <div key={month.id} className="flex items-center gap-4">
               <div className="w-32 shrink-0">
                 <p className="font-medium text-gray-900 dark:text-white text-sm">
-                  Q{quarter.id}
+                  Month {month.id}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                  {quarter.shortName.split(': ')[1]}
+                  {month.shortName.split(': ')[1]}
                 </p>
               </div>
               
@@ -257,21 +306,23 @@ export default function StatsPage() {
                 <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                   <div
                     className={`h-full transition-all duration-500 ${
-                      quarter.percentage === 100
+                      month.percentage === 100
                         ? 'bg-green-500'
-                        : 'bg-blue-500'
+                        : month.percentage > 0
+                        ? 'bg-blue-500'
+                        : 'bg-gray-300 dark:bg-gray-600'
                     }`}
-                    style={{ width: `${quarter.percentage}%` }}
+                    style={{ width: `${Math.max(month.percentage, 2)}%` }}
                   />
                 </div>
               </div>
               
-              <div className="w-20 text-right">
+              <div className="w-24 text-right">
                 <span className="font-bold text-gray-900 dark:text-white">
-                  {quarter.percentage}%
+                  {month.percentage}%
                 </span>
                 <span className="text-gray-400 text-sm ml-1">
-                  ({quarter.completed}/{quarter.total})
+                  ({month.completed}/{month.total})
                 </span>
               </div>
             </div>

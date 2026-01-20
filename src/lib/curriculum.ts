@@ -71,223 +71,299 @@ export const QUARTERS: Quarter[] = [
 
 export const WEEKLY_CURRICULUM: WeekTopics[] = [
   // ============================================================================
-  // FOUNDATION (Already Complete - Days 1-8)
+  // WEEK 1: Python Foundations (Days 1-8) - COMPLETE
+  // Special 8-day bootcamp week
   // ============================================================================
-  
-  // Week 1: Python Foundations Part 1 (COMPLETE)
   { week: 1, topics: [
-    "Development Environment Setup",           // Day 1 - COMPLETE
-    "Python Variables & Syntax",               // Day 2 - COMPLETE  
-    "Functions & Control Flow",                // Day 3 - COMPLETE
-    "Data Structures (Lists, Dicts)"           // Day 4 - COMPLETE
+    "Development Environment Setup",           // Day 1 - COMPLETE (Mon)
+    "Python Variables & Syntax",               // Day 2 - COMPLETE (Tue)
+    "Functions & Control Flow",                // Day 3 - COMPLETE (Wed)
+    "Data Structures (Lists, Dicts)",          // Day 4 - COMPLETE (Thu)
+    "List Comprehensions",                     // Day 5 - COMPLETE (Fri)
+    "Dictionaries & JSON",                     // Day 6 - COMPLETE (Sat)
+    "File I/O & Context Managers"              // Day 7 - COMPLETE (Sun)
+    // Day 8 was bonus: Error Handling - also COMPLETE
   ]},
   
-  // Week 2: Python Foundations Part 2 (COMPLETE)
+  // ============================================================================
+  // WEEK 2: Production Python + Git (Days 9-15)
+  // ============================================================================
   { week: 2, topics: [
-    "List Comprehensions",                     // Day 5 - COMPLETE
-    "Dictionaries & JSON",                     // Day 6 - COMPLETE
-    "File I/O & Context Managers",             // Day 7 - COMPLETE
-    "Error Handling & Defensive Code"          // Day 8 - COMPLETE
+    "Python Classes & OOP for Production",     // Day 9 - Mon (2-2.5h hands-on)
+    "Logging & Configuration Management",      // Day 10 - Tue
+    "Git Fundamentals (branching, commits)",   // Day 11 - Wed
+    "GitHub PRs & Professional Workflows",     // Day 12 - Thu
+    "Advanced Git + Code Review Practice",     // Day 13 - Fri
+    "Week 2 Project: Build CLI Data Tool",     // Day 14 - Sat (6-7h project)
+    "Review + Plan Week 3"                     // Day 15 - Sun (3-4h)
   ]},
   
   // ============================================================================
-  // MONTH 1: Production Skills + Project 1 (Weeks 3-6)
+  // WEEK 3: AWS + Docker Basics (Days 16-22)
   // ============================================================================
-  
-  // Week 3: Production Python + Git
   { week: 3, topics: [
-    "Python Classes & OOP for Production",     // Day 9
-    "Logging & Configuration Management",      // Day 10
-    "Git Fundamentals (branching, commits)",   // Day 11
-    "GitHub PRs & Professional Workflows"      // Day 12
+    "AWS Account Setup (IAM, CLI)",            // Day 16 - Mon
+    "S3 Fundamentals & Best Practices",        // Day 17 - Tue
+    "Docker Fundamentals",                     // Day 18 - Wed
+    "Docker for Data Engineering",             // Day 19 - Thu
+    "Docker Compose + Local Dev Stack",        // Day 20 - Fri
+    "Week 3 Project: Containerized Pipeline",  // Day 21 - Sat (6-7h project)
+    "Review + Plan Week 4"                     // Day 22 - Sun (3-4h)
   ]},
   
-  // Week 4: AWS + Docker Basics
+  // ============================================================================
+  // WEEK 4: Project 1 Part 1 - Stock Pipeline (Days 23-29)
+  // ============================================================================
   { week: 4, topics: [
-    "AWS Account Setup (IAM, CLI)",            // Day 13
-    "S3 Fundamentals & Best Practices",        // Day 14
-    "Docker Fundamentals",                     // Day 15
-    "Docker for Data Engineering"              // Day 16
+    "Alpha Vantage API Integration",           // Day 23 - Mon
+    "AWS Lambda Deployment",                   // Day 24 - Tue
+    "S3 Storage + Data Partitioning",          // Day 25 - Wed
+    "PostgreSQL Setup + Schema Design",        // Day 26 - Thu
+    "Data Transformation Pipeline",            // Day 27 - Fri
+    "Project 1 Deep Work Session",             // Day 28 - Sat (6-7h project)
+    "Review + Debug Session"                   // Day 29 - Sun (3-4h)
   ]},
   
-  // Week 5: Project 1 - Real-Time Stock Pipeline (Part 1)
+  // ============================================================================
+  // WEEK 5: Project 1 Part 2 - Complete (Days 30-36)
+  // ============================================================================
   { week: 5, topics: [
-    "Alpha Vantage API Integration",           // Day 17
-    "AWS Lambda Deployment",                   // Day 18
-    "S3 Storage + Data Partitioning",          // Day 19
-    "PostgreSQL Setup + Schema Design"         // Day 20
+    "Airflow DAG Basics",                      // Day 30 - Mon
+    "Connect Airflow to Lambda + S3",          // Day 31 - Tue
+    "Streamlit Dashboard Basics",              // Day 32 - Wed
+    "Dashboard Data Integration",              // Day 33 - Thu
+    "Project 1 Testing + Debugging",           // Day 34 - Fri
+    "Project 1 Polish + Documentation",        // Day 35 - Sat (6-7h)
+    "Month 1 Review + Planning"                // Day 36 - Sun - MONTH 1 COMPLETE
   ]},
   
-  // Week 6: Project 1 - Real-Time Stock Pipeline (Part 2)
+  // ============================================================================
+  // MONTH 2: DBT MASTERY + PROJECT 2 (Weeks 6-9)
+  // ============================================================================
+  
+  // Week 6: dbt Fundamentals (Days 37-43)
   { week: 6, topics: [
-    "Data Transformation Pipeline",            // Day 21
-    "Airflow DAG Basics",                      // Day 22
-    "Streamlit Dashboard",                     // Day 23
-    "Project 1 Polish + Documentation"         // Day 24 - MONTH 1 COMPLETE
+    "dbt Fundamentals (models, refs)",         // Day 37 - Mon
+    "dbt Materializations",                    // Day 38 - Tue
+    "Staging → Intermediate → Marts",          // Day 39 - Wed
+    "dbt Sources and Seeds",                   // Day 40 - Thu
+    "dbt Practice: Transform Stock Data",      // Day 41 - Fri
+    "dbt Deep Dive: Build Full Project",       // Day 42 - Sat (6-7h)
+    "dbt Review + Testing Intro"               // Day 43 - Sun (3-4h)
   ]},
   
-  // ============================================================================
-  // MONTH 2: DBT MASTERY + PROJECT 2 (Weeks 7-10)
-  // ============================================================================
-  
-  // Week 7: dbt Fundamentals
+  // Week 7: dbt Testing & Macros (Days 44-50)
   { week: 7, topics: [
-    "dbt Fundamentals (models, refs)",         // Day 25
-    "dbt Materializations",                    // Day 26
-    "Staging → Intermediate → Marts",          // Day 27
-    "dbt Sources and Seeds"                    // Day 28
+    "dbt Testing (schema + data tests)",       // Day 44 - Mon
+    "Custom dbt Tests",                        // Day 45 - Tue
+    "dbt Macros and Jinja",                    // Day 46 - Wed
+    "dbt Packages + Documentation",            // Day 47 - Thu
+    "dbt Advanced Patterns",                   // Day 48 - Fri
+    "dbt Mastery Practice",                    // Day 49 - Sat (6-7h)
+    "dbt Cert Prep Start"                      // Day 50 - Sun (3-4h)
   ]},
   
-  // Week 8: dbt Testing & Macros
+  // Week 8: Project 2 Part 1 - NBA Analytics (Days 51-57)
   { week: 8, topics: [
-    "dbt Testing (schema + data tests)",       // Day 29
-    "Custom dbt Tests",                        // Day 30
-    "dbt Macros and Jinja",                    // Day 31
-    "dbt Packages + Documentation"             // Day 32
+    "NBA API Data Ingestion",                  // Day 51 - Mon
+    "Snowflake Setup",                         // Day 52 - Tue
+    "dbt Staging Models for NBA",              // Day 53 - Wed
+    "dbt Intermediate Models",                 // Day 54 - Thu
+    "dbt Marts + Dimensional Modeling",        // Day 55 - Fri
+    "Project 2 Deep Work",                     // Day 56 - Sat (6-7h)
+    "Project 2 Testing"                        // Day 57 - Sun (3-4h)
   ]},
   
-  // Week 9: Project 2 - NBA Analytics Platform (Part 1)
+  // Week 9: Project 2 Part 2 - Complete (Days 58-64)
   { week: 9, topics: [
-    "NBA API Data Ingestion",                  // Day 33
-    "Snowflake Setup",                         // Day 34
-    "dbt Staging Models",                      // Day 35
-    "dbt Intermediate Models"                  // Day 36
+    "dbt Test Coverage + Docs",                // Day 58 - Mon
+    "Streamlit Dashboard for NBA",             // Day 59 - Tue
+    "Dashboard Advanced Features",             // Day 60 - Wed
+    "Project 2 Polish",                        // Day 61 - Thu
+    "dbt Certification Final Prep",            // Day 62 - Fri
+    "dbt Cert Exam Attempt",                   // Day 63 - Sat (exam day)
+    "Month 2 Review"                           // Day 64 - Sun - MONTH 2 COMPLETE
   ]},
   
-  // Week 10: Project 2 - NBA Analytics Platform (Part 2)
+  // ============================================================================
+  // MONTH 3: AIRFLOW + PROJECT 3 + START APPLYING (Weeks 10-13)
+  // ============================================================================
+  
+  // Week 10: Airflow Fundamentals (Days 65-71)
   { week: 10, topics: [
-    "dbt Marts + Dimensional Modeling",        // Day 37
-    "dbt Test Coverage + Docs",                // Day 38
-    "Streamlit Dashboard",                     // Day 39
-    "dbt Cert Prep + Project Polish"           // Day 40 - MONTH 2 COMPLETE
+    "Airflow Architecture Deep Dive",          // Day 65 - Mon
+    "DAG Design Patterns",                     // Day 66 - Tue
+    "Operators and TaskFlow API",              // Day 67 - Wed
+    "Task Dependencies + XComs",               // Day 68 - Thu
+    "Airflow Connections + Hooks",             // Day 69 - Fri
+    "Airflow Lab: Build Complex DAG",          // Day 70 - Sat (6-7h)
+    "Airflow Testing Intro"                    // Day 71 - Sun (3-4h)
   ]},
   
-  // ============================================================================
-  // MONTH 3: AIRFLOW + PROJECT 3 + START APPLYING (Weeks 11-14)
-  // ============================================================================
-  
-  // Week 11: Airflow Fundamentals
+  // Week 11: Airflow Production + Apply (Days 72-78)
   { week: 11, topics: [
-    "Airflow Architecture Deep Dive",          // Day 41
-    "DAG Design Patterns",                     // Day 42
-    "Operators and TaskFlow API",              // Day 43
-    "Task Dependencies + XComs"                // Day 44
+    "Airflow Testing + Monitoring",            // Day 72 - Mon
+    "Error Handling in DAGs",                  // Day 73 - Tue
+    "Resume + LinkedIn Polish",                // Day 74 - Wed - START APPLYING
+    "First 5 Applications",                    // Day 75 - Thu
+    "More Applications + Airflow Practice",    // Day 76 - Fri
+    "Application Sprint (10 apps)",            // Day 77 - Sat (apply + study)
+    "Week Review + Application Tracking"       // Day 78 - Sun (3-4h)
   ]},
   
-  // Week 12: Airflow Production + Start Applying
+  // Week 12: Project 3 Part 1 - Financial Data Quality (Days 79-85)
   { week: 12, topics: [
-    "Airflow Testing + Monitoring",            // Day 45
-    "Error Handling in DAGs",                  // Day 46
-    "Resume + LinkedIn Polish",                // Day 47 - START APPLYING
-    "First 10 Applications Submitted"          // Day 48
+    "Multi-Source Ingestion DAGs",             // Day 79 - Mon
+    "Great Expectations Setup",                // Day 80 - Tue
+    "Data Quality Framework",                  // Day 81 - Wed
+    "Quality Checks Integration",              // Day 82 - Thu
+    "Applications + Project Work",             // Day 83 - Fri
+    "Project 3 Deep Work",                     // Day 84 - Sat (6-7h)
+    "Project 3 Debug + Review"                 // Day 85 - Sun (3-4h)
   ]},
   
-  // Week 13: Project 3 - Financial Data Quality (Part 1)
+  // Week 13: Project 3 Part 2 - Complete (Days 86-92)
   { week: 13, topics: [
-    "Multi-Source Ingestion DAGs",             // Day 49
-    "Great Expectations Setup",                // Day 50
-    "Data Quality Framework",                  // Day 51
-    "Applications: Keep Applying"              // Day 52
+    "Monitoring + Alerting Setup",             // Day 86 - Mon
+    "Final Polish + Deployment",               // Day 87 - Tue
+    "Project 3 Documentation",                 // Day 88 - Wed
+    "Applications (25+ total)",                // Day 89 - Thu
+    "More Applications",                       // Day 90 - Fri
+    "Application Sprint + Portfolio",          // Day 91 - Sat
+    "Month 3 Review (30+ apps)"                // Day 92 - Sun - MONTH 3 COMPLETE
   ]},
   
-  // Week 14: Project 3 - Financial Data Quality (Part 2)
+  // ============================================================================
+  // MONTH 4: AWS CERTIFICATION + HEAVY APPLICATIONS (Weeks 14-17)
+  // ============================================================================
+  
+  // Week 14: AWS SAA Prep - Compute & Storage (Days 93-99)
   { week: 14, topics: [
-    "Monitoring + Alerting",                   // Day 53
-    "Final Polish + Deployment",               // Day 54
-    "Project 3 Documentation",                 // Day 55
-    "30+ Applications Submitted"               // Day 56 - MONTH 3 COMPLETE
+    "AWS SAA: S3 Deep Dive",                   // Day 93 - Mon
+    "AWS SAA: EC2 + Lambda Advanced",          // Day 94 - Tue
+    "AWS SAA: RDS + Redshift",                 // Day 95 - Wed
+    "Applications (7/week pace)",              // Day 96 - Thu
+    "AWS SAA: EBS + Storage",                  // Day 97 - Fri
+    "AWS Lab Day + Applications",              // Day 98 - Sat (6-7h)
+    "AWS Review + Flashcards"                  // Day 99 - Sun (3-4h)
   ]},
   
-  // ============================================================================
-  // MONTH 4: AWS CERTIFICATION + HEAVY APPLICATIONS (Weeks 15-18)
-  // ============================================================================
-  
-  // Week 15: AWS SAA Prep - Compute & Storage
+  // Week 15: AWS SAA Prep - Networking (Days 100-106)
   { week: 15, topics: [
-    "AWS SAA: S3 Deep Dive",                   // Day 57
-    "AWS SAA: EC2 + Lambda Advanced",          // Day 58
-    "AWS SAA: RDS + Redshift",                 // Day 59
-    "Continue Applications (7/week)"           // Day 60
+    "AWS SAA: VPC + Networking",               // Day 100 - Mon
+    "AWS SAA: IAM Deep Dive",                  // Day 101 - Tue
+    "AWS SAA: Glue + Athena",                  // Day 102 - Wed
+    "Applications + Interview Prep",           // Day 103 - Thu
+    "AWS SAA: CloudWatch + Monitoring",        // Day 104 - Fri
+    "AWS Practice Exam 1",                     // Day 105 - Sat
+    "Review Weak Areas"                        // Day 106 - Sun (3-4h)
   ]},
   
-  // Week 16: AWS SAA Prep - Networking & Security
+  // Week 16: AWS SAA Final Prep (Days 107-113)
   { week: 16, topics: [
-    "AWS SAA: VPC + Networking",               // Day 61
-    "AWS SAA: IAM Deep Dive",                  // Day 62
-    "AWS SAA: Glue + Athena",                  // Day 63
-    "Continue Applications (7/week)"           // Day 64
+    "AWS SAA: Practice Exam 2",                // Day 107 - Mon
+    "AWS SAA: Deep Dive Weak Areas",           // Day 108 - Tue
+    "AWS SAA: Practice Exam 3",                // Day 109 - Wed
+    "First Interviews This Week",              // Day 110 - Thu
+    "AWS SAA: Final Review",                   // Day 111 - Fri
+    "AWS SAA: TAKE EXAM",                      // Day 112 - Sat
+    "Celebrate + Interview Prep"               // Day 113 - Sun
   ]},
   
-  // Week 17: AWS SAA Prep - Practice Exams
+  // Week 17: Interview Ramp Up (Days 114-120)
   { week: 17, topics: [
-    "AWS SAA: Practice Exam 1",                // Day 65
-    "AWS SAA: Review Weak Areas",              // Day 66
-    "AWS SAA: Practice Exam 2",                // Day 67
-    "First Interviews Scheduled"               // Day 68
+    "Interview Prep: SQL Deep Dive",           // Day 114 - Mon
+    "Interview Prep: Python Challenges",       // Day 115 - Tue
+    "Interview Prep: System Design Intro",     // Day 116 - Wed
+    "Active Interviewing",                     // Day 117 - Thu
+    "Interview Prep + Applications",           // Day 118 - Fri
+    "Mock Interview Day",                      // Day 119 - Sat
+    "Month 4 Review (5-10 interviews)"         // Day 120 - Sun - MONTH 4 COMPLETE
   ]},
   
-  // Week 18: AWS Certification Week
+  // ============================================================================
+  // MONTH 5: INTERVIEW PREP + HEAVY INTERVIEWING (Weeks 18-21)
+  // ============================================================================
+  
+  // Week 18: System Design Practice (Days 121-127)
   { week: 18, topics: [
-    "AWS SAA: Final Review",                   // Day 69
-    "AWS SAA: TAKE EXAM",                      // Day 70
-    "Interview Prep Begins",                   // Day 71
-    "5-10 Interviews Scheduled"                // Day 72 - MONTH 4 COMPLETE
+    "System Design: Data Pipelines",           // Day 121 - Mon
+    "System Design: Data Warehouses",          // Day 122 - Tue
+    "System Design: Streaming Systems",        // Day 123 - Wed
+    "Active Interviewing",                     // Day 124 - Thu
+    "System Design: Real-time Analytics",      // Day 125 - Fri
+    "System Design Deep Practice",             // Day 126 - Sat (6-7h)
+    "Interview Debrief + Prep"                 // Day 127 - Sun (3-4h)
   ]},
   
-  // ============================================================================
-  // MONTH 5: INTERVIEW PREP + HEAVY INTERVIEWING (Weeks 19-22)
-  // ============================================================================
-  
-  // Week 19: System Design Practice
+  // Week 19: Technical Interview Practice (Days 128-134)
   { week: 19, topics: [
-    "System Design: Data Pipelines",           // Day 73
-    "System Design: Data Warehouses",          // Day 74
-    "System Design: Streaming Systems",        // Day 75
-    "Continue Interviewing"                    // Day 76
+    "SQL Interview: Window Functions",         // Day 128 - Mon
+    "SQL Interview: CTEs + Subqueries",        // Day 129 - Tue
+    "Python: Data Structures",                 // Day 130 - Wed
+    "Active Interviewing",                     // Day 131 - Thu
+    "Data Modeling Questions",                 // Day 132 - Fri
+    "Full Mock Interview Day",                 // Day 133 - Sat
+    "Interview Prep + Review"                  // Day 134 - Sun (3-4h)
   ]},
   
-  // Week 20: Technical Interview Practice
+  // Week 20: Behavioral + Mock Interviews (Days 135-141)
   { week: 20, topics: [
-    "SQL Interview Questions",                 // Day 77
-    "Python Coding Challenges",                // Day 78
-    "Data Modeling Questions",                 // Day 79
-    "Continue Interviewing"                    // Day 80
+    "Behavioral Prep (STAR Method)",           // Day 135 - Mon
+    "Tell Me About Yourself",                  // Day 136 - Tue
+    "Leadership + Conflict Questions",         // Day 137 - Wed
+    "Active Interviewing",                     // Day 138 - Thu
+    "Mock Interview 1",                        // Day 139 - Fri
+    "Mock Interview 2 + Feedback",             // Day 140 - Sat
+    "Refine Interview Answers"                 // Day 141 - Sun (3-4h)
   ]},
   
-  // Week 21: Behavioral + Mock Interviews
+  // Week 21: Interview Refinement (Days 142-148)
   { week: 21, topics: [
-    "Behavioral Prep (STAR Method)",           // Day 81
-    "Mock Interview 1",                        // Day 82
-    "Mock Interview 2",                        // Day 83
-    "Continue Interviewing"                    // Day 84
+    "Refine Your Story",                       // Day 142 - Mon
+    "Technical Deep Dives",                    // Day 143 - Tue
+    "Negotiation Research",                    // Day 144 - Wed
+    "Active Interviewing",                     // Day 145 - Thu
+    "Final Round Prep",                        // Day 146 - Fri
+    "Practice Final Rounds",                   // Day 147 - Sat
+    "Month 5 Review (multiple offers)"         // Day 148 - Sun - MONTH 5 COMPLETE
   ]},
   
-  // Week 22: Interview Refinement
+  // ============================================================================
+  // MONTH 6: CLOSE OFFERS (Weeks 22-24)
+  // ============================================================================
+  
+  // Week 22: Final Push (Days 149-155)
   { week: 22, topics: [
-    "Refine Your Story",                       // Day 85
-    "Technical Deep Dives",                    // Day 86
-    "Negotiation Prep",                        // Day 87
-    "Multiple Offers in Play"                  // Day 88 - MONTH 5 COMPLETE
+    "Final Round Prep",                        // Day 149 - Mon
+    "Final Interviews",                        // Day 150 - Tue
+    "Final Interviews",                        // Day 151 - Wed
+    "Compare Offers",                          // Day 152 - Thu
+    "Negotiation Strategy",                    // Day 153 - Fri
+    "Negotiate Aggressively",                  // Day 154 - Sat
+    "Review Offer Details"                     // Day 155 - Sun (3-4h)
   ]},
   
-  // ============================================================================
-  // MONTH 6: CLOSE OFFERS (Weeks 23-24)
-  // ============================================================================
-  
-  // Week 23: Final Push
+  // Week 23: Negotiate + Accept (Days 156-162)
   { week: 23, topics: [
-    "Final Round Prep",                        // Day 89
-    "Final Interviews",                        // Day 90
-    "Compare Offers",                          // Day 91
-    "Negotiate Aggressively"                   // Day 92
+    "Counter-Offer Calls",                     // Day 156 - Mon
+    "Final Negotiations",                      // Day 157 - Tue
+    "Accept Best Offer ($160-170k)",           // Day 158 - Wed
+    "Give Notice",                             // Day 159 - Thu
+    "Transition Planning",                     // Day 160 - Fri
+    "Celebrate!",                              // Day 161 - Sat
+    "Prep for New Role"                        // Day 162 - Sun (3-4h)
   ]},
   
-  // Week 24: Launch
+  // Week 24: Launch (Days 163-169)
   { week: 24, topics: [
-    "Accept Offer ($160-170k)",                // Day 93
-    "Give Notice",                             // Day 94
-    "Prep for New Role",                       // Day 95
-    "NEW CHAPTER BEGINS!"                      // Day 96 - PROGRAM COMPLETE
+    "Knowledge Transfer at Current Job",       // Day 163 - Mon
+    "Finish Strong at Current Job",            // Day 164 - Tue
+    "Study New Company Stack",                 // Day 165 - Wed
+    "Prep Day 1 Questions",                    // Day 166 - Thu
+    "Last Day Current Job",                    // Day 167 - Fri
+    "Rest + Celebrate",                        // Day 168 - Sat
+    "NEW CHAPTER BEGINS!"                      // Day 169 - Sun - PROGRAM COMPLETE
   ]}
 ];
 

@@ -19,8 +19,18 @@ export type Month = Quarter;
 
 export interface WeekTopics {
   week: number;
-  topics: [string, string, string, string]; // Mon, Tue, Wed, Thu
+  topics: [string, string, string, string, string, string, string]; // Mon-Sun (7 days)
 }
+
+// Day type determines time allocation
+export type DayType = 'weekday' | 'saturday' | 'sunday';
+
+// Time allocation per day type (in minutes)
+export const DAY_TIME_ALLOCATION: Record<DayType, { handson: number; passive: number; total: number }> = {
+  weekday: { handson: 150, passive: 75, total: 225 },   // 2-2.5h work + 1-1.5h audiobooks
+  saturday: { handson: 390, passive: 0, total: 390 },   // 6-7h heavy project day
+  sunday: { handson: 210, passive: 0, total: 210 }      // 3-4h light learning + planning
+};
 
 export interface StudySession {
   id: string;

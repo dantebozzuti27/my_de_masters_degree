@@ -1,12 +1,20 @@
 // Session generation utilities for 6-Month Aggressive Plan
-// NO DATE DEPENDENCIES - Complete lessons at your own pace (2 hours each)
+// 7 days per week with varying time allocations:
+// - Mon-Fri: 2-2.5h hands-on work + 1-1.5h audiobooks/podcasts during commute
+// - Saturday: 6-7h heavy project day
+// - Sunday: 3-4h light learning + planning
 
-import { StudySession } from './types';
+import { StudySession, DayType, DAY_TIME_ALLOCATION } from './types';
 import { QUARTERS, WEEKLY_CURRICULUM } from './curriculum';
 
 const TOTAL_WEEKS = 24; // 6 months = 24 weeks
-const SESSIONS_PER_WEEK = 4; // 4 sessions per week
-const TOTAL_SESSIONS = TOTAL_WEEKS * SESSIONS_PER_WEEK; // 96 total sessions
+const SESSIONS_PER_WEEK = 7; // 7 days per week (Mon-Sun)
+const WEEK_1_SESSIONS = 8; // Week 1 was 8 days (Days 1-8)
+const TOTAL_SESSIONS = WEEK_1_SESSIONS + (TOTAL_WEEKS - 1) * SESSIONS_PER_WEEK; // 8 + 23*7 = 169
+
+// Day names for display
+const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
+const SHORT_DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const;
 
 function getQuarterForWeek(weekNumber: number): number {
   for (const quarter of QUARTERS) {
@@ -17,18 +25,46 @@ function getQuarterForWeek(weekNumber: number): number {
   return 6; // Default to last month
 }
 
-function getTopicsForWeek(weekNumber: number): [string, string, string, string] {
+function getTopicsForWeek(weekNumber: number): string[] {
   const weekData = WEEKLY_CURRICULUM.find(w => w.week === weekNumber);
-  return weekData?.topics ?? ["Study Session", "Study Session", "Study Session", "Study Session"];
+  if (!weekData) {
+    return Array(7).fill("Study Session");
+  }
+  return weekData.topics;
+}
+
+// Get day type based on position in week (0=Mon, 6=Sun)
+export function getDayType(dayInWeek: number): DayType {
+  if (dayInWeek === 5) return 'saturday';
+  if (dayInWeek === 6) return 'sunday';
+  return 'weekday';
+}
+
+// Get time allocation for a day
+export function getTimeForDay(dayInWeek: number): { handson: number; passive: number; total: number } {
+  return DAY_TIME_ALLOCATION[getDayType(dayInWeek)];
 }
 
 export function generateAllSessions(): StudySession[] {
   const sessions: StudySession[] = [];
 
-  // Generate 96 sessions (24 weeks × 4 sessions per week)
+  // Generate all sessions
+  // Week 1: 8 days (Days 1-8) - special first week
+  // Weeks 2-24: 7 days each (Days 9-15, 16-22, ...)
   for (let dayNumber = 1; dayNumber <= TOTAL_SESSIONS; dayNumber++) {
-    const weekNumber = Math.ceil(dayNumber / SESSIONS_PER_WEEK);
-    const dayInWeek = ((dayNumber - 1) % SESSIONS_PER_WEEK) as 0 | 1 | 2 | 3;
+    let weekNumber: number;
+    let dayInWeek: number;
+    
+    if (dayNumber <= WEEK_1_SESSIONS) {
+      // Week 1: Days 1-8
+      weekNumber = 1;
+      dayInWeek = (dayNumber - 1) % 7; // 0-6 for display
+    } else {
+      // Weeks 2+: 7 days each
+      const adjustedDay = dayNumber - WEEK_1_SESSIONS;
+      weekNumber = 2 + Math.floor((adjustedDay - 1) / SESSIONS_PER_WEEK);
+      dayInWeek = (adjustedDay - 1) % SESSIONS_PER_WEEK;
+    }
     
     const topics = getTopicsForWeek(weekNumber);
     const quarterId = getQuarterForWeek(weekNumber);
@@ -38,8 +74,8 @@ export function generateAllSessions(): StudySession[] {
       dayNumber,
       weekNumber,
       quarterId,
-      // No date - complete at your own pace
-      topic: topics[dayInWeek],
+      dayOfWeek: dayInWeek as 0 | 1 | 2 | 3,
+      topic: topics[dayInWeek] || `Day ${dayNumber} Study Session`,
       objectives: [],
       resources: []
     };
@@ -112,25 +148,39 @@ export function getProgress(completedSessionIds: Set<string>): {
   return { completed, total, percentage, currentDay, nextDay };
 }
 
-export function getDayLabel(dayInWeek: 0 | 1 | 2 | 3): string {
-  const labels = ['Session 1', 'Session 2', 'Session 3', 'Session 4'];
-  return labels[dayInWeek];
+export function getDayLabel(dayInWeek: number): string {
+  return DAY_NAMES[dayInWeek % 7] || 'Session';
 }
 
-export function getShortDayLabel(dayInWeek: 0 | 1 | 2 | 3): string {
-  const labels = ['S1', 'S2', 'S3', 'S4'];
-  return labels[dayInWeek];
+export function getShortDayLabel(dayInWeek: number): string {
+  return SHORT_DAY_NAMES[dayInWeek % 7] || 'S';
 }
 
-// Get program summary
+// Get program summary with accurate time totals
 export function getProgramSummary() {
   const sessions = getAllSessions();
+  
+  // Calculate total hours based on day types
+  let totalMinutes = 0;
+  let totalHandsonMinutes = 0;
+  let totalPassiveMinutes = 0;
+  
+  sessions.forEach(session => {
+    const dayInWeek = session.dayOfWeek ?? 0;
+    const time = getTimeForDay(dayInWeek);
+    totalMinutes += time.total;
+    totalHandsonMinutes += time.handson;
+    totalPassiveMinutes += time.passive;
+  });
+  
   return {
     totalWeeks: TOTAL_WEEKS,
-    totalSessions: sessions.length,
+    totalDays: sessions.length,
     sessionsPerWeek: SESSIONS_PER_WEEK,
-    hoursPerSession: 2,
-    totalHours: sessions.length * 2,
+    totalHours: Math.round(totalMinutes / 60),
+    handsOnHours: Math.round(totalHandsonMinutes / 60),
+    passiveHours: Math.round(totalPassiveMinutes / 60),
+    avgHoursPerWeek: Math.round((totalMinutes / 60) / TOTAL_WEEKS),
     months: 6
   };
 }
