@@ -1260,7 +1260,7 @@ export const Q1_LESSONS: Lesson[] = [
 
   {
     dayNumber: 9,
-    week: 3,
+    week: 2,
     topic: "Python Classes & OOP for Production",
     subtitle: "Build production-ready code with proper structure",
 
@@ -1365,7 +1365,7 @@ export const Q1_LESSONS: Lesson[] = [
   // Day 10: Logging & Configuration
   {
     dayNumber: 10,
-    week: 3,
+    week: 2,
     topic: "Logging & Configuration Management",
     subtitle: "Production-ready logging and config patterns",
 
@@ -1460,7 +1460,7 @@ export const Q1_LESSONS: Lesson[] = [
   // Day 11: Git Fundamentals
   {
     dayNumber: 11,
-    week: 3,
+    week: 2,
     topic: "Git Fundamentals",
     subtitle: "Version control for professional development",
 
@@ -1571,7 +1571,7 @@ export const Q1_LESSONS: Lesson[] = [
   // Day 12: GitHub PRs & Workflows
   {
     dayNumber: 12,
-    week: 3,
+    week: 2,
     topic: "GitHub PRs & Professional Workflows",
     subtitle: "Collaborate like a professional engineer",
 
@@ -1691,13 +1691,135 @@ export const Q1_LESSONS: Lesson[] = [
     futureProofNote: "GitHub proficiency is essential for any modern engineering job."
   },
 
+  // Day 13: Advanced Git + Code Review (Friday)
+  {
+    dayNumber: 13,
+    week: 2,
+    topic: "Advanced Git + Code Review Practice",
+    subtitle: "Deep dive into Git workflows and reviewing code",
+
+    objectives: [
+      "Master interactive rebase and history rewriting",
+      "Understand Git hooks and automation",
+      "Practice reviewing code effectively",
+      "Build muscle memory for common Git operations"
+    ],
+
+    aiIntegration: {
+      toolsUsed: ['copilot'],
+      focusArea: 'manual-practice',
+      aiTip: "Use AI to explain complex Git concepts, but practice the commands manually.",
+      warningWhenNotToUseAI: "Git operations need muscle memory - don't rely on AI for daily commands."
+    },
+
+    sessionPlan: [
+      { time: "0:00-0:20", activity: "Interactive rebase practice", type: "exercise" },
+      { time: "0:20-0:40", activity: "Git bisect for debugging", type: "exercise" },
+      { time: "0:40-1:00", activity: "Cherry-pick and reverting", type: "exercise" },
+      { time: "1:00-1:20", activity: "Git hooks and pre-commit", type: "learn" },
+      { time: "1:20-1:40", activity: "Code review best practices", type: "learn" },
+      { time: "1:40-2:00", activity: "Review a real open source PR", type: "exercise" },
+      { time: "2:00-2:30", activity: "Practice reviewing your own code", type: "exercise" }
+    ],
+
+    resources: {
+      required: [
+        { title: "Git Rebase Tutorial", url: "https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase", type: "tutorial" },
+        { title: "How to Review Code", url: "https://google.github.io/eng-practices/review/reviewer/", type: "article" }
+      ],
+      optional: [
+        { title: "pre-commit Docs", url: "https://pre-commit.com/", type: "docs" }
+      ]
+    },
+
+    exercises: [
+      {
+        title: "Exercise 1: Interactive Rebase",
+        description: "Reorder, squash, and edit commits in your practice repo",
+        estimatedTime: 20,
+        deliverable: "Clean commit history after rebase"
+      },
+      {
+        title: "Exercise 2: Git Bisect",
+        description: "Use bisect to find when a bug was introduced",
+        estimatedTime: 20,
+        deliverable: "Found the buggy commit"
+      },
+      {
+        title: "Exercise 3: Cherry-pick & Revert",
+        description: "Practice moving commits between branches and undoing",
+        estimatedTime: 20,
+        deliverable: "Successfully cherry-picked and reverted"
+      },
+      {
+        title: "Exercise 4: Pre-commit Hooks",
+        description: "Set up pre-commit with black, flake8, and mypy",
+        estimatedTime: 20,
+        deliverable: "Working pre-commit config"
+      },
+      {
+        title: "Exercise 5: Review Practice",
+        description: "Review an open source PR and write comments",
+        estimatedTime: 20,
+        deliverable: "Thoughtful review comments written"
+      },
+      {
+        title: "Exercise 6: Self-Review",
+        description: "Review your own code from this week",
+        estimatedTime: 30,
+        deliverable: "Improvements identified and applied"
+      }
+    ],
+
+    keyTerms: [
+      { term: "Interactive Rebase", definition: "Rewrite commit history - reorder, squash, edit" },
+      { term: "Git Bisect", definition: "Binary search through commits to find bugs" },
+      { term: "Cherry-pick", definition: "Apply a specific commit to another branch" },
+      { term: "Pre-commit Hook", definition: "Script that runs before each commit" },
+      { term: "Code Review", definition: "Examining code changes for quality, bugs, and style" }
+    ],
+
+    commonMistakes: [
+      "Rebasing commits that have been pushed (dangerous!)",
+      "Not testing after rebase",
+      "Being too harsh or too lenient in code reviews",
+      "Forgetting to pull before starting work"
+    ],
+
+    successCriteria: [
+      "Can use interactive rebase confidently",
+      "Understand when to rebase vs merge",
+      "Can give constructive code review feedback",
+      "Pre-commit hooks working"
+    ],
+
+    weeklyCheckpoint: {
+      title: "Week 2: Production Python + Git",
+      description: "You now write production-quality Python and collaborate professionally with Git.",
+      deliverables: [
+        "DataExtractor and DataValidator classes",
+        "Logging and configuration setup",
+        "Git repository with clean history",
+        "At least one merged PR",
+        "Pre-commit hooks configured"
+      ],
+      selfAssessment: [
+        "Is my Python code production-ready?",
+        "Can I use Git confidently for any workflow?",
+        "Can I give and receive code review?"
+      ]
+    },
+
+    futureProofNote: "Advanced Git skills separate senior engineers from juniors. Master these."
+  },
+
   // ============================================================================
-  // WEEK 4: AWS + Docker Basics (Days 13-16)
+  // WEEK 3: AWS + Docker Basics (Days 16-22)
   // ============================================================================
 
   {
-    dayNumber: 13,
-    week: 4,
+    dayNumber: 16,
+    week: 3,
     topic: "AWS Account Setup & IAM",
     subtitle: "Your first steps into cloud infrastructure",
 
@@ -1803,8 +1925,8 @@ export const Q1_LESSONS: Lesson[] = [
   },
 
   {
-    dayNumber: 14,
-    week: 4,
+    dayNumber: 17,
+    week: 3,
     topic: "S3 Fundamentals & Best Practices",
     subtitle: "Cloud storage for data engineering",
 
@@ -1909,8 +2031,8 @@ export const Q1_LESSONS: Lesson[] = [
   },
 
   {
-    dayNumber: 15,
-    week: 4,
+    dayNumber: 18,
+    week: 3,
     topic: "Docker Fundamentals",
     subtitle: "Containerize your applications",
 
@@ -2010,8 +2132,8 @@ export const Q1_LESSONS: Lesson[] = [
   },
 
   {
-    dayNumber: 16,
-    week: 4,
+    dayNumber: 19,
+    week: 3,
     topic: "Docker for Data Engineering",
     subtitle: "Production Docker patterns",
 
