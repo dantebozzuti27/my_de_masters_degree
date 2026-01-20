@@ -71,8 +71,7 @@ export const QUARTERS: Quarter[] = [
 
 export const WEEKLY_CURRICULUM: WeekTopics[] = [
   // ============================================================================
-  // WEEK 1: Python Foundations (Days 1-8) - COMPLETE
-  // Special 8-day bootcamp week
+  // WEEK 1: Python Foundations (Days 1-7) - COMPLETE
   // ============================================================================
   { week: 1, topics: [
     "Development Environment Setup",           // Day 1 - COMPLETE (Mon)
@@ -82,59 +81,58 @@ export const WEEKLY_CURRICULUM: WeekTopics[] = [
     "List Comprehensions",                     // Day 5 - COMPLETE (Fri)
     "Dictionaries & JSON",                     // Day 6 - COMPLETE (Sat)
     "File I/O & Context Managers"              // Day 7 - COMPLETE (Sun)
-    // Day 8 was bonus: Error Handling - also COMPLETE
   ]},
   
   // ============================================================================
-  // WEEK 2: Production Python + Git (Days 9-15)
+  // WEEK 2: Error Handling + Production Python (Days 8-14)
   // ============================================================================
   { week: 2, topics: [
-    "Python Classes & OOP for Production",     // Day 9 - Mon (2-2.5h hands-on)
-    "Logging & Configuration Management",      // Day 10 - Tue
-    "Git Fundamentals (branching, commits)",   // Day 11 - Wed
-    "GitHub PRs & Professional Workflows",     // Day 12 - Thu
-    "Advanced Git + Code Review Practice",     // Day 13 - Fri
-    "Week 2 Project: Build CLI Data Tool",     // Day 14 - Sat (6-7h project)
-    "Review + Plan Week 3"                     // Day 15 - Sun (3-4h)
+    "Error Handling & Defensive Code",         // Day 8 - Mon - COMPLETE
+    "Python Classes & OOP for Production",     // Day 9 - Tue (2-2.5h hands-on)
+    "Logging & Configuration Management",      // Day 10 - Wed
+    "Git Fundamentals (branching, commits)",   // Day 11 - Thu
+    "GitHub PRs & Professional Workflows",     // Day 12 - Fri
+    "Week 2 Project: Build CLI Data Tool",     // Day 13 - Sat (6-7h project)
+    "Review + Plan Week 3"                     // Day 14 - Sun (3-4h)
   ]},
   
   // ============================================================================
-  // WEEK 3: AWS + Docker Basics (Days 16-22)
+  // WEEK 3: Advanced Git + AWS Basics (Days 15-21)
   // ============================================================================
   { week: 3, topics: [
-    "AWS Account Setup (IAM, CLI)",            // Day 16 - Mon
-    "S3 Fundamentals & Best Practices",        // Day 17 - Tue
-    "Docker Fundamentals",                     // Day 18 - Wed
-    "Docker for Data Engineering",             // Day 19 - Thu
-    "Docker Compose + Local Dev Stack",        // Day 20 - Fri
-    "Week 3 Project: Containerized Pipeline",  // Day 21 - Sat (6-7h project)
-    "Review + Plan Week 4"                     // Day 22 - Sun (3-4h)
+    "Advanced Git + Code Review Practice",     // Day 15 - Mon
+    "AWS Account Setup (IAM, CLI)",            // Day 16 - Tue
+    "S3 Fundamentals & Best Practices",        // Day 17 - Wed
+    "Docker Fundamentals",                     // Day 18 - Thu
+    "Docker for Data Engineering",             // Day 19 - Fri
+    "Week 3 Project: Containerized Pipeline",  // Day 20 - Sat (6-7h project)
+    "Review + Plan Week 4"                     // Day 21 - Sun (3-4h)
   ]},
   
   // ============================================================================
-  // WEEK 4: Project 1 Part 1 - Stock Pipeline (Days 23-29)
+  // WEEK 4: Docker Compose + Project 1 Start (Days 22-28)
   // ============================================================================
   { week: 4, topics: [
-    "Alpha Vantage API Integration",           // Day 23 - Mon
-    "AWS Lambda Deployment",                   // Day 24 - Tue
-    "S3 Storage + Data Partitioning",          // Day 25 - Wed
-    "PostgreSQL Setup + Schema Design",        // Day 26 - Thu
-    "Data Transformation Pipeline",            // Day 27 - Fri
-    "Project 1 Deep Work Session",             // Day 28 - Sat (6-7h project)
-    "Review + Debug Session"                   // Day 29 - Sun (3-4h)
+    "Docker Compose + Local Dev Stack",        // Day 22 - Mon
+    "Alpha Vantage API Integration",           // Day 23 - Tue
+    "AWS Lambda Deployment",                   // Day 24 - Wed
+    "S3 Storage + Data Partitioning",          // Day 25 - Thu
+    "PostgreSQL Setup + Schema Design",        // Day 26 - Fri
+    "Project 1 Deep Work Session",             // Day 27 - Sat (6-7h project)
+    "Review + Debug Session"                   // Day 28 - Sun (3-4h)
   ]},
   
   // ============================================================================
-  // WEEK 5: Project 1 Part 2 - Complete (Days 30-36)
+  // WEEK 5: Project 1 Part 2 - Complete (Days 29-35)
   // ============================================================================
   { week: 5, topics: [
-    "Airflow DAG Basics",                      // Day 30 - Mon
-    "Connect Airflow to Lambda + S3",          // Day 31 - Tue
-    "Streamlit Dashboard Basics",              // Day 32 - Wed
-    "Dashboard Data Integration",              // Day 33 - Thu
-    "Project 1 Testing + Debugging",           // Day 34 - Fri
-    "Project 1 Polish + Documentation",        // Day 35 - Sat (6-7h)
-    "Month 1 Review + Planning"                // Day 36 - Sun - MONTH 1 COMPLETE
+    "Data Transformation Pipeline",            // Day 29 - Mon
+    "Airflow DAG Basics",                      // Day 30 - Tue
+    "Connect Airflow to Lambda + S3",          // Day 31 - Wed
+    "Streamlit Dashboard Basics",              // Day 32 - Thu
+    "Dashboard Data Integration",              // Day 33 - Fri
+    "Project 1 Polish + Documentation",        // Day 34 - Sat (6-7h)
+    "Month 1 Review + Planning"                // Day 35 - Sun - MONTH 1 COMPLETE
   ]},
   
   // ============================================================================

@@ -1691,10 +1691,139 @@ export const Q1_LESSONS: Lesson[] = [
     futureProofNote: "GitHub proficiency is essential for any modern engineering job."
   },
 
-  // Day 13: Advanced Git + Code Review (Friday)
+  // Day 13: Saturday Project Day
   {
     dayNumber: 13,
     week: 2,
+    topic: "Week 2 Project: CLI Data Tool",
+    subtitle: "Build a command-line data processing tool",
+
+    objectives: [
+      "Apply OOP concepts from this week",
+      "Integrate logging and configuration",
+      "Use Git workflow for development",
+      "Build something portfolio-worthy"
+    ],
+
+    aiIntegration: {
+      toolsUsed: ['copilot', 'cursor'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to help with boilerplate, but design the architecture yourself."
+    },
+
+    sessionPlan: [
+      { time: "0:00-0:30", activity: "Project planning and design", type: "learn" },
+      { time: "0:30-1:30", activity: "Build core data processing classes", type: "exercise" },
+      { time: "1:30-2:30", activity: "Add CLI interface with argparse", type: "exercise" },
+      { time: "2:30-3:30", activity: "Implement logging and config", type: "exercise" },
+      { time: "3:30-4:30", activity: "Write tests and documentation", type: "exercise" },
+      { time: "4:30-5:30", activity: "Git workflow: branch, commits, PR", type: "exercise" },
+      { time: "5:30-6:00", activity: "Polish and review", type: "review" }
+    ],
+
+    resources: {
+      required: [
+        { title: "argparse Tutorial", url: "https://docs.python.org/3/howto/argparse.html", type: "docs" }
+      ]
+    },
+
+    exercises: [
+      {
+        title: "CLI Data Tool Project",
+        description: "Build a command-line tool that processes data files",
+        estimatedTime: 360,
+        deliverable: "Working CLI tool with tests"
+      }
+    ],
+
+    successCriteria: [
+      "CLI tool accepts file input",
+      "Proper OOP structure",
+      "Logging configured",
+      "Tests passing",
+      "Clean Git history"
+    ],
+
+    futureProofNote: "Project days are where you prove you can build things. This goes in your portfolio."
+  },
+
+  // Day 14: Sunday Review
+  {
+    dayNumber: 14,
+    week: 2,
+    topic: "Review + Plan Week 3",
+    subtitle: "Consolidate learning and prepare for next week",
+
+    objectives: [
+      "Review Week 2 concepts",
+      "Ensure all exercises complete",
+      "Plan Week 3 approach",
+      "Light learning only"
+    ],
+
+    aiIntegration: {
+      toolsUsed: ['chatgpt'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to quiz yourself on concepts from this week."
+    },
+
+    sessionPlan: [
+      { time: "0:00-1:00", activity: "Review: OOP, Logging, Git concepts", type: "review" },
+      { time: "1:00-2:00", activity: "Catch up on any incomplete exercises", type: "exercise" },
+      { time: "2:00-2:30", activity: "Read ahead: AWS and Docker basics", type: "learn" },
+      { time: "2:30-3:00", activity: "Plan Week 3 schedule", type: "review" }
+    ],
+
+    resources: {
+      optional: [
+        { title: "AWS Getting Started", url: "https://aws.amazon.com/getting-started/", type: "docs" },
+        { title: "Docker Overview", url: "https://docs.docker.com/get-started/overview/", type: "docs" }
+      ]
+    },
+
+    exercises: [
+      {
+        title: "Week 2 Review",
+        description: "Complete any remaining exercises, review key concepts",
+        estimatedTime: 120,
+        deliverable: "All Week 2 exercises complete"
+      }
+    ],
+
+    weeklyCheckpoint: {
+      title: "Week 2 Complete: Production Python + Git",
+      description: "You now write production-quality Python and collaborate with Git.",
+      deliverables: [
+        "Error handling patterns",
+        "OOP-structured code",
+        "Logging and configuration",
+        "Git workflow mastery",
+        "CLI data tool project"
+      ],
+      selfAssessment: [
+        "Can I write production-ready Python?",
+        "Do I use Git confidently?",
+        "Is my project portfolio-ready?"
+      ]
+    },
+
+    successCriteria: [
+      "Week 2 exercises complete",
+      "Project committed and pushed",
+      "Ready for AWS + Docker"
+    ],
+
+    futureProofNote: "Sunday reviews ensure nothing slips through the cracks."
+  },
+
+  // ============================================================================
+  // WEEK 3: Advanced Git + AWS + Docker (Days 15-21)
+  // ============================================================================
+
+  // Day 15: Monday - Advanced Git
+  {
+    dayNumber: 15,
+    week: 3,
     topic: "Advanced Git + Code Review Practice",
     subtitle: "Deep dive into Git workflows and reviewing code",
 

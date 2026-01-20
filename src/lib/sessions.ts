@@ -9,8 +9,7 @@ import { QUARTERS, WEEKLY_CURRICULUM } from './curriculum';
 
 const TOTAL_WEEKS = 24; // 6 months = 24 weeks
 const SESSIONS_PER_WEEK = 7; // 7 days per week (Mon-Sun)
-const WEEK_1_SESSIONS = 8; // Week 1 was 8 days (Days 1-8)
-const TOTAL_SESSIONS = WEEK_1_SESSIONS + (TOTAL_WEEKS - 1) * SESSIONS_PER_WEEK; // 8 + 23*7 = 169
+const TOTAL_SESSIONS = TOTAL_WEEKS * SESSIONS_PER_WEEK; // 24 * 7 = 168 days
 
 // Day names for display
 const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
@@ -48,23 +47,11 @@ export function getTimeForDay(dayInWeek: number): { handson: number; passive: nu
 export function generateAllSessions(): StudySession[] {
   const sessions: StudySession[] = [];
 
-  // Generate all sessions
-  // Week 1: 8 days (Days 1-8) - special first week
-  // Weeks 2-24: 7 days each (Days 9-15, 16-22, ...)
+  // Generate all sessions: 24 weeks × 7 days = 168 days
+  // Week 1: Days 1-7, Week 2: Days 8-14, etc.
   for (let dayNumber = 1; dayNumber <= TOTAL_SESSIONS; dayNumber++) {
-    let weekNumber: number;
-    let dayInWeek: number;
-    
-    if (dayNumber <= WEEK_1_SESSIONS) {
-      // Week 1: Days 1-8
-      weekNumber = 1;
-      dayInWeek = (dayNumber - 1) % 7; // 0-6 for display
-    } else {
-      // Weeks 2+: 7 days each
-      const adjustedDay = dayNumber - WEEK_1_SESSIONS;
-      weekNumber = 2 + Math.floor((adjustedDay - 1) / SESSIONS_PER_WEEK);
-      dayInWeek = (adjustedDay - 1) % SESSIONS_PER_WEEK;
-    }
+    const weekNumber = Math.ceil(dayNumber / SESSIONS_PER_WEEK);
+    const dayInWeek = (dayNumber - 1) % SESSIONS_PER_WEEK; // 0=Mon, 6=Sun
     
     const topics = getTopicsForWeek(weekNumber);
     const quarterId = getQuarterForWeek(weekNumber);
