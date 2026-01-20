@@ -27,10 +27,10 @@ export default function CurriculumPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          Curriculum
+          6-Month Aggressive Plan
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          104 weeks • 416 sessions • 8 quarters
+          24 weeks • 96 sessions • Goal: $160-170k by July 2026
         </p>
       </div>
 
@@ -39,9 +39,9 @@ export default function CurriculumPage() {
         <div className="flex items-center gap-4">
           <BookOpen className="w-12 h-12" />
           <div>
-            <h2 className="text-xl font-bold">Your Learning Journey</h2>
+            <h2 className="text-xl font-bold">6-Month Aggressive Transition</h2>
             <p className="text-blue-100">
-              {completedIds.size} of 416 sessions completed ({Math.round((completedIds.size / 416) * 100)}%)
+              {completedIds.size} of 96 sessions completed ({Math.round((completedIds.size / 96) * 100)}%)
             </p>
           </div>
         </div>

@@ -1,225 +1,325 @@
-// Curriculum data for the 2-Year Senior Data Engineer Study Plan
+// Curriculum data for the Aggressive 6-Month Data Engineer Transition Plan
+// Goal: Land $160-170k Role by July 2026
 
 import { Quarter, WeekTopics } from './types';
 
+// Using 'Quarter' type for backward compatibility, but semantically these are MONTHS
 export const QUARTERS: Quarter[] = [
   {
     id: 1,
-    name: "Python & SQL Foundations",
-    shortName: "Q1: Python & SQL",
-    weeks: [1, 13],
+    name: "Foundations + Production Skills",
+    shortName: "Month 1: Foundation",
+    weeks: [1, 6],
     startDate: "2026-01-12",
-    endDate: "2026-04-05",
-    goal: "Build Python fundamentals from scratch, advance SQL to window functions and optimization, establish development environment and habits.",
-    project: "Schema-Aware ETL Generator (v0) - scaffolding only"
+    endDate: "2026-02-28",
+    goal: "Python fundamentals (Days 1-8 COMPLETE), then production Python, Git/GitHub, AWS basics, Docker. Complete Project 1.",
+    project: "Real-Time Stock Market Pipeline (AWS Lambda, S3, PostgreSQL, Airflow, Streamlit)"
   },
   {
     id: 2,
-    name: "ETL Patterns & Data Quality",
-    shortName: "Q2: ETL & Quality",
-    weeks: [14, 26],
-    startDate: "2026-04-06",
-    endDate: "2026-06-28",
-    goal: "Master ETL patterns, data quality frameworks, begin dbt.",
-    project: "Schema-Aware ETL Generator (v1) - basic functionality"
-  },
-  {
-    id: 3,
-    name: "dbt Mastery & Testing",
-    shortName: "Q3: dbt Mastery",
-    weeks: [27, 39],
-    startDate: "2026-06-29",
-    endDate: "2026-09-20",
-    goal: "Deep dbt expertise, analytics engineering certification, comprehensive testing.",
-    project: "Schema-Aware ETL Generator (v2) - dbt integration",
+    name: "dbt Mastery + Project 2",
+    shortName: "Month 2: dbt",
+    weeks: [7, 10],
+    startDate: "2026-03-01",
+    endDate: "2026-03-31",
+    goal: "Deep dbt expertise, analytics engineering patterns, Snowflake. Complete Project 2: NBA Analytics Platform.",
+    project: "NBA Analytics Platform (Snowflake, dbt, Streamlit)",
     certification: "dbt Analytics Engineering"
   },
   {
+    id: 3,
+    name: "Airflow + Project 3 + Apply",
+    shortName: "Month 3: Airflow",
+    weeks: [11, 14],
+    startDate: "2026-04-01",
+    endDate: "2026-04-30",
+    goal: "Master Airflow orchestration, data quality with Great Expectations. Complete Project 3. START APPLYING.",
+    project: "Multi-Source Financial Data Quality Platform (Airflow, Great Expectations, PostgreSQL)"
+  },
+  {
     id: 4,
-    name: "AWS Foundations & Cloud Data",
-    shortName: "Q4: AWS Foundations",
-    weeks: [40, 52],
-    startDate: "2026-09-21",
-    endDate: "2026-12-13",
-    goal: "AWS Cloud Practitioner cert, core services mastery, cloud data patterns.",
-    project: "Deploy ETL Generator to AWS",
-    certification: "AWS Cloud Practitioner"
+    name: "AWS Certification + Applications",
+    shortName: "Month 4: AWS Cert",
+    weeks: [15, 18],
+    startDate: "2026-05-01",
+    endDate: "2026-05-31",
+    goal: "AWS Solutions Architect Associate certification. 25-30 applications submitted. Start getting interviews.",
+    project: "AWS Certification Labs",
+    certification: "AWS Solutions Architect Associate"
   },
   {
     id: 5,
-    name: "Orchestration Deep Dive",
-    shortName: "Q5: Orchestration",
-    weeks: [53, 65],
-    startDate: "2026-12-14",
-    endDate: "2027-03-07",
-    goal: "Master Airflow/Dagster, production orchestration patterns.",
-    project: "Orchestrated Data Pipeline Platform"
+    name: "Interview Prep + Interviewing",
+    shortName: "Month 5: Interviews",
+    weeks: [19, 22],
+    startDate: "2026-06-01",
+    endDate: "2026-06-30",
+    goal: "System design practice, SQL interviews, Python challenges, behavioral prep. Heavy interviewing.",
+    project: "Interview Practice Portfolio"
   },
   {
     id: 6,
-    name: "AWS Advanced & Data Engineering",
-    shortName: "Q6: AWS Advanced",
-    weeks: [66, 78],
-    startDate: "2027-03-08",
-    endDate: "2027-05-30",
-    goal: "AWS Data Engineer Associate cert, advanced cloud architecture.",
-    project: "Full cloud-native data platform",
-    certification: "AWS Data Engineer Associate"
-  },
-  {
-    id: 7,
-    name: "System Design & Governance",
-    shortName: "Q7: System Design",
-    weeks: [79, 91],
-    startDate: "2027-05-31",
-    endDate: "2027-08-22",
-    goal: "System design mastery, data governance, compliance frameworks.",
-    project: "Enterprise-grade data platform with governance"
-  },
-  {
-    id: 8,
-    name: "Interview Prep & Career Launch",
-    shortName: "Q8: Interview Prep",
-    weeks: [92, 104],
-    startDate: "2027-08-23",
-    endDate: "2028-01-08",
-    goal: "Interview preparation, portfolio polish, job search execution.",
-    project: "Final portfolio presentation"
+    name: "Close Offers",
+    shortName: "Month 6: Close",
+    weeks: [23, 24],
+    startDate: "2026-07-01",
+    endDate: "2026-07-31",
+    goal: "Final interviews, negotiate aggressively, close deal at $160-170k.",
+    project: "Final Portfolio Polish"
   }
 ];
 
 export const WEEKLY_CURRICULUM: WeekTopics[] = [
-  // Quarter 1: Python & SQL Foundations
-  { week: 1, topics: ["Development Environment Setup", "Python Syntax Fundamentals", "Control Flow & Functions", "Data Types Deep Dive"] },
-  { week: 2, topics: ["Lists and List Comprehensions", "Dictionaries and JSON", "File I/O and Context Managers", "Error Handling"] },
-  { week: 3, topics: ["Classes and Objects Basics", "Class Methods and Static Methods", "Inheritance and Polymorphism", "Special Methods (Dunder)"] },
-  { week: 4, topics: ["Modules and Imports", "Package Structure", "Virtual Environments Deep Dive", "Project Structure Best Practices"] },
-  { week: 5, topics: ["SQL Window Functions Intro", "Aggregate Window Functions", "Advanced Window Functions (LAG/LEAD)", "CTE Mastery"] },
-  { week: 6, topics: ["Understanding Execution Plans", "Indexing Fundamentals", "Index Types and Strategies", "Query Optimization Patterns"] },
-  { week: 7, topics: ["Python Iterators", "Generators and Yield", "Decorators Part 1", "Decorators Part 2 + Functools"] },
-  { week: 8, topics: ["Type Hints Fundamentals", "Advanced Type Hints (Generics)", "Dataclasses", "Pydantic Introduction"] },
-  { week: 9, topics: ["Unit Testing with pytest", "Test Fixtures and Parametrize", "Mocking with unittest.mock", "Test-Driven Development"] },
-  { week: 10, topics: ["SQL Schema Design Basics", "Normalization (1NF-3NF)", "Denormalization Strategies", "Dimensional Modeling Intro"] },
-  { week: 11, topics: ["Star Schema Design", "Slowly Changing Dimensions", "Fact Table Patterns", "Schema Design Review"] },
-  { week: 12, topics: ["Pandas Fundamentals", "Pandas Data Manipulation", "Pandas Aggregations and Joins", "Pandas Performance Tips"] },
-  { week: 13, topics: ["Q1 Project: ETL Generator Setup", "Q1 Project: Schema Parser", "Q1 Project: Code Generator", "Q1 Review & Retrospective"] },
+  // ============================================================================
+  // FOUNDATION (Already Complete - Days 1-8)
+  // ============================================================================
   
-  // Quarter 2: ETL Patterns & Data Quality
-  { week: 14, topics: ["ETL vs ELT Patterns", "Full Load Strategies", "Incremental Load Patterns", "Upsert/Merge Patterns"] },
-  { week: 15, topics: ["Change Data Capture (CDC)", "CDC Implementation Patterns", "Checkpointing Strategies", "Idempotency in ETL"] },
-  { week: 16, topics: ["Data Quality Fundamentals", "Data Quality Dimensions", "Quality Metrics and SLAs", "Quality Rule Patterns"] },
-  { week: 17, topics: ["Great Expectations Intro", "Creating Expectations", "Data Docs and Validation", "GE in Pipelines"] },
-  { week: 18, topics: ["dbt Fundamentals", "dbt Models and Refs", "dbt Sources and Seeds", "dbt Documentation"] },
-  { week: 19, topics: ["dbt Tests: Built-in", "dbt Tests: Custom", "dbt-expectations Package", "dbt Data Quality Strategy"] },
-  { week: 20, topics: ["Logging Fundamentals", "Structured Logging (JSON)", "Python Logging Best Practices", "Log Aggregation Concepts"] },
-  { week: 21, topics: ["Error Handling Patterns", "Retry Strategies (tenacity)", "Dead Letter Queues", "Alerting Patterns"] },
-  { week: 22, topics: ["Configuration Management", "YAML and PyYAML", "Config-Driven Pipelines", "Secrets Management Intro"] },
-  { week: 23, topics: ["Schema Evolution", "Schema Drift Detection", "Backwards Compatibility", "Data Contracts Intro"] },
-  { week: 24, topics: ["ETL Generator: Full Load", "ETL Generator: Incremental", "ETL Generator: Quality Checks", "ETL Generator: Config"] },
-  { week: 25, topics: ["ETL Generator: Logging", "ETL Generator: Error Handling", "ETL Generator: Documentation", "Integration Testing"] },
-  { week: 26, topics: ["Q2 Project Polish", "Q2 Code Review", "Q2 Documentation", "Q2 Review & Retrospective"] },
+  // Week 1: Python Foundations Part 1 (COMPLETE)
+  { week: 1, topics: [
+    "Development Environment Setup",           // Day 1 - COMPLETE
+    "Python Variables & Syntax",               // Day 2 - COMPLETE  
+    "Functions & Control Flow",                // Day 3 - COMPLETE
+    "Data Structures (Lists, Dicts)"           // Day 4 - COMPLETE
+  ]},
   
-  // Quarter 3: dbt Mastery & Testing
-  { week: 27, topics: ["dbt Project Structure", "dbt Macros Fundamentals", "Jinja Templating in dbt", "Custom Macros"] },
-  { week: 28, topics: ["dbt Packages", "dbt-utils Package", "dbt-audit-helper", "Package Management"] },
-  { week: 29, topics: ["dbt Snapshots", "Snapshot Strategies", "Historical Data Tracking", "SCD Type 2 with dbt"] },
-  { week: 30, topics: ["dbt Incremental Models", "Incremental Strategies", "Incremental Optimization", "Incremental Edge Cases"] },
-  { week: 31, topics: ["dbt Analytics Engineering Cert Prep", "Cert Practice Questions", "Cert Review Topics", "Mock Certification Exam"] },
-  { week: 32, topics: ["Advanced dbt Testing", "Unit Tests in dbt", "Integration Tests", "Test Coverage Strategies"] },
-  { week: 33, topics: ["dbt Cloud Intro", "dbt Cloud Jobs", "CI/CD with dbt Cloud", "dbt Cloud vs Core"] },
-  { week: 34, topics: ["dbt Artifacts", "dbt docs generate", "Data Lineage in dbt", "Catalog Management"] },
-  { week: 35, topics: ["dbt Performance", "Model Optimization", "Warehouse Optimization", "dbt Profiling"] },
-  { week: 36, topics: ["dbt Project: Metrics Layer", "dbt Project: Semantic Layer", "dbt Project: BI Integration", "dbt Best Practices Review"] },
-  { week: 37, topics: ["ETL Generator: dbt Integration", "ETL Generator: dbt Tests", "ETL Generator: dbt Docs", "Testing Strategy"] },
-  { week: 38, topics: ["Full Pipeline Testing", "End-to-End Testing", "Performance Testing", "Load Testing Basics"] },
-  { week: 39, topics: ["Q3 Certification Final Prep", "Q3 Portfolio Review", "Q3 GitHub Optimization", "Q3 Review & Retrospective"] },
+  // Week 2: Python Foundations Part 2 (COMPLETE)
+  { week: 2, topics: [
+    "List Comprehensions",                     // Day 5 - COMPLETE
+    "Dictionaries & JSON",                     // Day 6 - COMPLETE
+    "File I/O & Context Managers",             // Day 7 - COMPLETE
+    "Error Handling & Defensive Code"          // Day 8 - COMPLETE
+  ]},
   
-  // Quarter 4: AWS Foundations & Cloud Data
-  { week: 40, topics: ["AWS Overview & Account Setup", "AWS Console Navigation", "AWS CLI Setup", "IAM Fundamentals"] },
-  { week: 41, topics: ["S3 Fundamentals", "S3 Storage Classes", "S3 Lifecycle Policies", "S3 Security and Encryption"] },
-  { week: 42, topics: ["EC2 Basics", "EC2 Instance Types", "VPC Fundamentals", "Security Groups and NACLs"] },
-  { week: 43, topics: ["Lambda Introduction", "Lambda Function Patterns", "Lambda Triggers", "Lambda Best Practices"] },
-  { week: 44, topics: ["AWS Glue Introduction", "Glue ETL Jobs", "Glue Crawlers", "Glue Data Catalog"] },
-  { week: 45, topics: ["Athena Introduction", "Athena Query Patterns", "Athena Performance", "Athena + S3 Best Practices"] },
-  { week: 46, topics: ["Redshift Introduction", "Redshift Architecture", "Redshift Loading Data", "Redshift Optimization"] },
-  { week: 47, topics: ["AWS Cloud Practitioner Prep", "CLF Practice Exam 1", "CLF Practice Exam 2", "CLF Review & Exam"] },
-  { week: 48, topics: ["Terraform Introduction", "Terraform HCL Basics", "Terraform State", "Terraform Modules"] },
-  { week: 49, topics: ["Infrastructure as Code Patterns", "Terraform for AWS", "Terraform Best Practices", "IaC in Data Engineering"] },
-  { week: 50, topics: ["ETL Generator: S3 Integration", "ETL Generator: Lambda Deploy", "ETL Generator: Glue Jobs", "Cloud Testing"] },
-  { week: 51, topics: ["Cost Optimization", "AWS Cost Explorer", "Resource Tagging", "Cost Monitoring"] },
-  { week: 52, topics: ["Q4 AWS Review", "Q4 Terraform Review", "Q4 Portfolio Update", "Q4 Review & Retrospective"] },
+  // ============================================================================
+  // MONTH 1: Production Skills + Project 1 (Weeks 3-6)
+  // ============================================================================
   
-  // Quarter 5: Orchestration Deep Dive
-  { week: 53, topics: ["Orchestration Concepts", "Airflow Introduction", "Airflow Architecture", "Airflow Installation"] },
-  { week: 54, topics: ["DAGs Fundamentals", "Operators Overview", "BashOperator and PythonOperator", "Task Dependencies"] },
-  { week: 55, topics: ["TaskFlow API", "XCom Communication", "Dynamic DAGs", "DAG Factory Patterns"] },
-  { week: 56, topics: ["Sensors in Airflow", "Custom Operators", "Custom Sensors", "Hooks and Connections"] },
-  { week: 57, topics: ["Airflow Variables", "Airflow Connections", "Secrets Backends", "Configuration Management"] },
-  { week: 58, topics: ["SubDAGs and TaskGroups", "Branching Logic", "Conditional Execution", "Error Handling in DAGs"] },
-  { week: 59, topics: ["Airflow Testing", "DAG Integrity Tests", "Unit Testing Tasks", "Integration Testing"] },
-  { week: 60, topics: ["Airflow REST API", "Triggering DAGs", "Monitoring via API", "Airflow Plugins"] },
-  { week: 61, topics: ["Dagster Introduction", "Assets vs Tasks", "Dagster vs Airflow", "Dagster Concepts"] },
-  { week: 62, topics: ["Dagster Ops and Jobs", "Dagster Resources", "Dagster Schedules", "Dagster Sensors"] },
-  { week: 63, topics: ["Production Orchestration", "Scaling Airflow", "MWAA (Managed Airflow)", "Monitoring and Alerting"] },
-  { week: 64, topics: ["Orchestrated Pipeline Project", "Multi-DAG Architecture", "Cross-DAG Dependencies", "Pipeline Documentation"] },
-  { week: 65, topics: ["Q5 Orchestration Review", "Q5 Best Practices", "Q5 Portfolio Update", "Q5 Review & Retrospective"] },
+  // Week 3: Production Python + Git
+  { week: 3, topics: [
+    "Python Classes & OOP for Production",     // Day 9
+    "Logging & Configuration Management",      // Day 10
+    "Git Fundamentals (branching, commits)",   // Day 11
+    "GitHub PRs & Professional Workflows"      // Day 12
+  ]},
   
-  // Quarter 6: AWS Advanced & Data Engineering
-  { week: 66, topics: ["AWS Data Engineer Cert Overview", "Data Engineering on AWS", "Lake House Architecture", "Data Lakes vs Warehouses"] },
-  { week: 67, topics: ["Advanced S3 Patterns", "S3 Event Notifications", "S3 Replication", "Cross-Account Access"] },
-  { week: 68, topics: ["Kinesis Introduction", "Kinesis Streams", "Kinesis Firehose", "Real-time Processing"] },
-  { week: 69, topics: ["EMR Introduction", "Spark on EMR", "EMR Serverless", "Big Data Processing Patterns"] },
-  { week: 70, topics: ["Step Functions", "State Machine Design", "Step Functions + Lambda", "Orchestration Comparison"] },
-  { week: 71, topics: ["EventBridge Introduction", "Event-Driven Architecture", "EventBridge Patterns", "Serverless Orchestration"] },
-  { week: 72, topics: ["Secrets Manager", "Parameter Store", "Security Best Practices", "Compliance Basics"] },
-  { week: 73, topics: ["AWS DEA Cert Prep Week 1", "DEA Practice Questions", "DEA Lab Practice", "DEA Review Session"] },
-  { week: 74, topics: ["AWS DEA Cert Prep Week 2", "DEA Mock Exam 1", "DEA Mock Exam 2", "DEA Final Review"] },
-  { week: 75, topics: ["Advanced Terraform", "Terraform Workspaces", "Remote State", "Terraform CI/CD"] },
-  { week: 76, topics: ["Multi-Environment Deployments", "Blue-Green Deployments", "Canary Releases", "Feature Flags"] },
-  { week: 77, topics: ["Cloud Native Pipeline", "Serverless Data Pipeline", "Cost-Optimized Architecture", "Performance Tuning"] },
-  { week: 78, topics: ["Q6 Project Completion", "Q6 Architecture Review", "Q6 Portfolio Update", "Q6 Review & Retrospective"] },
+  // Week 4: AWS + Docker Basics
+  { week: 4, topics: [
+    "AWS Account Setup (IAM, CLI)",            // Day 13
+    "S3 Fundamentals & Best Practices",        // Day 14
+    "Docker Fundamentals",                     // Day 15
+    "Docker for Data Engineering"              // Day 16
+  ]},
   
-  // Quarter 7: System Design & Governance
-  { week: 79, topics: ["System Design Fundamentals", "Scalability Concepts", "Reliability Engineering", "CAP Theorem"] },
-  { week: 80, topics: ["Data System Design", "Batch Processing Design", "Stream Processing Design", "Lambda Architecture"] },
-  { week: 81, topics: ["Kappa Architecture", "Hybrid Architectures", "Trade-off Analysis", "Design Documentation"] },
-  { week: 82, topics: ["C4 Model", "Architecture Decision Records", "Technical Writing", "Design Reviews"] },
-  { week: 83, topics: ["Data Governance Intro", "Data Catalogs", "Metadata Management", "Data Lineage"] },
-  { week: 84, topics: ["PII Handling", "Data Masking", "Anonymization vs Pseudonymization", "Privacy by Design"] },
-  { week: 85, topics: ["Access Control", "RBAC vs ABAC", "Row/Column Level Security", "AWS Lake Formation"] },
-  { week: 86, topics: ["Compliance Frameworks", "GDPR Basics", "CCPA Basics", "Audit Logging"] },
-  { week: 87, topics: ["CloudTrail Deep Dive", "CloudWatch Monitoring", "Compliance Monitoring", "Security Automation"] },
-  { week: 88, topics: ["Threat Modeling", "STRIDE Framework", "Security in Data Pipelines", "Incident Response"] },
-  { week: 89, topics: ["System Design Practice 1", "System Design Practice 2", "Mock Design Interview", "Feedback Review"] },
-  { week: 90, topics: ["Enterprise Platform Design", "Governance Implementation", "Documentation Polish", "Architecture Review"] },
-  { week: 91, topics: ["Q7 Governance Project", "Q7 Documentation", "Q7 Portfolio Final", "Q7 Review & Retrospective"] },
+  // Week 5: Project 1 - Real-Time Stock Pipeline (Part 1)
+  { week: 5, topics: [
+    "Alpha Vantage API Integration",           // Day 17
+    "AWS Lambda Deployment",                   // Day 18
+    "S3 Storage + Data Partitioning",          // Day 19
+    "PostgreSQL Setup + Schema Design"         // Day 20
+  ]},
   
-  // Quarter 8: Interview Prep & Career Launch
-  { week: 92, topics: ["Resume Optimization", "LinkedIn Profile Polish", "GitHub Portfolio Review", "Personal Branding"] },
-  { week: 93, topics: ["Job Search Strategy", "Target Company Research", "Networking Strategies", "Application Tracking"] },
-  { week: 94, topics: ["System Design Interview Prep 1", "Common DE Design Questions", "Designing Data Pipelines", "Practice Session"] },
-  { week: 95, topics: ["System Design Interview Prep 2", "Designing Data Warehouses", "Designing Data Lakes", "Mock Interview"] },
-  { week: 96, topics: ["Coding Interview Prep 1", "Python Algorithms", "SQL Interview Questions", "Practice Problems"] },
-  { week: 97, topics: ["Coding Interview Prep 2", "Data Structures Review", "Time Complexity", "Mock Coding Interview"] },
-  { week: 98, topics: ["Behavioral Interview Prep", "STAR Method", "Leadership Principles", "Story Library Building"] },
-  { week: 99, topics: ["Mock Full Interview 1", "Feedback Review", "Improvement Areas", "Practice Refinement"] },
-  { week: 100, topics: ["Mock Full Interview 2", "Technical Deep Dive", "Communication Practice", "Confidence Building"] },
-  { week: 101, topics: ["Offer Negotiation Prep", "Compensation Research", "Negotiation Strategies", "Counter-Offer Tactics"] },
-  { week: 102, topics: ["Active Job Search Week 1", "Application Submissions", "Recruiter Outreach", "Interview Scheduling"] },
-  { week: 103, topics: ["Active Job Search Week 2", "Interview Execution", "Follow-up Strategy", "Pipeline Management"] },
-  { week: 104, topics: ["Final Review", "Journey Retrospective", "Next Steps Planning", "Celebration & Launch!"] }
+  // Week 6: Project 1 - Real-Time Stock Pipeline (Part 2)
+  { week: 6, topics: [
+    "Data Transformation Pipeline",            // Day 21
+    "Airflow DAG Basics",                      // Day 22
+    "Streamlit Dashboard",                     // Day 23
+    "Project 1 Polish + Documentation"         // Day 24 - MONTH 1 COMPLETE
+  ]},
+  
+  // ============================================================================
+  // MONTH 2: DBT MASTERY + PROJECT 2 (Weeks 7-10)
+  // ============================================================================
+  
+  // Week 7: dbt Fundamentals
+  { week: 7, topics: [
+    "dbt Fundamentals (models, refs)",         // Day 25
+    "dbt Materializations",                    // Day 26
+    "Staging → Intermediate → Marts",          // Day 27
+    "dbt Sources and Seeds"                    // Day 28
+  ]},
+  
+  // Week 8: dbt Testing & Macros
+  { week: 8, topics: [
+    "dbt Testing (schema + data tests)",       // Day 29
+    "Custom dbt Tests",                        // Day 30
+    "dbt Macros and Jinja",                    // Day 31
+    "dbt Packages + Documentation"             // Day 32
+  ]},
+  
+  // Week 9: Project 2 - NBA Analytics Platform (Part 1)
+  { week: 9, topics: [
+    "NBA API Data Ingestion",                  // Day 33
+    "Snowflake Setup",                         // Day 34
+    "dbt Staging Models",                      // Day 35
+    "dbt Intermediate Models"                  // Day 36
+  ]},
+  
+  // Week 10: Project 2 - NBA Analytics Platform (Part 2)
+  { week: 10, topics: [
+    "dbt Marts + Dimensional Modeling",        // Day 37
+    "dbt Test Coverage + Docs",                // Day 38
+    "Streamlit Dashboard",                     // Day 39
+    "dbt Cert Prep + Project Polish"           // Day 40 - MONTH 2 COMPLETE
+  ]},
+  
+  // ============================================================================
+  // MONTH 3: AIRFLOW + PROJECT 3 + START APPLYING (Weeks 11-14)
+  // ============================================================================
+  
+  // Week 11: Airflow Fundamentals
+  { week: 11, topics: [
+    "Airflow Architecture Deep Dive",          // Day 41
+    "DAG Design Patterns",                     // Day 42
+    "Operators and TaskFlow API",              // Day 43
+    "Task Dependencies + XComs"                // Day 44
+  ]},
+  
+  // Week 12: Airflow Production + Start Applying
+  { week: 12, topics: [
+    "Airflow Testing + Monitoring",            // Day 45
+    "Error Handling in DAGs",                  // Day 46
+    "Resume + LinkedIn Polish",                // Day 47 - START APPLYING
+    "First 10 Applications Submitted"          // Day 48
+  ]},
+  
+  // Week 13: Project 3 - Financial Data Quality (Part 1)
+  { week: 13, topics: [
+    "Multi-Source Ingestion DAGs",             // Day 49
+    "Great Expectations Setup",                // Day 50
+    "Data Quality Framework",                  // Day 51
+    "Applications: Keep Applying"              // Day 52
+  ]},
+  
+  // Week 14: Project 3 - Financial Data Quality (Part 2)
+  { week: 14, topics: [
+    "Monitoring + Alerting",                   // Day 53
+    "Final Polish + Deployment",               // Day 54
+    "Project 3 Documentation",                 // Day 55
+    "30+ Applications Submitted"               // Day 56 - MONTH 3 COMPLETE
+  ]},
+  
+  // ============================================================================
+  // MONTH 4: AWS CERTIFICATION + HEAVY APPLICATIONS (Weeks 15-18)
+  // ============================================================================
+  
+  // Week 15: AWS SAA Prep - Compute & Storage
+  { week: 15, topics: [
+    "AWS SAA: S3 Deep Dive",                   // Day 57
+    "AWS SAA: EC2 + Lambda Advanced",          // Day 58
+    "AWS SAA: RDS + Redshift",                 // Day 59
+    "Continue Applications (7/week)"           // Day 60
+  ]},
+  
+  // Week 16: AWS SAA Prep - Networking & Security
+  { week: 16, topics: [
+    "AWS SAA: VPC + Networking",               // Day 61
+    "AWS SAA: IAM Deep Dive",                  // Day 62
+    "AWS SAA: Glue + Athena",                  // Day 63
+    "Continue Applications (7/week)"           // Day 64
+  ]},
+  
+  // Week 17: AWS SAA Prep - Practice Exams
+  { week: 17, topics: [
+    "AWS SAA: Practice Exam 1",                // Day 65
+    "AWS SAA: Review Weak Areas",              // Day 66
+    "AWS SAA: Practice Exam 2",                // Day 67
+    "First Interviews Scheduled"               // Day 68
+  ]},
+  
+  // Week 18: AWS Certification Week
+  { week: 18, topics: [
+    "AWS SAA: Final Review",                   // Day 69
+    "AWS SAA: TAKE EXAM",                      // Day 70
+    "Interview Prep Begins",                   // Day 71
+    "5-10 Interviews Scheduled"                // Day 72 - MONTH 4 COMPLETE
+  ]},
+  
+  // ============================================================================
+  // MONTH 5: INTERVIEW PREP + HEAVY INTERVIEWING (Weeks 19-22)
+  // ============================================================================
+  
+  // Week 19: System Design Practice
+  { week: 19, topics: [
+    "System Design: Data Pipelines",           // Day 73
+    "System Design: Data Warehouses",          // Day 74
+    "System Design: Streaming Systems",        // Day 75
+    "Continue Interviewing"                    // Day 76
+  ]},
+  
+  // Week 20: Technical Interview Practice
+  { week: 20, topics: [
+    "SQL Interview Questions",                 // Day 77
+    "Python Coding Challenges",                // Day 78
+    "Data Modeling Questions",                 // Day 79
+    "Continue Interviewing"                    // Day 80
+  ]},
+  
+  // Week 21: Behavioral + Mock Interviews
+  { week: 21, topics: [
+    "Behavioral Prep (STAR Method)",           // Day 81
+    "Mock Interview 1",                        // Day 82
+    "Mock Interview 2",                        // Day 83
+    "Continue Interviewing"                    // Day 84
+  ]},
+  
+  // Week 22: Interview Refinement
+  { week: 22, topics: [
+    "Refine Your Story",                       // Day 85
+    "Technical Deep Dives",                    // Day 86
+    "Negotiation Prep",                        // Day 87
+    "Multiple Offers in Play"                  // Day 88 - MONTH 5 COMPLETE
+  ]},
+  
+  // ============================================================================
+  // MONTH 6: CLOSE OFFERS (Weeks 23-24)
+  // ============================================================================
+  
+  // Week 23: Final Push
+  { week: 23, topics: [
+    "Final Round Prep",                        // Day 89
+    "Final Interviews",                        // Day 90
+    "Compare Offers",                          // Day 91
+    "Negotiate Aggressively"                   // Day 92
+  ]},
+  
+  // Week 24: Launch
+  { week: 24, topics: [
+    "Accept Offer ($160-170k)",                // Day 93
+    "Give Notice",                             // Day 94
+    "Prep for New Role",                       // Day 95
+    "NEW CHAPTER BEGINS!"                      // Day 96 - PROGRAM COMPLETE
+  ]}
 ];
 
 export const CERTIFICATIONS = [
-  { name: "dbt Analytics Engineering", quarter: 3, targetDate: "2026-09-20" },
-  { name: "AWS Cloud Practitioner", quarter: 4, targetDate: "2026-12-13" },
-  { name: "AWS Data Engineer Associate", quarter: 6, targetDate: "2027-05-30" }
+  { name: "dbt Analytics Engineering", quarter: 2, targetDate: "2026-03-31" },
+  { name: "AWS Solutions Architect Associate", quarter: 4, targetDate: "2026-05-31" }
 ];
 
+export const TARGET_COMPANIES = {
+  tier1: [
+    { name: "dbt Labs", role: "Analytics Engineer", salary: "$140-170k" },
+    { name: "Ramp", role: "Analytics Engineer / DE", salary: "$150-180k" },
+    { name: "Brex", role: "Data Engineer", salary: "$150-170k" }
+  ],
+  tier2: [
+    { name: "Datadog", role: "Data Engineer", salary: "$150-180k" },
+    { name: "Plaid", role: "Data Engineer", salary: "$160-180k" },
+    { name: "Affirm", role: "Analytics Engineer", salary: "$150-170k" }
+  ],
+  tier3: [
+    { name: "Stripe", role: "Data Engineer", salary: "$170-200k" },
+    { name: "Capital One", role: "Data Engineer", salary: "$140-160k" },
+    { name: "Two Sigma", role: "Data Infrastructure", salary: "$160-200k" },
+    { name: "Robinhood", role: "Data Engineer", salary: "$150-180k" }
+  ]
+};
+
 export const SKILL_BASELINE = {
+  python: { start: 2, target: 4 },
   sql: { start: 3, target: 5 },
-  python: { start: 1, target: 4 },
-  cloud: { start: 1, target: 4 },
-  orchestration: { start: 1, target: 4 },
-  dbt: { start: 1, target: 4 }
+  dbt: { start: 0, target: 4 },
+  airflow: { start: 0, target: 3 },
+  aws: { start: 1, target: 4 },
+  systemDesign: { start: 1, target: 3 }
 };

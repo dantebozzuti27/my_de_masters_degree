@@ -1,5 +1,7 @@
 // Types for the SDE Study Tracker
+// Aggressive 6-Month Plan: Feb 2026 - July 2026
 
+// Note: "Quarter" is kept for backward compatibility but represents MONTHS in the 6-mo plan
 export interface Quarter {
   id: number;
   name: string;
@@ -11,6 +13,9 @@ export interface Quarter {
   project: string;
   certification?: string;
 }
+
+// Alias for clarity
+export type Month = Quarter;
 
 export interface WeekTopics {
   week: number;

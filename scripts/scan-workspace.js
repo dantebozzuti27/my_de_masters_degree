@@ -22,37 +22,29 @@ function hashFile(content) {
 }
 
 // Patterns that indicate INCOMPLETE code (placeholders)
+// More conservative to avoid false positives on legitimate error handling code
 const INCOMPLETE_PATTERNS = [
-  // Empty variable assignments meant to be filled in
+  // Empty variable assignments with comments indicating they need to be filled
   /^\s*my_name\s*=\s*""\s*#/m,
   /^\s*my_age\s*=\s*0\s*#/m,
   /^\s*my_height\s*=\s*0\.0\s*#/m,
   /^\s*is_learning_python\s*=\s*False\s*#/m,
   /^\s*name\s*=\s*""\s*#.*Replace/m,
   
-  // Pass statements indicating TODO (only bare 'pass' or with YOUR CODE comment)
-  /^\s*pass\s*$/m,  // Just 'pass' on its own line
-  /# YOUR CODE HERE/m,  // Explicit placeholder comment
+  // Explicit placeholder markers (in function body, not in instructions)
+  /# YOUR CODE HERE/m,
   
-  // Return statements with placeholder values (but not edge case returns on same line as if)
-  /^\s*return\s*\{\s*\}\s*$/m,  // return {} on its own line
-  /^\s*return\s*\[\s*\]\s*$/m,  // return [] on its own line (not after if statement)
+  // Function with ONLY pass - look for def followed by docstring then pass
+  // This matches incomplete functions, not exception classes
+  /def \w+\([^)]*\):[^"]*"""\s*\n\s*pass\s*$/m,
   
-  // Empty list/dict variable followed by return
-  /result\s*=\s*\[\s*\]\s*\n\s*return\s+result/m,
-  /result\s*=\s*\{\s*\}\s*\n\s*return\s+result/m,
+  // Empty result variable followed immediately by return (template pattern)
+  /result\s*=\s*\[\s*\]\s*\n\s*return\s+result\s*$/m,
+  /result\s*=\s*\{\s*\}\s*\n\s*return\s+result\s*$/m,
   
-  // Return dicts with empty string values (template pattern)
-  /'uppercase':\s*''/,
-  /'lowercase':\s*''/,
-  /'as_int':\s*0,/,
-  /'sum':\s*0,/,
-  /'count':\s*0,/,
-  
-  // Generic placeholder returns
-  /return\s*""\s*$/m,
-  /return\s*''\s*$/m,
-  /return\s*None\s*$/m,
+  // Return dicts with empty string values (template pattern - specific placeholders)
+  /'uppercase':\s*''\s*,/,
+  /'lowercase':\s*''\s*,/,
 ];
 
 // Patterns that indicate COMPLETE code

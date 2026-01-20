@@ -38,15 +38,15 @@ Track your progress through 96 focused sessions designed to land a $160-170k Dat
 - Your solutions become your portfolio
 
 ### 📅 Calendar
-- Full calendar view of all 416 sessions
+- Full calendar view of all 96 sessions
 - Visual completion status
 - Click any day to view session details
 - Navigate between months
 
 ### 📚 Curriculum
-- 8 quarters of structured learning
-- 104 weeks broken down by topic
-- Expandable week/quarter views
+- 6 months of focused, intensive learning
+- 24 weeks broken down by topic
+- Expandable week/month views
 - AI-enhanced lessons with practical exercises
 
 ### 📈 Statistics

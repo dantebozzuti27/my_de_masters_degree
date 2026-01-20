@@ -1254,3300 +1254,746 @@ export const Q1_LESSONS: Lesson[] = [
     futureProofNote: "Error handling is critical in production systems. AI helps write it, but understanding WHY you handle each error is the human skill."
   },
 
-  // ============================================
-  // WEEK 3: Functions Deep Dive & Modules
-  // ============================================
+  // ============================================================================
+  // WEEK 3: Production Python + Git (Days 9-12)
+  // ============================================================================
 
   {
     dayNumber: 9,
     week: 3,
-    topic: "Advanced Function Patterns",
-    subtitle: "Default arguments, *args, **kwargs - the building blocks of flexible APIs",
+    topic: "Python Classes & OOP for Production",
+    subtitle: "Build production-ready code with proper structure",
 
     objectives: [
-      "Master default argument patterns and common gotchas",
-      "Understand *args for variable positional arguments",
-      "Use **kwargs for flexible keyword arguments",
-      "Combine argument types in proper order"
+      "Master class design for data engineering",
+      "Understand when to use classes vs functions",
+      "Implement __init__, __str__, __repr__",
+      "Build reusable data pipeline components"
     ],
 
     aiIntegration: {
       toolsUsed: ['copilot', 'chatgpt'],
       focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to explain the mutable default argument gotcha. This trips up even experienced developers and AI often generates buggy code with it.",
-      warningWhenNotToUseAI: "Don't let AI write your function signatures without understanding why each parameter is designed that way."
+      aiTip: "Ask AI to explain when classes add value vs just using functions. Understanding this design decision is key.",
+      warningWhenNotToUseAI: "Don't over-engineer. Simple functions are often better than classes with one method."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Corey Schafer - Python args/kwargs", type: "video" },
-      { time: "0:15-0:35", activity: "Default arguments - the mutable gotcha", type: "learn" },
-      { time: "0:35-0:55", activity: "*args and **kwargs patterns", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a flexible logging function", type: "exercise" },
-      { time: "1:20-1:30", activity: "AI review of your function design", type: "review" }
+      { time: "0:00-0:15", activity: "Video: Python OOP Basics", type: "video" },
+      { time: "0:15-0:40", activity: "Class design patterns for data pipelines", type: "learn" },
+      { time: "0:40-1:15", activity: "Build DataExtractor and DataValidator classes", type: "exercise" },
+      { time: "1:15-1:30", activity: "Review and test your classes", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - *args and **kwargs", url: "https://www.youtube.com/watch?v=c0x5gxpINT0", type: "video", duration: "10 min" }
-      ],
-      optional: [
-        { title: "Real Python - Python args kwargs", url: "https://realpython.com/python-kwargs-and-args/", type: "article" }
+        { title: "Corey Schafer - OOP Tutorial", url: "https://www.youtube.com/watch?v=ZDa-Z5JzLYM", type: "video", duration: "15 min" }
       ]
     },
 
     exercises: [
       {
-        title: "Flexible Logger Function",
-        description: "Build a logging function that accepts any number of items to log and optional formatting settings",
+        title: "DataExtractor Class",
+        description: "Build a class that encapsulates data extraction logic",
         hints: [
-          "Use *args for variable log messages",
-          "Use **kwargs for options like timestamp, level, prefix",
-          "Never use mutable defaults like def func(data=[])"
+          "Store configuration in __init__",
+          "Add extract() method for fetching data",
+          "Add validate() method for checking data quality"
         ],
-        aiApproach: "Ask Copilot to generate it, then check if it made the mutable default mistake.",
-        deliverable: "flexible_logger.py with various usage examples"
+        deliverable: "data_extractor.py with DataExtractor class"
       }
     ],
 
     successCriteria: [
-      "Can explain why def func(items=[]) is dangerous",
-      "Know the order: positional, *args, keyword-only, **kwargs",
-      "Can read and write functions with flexible signatures"
+      "Can design classes for pipeline components",
+      "Understand when OOP adds value",
+      "Classes are well-documented and tested"
     ],
 
-    prerequisites: ["Day 3 - Basic Functions"],
-
-    keyTerms: [
-      { term: "*args", definition: "Collects extra positional arguments into a tuple" },
-      { term: "**kwargs", definition: "Collects extra keyword arguments into a dictionary" },
-      { term: "Mutable default", definition: "A bug where default list/dict is shared across calls" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using a mutable default argument", fix: "Use None as default, create new list/dict in function body" },
-      { mistake: "Wrong parameter order", fix: "Order: positional, *args, keyword-only, **kwargs" }
-    ],
-
-    futureProofNote: "Understanding flexible function signatures is essential for API design. AI can write functions, but designing intuitive, maintainable APIs is a senior-level human skill."
+    futureProofNote: "Most data engineering libraries use OOP. Understanding classes helps you use Pandas, SQLAlchemy, Airflow effectively."
   },
 
+  // Day 10: Logging & Configuration
   {
     dayNumber: 10,
     week: 3,
-    topic: "Lambda Functions & Functional Programming",
-    subtitle: "Anonymous functions, map, filter, reduce - when (and when not) to use them",
+    topic: "Logging & Configuration Management",
+    subtitle: "Production-ready logging and config patterns",
 
     objectives: [
-      "Write lambda functions for simple operations",
-      "Use map() and filter() effectively",
-      "Understand reduce() and when it's appropriate",
-      "Know when lambdas hurt readability"
+      "Implement structured logging with Python's logging module",
+      "Create configuration management patterns",
+      "Use environment variables and config files",
+      "Build observable, debuggable code"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'ai-review',
-      aiTip: "AI loves generating lambda/map/filter chains. Ask Claude to refactor complex lambdas into named functions - readability matters more than cleverness.",
-      warningWhenNotToUseAI: "Don't use AI-generated lambdas you can't read. If it takes more than 5 seconds to understand, refactor it."
+      toolsUsed: ['copilot'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to generate logging boilerplate, but understand log levels and when to use each.",
+      warningWhenNotToUseAI: "Understand what you're logging and why - security-sensitive data should never be logged."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Lambda functions explained", type: "video" },
-      { time: "0:15-0:30", activity: "Lambda syntax and use cases", type: "learn" },
-      { time: "0:30-0:50", activity: "map(), filter(), reduce() practice", type: "practice" },
-      { time: "0:50-1:15", activity: "Data transformation pipeline", type: "exercise" },
-      { time: "1:15-1:30", activity: "Refactor lambdas to comprehensions", type: "review" }
+      { time: "0:00-0:20", activity: "Python logging module deep dive", type: "learn" },
+      { time: "0:20-0:50", activity: "Configuration management patterns", type: "practice" },
+      { time: "0:50-1:20", activity: "Build a configurable data pipeline", type: "exercise" },
+      { time: "1:20-1:30", activity: "Review logging output", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - Lambda Functions", url: "https://www.youtube.com/watch?v=25ovCm9jKfA", type: "video", duration: "14 min" }
-      ],
-      optional: [
-        { title: "Real Python - Functional Programming", url: "https://realpython.com/python-functional-programming/", type: "article" }
+        { title: "Python Logging Tutorial", url: "https://docs.python.org/3/howto/logging.html", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Data Transformation Pipeline",
-        description: "Process a list of user records using functional approaches, then refactor to comprehensions",
-        hints: [
-          "Start with filter() to remove invalid records",
-          "Use map() to transform remaining records",
-          "Compare readability with list comprehension version"
-        ],
-        aiApproach: "Have AI write both versions - functional and comprehension - then analyze which is clearer.",
-        deliverable: "functional_vs_comprehensions.py with both approaches"
+        title: "Production Logging Setup",
+        description: "Create a reusable logging configuration for data pipelines",
+        deliverable: "logging_config.py with structured logging setup"
       }
     ],
 
     successCriteria: [
-      "Can write simple lambdas for sorting key functions",
-      "Know when comprehensions beat map/filter",
-      "Can read and debug functional code"
+      "Proper log levels (DEBUG, INFO, WARNING, ERROR)",
+      "Configuration from environment variables",
+      "No sensitive data in logs"
     ],
 
-    keyTerms: [
-      { term: "Lambda", definition: "Anonymous function for simple, single-expression operations" },
-      { term: "Higher-order function", definition: "A function that takes or returns other functions" },
-      { term: "Pure function", definition: "A function with no side effects - same input always gives same output" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Complex multi-line logic in lambdas", fix: "Use a named function for anything complex" },
-      { mistake: "Using reduce() when a simple loop is clearer", fix: "Prefer readability over functional purity" }
-    ],
-
-    futureProofNote: "Functional concepts are timeless. Understanding map/filter/reduce helps you work in any language and recognize patterns AI generates."
+    futureProofNote: "Good logging is essential for debugging production systems. This is a senior-level skill."
   },
 
+  // Day 11: Git Fundamentals
   {
     dayNumber: 11,
     week: 3,
-    topic: "Python Module System",
-    subtitle: "Imports, packages, __init__.py - organizing code like a professional",
+    topic: "Git Fundamentals",
+    subtitle: "Version control for professional development",
 
     objectives: [
-      "Understand how Python finds and loads modules",
-      "Master import syntax variations",
-      "Create packages with __init__.py",
-      "Handle circular import issues"
+      "Master Git branching and merging",
+      "Write meaningful commit messages",
+      "Handle merge conflicts confidently",
+      "Use Git for collaboration"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'debug-ai-code',
-      aiTip: "AI often generates import statements that work in isolation but cause circular imports in real projects. Always test imports in the actual project context.",
-      warningWhenNotToUseAI: "Don't let AI restructure your package layout without understanding the import implications."
+      toolsUsed: ['copilot'],
+      focusArea: 'manual-practice',
+      aiTip: "Git commands should become muscle memory. Practice manually, use AI only to explain concepts.",
+      warningWhenNotToUseAI: "Don't use AI for Git commands - you need to understand exactly what you're doing."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python imports explained", type: "video" },
-      { time: "0:15-0:35", activity: "Import mechanics and sys.path", type: "learn" },
-      { time: "0:35-0:55", activity: "Create a multi-file package", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a data_utils package", type: "exercise" },
-      { time: "1:20-1:30", activity: "Debug circular import example", type: "review" }
+      { time: "0:00-0:20", activity: "Git branching strategies", type: "learn" },
+      { time: "0:20-0:50", activity: "Practice branching and merging", type: "practice" },
+      { time: "0:50-1:20", activity: "Resolve merge conflicts", type: "exercise" },
+      { time: "1:20-1:30", activity: "Review Git history", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - Modules and Packages", url: "https://www.youtube.com/watch?v=0oTh1CXRaQ0", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Real Python - Python Modules", url: "https://realpython.com/python-modules-packages/", type: "article" }
+        { title: "Git Branching Tutorial", url: "https://learngitbranching.js.org/", type: "interactive" }
       ]
     },
 
     exercises: [
       {
-        title: "Build data_utils Package",
-        description: "Create a package with submodules for validation, transformation, and io operations",
-        hints: [
-          "Create data_utils/ directory with __init__.py",
-          "Add validators.py, transformers.py, io.py",
-          "Export key functions in __init__.py for clean imports"
-        ],
-        aiApproach: "Ask AI to generate the package structure, then manually verify all imports work correctly.",
-        deliverable: "data_utils/ package with clean import interface"
+        title: "Git Workflow Practice",
+        description: "Create branches, make changes, merge, and resolve conflicts",
+        deliverable: "Clean Git history with multiple branches"
       }
     ],
 
     successCriteria: [
-      "Can create packages from scratch",
-      "Know difference between relative and absolute imports",
-      "Can debug and fix import errors"
+      "Can create and merge branches",
+      "Handle merge conflicts",
+      "Write clear commit messages"
     ],
 
-    keyTerms: [
-      { term: "__init__.py", definition: "File that marks a directory as a Python package" },
-      { term: "sys.path", definition: "List of directories Python searches for modules" },
-      { term: "Circular import", definition: "When two modules import each other, causing loading issues" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Running scripts from wrong directory", fix: "Always run from project root or set PYTHONPATH" },
-      { mistake: "Circular imports between modules", fix: "Import inside functions or restructure code" }
-    ],
-
-    futureProofNote: "Clean package structure is the foundation of maintainable code. This is essential context for data pipeline organization."
+    futureProofNote: "Git proficiency is non-negotiable for any engineering role."
   },
 
+  // Day 12: GitHub PRs & Workflows
   {
     dayNumber: 12,
     week: 3,
-    topic: "Building Your First Utility Library",
-    subtitle: "Create reusable code you'll use throughout the program",
+    topic: "GitHub PRs & Professional Workflows",
+    subtitle: "Collaborate like a professional engineer",
 
     objectives: [
-      "Design a utility library for data engineering tasks",
-      "Write functions with proper documentation",
-      "Add type hints for better AI assistance",
-      "Create a testing strategy"
+      "Create professional Pull Requests",
+      "Write effective PR descriptions",
+      "Review code effectively",
+      "Use GitHub Actions basics"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'claude', 'cursor'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Use Claude to help design the API surface first. Describe what you want the library to do, get suggestions, then implement. Good prompts lead to good architecture.",
-      warningWhenNotToUseAI: "Don't skip the design phase. Jumping straight to AI-generated code often leads to poor APIs."
+      toolsUsed: ['copilot'],
+      focusArea: 'ai-review',
+      aiTip: "Use AI to help write PR descriptions and review your own code before submitting.",
+      warningWhenNotToUseAI: "You need to understand the code review process personally."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Review professional library examples", type: "learn" },
-      { time: "0:15-0:35", activity: "Design your de_utils library", type: "practice" },
-      { time: "0:35-1:00", activity: "Implement core functions", type: "exercise" },
-      { time: "1:00-1:20", activity: "Add docstrings and type hints", type: "exercise" },
-      { time: "1:20-1:30", activity: "Test and document usage", type: "review" }
+      { time: "0:00-0:20", activity: "PR best practices", type: "learn" },
+      { time: "0:20-0:50", activity: "Create and review PRs", type: "practice" },
+      { time: "0:50-1:20", activity: "GitHub Actions intro", type: "exercise" },
+      { time: "1:20-1:30", activity: "Week 3 checkpoint", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "NumPy Documentation Style Guide", url: "https://numpydoc.readthedocs.io/en/latest/format.html", type: "docs" }
-      ],
-      optional: [
-        { title: "Google Python Style Guide", url: "https://google.github.io/styleguide/pyguide.html", type: "docs" }
+        { title: "GitHub PR Guide", url: "https://docs.github.com/en/pull-requests", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Create de_utils Library",
-        description: "Build a reusable library with functions you'll use throughout the program",
-        hints: [
-          "Include: file readers (CSV, JSON, Parquet stubs)",
-          "Include: data validators (schema checking)",
-          "Include: string cleaners (normalize, strip, etc.)",
-          "Add type hints to every function"
-        ],
-        aiApproach: "Prompt AI: 'Design a utility library for data engineering. What modules would it have?' Then implement the best ideas.",
-        deliverable: "de_utils/ package with documentation"
+        title: "Professional PR Workflow",
+        description: "Create a PR with proper description, request review, iterate on feedback",
+        deliverable: "Merged PR with clean commit history"
       }
     ],
 
     successCriteria: [
-      "Library is well-documented with docstrings",
-      "All functions have type hints",
-      "You can explain why each function exists"
+      "PRs have clear descriptions",
+      "Can give and receive code review",
+      "Basic GitHub Actions working"
     ],
 
     weeklyCheckpoint: {
-      title: "Week 3: Functions & Modules Mastery",
-      description: "You should now write professional-quality Python functions and organize code into packages.",
+      title: "Week 3: Production Python + Git",
+      description: "You now write production-quality Python and can collaborate using Git.",
       deliverables: [
-        "flexible_logger.py demonstrating *args/**kwargs",
-        "functional_vs_comprehensions.py comparison",
-        "data_utils/ package with working imports",
-        "de_utils/ library you'll build upon"
+        "DataExtractor class with logging",
+        "Clean Git repository with branches",
+        "At least one merged PR"
       ],
       selfAssessment: [
-        "Can I design flexible function signatures?",
-        "Do I know when lambdas help vs hurt readability?",
-        "Can I create packages without import errors?",
-        "Am I writing documented, type-hinted code?"
+        "Is my code production-ready?",
+        "Can I collaborate using Git?",
+        "Are my PRs professional?"
       ]
     },
 
-    futureProofNote: "Building reusable libraries is a core skill. AI helps write functions, but designing good abstractions requires understanding the problem domain deeply."
+    futureProofNote: "GitHub proficiency is essential for any modern engineering job."
   },
 
-  // ============================================
-  // WEEK 4: Object-Oriented Python
-  // ============================================
+  // ============================================================================
+  // WEEK 4: AWS + Docker Basics (Days 13-16)
+  // ============================================================================
 
   {
     dayNumber: 13,
     week: 4,
-    topic: "Classes and Objects Fundamentals",
-    subtitle: "From functions to classes - when and why to use OOP",
+    topic: "AWS Account Setup & IAM",
+    subtitle: "Your first steps into cloud infrastructure",
 
     objectives: [
-      "Understand when classes make sense vs functions",
-      "Write classes with __init__ and instance methods",
-      "Use self correctly throughout class methods",
-      "Create multiple instances with different state"
+      "Set up AWS account with proper security",
+      "Understand IAM users, roles, and policies",
+      "Configure AWS CLI",
+      "Implement least-privilege access"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
+      toolsUsed: ['chatgpt'],
       focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to explain when to use a class vs a function with examples. Understanding this design decision is more valuable than memorizing syntax.",
-      warningWhenNotToUseAI: "Don't let AI over-engineer. Simple functions are often better than classes with one method."
+      aiTip: "Use AI to explain AWS concepts, but NEVER share credentials or account details.",
+      warningWhenNotToUseAI: "Security configuration must be understood - don't blindly copy IAM policies."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python OOP basics", type: "video" },
-      { time: "0:15-0:35", activity: "Class syntax and __init__", type: "learn" },
-      { time: "0:35-0:55", activity: "Instance methods and self", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a DataRecord class", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare to dict approach", type: "review" }
+      { time: "0:00-0:30", activity: "AWS account and IAM setup", type: "learn" },
+      { time: "0:30-1:00", activity: "AWS CLI configuration", type: "practice" },
+      { time: "1:00-1:30", activity: "Create IAM user and policies", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - OOP Tutorial 1", url: "https://www.youtube.com/watch?v=ZDa-Z5JzLYM", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Real Python - OOP in Python", url: "https://realpython.com/python3-object-oriented-programming/", type: "article" }
+        { title: "AWS IAM Getting Started", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "DataRecord Class",
-        description: "Create a class to represent a data record with validation and transformation methods",
-        hints: [
-          "Store raw data in __init__",
-          "Add validate() method to check required fields",
-          "Add transform() method to clean data",
-          "Add to_dict() method for export"
-        ],
-        aiApproach: "Write the basic class yourself, then ask AI to add edge case handling.",
-        deliverable: "data_record.py with DataRecord class"
+        title: "AWS Environment Setup",
+        description: "Set up AWS account with proper IAM configuration",
+        deliverable: "Working AWS CLI with proper credentials"
       }
     ],
 
     successCriteria: [
-      "Can create classes with proper __init__",
-      "Understand the difference between class and instance attributes",
-      "Know when a class adds value vs just using a dict"
+      "AWS CLI working",
+      "IAM user with least-privilege",
+      "MFA enabled on root account"
     ],
 
-    keyTerms: [
-      { term: "Instance", definition: "A specific object created from a class" },
-      { term: "self", definition: "Reference to the current instance in methods" },
-      { term: "Constructor", definition: "__init__ method that initializes new instances" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Forgetting self in method definitions", fix: "Every instance method needs self as first parameter" },
-      { mistake: "Creating a class when a function would suffice", fix: "Use classes for state + behavior, functions for stateless operations" }
-    ],
-
-    futureProofNote: "Most data engineering libraries use OOP. Understanding classes helps you use Pandas, SQLAlchemy, Airflow, and read any professional codebase."
+    futureProofNote: "AWS skills are highly valued. This is the foundation for cloud data engineering."
   },
 
   {
     dayNumber: 14,
     week: 4,
-    topic: "Properties and Magic Methods",
-    subtitle: "Make your classes Pythonic with @property and __dunder__ methods",
+    topic: "S3 Fundamentals & Best Practices",
+    subtitle: "Cloud storage for data engineering",
 
     objectives: [
-      "Use @property for computed attributes",
-      "Implement __str__ and __repr__ for debugging",
-      "Understand __eq__, __lt__ for comparisons",
-      "Know common magic methods and their purposes"
+      "Create and manage S3 buckets",
+      "Understand storage classes and lifecycle policies",
+      "Implement proper data organization",
+      "Use boto3 for S3 operations"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'ai-review',
-      aiTip: "AI is great at generating magic methods. Ask it to add __str__, __repr__, __eq__ to your class, then verify the implementations make sense.",
-      warningWhenNotToUseAI: "Don't add every possible magic method. Only implement what you actually need."
+      toolsUsed: ['copilot'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to generate boto3 code, but understand the S3 concepts behind it."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python properties and dunder methods", type: "video" },
-      { time: "0:15-0:35", activity: "@property decorator deep dive", type: "learn" },
-      { time: "0:35-0:55", activity: "Essential magic methods", type: "practice" },
-      { time: "0:55-1:20", activity: "Enhance DataRecord with magic", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare before/after usability", type: "review" }
+      { time: "0:00-0:30", activity: "S3 concepts and best practices", type: "learn" },
+      { time: "0:30-1:00", activity: "Create buckets and upload data", type: "practice" },
+      { time: "1:00-1:30", activity: "boto3 S3 operations", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - Property Decorators", url: "https://www.youtube.com/watch?v=jCzT9XFZ5bw", type: "video", duration: "16 min" }
-      ],
-      optional: [
-        { title: "Python Magic Methods Guide", url: "https://rszalski.github.io/magicmethods/", type: "article" }
+        { title: "AWS S3 User Guide", url: "https://docs.aws.amazon.com/s3/", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Pythonic DataRecord",
-        description: "Enhance yesterday's DataRecord with properties and magic methods",
-        hints: [
-          "Add @property for computed fields (e.g., is_valid)",
-          "Implement __str__ for user-friendly output",
-          "Implement __repr__ for debugging",
-          "Add __eq__ to compare records by ID"
-        ],
-        aiApproach: "Ask AI to make your class 'Pythonic' and review what it suggests.",
-        deliverable: "pythonic_data_record.py with enhanced class"
+        title: "S3 Data Lake Structure",
+        description: "Create S3 bucket with proper folder structure for data lake",
+        deliverable: "S3 bucket with raw/processed/analytics folders"
       }
     ],
 
     successCriteria: [
-      "Know when to use @property vs regular methods",
-      "Can implement __str__ and __repr__ correctly",
-      "Understand the difference between str() and repr()"
+      "S3 bucket created with proper structure",
+      "Can upload/download with boto3",
+      "Understand lifecycle policies"
     ],
 
-    keyTerms: [
-      { term: "@property", definition: "Decorator that makes a method act like an attribute" },
-      { term: "__repr__", definition: "String representation for developers/debugging" },
-      { term: "__str__", definition: "String representation for end users" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Making __str__ and __repr__ identical", fix: "__repr__ should be unambiguous, __str__ should be readable" },
-      { mistake: "Heavy computation in @property", fix: "Properties should be cheap to compute, cache if expensive" }
-    ],
-
-    futureProofNote: "Magic methods make Python feel like Python. Understanding them helps you create intuitive APIs and debug library code."
+    futureProofNote: "S3 is fundamental to AWS data engineering. Master it."
   },
 
   {
     dayNumber: 15,
     week: 4,
-    topic: "Inheritance and Composition",
-    subtitle: "Class relationships - when to inherit vs when to compose",
+    topic: "Docker Fundamentals",
+    subtitle: "Containerize your applications",
 
     objectives: [
-      "Implement class inheritance with super()",
-      "Understand method resolution order (MRO)",
-      "Know when composition beats inheritance",
-      "Design flexible class hierarchies"
+      "Understand containers vs VMs",
+      "Write Dockerfiles",
+      "Build and run Docker images",
+      "Use Docker Compose basics"
     ],
 
     aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'debug-ai-code',
-      aiTip: "AI often over-uses inheritance. Ask it to design a class hierarchy, then ask 'Could this use composition instead?' Compare both approaches.",
-      warningWhenNotToUseAI: "Don't accept deep inheritance hierarchies. 'Favor composition over inheritance' is a key principle."
+      toolsUsed: ['copilot'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to generate Dockerfiles, but understand each instruction."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Inheritance in Python", type: "video" },
-      { time: "0:15-0:35", activity: "Inheritance patterns and super()", type: "learn" },
-      { time: "0:35-0:55", activity: "Composition patterns", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a data processor hierarchy", type: "exercise" },
-      { time: "1:20-1:30", activity: "Refactor to composition", type: "review" }
+      { time: "0:00-0:30", activity: "Docker concepts", type: "learn" },
+      { time: "0:30-1:00", activity: "Write Dockerfiles", type: "practice" },
+      { time: "1:00-1:30", activity: "Build and run containers", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - Inheritance", url: "https://www.youtube.com/watch?v=RSl87lqOXDE", type: "video", duration: "19 min" }
-      ],
-      optional: [
-        { title: "Real Python - Inheritance and Composition", url: "https://realpython.com/inheritance-composition-python/", type: "article" }
+        { title: "Docker Getting Started", url: "https://docs.docker.com/get-started/", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Data Processor Hierarchy",
-        description: "Build processors for different data types using both inheritance and composition",
-        hints: [
-          "Create BaseProcessor with process() method",
-          "Inherit CSVProcessor, JSONProcessor, ParquetProcessor",
-          "Then refactor: use composition with separate Reader and Transformer classes"
-        ],
-        aiApproach: "Have AI generate inheritance version, then prompt it to refactor using composition. Compare complexity.",
-        deliverable: "processor_inheritance.py and processor_composition.py"
+        title: "Containerize Python App",
+        description: "Create Dockerfile for a Python data application",
+        deliverable: "Working Docker container for your app"
       }
     ],
 
     successCriteria: [
-      "Can implement inheritance correctly with super()",
-      "Know when inheritance creates problems",
-      "Can design using composition pattern"
+      "Can write Dockerfiles",
+      "Can build and run containers",
+      "Understand image layers"
     ],
 
-    keyTerms: [
-      { term: "Inheritance", definition: "Creating new classes that share behavior from parent classes" },
-      { term: "Composition", definition: "Building complex objects from simpler component objects" },
-      { term: "MRO", definition: "Method Resolution Order - how Python finds methods in inheritance chains" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Deep inheritance hierarchies", fix: "Keep inheritance shallow, prefer composition" },
-      { mistake: "Inheriting just to reuse one method", fix: "That's what composition is for" }
-    ],
-
-    futureProofNote: "Most modern Python libraries use composition over inheritance. Understanding both helps you make good design decisions."
+    futureProofNote: "Docker is standard for modern deployment. Essential skill."
   },
 
   {
     dayNumber: 16,
     week: 4,
-    topic: "Dataclasses and Type Hints",
-    subtitle: "Modern Python patterns that make AI coding assistance better",
+    topic: "Docker for Data Engineering",
+    subtitle: "Production Docker patterns",
 
     objectives: [
-      "Use @dataclass for simple data containers",
-      "Add comprehensive type hints",
-      "Understand how type hints improve AI suggestions",
-      "Use TypedDict for dictionary schemas"
+      "Multi-stage builds for smaller images",
+      "Docker Compose for multi-container apps",
+      "Environment management in Docker",
+      "Docker best practices"
     ],
 
     aiIntegration: {
-      toolsUsed: ['copilot', 'cursor'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Type hints dramatically improve AI code suggestions. Write the types first, then let Copilot fill in the implementation. This is modern development workflow.",
-      warningWhenNotToUseAI: "Understand the types before adding them. Wrong types lead to wrong AI suggestions."
+      toolsUsed: ['copilot'],
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to optimize Dockerfiles, but verify the optimizations make sense."
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python dataclasses", type: "video" },
-      { time: "0:15-0:35", activity: "Dataclass features and options", type: "learn" },
-      { time: "0:35-0:55", activity: "Type hints and their benefits", type: "practice" },
-      { time: "0:55-1:20", activity: "Build typed data pipeline classes", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare AI suggestions with/without types", type: "review" }
+      { time: "0:00-0:30", activity: "Advanced Docker patterns", type: "learn" },
+      { time: "0:30-1:00", activity: "Docker Compose setup", type: "practice" },
+      { time: "1:00-1:30", activity: "Week 4 project work", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "ArjanCodes - Dataclasses", url: "https://www.youtube.com/watch?v=vRVVyl9uaZc", type: "video", duration: "16 min" }
-      ],
-      optional: [
-        { title: "Real Python - Dataclasses", url: "https://realpython.com/python-data-classes/", type: "article" }
+        { title: "Docker Compose Docs", url: "https://docs.docker.com/compose/", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Typed Pipeline Components",
-        description: "Create dataclasses for pipeline configuration and data models",
-        hints: [
-          "Create PipelineConfig dataclass with typed fields",
-          "Create DataModel with validation in __post_init__",
-          "Use Optional[], List[], Dict[] type hints",
-          "Compare Copilot suggestions with and without types"
-        ],
-        aiApproach: "Write type signatures first, then let AI fill implementations. Note how much better the suggestions are.",
-        deliverable: "typed_pipeline.py with dataclass-based components"
+        title: "Docker Compose Stack",
+        description: "Create docker-compose.yml for Python app + PostgreSQL",
+        deliverable: "Working multi-container setup"
       }
     ],
 
     successCriteria: [
-      "Can use @dataclass effectively",
-      "Know when dataclass beats regular class",
-      "Understand how type hints help AI and IDEs"
+      "Docker Compose working",
+      "Multi-stage builds",
+      "Clean, optimized images"
     ],
 
     weeklyCheckpoint: {
-      title: "Week 4: Object-Oriented Python",
-      description: "You should now design and implement classes using modern Python patterns.",
+      title: "Week 4: AWS + Docker",
+      description: "You now have cloud and containerization fundamentals.",
       deliverables: [
-        "DataRecord class with full functionality",
-        "Processor examples using both inheritance and composition",
-        "Typed dataclass-based pipeline components",
-        "Notes on when to use each OOP pattern"
+        "AWS account with proper IAM",
+        "S3 bucket with data structure",
+        "Dockerized Python application",
+        "Docker Compose setup"
       ],
       selfAssessment: [
-        "Can I design classes that are intuitive to use?",
-        "Do I know when to use inheritance vs composition?",
-        "Am I using dataclasses and type hints consistently?",
-        "Do my type hints improve AI assistance?"
+        "Can I deploy to AWS?",
+        "Can I containerize any Python app?",
+        "Do I understand cloud security basics?"
       ]
     },
 
-    keyTerms: [
-      { term: "@dataclass", definition: "Decorator that auto-generates __init__, __repr__, __eq__ for data containers" },
-      { term: "Type hint", definition: "Annotations that document expected types (def foo(x: int) -> str)" },
-      { term: "TypedDict", definition: "Type hint for dictionaries with known keys and value types" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using dataclass for classes with lots of methods", fix: "Dataclasses are for data-focused classes, not behavior-heavy classes" },
-      { mistake: "Skipping type hints to save time", fix: "Type hints save more time than they cost via better AI assistance and error catching" }
-    ],
-
-    futureProofNote: "Type hints are the future of Python. They're required for modern tools and dramatically improve AI coding assistance. Invest in them now."
+    futureProofNote: "AWS + Docker are the foundation of modern data infrastructure."
   },
 
-  // ============================================
-  // WEEK 5: File I/O and Data Formats
-  // ============================================
+  // ============================================================================
+  // WEEKS 5-6: PROJECT 1 - Real-Time Stock Pipeline (Days 17-24)
+  // ============================================================================
 
   {
     dayNumber: 17,
     week: 5,
-    topic: "File I/O and Context Managers",
-    subtitle: "Reading and writing files safely in data pipelines",
+    topic: "Project 1: Alpha Vantage API Integration",
+    subtitle: "Start building your showcase project",
 
     objectives: [
-      "Master file operations with context managers",
-      "Understand text vs binary modes",
-      "Handle encoding issues (UTF-8, etc.)",
-      "Use pathlib for cross-platform paths"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT about common encoding issues in data pipelines. Real-world data often has encoding problems that AI can help debug.",
-      warningWhenNotToUseAI: "Always specify encoding explicitly. AI often forgets encoding parameters, causing production bugs."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: File handling in Python", type: "video" },
-      { time: "0:15-0:35", activity: "Context managers and with statement", type: "learn" },
-      { time: "0:35-0:55", activity: "Encoding and binary modes", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a robust file processor", type: "exercise" },
-      { time: "1:20-1:30", activity: "Cross-platform path handling", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Corey Schafer - File Handling", url: "https://www.youtube.com/watch?v=Uh2ebFW8OYM", type: "video", duration: "24 min" }
-      ],
-      optional: [
-        { title: "Real Python - Working with Files", url: "https://realpython.com/working-with-files-in-python/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Robust File Processor",
-        description: "Create functions that safely read/write files with proper error handling",
-        hints: [
-          "Always use 'with' for file operations",
-          "Always specify encoding='utf-8'",
-          "Use pathlib.Path instead of string paths",
-          "Handle FileNotFoundError, PermissionError, UnicodeDecodeError"
-        ],
-        aiApproach: "Generate with AI, then check: Does it specify encoding? Does it use context managers? Does it handle errors?",
-        deliverable: "file_processor.py with safe read/write functions"
-      }
-    ],
-
-    successCriteria: [
-      "Always use context managers for files",
-      "Know the difference between text and binary modes",
-      "Can debug encoding issues"
-    ],
-
-    keyTerms: [
-      { term: "Context manager", definition: "Object that manages setup/teardown, used with 'with' statement" },
-      { term: "Encoding", definition: "How text characters are converted to/from bytes (UTF-8, Latin-1, etc.)" },
-      { term: "pathlib", definition: "Modern, cross-platform module for filesystem paths" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Forgetting to specify encoding", fix: "Always use encoding='utf-8' explicitly" },
-      { mistake: "Using string paths with / or \\\\", fix: "Use pathlib.Path for cross-platform compatibility" }
-    ],
-
-    futureProofNote: "File I/O is fundamental to data engineering. Every pipeline reads and writes files. Robust file handling prevents data corruption."
-  },
-
-  {
-    dayNumber: 18,
-    week: 5,
-    topic: "CSV and Excel Processing",
-    subtitle: "Working with the most common business data formats",
-
-    objectives: [
-      "Read/write CSV with various configurations",
-      "Handle messy CSV data (quotes, escapes, delimiters)",
-      "Work with Excel files using openpyxl",
-      "Know when to use csv module vs pandas"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'debug-ai-code',
-      aiTip: "AI often generates pandas code for CSV, but the csv module is lighter for simple tasks. Ask about trade-offs before accepting pandas suggestions.",
-      warningWhenNotToUseAI: "Real CSV files are messy. AI generates ideal-case code. Always test with real data."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: CSV processing in Python", type: "video" },
-      { time: "0:15-0:35", activity: "csv module deep dive", type: "learn" },
-      { time: "0:35-0:55", activity: "Handling messy CSVs", type: "practice" },
-      { time: "0:55-1:20", activity: "Build CSV cleaning pipeline", type: "exercise" },
-      { time: "1:20-1:30", activity: "Excel basics with openpyxl", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Corey Schafer - CSV Module", url: "https://www.youtube.com/watch?v=q5uM4VKywbA", type: "video", duration: "16 min" }
-      ],
-      optional: [
-        { title: "Real Python - Reading/Writing CSV", url: "https://realpython.com/python-csv/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "CSV Cleaning Pipeline",
-        description: "Process a messy CSV file with various data quality issues",
-        hints: [
-          "Handle different delimiters (comma, semicolon, tab)",
-          "Handle quoted fields with embedded commas",
-          "Handle missing values and inconsistent types",
-          "Output clean, normalized CSV"
-        ],
-        aiApproach: "Ask AI to handle edge cases one at a time. Each messy scenario teaches you something.",
-        deliverable: "csv_cleaner.py with before/after example files"
-      }
-    ],
-
-    successCriteria: [
-      "Can configure csv.reader/writer for various formats",
-      "Know how to handle quoted fields and escapes",
-      "Can decide between csv module and pandas"
-    ],
-
-    keyTerms: [
-      { term: "Dialect", definition: "CSV format specification (delimiter, quoting, etc.)" },
-      { term: "DictReader", definition: "Reads CSV rows as dictionaries with header keys" },
-      { term: "Quoting", definition: "How CSV handles fields containing special characters" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Assuming all CSVs use commas", fix: "Check delimiter, especially for European data (semicolons)" },
-      { mistake: "Ignoring encoding issues in CSV", fix: "Specify encoding when opening file" }
-    ],
-
-    futureProofNote: "CSV is the universal data exchange format. You'll process thousands of CSVs in your career. Master the edge cases now."
-  },
-
-  {
-    dayNumber: 19,
-    week: 5,
-    topic: "JSON and API Data",
-    subtitle: "The language of APIs and modern data interchange",
-
-    objectives: [
-      "Master json module for parsing and generation",
-      "Handle nested JSON structures",
-      "Work with JSON Lines format for large files",
-      "Validate JSON against expected schemas"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Use ChatGPT to explain complex nested JSON structures. Paste real API responses and ask for parsing strategies.",
-      warningWhenNotToUseAI: "AI can generate JSON parsers quickly, but understanding the data structure is the real skill."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: JSON in Python", type: "video" },
-      { time: "0:15-0:35", activity: "Parsing and generating JSON", type: "learn" },
-      { time: "0:35-0:55", activity: "Nested JSON navigation", type: "practice" },
-      { time: "0:55-1:20", activity: "Parse real API responses", type: "exercise" },
-      { time: "1:20-1:30", activity: "JSON Lines for large files", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Corey Schafer - JSON in Python", url: "https://www.youtube.com/watch?v=9N6a-VLBa2I", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Real Python - Working with JSON", url: "https://realpython.com/python-json/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "API Response Parser",
-        description: "Build functions to extract data from complex nested JSON API responses",
-        hints: [
-          "Use .get() for safe key access",
-          "Handle missing keys gracefully",
-          "Flatten nested structures for analysis",
-          "Write helper functions for common patterns"
-        ],
-        aiApproach: "Paste a complex JSON example and ask AI to write extraction functions. Then review and simplify.",
-        deliverable: "json_parser.py with extraction functions and tests"
-      }
-    ],
-
-    successCriteria: [
-      "Can navigate deeply nested JSON confidently",
-      "Know when to use json.loads() vs json.load()",
-      "Can handle JSON Lines files efficiently"
-    ],
-
-    keyTerms: [
-      { term: "JSON Lines", definition: "Format with one JSON object per line, for streaming large datasets" },
-      { term: "json.dumps()", definition: "Serialize Python object to JSON string" },
-      { term: "json.loads()", definition: "Parse JSON string to Python object" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using [] instead of .get() for optional keys", fix: "dict.get('key', default) prevents KeyError" },
-      { mistake: "Loading huge JSON files into memory", fix: "Use JSON Lines or streaming parsing for large files" }
-    ],
-
-    futureProofNote: "JSON is the format of web APIs, which are central to modern data engineering. Deep JSON skills are essential."
-  },
-
-  {
-    dayNumber: 20,
-    week: 5,
-    topic: "Data Serialization: Pickle, YAML, and Parquet",
-    subtitle: "Choosing the right format for the right job",
-
-    objectives: [
-      "Understand pickle for Python object serialization",
-      "Know pickle security concerns",
-      "Work with YAML for configuration",
-      "Introduction to Parquet for analytics"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'ai-review',
-      aiTip: "Ask AI to compare all serialization formats with pros/cons table. Understanding trade-offs is more valuable than memorizing APIs.",
-      warningWhenNotToUseAI: "AI might suggest pickle for data storage. It's fine for caching but risky for data exchange due to security concerns."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Data serialization overview", type: "video" },
-      { time: "0:15-0:35", activity: "Pickle: power and dangers", type: "learn" },
-      { time: "0:35-0:55", activity: "YAML for configuration", type: "practice" },
-      { time: "0:55-1:20", activity: "Parquet introduction", type: "exercise" },
-      { time: "1:20-1:30", activity: "Format comparison summary", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Real Python - Serialization", url: "https://realpython.com/python-serialize-data/", type: "article" }
-      ],
-      optional: [
-        { title: "Apache Parquet Documentation", url: "https://parquet.apache.org/docs/", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Format Comparison Project",
-        description: "Save and load the same dataset in multiple formats, compare characteristics",
-        hints: [
-          "Create sample dataset with mixed types",
-          "Save as JSON, CSV, Pickle, YAML, Parquet",
-          "Compare file sizes and load/save times",
-          "Document when to use each format"
-        ],
-        aiApproach: "Ask AI to generate the benchmarking code, then run it and analyze results yourself.",
-        deliverable: "format_comparison.py with benchmark results and recommendations"
-      }
-    ],
-
-    successCriteria: [
-      "Know security risks of unpickling untrusted data",
-      "Can use YAML for configuration files",
-      "Understand when Parquet is the right choice"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 5: File I/O & Data Formats",
-      description: "You should now confidently work with all common data formats.",
-      deliverables: [
-        "file_processor.py with robust I/O",
-        "csv_cleaner.py handling messy data",
-        "json_parser.py for nested structures",
-        "format_comparison.py with benchmarks"
-      ],
-      selfAssessment: [
-        "Do I always use context managers for files?",
-        "Can I handle encoding issues?",
-        "Do I know which format to use when?",
-        "Can I process real-world messy data files?"
-      ]
-    },
-
-    keyTerms: [
-      { term: "Pickle", definition: "Python-specific binary serialization format" },
-      { term: "YAML", definition: "Human-readable data format often used for config files" },
-      { term: "Parquet", definition: "Columnar storage format optimized for analytics workloads" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using pickle for data exchange between systems", fix: "Use JSON or Parquet for interoperability" },
-      { mistake: "Unpickling data from untrusted sources", fix: "Pickle can execute arbitrary code - never unpickle untrusted data" }
-    ],
-
-    futureProofNote: "Parquet is increasingly important for data engineering. It's the standard for data lakes and works well with Spark, Snowflake, and cloud data tools."
-  },
-
-  // ============================================
-  // WEEK 6: SQL Fundamentals
-  // ============================================
-
-  {
-    dayNumber: 21,
-    week: 6,
-    topic: "SQL Foundations and SELECT",
-    subtitle: "The language of data - your most important skill",
-
-    objectives: [
-      "Understand relational database concepts",
-      "Write basic SELECT queries",
-      "Use WHERE for filtering",
-      "Sort results with ORDER BY"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'copilot'],
-      focusArea: 'learn-with-ai',
-      aiTip: "AI is excellent at SQL. But you MUST understand what queries do. Ask AI to explain each part of generated queries.",
-      warningWhenNotToUseAI: "Never run AI-generated SQL on production without understanding it completely."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL basics introduction", type: "video" },
-      { time: "0:15-0:35", activity: "SELECT, FROM, WHERE fundamentals", type: "learn" },
-      { time: "0:35-0:55", activity: "Filtering and sorting practice", type: "practice" },
-      { time: "0:55-1:20", activity: "Query challenge exercises", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare your queries to AI solutions", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "freeCodeCamp - SQL Full Course", url: "https://www.youtube.com/watch?v=HXV3zeQKqGY", type: "video", duration: "First 30 min" }
-      ],
-      optional: [
-        { title: "SQLBolt Interactive Tutorial", url: "https://sqlbolt.com/", type: "interactive" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Basic Query Practice",
-        description: "Write queries against a sample employee database",
-        hints: [
-          "SELECT specific columns, not SELECT *",
-          "Practice various WHERE conditions",
-          "Combine conditions with AND, OR",
-          "Use ORDER BY for different sort orders"
-        ],
-        aiApproach: "Write queries yourself first. Then ask AI for the same query and compare approaches.",
-        deliverable: "sql_basics.sql with 10+ queries"
-      }
-    ],
-
-    successCriteria: [
-      "Can write SELECT with specific columns",
-      "Can filter with multiple WHERE conditions",
-      "Understand NULL handling in comparisons"
-    ],
-
-    keyTerms: [
-      { term: "Relational database", definition: "Database organizing data into tables with relationships" },
-      { term: "Query", definition: "A request to retrieve or manipulate data" },
-      { term: "NULL", definition: "Represents missing or unknown data" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using = NULL instead of IS NULL", fix: "NULL comparisons require IS NULL or IS NOT NULL" },
-      { mistake: "SELECT * in production queries", fix: "Always specify needed columns for performance" }
-    ],
-
-    futureProofNote: "SQL is THE most important data engineering skill. AI can write SQL, but understanding query logic deeply is irreplaceable. This is foundational."
-  },
-
-  {
-    dayNumber: 22,
-    week: 6,
-    topic: "Aggregations and GROUP BY",
-    subtitle: "Summarizing data - the heart of analytics",
-
-    objectives: [
-      "Use COUNT, SUM, AVG, MIN, MAX",
-      "Group data with GROUP BY",
-      "Filter groups with HAVING",
-      "Understand aggregation logic"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'manual-practice',
-      aiTip: "Aggregations are so fundamental you need to think in them. Practice manually first, then use AI to check your work.",
-      warningWhenNotToUseAI: "Don't use AI for basic aggregation practice. You need these patterns internalized."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL aggregation functions", type: "video" },
-      { time: "0:15-0:35", activity: "Aggregate functions deep dive", type: "learn" },
-      { time: "0:35-0:55", activity: "GROUP BY patterns", type: "practice" },
-      { time: "0:55-1:20", activity: "Analytics query challenges", type: "exercise" },
-      { time: "1:20-1:30", activity: "HAVING vs WHERE comparison", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Socratica - SQL GROUP BY", url: "https://www.youtube.com/watch?v=rKzziNWCqYA", type: "video", duration: "8 min" }
-      ],
-      optional: [
-        { title: "Mode Analytics - SQL Tutorial", url: "https://mode.com/sql-tutorial/", type: "interactive" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Sales Analytics Queries",
-        description: "Answer business questions using aggregations",
-        hints: [
-          "Total sales by region",
-          "Average order value by customer",
-          "Count of orders by status",
-          "Top 10 customers by revenue"
-        ],
-        aiApproach: "Write each query yourself, time yourself. Only use AI if stuck for more than 5 minutes.",
-        deliverable: "aggregations.sql with business analytics queries"
-      }
-    ],
-
-    successCriteria: [
-      "Can write GROUP BY without errors",
-      "Know difference between WHERE and HAVING",
-      "Can combine aggregations in complex queries"
-    ],
-
-    keyTerms: [
-      { term: "Aggregation", definition: "Combining multiple rows into summary statistics" },
-      { term: "GROUP BY", definition: "Groups rows sharing values for aggregate calculations" },
-      { term: "HAVING", definition: "Filters groups after aggregation (like WHERE for groups)" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using WHERE to filter aggregated values", fix: "Use HAVING for post-aggregation filtering" },
-      { mistake: "Forgetting GROUP BY columns in SELECT", fix: "All non-aggregate SELECT columns must be in GROUP BY" }
-    ],
-
-    futureProofNote: "Every data report, dashboard, and metric uses aggregations. This is the core of data analysis."
-  },
-
-  {
-    dayNumber: 23,
-    week: 6,
-    topic: "JOINs Fundamentals",
-    subtitle: "Connecting tables - the relational power",
-
-    objectives: [
-      "Understand table relationships",
-      "Master INNER JOIN syntax",
-      "Know LEFT, RIGHT, FULL OUTER JOINs",
-      "Avoid common JOIN pitfalls"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'copilot'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to draw Venn diagrams explaining each JOIN type. Visual understanding is crucial.",
-      warningWhenNotToUseAI: "Always trace through JOIN results manually for small datasets. Understand exactly which rows match."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL JOINs explained visually", type: "video" },
-      { time: "0:15-0:35", activity: "INNER JOIN mechanics", type: "learn" },
-      { time: "0:35-0:55", activity: "OUTER JOIN variations", type: "practice" },
-      { time: "0:55-1:20", activity: "Multi-table JOIN challenges", type: "exercise" },
-      { time: "1:20-1:30", activity: "Trace through JOIN results manually", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Socratica - SQL JOINs", url: "https://www.youtube.com/watch?v=9yeOJ0ZMUYw", type: "video", duration: "9 min" }
-      ],
-      optional: [
-        { title: "Visual JOIN Representation", url: "https://joins.spathon.com/", type: "interactive" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "JOIN Challenge Series",
-        description: "Solve progressively complex JOIN scenarios",
-        hints: [
-          "Start with 2-table INNER JOINs",
-          "Add LEFT JOIN for optional relationships",
-          "Join 3+ tables in sequence",
-          "Handle NULL in JOIN results"
-        ],
-        aiApproach: "Solve each problem yourself. Ask AI only after completing to compare approaches.",
-        deliverable: "joins_practice.sql with annotated queries"
-      }
-    ],
-
-    successCriteria: [
-      "Can write multi-table JOINs correctly",
-      "Know when to use each JOIN type",
-      "Can predict JOIN output row counts"
-    ],
-
-    keyTerms: [
-      { term: "INNER JOIN", definition: "Returns only rows with matches in both tables" },
-      { term: "LEFT JOIN", definition: "Returns all left table rows, matched right rows or NULL" },
-      { term: "Foreign key", definition: "Column that references primary key of another table" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Cartesian product from missing JOIN condition", fix: "Always specify ON clause with proper keys" },
-      { mistake: "Losing rows unexpectedly with INNER JOIN", fix: "Use LEFT JOIN when you need all rows from one table" }
-    ],
-
-    futureProofNote: "JOINs are the heart of relational databases. Every complex query uses them. Master JOINs and you can query anything."
-  },
-
-  {
-    dayNumber: 24,
-    week: 6,
-    topic: "Subqueries and CTEs",
-    subtitle: "Breaking down complex problems into manageable pieces",
-
-    objectives: [
-      "Write subqueries in WHERE and FROM",
-      "Master Common Table Expressions (CTEs)",
-      "Know when CTEs beat subqueries",
-      "Chain multiple CTEs for complex logic"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'ai-review',
-      aiTip: "AI excels at converting nested subqueries to CTEs. Ask it to refactor messy queries for readability.",
-      warningWhenNotToUseAI: "Understand WHY a CTE structure works before using AI-generated ones."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: CTEs explained", type: "video" },
-      { time: "0:15-0:35", activity: "Subquery patterns", type: "learn" },
-      { time: "0:35-0:55", activity: "CTE syntax and benefits", type: "practice" },
-      { time: "0:55-1:20", activity: "Refactor complex queries", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare readability before/after", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Alex the Analyst - CTEs", url: "https://www.youtube.com/watch?v=K1WeoKxLZ5o", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Mode Analytics - SQL Subqueries", url: "https://mode.com/sql-tutorial/sql-sub-queries/", type: "tutorial" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Query Refactoring Challenge",
-        description: "Take messy nested queries and restructure with CTEs",
-        hints: [
-          "Identify logical components of complex query",
-          "Extract each component as a CTE",
-          "Name CTEs clearly for readability",
-          "Compare performance of both versions"
-        ],
-        aiApproach: "Ask AI to refactor your subquery to CTEs. Compare its naming and structure to yours.",
-        deliverable: "cte_refactoring.sql with before/after examples"
-      }
-    ],
-
-    successCriteria: [
-      "Can write readable CTEs for complex logic",
-      "Know when subqueries are still appropriate",
-      "Can chain CTEs effectively"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 6: SQL Fundamentals",
-      description: "You should now write confident, correct SQL queries.",
-      deliverables: [
-        "sql_basics.sql with filtered queries",
-        "aggregations.sql with GROUP BY analytics",
-        "joins_practice.sql with multi-table queries",
-        "cte_refactoring.sql with clean structure"
-      ],
-      selfAssessment: [
-        "Can I write SELECT queries without syntax errors?",
-        "Do I understand when to use each JOIN type?",
-        "Can I break complex queries into CTEs?",
-        "Can I predict query results before running?"
-      ]
-    },
-
-    keyTerms: [
-      { term: "Subquery", definition: "A query nested inside another query" },
-      { term: "CTE", definition: "Common Table Expression - named temporary result set" },
-      { term: "WITH clause", definition: "SQL syntax for defining CTEs" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Deeply nested subqueries", fix: "Refactor to CTEs for readability" },
-      { mistake: "Using CTE when simple subquery suffices", fix: "Simple inline subqueries can be clearer for small cases" }
-    ],
-
-    futureProofNote: "CTEs are the standard for readable, maintainable SQL. They're essential for dbt and modern data transformation."
-  },
-
-  // ============================================
-  // WEEK 7: SQL Intermediate
-  // ============================================
-
-  {
-    dayNumber: 25,
-    week: 7,
-    topic: "Window Functions Introduction",
-    subtitle: "Analytics superpowers - calculations across related rows",
-
-    objectives: [
-      "Understand window function concepts",
-      "Use ROW_NUMBER, RANK, DENSE_RANK",
-      "Calculate running totals with SUM OVER",
-      "Understand PARTITION BY vs GROUP BY"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'copilot'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Window functions are complex. Ask ChatGPT to explain each part: the function, PARTITION BY, ORDER BY, and frame clause.",
-      warningWhenNotToUseAI: "Don't just copy window function queries. Trace through results row by row to understand."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:20", activity: "Video: Window functions explained", type: "video" },
-      { time: "0:20-0:40", activity: "ROW_NUMBER and ranking functions", type: "learn" },
-      { time: "0:40-1:00", activity: "Running totals and aggregates", type: "practice" },
-      { time: "1:00-1:20", activity: "Analytics challenges", type: "exercise" },
-      { time: "1:20-1:30", activity: "Compare to GROUP BY solutions", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Advanced SQL - Window Functions", url: "https://www.youtube.com/watch?v=H6OTMoXjNiM", type: "video", duration: "35 min" }
-      ],
-      optional: [
-        { title: "Mode Analytics - Window Functions", url: "https://mode.com/sql-tutorial/sql-window-functions/", type: "tutorial" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Window Function Analytics",
-        description: "Solve business problems that require window functions",
-        hints: [
-          "Rank employees by salary within department",
-          "Calculate running revenue total by date",
-          "Find first and last order per customer",
-          "Calculate month-over-month growth"
-        ],
-        aiApproach: "Try each problem yourself. Then ask AI for alternative approaches and compare.",
-        deliverable: "window_functions.sql with annotated solutions"
-      }
-    ],
-
-    successCriteria: [
-      "Can write basic window functions correctly",
-      "Understand PARTITION BY grouping",
-      "Know when window functions are needed vs GROUP BY"
-    ],
-
-    keyTerms: [
-      { term: "Window function", definition: "Calculation across rows related to current row" },
-      { term: "PARTITION BY", definition: "Divides result set into partitions for window calculations" },
-      { term: "Frame clause", definition: "Defines which rows the window function considers" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Confusing PARTITION BY with GROUP BY", fix: "PARTITION BY keeps all rows, GROUP BY aggregates them" },
-      { mistake: "Forgetting ORDER BY in ranking functions", fix: "Ranking functions need ORDER BY to define the ranking order" }
-    ],
-
-    futureProofNote: "Window functions are advanced SQL that separates senior from junior engineers. They're essential for analytics and dbt transformations."
-  },
-
-  {
-    dayNumber: 26,
-    week: 7,
-    topic: "Advanced Window Functions",
-    subtitle: "LAG, LEAD, and complex analytical patterns",
-
-    objectives: [
-      "Use LAG and LEAD for row comparisons",
-      "Calculate differences between periods",
-      "Use FIRST_VALUE and LAST_VALUE",
-      "Combine multiple window functions"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Describe the business problem clearly: 'I need to compare each row to the previous row within each group.' Good prompts get better SQL.",
-      warningWhenNotToUseAI: "Complex window functions are error-prone. Always verify results with small test datasets."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: LAG and LEAD functions", type: "video" },
-      { time: "0:15-0:35", activity: "Row comparison patterns", type: "learn" },
-      { time: "0:35-0:55", activity: "Period-over-period calculations", type: "practice" },
-      { time: "0:55-1:20", activity: "Time series analytics", type: "exercise" },
-      { time: "1:20-1:30", activity: "Validate results manually", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Bro Code - SQL Window Functions", url: "https://www.youtube.com/watch?v=Ww71knvhQ-s", type: "video", duration: "18 min" }
-      ],
-      optional: [
-        { title: "Window Functions Cheat Sheet", url: "https://learnsql.com/blog/sql-window-functions-cheat-sheet/", type: "reference" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Time Series Analytics",
-        description: "Build queries for time-based analysis patterns",
-        hints: [
-          "Calculate day-over-day change",
-          "Calculate week-over-week percentage change",
-          "Find gaps in sequential data",
-          "Calculate moving averages"
-        ],
-        aiApproach: "Prompt AI with specific business scenarios. Refine prompts until you get correct SQL.",
-        deliverable: "time_series_analysis.sql with business metrics"
-      }
-    ],
-
-    successCriteria: [
-      "Can use LAG/LEAD for comparisons",
-      "Can calculate period-over-period metrics",
-      "Can verify window function results manually"
-    ],
-
-    keyTerms: [
-      { term: "LAG", definition: "Accesses data from previous row in the partition" },
-      { term: "LEAD", definition: "Accesses data from next row in the partition" },
-      { term: "Moving average", definition: "Average calculated over a sliding window of rows" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Wrong offset in LAG/LEAD", fix: "Verify offset matches your time period (1 for previous day, 7 for previous week)" },
-      { mistake: "Forgetting NULL handling for first/last rows", fix: "Use COALESCE or default value parameter" }
-    ],
-
-    futureProofNote: "Time series analysis is core to data engineering. These patterns appear in almost every analytics project."
-  },
-
-  {
-    dayNumber: 27,
-    week: 7,
-    topic: "String and Date Functions",
-    subtitle: "Manipulating text and temporal data - daily necessities",
-
-    objectives: [
-      "Master common string functions",
-      "Handle date extraction and formatting",
-      "Calculate date differences",
-      "Clean messy text data with SQL"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'debug-ai-code',
-      aiTip: "Date functions vary between databases. Always ask AI which database syntax it's using (PostgreSQL, MySQL, etc.).",
-      warningWhenNotToUseAI: "AI often generates database-specific syntax. Verify it works in your target database."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL string functions", type: "video" },
-      { time: "0:15-0:35", activity: "String manipulation patterns", type: "learn" },
-      { time: "0:35-0:55", activity: "Date/time functions", type: "practice" },
-      { time: "0:55-1:20", activity: "Data cleaning challenges", type: "exercise" },
-      { time: "1:20-1:30", activity: "Database syntax differences", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Alex the Analyst - String Functions", url: "https://www.youtube.com/watch?v=XbCF6MXmKW8", type: "video", duration: "12 min" }
-      ],
-      optional: [
-        { title: "PostgreSQL Date Functions", url: "https://www.postgresql.org/docs/current/functions-datetime.html", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Data Cleaning with SQL",
-        description: "Clean messy data using string and date functions",
-        hints: [
-          "Standardize name formats (UPPER, LOWER, INITCAP)",
-          "Extract parts from messy strings",
-          "Parse dates from various formats",
-          "Handle timezone conversions"
-        ],
-        aiApproach: "Ask AI for the PostgreSQL syntax, then adapt for your database if different.",
-        deliverable: "data_cleaning.sql with transformation examples"
-      }
-    ],
-
-    successCriteria: [
-      "Can use common string functions confidently",
-      "Can extract and format dates",
-      "Know which functions are database-specific"
-    ],
-
-    keyTerms: [
-      { term: "SUBSTRING", definition: "Extracts part of a string" },
-      { term: "DATE_TRUNC", definition: "Truncates timestamp to specified precision (PostgreSQL)" },
-      { term: "COALESCE", definition: "Returns first non-NULL value in the list" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using MySQL syntax in PostgreSQL or vice versa", fix: "Know your target database and verify syntax" },
-      { mistake: "Not handling NULL in string concatenation", fix: "Use COALESCE to handle NULLs" }
-    ],
-
-    futureProofNote: "Data cleaning is 80% of data engineering work. These SQL patterns are used daily."
-  },
-
-  {
-    dayNumber: 28,
-    week: 7,
-    topic: "CASE Statements and Conditional Logic",
-    subtitle: "Business logic in SQL - categorizing and transforming data",
-
-    objectives: [
-      "Write CASE statements for categorization",
-      "Use CASE in SELECT and WHERE",
-      "Implement complex business logic",
-      "Pivot data with conditional aggregation"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'ai-review',
-      aiTip: "AI writes CASE statements well but may miss edge cases. Always list all possible values and verify each is handled.",
-      warningWhenNotToUseAI: "Business logic must be correct. Review every CASE condition against requirements."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL CASE statements", type: "video" },
-      { time: "0:15-0:35", activity: "CASE syntax and patterns", type: "learn" },
-      { time: "0:35-0:55", activity: "Conditional aggregation", type: "practice" },
-      { time: "0:55-1:20", activity: "Business rule implementation", type: "exercise" },
-      { time: "1:20-1:30", activity: "Edge case review", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Socratica - SQL CASE", url: "https://www.youtube.com/watch?v=8j0a2t0gqV8", type: "video", duration: "6 min" }
-      ],
-      optional: [
-        { title: "Mode Analytics - CASE", url: "https://mode.com/sql-tutorial/sql-case/", type: "tutorial" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Business Logic Challenge",
-        description: "Implement complex business rules in SQL",
-        hints: [
-          "Create customer tiers based on spending",
-          "Calculate shipping rates by region and weight",
-          "Generate status labels from multiple conditions",
-          "Build a simple pivot table with CASE"
-        ],
-        aiApproach: "Describe business rules clearly. Have AI generate CASE logic, then verify every branch.",
-        deliverable: "business_logic.sql with rule implementations"
-      }
-    ],
-
-    successCriteria: [
-      "Can write complex nested CASE statements",
-      "Can pivot data with conditional aggregation",
-      "Always include ELSE clause for safety"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 7: SQL Intermediate",
-      description: "You should now handle complex analytical queries.",
-      deliverables: [
-        "window_functions.sql with analytics",
-        "time_series_analysis.sql with LAG/LEAD",
-        "data_cleaning.sql with transformations",
-        "business_logic.sql with CASE patterns"
-      ],
-      selfAssessment: [
-        "Can I write window functions without help?",
-        "Do I know when to use LAG vs ROW_NUMBER?",
-        "Can I clean data with SQL string functions?",
-        "Can I implement complex business rules?"
-      ]
-    },
-
-    keyTerms: [
-      { term: "CASE", definition: "Conditional expression for if-then-else logic in SQL" },
-      { term: "Conditional aggregation", definition: "Using CASE inside aggregate functions to pivot data" },
-      { term: "ELSE clause", definition: "Default value when no CASE conditions match" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Forgetting ELSE clause", fix: "Always include ELSE to handle unexpected values" },
-      { mistake: "Overlapping CASE conditions", fix: "Conditions are evaluated in order; first match wins" }
-    ],
-
-    futureProofNote: "Business logic in SQL is how you build data products. These skills transfer directly to dbt and analytics engineering."
-  },
-
-  // ============================================
-  // WEEK 8: SQL Advanced & Performance
-  // ============================================
-
-  {
-    dayNumber: 29,
-    week: 8,
-    topic: "Query Performance and EXPLAIN",
-    subtitle: "Making queries fast - the difference between junior and senior",
-
-    objectives: [
-      "Understand query execution plans",
-      "Use EXPLAIN to analyze queries",
-      "Identify common performance issues",
-      "Know basic indexing concepts"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Paste EXPLAIN output to ChatGPT and ask it to interpret. Understanding execution plans is a senior skill.",
-      warningWhenNotToUseAI: "AI can suggest optimizations, but you must understand WHY they help."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL query optimization", type: "video" },
-      { time: "0:15-0:35", activity: "Reading EXPLAIN output", type: "learn" },
-      { time: "0:35-0:55", activity: "Identifying slow patterns", type: "practice" },
-      { time: "0:55-1:20", activity: "Optimize slow queries", type: "exercise" },
-      { time: "1:20-1:30", activity: "Before/after comparison", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Hussein Nasser - SQL EXPLAIN", url: "https://www.youtube.com/watch?v=D-vZh8Mkef4", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Use The Index, Luke", url: "https://use-the-index-luke.com/", type: "tutorial" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Query Optimization Lab",
-        description: "Take slow queries and optimize them",
-        hints: [
-          "Run EXPLAIN on each query",
-          "Identify table scans vs index usage",
-          "Rewrite to use indexes effectively",
-          "Measure before/after performance"
-        ],
-        aiApproach: "Share EXPLAIN output with AI and ask for optimization suggestions. Understand each suggestion before applying.",
-        deliverable: "optimization_examples.sql with before/after"
-      }
-    ],
-
-    successCriteria: [
-      "Can read basic EXPLAIN output",
-      "Know what table scans and index scans mean",
-      "Can identify obvious performance issues"
-    ],
-
-    keyTerms: [
-      { term: "EXPLAIN", definition: "Shows the query execution plan without running the query" },
-      { term: "Seq Scan", definition: "Reading every row in a table (often slow)" },
-      { term: "Index Scan", definition: "Using an index to find rows (usually fast)" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Optimizing before measuring", fix: "Always measure first with EXPLAIN" },
-      { mistake: "Adding indexes without understanding", fix: "Indexes have write overhead; add strategically" }
-    ],
-
-    futureProofNote: "Query performance is what makes you valuable. Anyone can write slow queries. Making them fast is senior-level work."
-  },
-
-  {
-    dayNumber: 30,
-    week: 8,
-    topic: "Set Operations and Advanced Joins",
-    subtitle: "UNION, INTERSECT, EXCEPT, and self-joins",
-
-    objectives: [
-      "Use UNION and UNION ALL correctly",
-      "Understand INTERSECT and EXCEPT",
-      "Write self-joins for hierarchical data",
-      "Combine set operations with other queries"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'manual-practice',
-      aiTip: "These operations are fundamental. Practice manually to build intuition. Use AI only to verify your understanding.",
-      warningWhenNotToUseAI: "Don't skip manual practice. Set operations are interview staples."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQL set operations", type: "video" },
-      { time: "0:15-0:35", activity: "UNION, INTERSECT, EXCEPT", type: "learn" },
-      { time: "0:35-0:55", activity: "Self-joins for hierarchies", type: "practice" },
-      { time: "0:55-1:20", activity: "Complex query challenges", type: "exercise" },
-      { time: "1:20-1:30", activity: "Draw Venn diagrams for each operation", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Socratica - UNION", url: "https://www.youtube.com/watch?v=T7lH-L8QrI4", type: "video", duration: "6 min" }
-      ],
-      optional: [
-        { title: "Self-Joins Explained", url: "https://www.sqlshack.com/sql-self-join/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Set Operations Challenge",
-        description: "Solve problems requiring set operations and self-joins",
-        hints: [
-          "Find customers in A but not B",
-          "Combine results from different tables",
-          "Build organizational hierarchy with self-join",
-          "Find pairs of related records"
-        ],
-        aiApproach: "Write solutions yourself. Use AI to check and explain alternatives.",
-        deliverable: "set_operations.sql with solutions"
-      }
-    ],
-
-    successCriteria: [
-      "Know when UNION vs UNION ALL",
-      "Can write self-joins correctly",
-      "Understand set operation semantics"
-    ],
-
-    keyTerms: [
-      { term: "UNION", definition: "Combines results, removing duplicates" },
-      { term: "UNION ALL", definition: "Combines results, keeping all rows" },
-      { term: "Self-join", definition: "Joining a table to itself" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using UNION when UNION ALL is correct", fix: "UNION removes duplicates (expensive); use UNION ALL if duplicates are OK" },
-      { mistake: "Column type mismatches in UNION", fix: "All queries must have same number and types of columns" }
-    ],
-
-    futureProofNote: "Set operations and self-joins solve specific problems elegantly. They're interview favorites and production necessities."
-  },
-
-  {
-    dayNumber: 31,
-    week: 8,
-    topic: "Data Integrity and Transactions",
-    subtitle: "Keeping data correct - constraints, keys, and ACID",
-
-    objectives: [
-      "Understand primary and foreign keys",
-      "Know constraint types and purposes",
-      "Understand transaction basics (ACID)",
-      "Know when transactions are needed"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to explain ACID with real-world analogies. Understanding transactions is crucial for data reliability.",
-      warningWhenNotToUseAI: "Transactions are about correctness, not speed. Understand the concepts deeply."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Database constraints", type: "video" },
-      { time: "0:15-0:35", activity: "Keys and constraints", type: "learn" },
-      { time: "0:35-0:55", activity: "Transaction basics", type: "practice" },
-      { time: "0:55-1:20", activity: "Design constrained tables", type: "exercise" },
-      { time: "1:20-1:30", activity: "ACID property review", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Database Constraints Explained", url: "https://www.youtube.com/watch?v=6oZj7Y0gGt8", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "PostgreSQL Constraints", url: "https://www.postgresql.org/docs/current/ddl-constraints.html", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Constraint Design Exercise",
-        description: "Design tables with proper constraints for data integrity",
-        hints: [
-          "Define primary keys for each table",
-          "Add foreign keys for relationships",
-          "Use CHECK constraints for valid values",
-          "Consider NOT NULL and UNIQUE constraints"
-        ],
-        aiApproach: "Design first, then ask AI to review your constraints and suggest improvements.",
-        deliverable: "constrained_schema.sql with DDL statements"
-      }
-    ],
-
-    successCriteria: [
-      "Know all common constraint types",
-      "Can explain ACID properties",
-      "Understand when to use transactions"
-    ],
-
-    keyTerms: [
-      { term: "ACID", definition: "Atomicity, Consistency, Isolation, Durability - transaction guarantees" },
-      { term: "Primary key", definition: "Unique identifier for each row in a table" },
-      { term: "Foreign key", definition: "Reference to primary key in another table" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Skipping constraints to save time", fix: "Constraints prevent bad data; they save time long-term" },
-      { mistake: "Not using transactions for multi-statement updates", fix: "Wrap related changes in a transaction" }
-    ],
-
-    futureProofNote: "Data integrity is non-negotiable in production. Understanding transactions is essential for reliable data systems."
-  },
-
-  {
-    dayNumber: 32,
-    week: 8,
-    topic: "SQL Project: End-to-End Analytics",
-    subtitle: "Putting it all together - a complete SQL project",
-
-    objectives: [
-      "Design a complete analytics query suite",
-      "Combine all SQL concepts learned",
-      "Write production-quality queries",
-      "Document your SQL work professionally"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Use AI for code review. Ask it to critique your SQL for performance, readability, and correctness.",
-      warningWhenNotToUseAI: "Write the queries yourself. Only use AI for review and improvement suggestions."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Review project requirements", type: "learn" },
-      { time: "0:15-0:45", activity: "Write core analytics queries", type: "exercise" },
-      { time: "0:45-1:10", activity: "Add documentation and comments", type: "exercise" },
-      { time: "1:10-1:30", activity: "AI code review and refinement", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "SQL Style Guide", url: "https://www.sqlstyle.guide/", type: "reference" }
-      ],
-      optional: [
-        { title: "Mode Analytics Case Studies", url: "https://mode.com/sql-tutorial/sql-business-analytics-training/", type: "tutorial" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Complete Analytics Suite",
-        description: "Build a set of production-quality analytics queries",
-        hints: [
-          "Customer segmentation query",
-          "Revenue trends with window functions",
-          "Cohort analysis query",
-          "Executive summary dashboard query",
-          "Document each query thoroughly"
-        ],
-        aiApproach: "Write all queries yourself. Use AI for final review and polish.",
-        deliverable: "analytics_suite.sql with documented queries"
-      }
-    ],
-
-    successCriteria: [
-      "Queries are correct and performant",
-      "Code is well-documented",
-      "Uses appropriate SQL features"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 8: SQL Advanced & Performance",
-      description: "You should now write senior-level SQL confidently.",
-      deliverables: [
-        "optimization_examples.sql with EXPLAIN analysis",
-        "set_operations.sql with advanced queries",
-        "constrained_schema.sql with DDL",
-        "analytics_suite.sql project"
-      ],
-      selfAssessment: [
-        "Can I read and understand EXPLAIN output?",
-        "Do I know when to use each set operation?",
-        "Can I design tables with proper constraints?",
-        "Can I write production-quality analytics SQL?"
-      ]
-    },
-
-    futureProofNote: "This project demonstrates your SQL skills. Keep it polished for your portfolio."
-  },
-
-  // ============================================
-  // WEEK 9: SQL Data Modeling
-  // ============================================
-
-  {
-    dayNumber: 33,
-    week: 9,
-    topic: "Dimensional Modeling Concepts",
-    subtitle: "Star schemas and data warehouse design fundamentals",
-
-    objectives: [
-      "Understand dimensional modeling principles",
-      "Know the difference between OLTP and OLAP",
-      "Design star schemas with facts and dimensions",
-      "Understand slowly changing dimensions basics"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to explain Kimball methodology with examples. Understanding data modeling philosophy is as important as syntax.",
-      warningWhenNotToUseAI: "Data modeling is about understanding the business, not just technical patterns."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:20", activity: "Video: Dimensional modeling intro", type: "video" },
-      { time: "0:20-0:40", activity: "Star schema design principles", type: "learn" },
-      { time: "0:40-1:00", activity: "Design a fact table", type: "practice" },
-      { time: "1:00-1:20", activity: "Design dimension tables", type: "exercise" },
-      { time: "1:20-1:30", activity: "Review OLTP vs OLAP trade-offs", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Data Warehouse Toolkit Concepts", url: "https://www.youtube.com/watch?v=lWPiSZf7-uQ", type: "video", duration: "25 min" }
-      ],
-      optional: [
-        { title: "Kimball Group Design Tips", url: "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/", type: "reference" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "E-commerce Star Schema",
-        description: "Design a star schema for an e-commerce analytics use case",
-        hints: [
-          "Identify the fact table (sales_fact)",
-          "Design dimension tables (date, product, customer, store)",
-          "Define grain of the fact table",
-          "Determine appropriate measures and attributes"
-        ],
-        aiApproach: "Design first, then ask AI to review your schema and suggest improvements.",
-        deliverable: "ecommerce_star_schema.sql with DDL"
-      }
-    ],
-
-    successCriteria: [
-      "Can explain star schema components",
-      "Know when to use dimensional modeling",
-      "Can identify facts vs dimensions"
-    ],
-
-    keyTerms: [
-      { term: "Fact table", definition: "Table containing measurable events/transactions" },
-      { term: "Dimension table", definition: "Table containing descriptive attributes for analysis" },
-      { term: "Grain", definition: "The level of detail in a fact table (e.g., one row per order line)" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Putting descriptive attributes in fact tables", fix: "Move attributes to dimension tables" },
-      { mistake: "Using normalized designs for analytics", fix: "Denormalize for query performance in OLAP" }
-    ],
-
-    futureProofNote: "Dimensional modeling is the foundation of data warehouses. Understanding it is essential for dbt and analytics engineering."
-  },
-
-  {
-    dayNumber: 34,
-    week: 9,
-    topic: "Normalization and Denormalization",
-    subtitle: "When to normalize, when to denormalize, and why",
-
-    objectives: [
-      "Understand 1NF, 2NF, 3NF normalization",
-      "Know when normalization helps/hurts",
-      "Understand denormalization trade-offs",
-      "Design for appropriate use cases"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'debug-ai-code',
-      aiTip: "AI often generates normalized schemas by default. Question whether denormalization is better for your analytics use case.",
-      warningWhenNotToUseAI: "Schema design requires understanding usage patterns. AI doesn't know your query patterns."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Database normalization", type: "video" },
-      { time: "0:15-0:35", activity: "1NF, 2NF, 3NF explained", type: "learn" },
-      { time: "0:35-0:55", activity: "Normalization practice", type: "practice" },
-      { time: "0:55-1:20", activity: "Denormalization decisions", type: "exercise" },
-      { time: "1:20-1:30", activity: "Trade-offs summary", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Database Normalization Explained", url: "https://www.youtube.com/watch?v=GFQaEYEc8_8", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Normalization Deep Dive", url: "https://www.guru99.com/database-normalization.html", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Normalize and Denormalize",
-        description: "Take a flat table and normalize it, then denormalize for analytics",
-        hints: [
-          "Start with a wide, repeated data table",
-          "Normalize to 3NF step by step",
-          "Then create denormalized analytics views",
-          "Document trade-offs at each step"
-        ],
-        aiApproach: "Have AI explain each normalization step. Verify you understand the 'why' behind each change.",
-        deliverable: "normalization_exercise.sql with steps documented"
-      }
-    ],
-
-    successCriteria: [
-      "Can identify normalization violations",
-      "Know when denormalization is appropriate",
-      "Can explain trade-offs clearly"
-    ],
-
-    keyTerms: [
-      { term: "1NF", definition: "First Normal Form - atomic values, no repeating groups" },
-      { term: "3NF", definition: "Third Normal Form - no transitive dependencies" },
-      { term: "Denormalization", definition: "Intentionally adding redundancy for performance" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Over-normalizing analytics tables", fix: "Analytics queries need fewer JOINs" },
-      { mistake: "Under-normalizing transactional tables", fix: "OLTP systems need normalization to prevent anomalies" }
-    ],
-
-    futureProofNote: "Knowing when to break the rules is what makes you senior. Normalization is a guideline, not a law."
-  },
-
-  {
-    dayNumber: 35,
-    week: 9,
-    topic: "Slowly Changing Dimensions",
-    subtitle: "Tracking history in dimension tables",
-
-    objectives: [
-      "Understand SCD Types 1, 2, and 3",
-      "Implement SCD Type 2 with surrogate keys",
-      "Know when each SCD type is appropriate",
-      "Handle SCD in queries"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'copilot'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask ChatGPT to explain SCD Type 2 with a customer address change example. Visual examples make this clearer.",
-      warningWhenNotToUseAI: "SCD implementation varies by tool. Understand the pattern before AI generates code."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Slowly Changing Dimensions", type: "video" },
-      { time: "0:15-0:35", activity: "SCD types compared", type: "learn" },
-      { time: "0:35-0:55", activity: "SCD Type 2 implementation", type: "practice" },
-      { time: "0:55-1:20", activity: "Build SCD customer dimension", type: "exercise" },
-      { time: "1:20-1:30", activity: "Query historical data", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "SCD Types Explained", url: "https://www.youtube.com/watch?v=Qq-18qNIlec", type: "video", duration: "18 min" }
-      ],
-      optional: [
-        { title: "Kimball SCD Techniques", url: "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/type-2/", type: "reference" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "SCD Type 2 Implementation",
-        description: "Build a customer dimension with full history tracking",
-        hints: [
-          "Add surrogate key, natural key, start_date, end_date, is_current",
-          "Write INSERT for new customers",
-          "Write UPDATE logic for changes",
-          "Query to get customer state at any point in time"
-        ],
-        aiApproach: "Design the schema yourself. Use AI to help with the merge/update logic.",
-        deliverable: "scd_customer_dimension.sql with history tracking"
-      }
-    ],
-
-    successCriteria: [
-      "Can implement SCD Type 2",
-      "Know when each SCD type fits",
-      "Can query historical dimension state"
-    ],
-
-    keyTerms: [
-      { term: "SCD Type 1", definition: "Overwrite old values - no history" },
-      { term: "SCD Type 2", definition: "Add new row for each change - full history" },
-      { term: "Surrogate key", definition: "System-generated unique identifier for each dimension row" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using natural keys as fact table foreign keys", fix: "Use surrogate keys to reference correct dimension version" },
-      { mistake: "Forgetting is_current flag", fix: "Always maintain a current record indicator" }
-    ],
-
-    futureProofNote: "SCD Type 2 is essential for any historical analysis. It's implemented in every major data warehouse."
-  },
-
-  {
-    dayNumber: 36,
-    week: 9,
-    topic: "Data Modeling Project",
-    subtitle: "Design a complete data model from requirements",
-
-    objectives: [
-      "Translate business requirements to data model",
-      "Design a complete star schema",
-      "Implement tables with proper DDL",
-      "Document the model professionally"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['claude', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Use AI to review your model and ask probing questions about edge cases you might have missed.",
-      warningWhenNotToUseAI: "Design the model yourself first. AI review is for refinement, not creation."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Review project requirements", type: "learn" },
-      { time: "0:15-0:45", activity: "Design conceptual model", type: "exercise" },
-      { time: "0:45-1:10", activity: "Write DDL statements", type: "exercise" },
-      { time: "1:10-1:30", activity: "AI review and documentation", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "ERD Drawing Tools", url: "https://dbdiagram.io/", type: "tool" }
-      ],
-      optional: [
-        { title: "Data Model Documentation Best Practices", url: "https://www.dataversity.net/data-modeling-101-documenting-your-data-model/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Complete Data Model",
-        description: "Design a data model for a ride-sharing company",
-        hints: [
-          "Fact: rides (trip_id, timestamps, measures)",
-          "Dimensions: driver, rider, vehicle, location, date",
-          "Consider SCD for driver/rider changes",
-          "Document grain, keys, and relationships"
-        ],
-        aiApproach: "Complete your design, then ask AI to find holes in your model.",
-        deliverable: "rideshare_data_model.sql with documentation"
-      }
-    ],
-
-    successCriteria: [
-      "Model handles all requirements",
-      "DDL is correct and complete",
-      "Documentation is professional"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 9: SQL Data Modeling",
-      description: "You should now design professional data models.",
-      deliverables: [
-        "ecommerce_star_schema.sql",
-        "normalization_exercise.sql",
-        "scd_customer_dimension.sql",
-        "rideshare_data_model.sql project"
-      ],
-      selfAssessment: [
-        "Can I design a star schema from requirements?",
-        "Do I know when to normalize vs denormalize?",
-        "Can I implement SCD Type 2?",
-        "Can I document a data model professionally?"
-      ]
-    },
-
-    futureProofNote: "Data modeling skills are highly valued. Good models make everything downstream easier - dbt, dashboards, ML features."
-  },
-
-  // ============================================
-  // WEEK 10: Python-SQL Integration
-  // ============================================
-
-  {
-    dayNumber: 37,
-    week: 10,
-    topic: "Database Connections with Python",
-    subtitle: "Connecting Python to databases - the bridge to automation",
-
-    objectives: [
-      "Connect to databases using DB-API",
-      "Execute queries and fetch results",
-      "Handle connection errors properly",
-      "Use context managers for connections"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask AI for connection patterns for your specific database (PostgreSQL, SQLite, etc.). Patterns vary by database.",
-      warningWhenNotToUseAI: "Never let AI generate code with hardcoded credentials. Use environment variables."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python database connectivity", type: "video" },
-      { time: "0:15-0:35", activity: "DB-API concepts", type: "learn" },
-      { time: "0:35-0:55", activity: "Connection patterns", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a database utility module", type: "exercise" },
-      { time: "1:20-1:30", activity: "Error handling review", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Python SQLite Tutorial", url: "https://www.youtube.com/watch?v=pd-0G0MigUA", type: "video", duration: "30 min" }
-      ],
-      optional: [
-        { title: "Real Python - SQLite", url: "https://realpython.com/python-sqlite-sqlalchemy/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Database Utility Module",
-        description: "Create a reusable module for database operations",
-        hints: [
-          "Create connection context manager",
-          "Add execute_query() function",
-          "Add fetch_all() and fetch_one() helpers",
-          "Handle connection errors gracefully"
-        ],
-        aiApproach: "Ask AI for the pattern, but ensure credentials come from environment variables.",
-        deliverable: "db_utils.py with connection utilities"
-      }
-    ],
-
-    successCriteria: [
-      "Can connect to SQLite and PostgreSQL",
-      "Always use context managers for connections",
-      "Never hardcode credentials"
-    ],
-
-    keyTerms: [
-      { term: "DB-API 2.0", definition: "Python standard for database interfaces" },
-      { term: "Cursor", definition: "Object that executes queries and fetches results" },
-      { term: "Connection pool", definition: "Cache of database connections for reuse" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Hardcoding database credentials", fix: "Use environment variables or config files" },
-      { mistake: "Not closing connections", fix: "Always use context managers (with statement)" }
-    ],
-
-    futureProofNote: "Database connectivity is how you build data pipelines. These patterns are used in every data engineering job."
-  },
-
-  {
-    dayNumber: 38,
-    week: 10,
-    topic: "SQLAlchemy Introduction",
-    subtitle: "The most important Python ORM for data engineering",
-
-    objectives: [
-      "Understand SQLAlchemy architecture",
-      "Use SQLAlchemy Core for SQL execution",
-      "Build queries programmatically",
-      "Know when ORM vs Core is appropriate"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'learn-with-ai',
-      aiTip: "SQLAlchemy is complex. Ask AI to explain Core vs ORM trade-offs. For data engineering, Core is often better.",
-      warningWhenNotToUseAI: "AI often generates ORM patterns. For data pipelines, SQLAlchemy Core is usually more appropriate."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: SQLAlchemy introduction", type: "video" },
-      { time: "0:15-0:35", activity: "SQLAlchemy Core concepts", type: "learn" },
-      { time: "0:35-0:55", activity: "Programmatic query building", type: "practice" },
-      { time: "0:55-1:20", activity: "Build a data extractor", type: "exercise" },
-      { time: "1:20-1:30", activity: "Core vs ORM decision framework", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "SQLAlchemy Tutorial", url: "https://www.youtube.com/watch?v=woKYyhLCcnU", type: "video", duration: "45 min" }
-      ],
-      optional: [
-        { title: "SQLAlchemy Core Documentation", url: "https://docs.sqlalchemy.org/en/20/core/", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "SQLAlchemy Data Extractor",
-        description: "Build a flexible data extraction tool using SQLAlchemy Core",
-        hints: [
-          "Use create_engine() for connection",
-          "Build queries using Table and select()",
-          "Add dynamic filtering",
-          "Return results as dictionaries"
-        ],
-        aiApproach: "Ask AI for SQLAlchemy Core patterns specifically, not ORM patterns.",
-        deliverable: "sqlalchemy_extractor.py with extraction functions"
-      }
-    ],
-
-    successCriteria: [
-      "Can use SQLAlchemy Core for queries",
-      "Can build dynamic queries programmatically",
-      "Know when to use Core vs ORM"
-    ],
-
-    keyTerms: [
-      { term: "Engine", definition: "SQLAlchemy's connection factory" },
-      { term: "Core", definition: "SQLAlchemy's SQL expression language (SQL-focused)" },
-      { term: "ORM", definition: "Object-Relational Mapper (object-focused)" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Using ORM for bulk data operations", fix: "Use Core for ETL - it's faster and more explicit" },
-      { mistake: "Creating too many engines", fix: "Create one engine and share it" }
-    ],
-
-    futureProofNote: "SQLAlchemy is used in Airflow, most Python web frameworks, and countless data tools. Master it."
-  },
-
-  {
-    dayNumber: 39,
-    week: 10,
-    topic: "Pandas and SQL Integration",
-    subtitle: "The most powerful data manipulation combo",
-
-    objectives: [
-      "Read SQL results into DataFrames",
-      "Write DataFrames to databases",
-      "Use pandas for data transformations",
-      "Know when pandas vs pure SQL is better"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Describe your data transformation in plain English. AI is excellent at generating pandas code from natural language descriptions.",
-      warningWhenNotToUseAI: "Always verify data types after reading SQL into pandas. AI assumes types are correct."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Pandas SQL integration", type: "video" },
-      { time: "0:15-0:35", activity: "read_sql and to_sql", type: "learn" },
-      { time: "0:35-0:55", activity: "DataFrame transformations", type: "practice" },
-      { time: "0:55-1:20", activity: "Build ETL with pandas", type: "exercise" },
-      { time: "1:20-1:30", activity: "Pandas vs SQL decision framework", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Pandas Read SQL Tutorial", url: "https://www.youtube.com/watch?v=M-4EpNdlSuY", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Pandas SQL Documentation", url: "https://pandas.pydata.org/docs/reference/api/pandas.read_sql.html", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Pandas ETL Pipeline",
-        description: "Build a complete ETL pipeline using pandas and SQL",
-        hints: [
-          "Extract data from SQL into DataFrame",
-          "Clean and transform with pandas",
-          "Handle missing values appropriately",
-          "Write results back to a new table"
-        ],
-        aiApproach: "Describe each transformation step in plain English, get pandas code, then verify results.",
-        deliverable: "pandas_etl.py with complete pipeline"
-      }
-    ],
-
-    successCriteria: [
-      "Can move data between SQL and pandas fluently",
-      "Can transform data efficiently in pandas",
-      "Know when to use SQL vs pandas for transformations"
-    ],
-
-    keyTerms: [
-      { term: "DataFrame", definition: "Pandas 2D labeled data structure (like a table)" },
-      { term: "read_sql()", definition: "Reads SQL query results into a DataFrame" },
-      { term: "to_sql()", definition: "Writes DataFrame to a SQL table" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Loading huge tables into memory", fix: "Use SQL WHERE clauses to filter first" },
-      { mistake: "Not specifying dtypes", fix: "Check and convert data types after loading" }
-    ],
-
-    futureProofNote: "Pandas + SQL is the backbone of Python data engineering. This combo solves most data problems."
-  },
-
-  {
-    dayNumber: 40,
-    week: 10,
-    topic: "Bulk Data Operations",
-    subtitle: "Moving large datasets efficiently",
-
-    objectives: [
-      "Understand bulk insert strategies",
-      "Use COPY command for PostgreSQL",
-      "Handle large files efficiently",
-      "Optimize for throughput"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Ask AI about bulk loading best practices for your specific database. Methods vary significantly.",
-      warningWhenNotToUseAI: "Bulk operations can corrupt data if wrong. Test on small datasets first."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Bulk data loading", type: "video" },
-      { time: "0:15-0:35", activity: "Bulk insert strategies", type: "learn" },
-      { time: "0:35-0:55", activity: "COPY command for PostgreSQL", type: "practice" },
-      { time: "0:55-1:20", activity: "Build bulk loader", type: "exercise" },
-      { time: "1:20-1:30", activity: "Performance comparison", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "PostgreSQL COPY Command", url: "https://www.postgresql.org/docs/current/sql-copy.html", type: "docs" }
-      ],
-      optional: [
-        { title: "Bulk Loading Best Practices", url: "https://www.datacamp.com/tutorial/sqlalchemy-tutorial-examples", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "High-Performance Bulk Loader",
-        description: "Build a bulk loader that handles millions of rows efficiently",
-        hints: [
-          "Compare row-by-row vs batch vs COPY",
-          "Measure execution time for each approach",
-          "Handle errors without losing good data",
-          "Add progress reporting for long operations"
-        ],
-        aiApproach: "Ask AI for the fastest approach for your database. Verify with benchmarks.",
-        deliverable: "bulk_loader.py with performance metrics"
-      }
-    ],
-
-    successCriteria: [
-      "Know multiple bulk loading strategies",
-      "Can use database-specific optimizations",
-      "Can benchmark and choose the fastest approach"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 10: Python-SQL Integration",
-      description: "You should now build complete data pipelines with Python and SQL.",
-      deliverables: [
-        "db_utils.py connection utilities",
-        "sqlalchemy_extractor.py",
-        "pandas_etl.py pipeline",
-        "bulk_loader.py with benchmarks"
-      ],
-      selfAssessment: [
-        "Can I connect to databases securely?",
-        "Do I know when to use SQLAlchemy Core vs ORM?",
-        "Can I move data between SQL and pandas efficiently?",
-        "Can I load large datasets performantly?"
-      ]
-    },
-
-    keyTerms: [
-      { term: "Bulk insert", definition: "Loading many rows at once instead of one at a time" },
-      { term: "COPY", definition: "PostgreSQL command for high-speed bulk loading" },
-      { term: "Batch size", definition: "Number of rows processed together in one operation" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Inserting rows one at a time", fix: "Batch inserts or use COPY" },
-      { mistake: "No error handling in bulk operations", fix: "Use transactions and savepoints" }
-    ],
-
-    futureProofNote: "Performance matters in production. Knowing bulk loading techniques is essential for real data engineering work."
-  },
-
-  // ============================================
-  // WEEK 11: APIs and Data Extraction
-  // ============================================
-
-  {
-    dayNumber: 41,
-    week: 11,
-    topic: "REST API Fundamentals",
-    subtitle: "Accessing web data - the modern data source",
-
-    objectives: [
-      "Understand REST API concepts",
-      "Make HTTP requests with requests library",
-      "Handle authentication methods",
-      "Parse JSON API responses"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Paste API documentation to ChatGPT and ask it to write the Python code. This is a legitimate and efficient workflow.",
-      warningWhenNotToUseAI: "Never share API keys or secrets with AI tools."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: REST API basics", type: "video" },
-      { time: "0:15-0:35", activity: "HTTP methods and status codes", type: "learn" },
-      { time: "0:35-0:55", activity: "requests library practice", type: "practice" },
-      { time: "0:55-1:20", activity: "Access a public API", type: "exercise" },
-      { time: "1:20-1:30", activity: "Authentication patterns", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Python Requests Tutorial", url: "https://www.youtube.com/watch?v=tb8gHvYlCFs", type: "video", duration: "22 min" }
-      ],
-      optional: [
-        { title: "Real Python - API Tutorial", url: "https://realpython.com/api-integration-in-python/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "API Data Extractor",
-        description: "Build a function to extract data from a public API",
-        hints: [
-          "Use a free public API (JSONPlaceholder, GitHub, etc.)",
-          "Handle rate limiting with retries",
-          "Parse nested JSON responses",
-          "Store results in a structured format"
-        ],
-        aiApproach: "Share API docs with AI for code generation. Review auth handling carefully.",
-        deliverable: "api_extractor.py with extraction functions"
-      }
-    ],
-
-    successCriteria: [
-      "Can make authenticated API requests",
-      "Can handle errors and retries",
-      "Can parse complex JSON responses"
-    ],
-
-    keyTerms: [
-      { term: "REST", definition: "Representational State Transfer - API design pattern" },
-      { term: "Endpoint", definition: "URL path for a specific API resource" },
-      { term: "Rate limiting", definition: "Restriction on how many requests you can make" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Ignoring rate limits", fix: "Implement exponential backoff" },
-      { mistake: "Hardcoding API keys", fix: "Use environment variables" }
-    ],
-
-    futureProofNote: "APIs are how modern systems share data. Knowing how to extract API data is essential for data engineering."
-  },
-
-  {
-    dayNumber: 42,
-    week: 11,
-    topic: "Pagination and Rate Limiting",
-    subtitle: "Handling real-world API challenges",
-
-    objectives: [
-      "Implement cursor-based pagination",
-      "Handle offset-based pagination",
-      "Implement rate limit handling",
-      "Build robust API clients"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'debug-ai-code',
-      aiTip: "AI often generates pagination code that works for simple cases but fails on edge cases. Test with multiple pages.",
-      warningWhenNotToUseAI: "Pagination logic is tricky. Verify the stopping conditions work correctly."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: API pagination patterns", type: "video" },
-      { time: "0:15-0:35", activity: "Pagination strategies", type: "learn" },
-      { time: "0:35-0:55", activity: "Rate limit handling", type: "practice" },
-      { time: "0:55-1:20", activity: "Build paginated extractor", type: "exercise" },
-      { time: "1:20-1:30", activity: "Edge case testing", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "API Pagination Best Practices", url: "https://nordicapis.com/everything-you-need-to-know-about-api-pagination/", type: "article" }
-      ],
-      optional: [
-        { title: "Tenacity Library", url: "https://tenacity.readthedocs.io/", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Full API Extraction",
-        description: "Extract all data from a paginated API endpoint",
-        hints: [
-          "Detect pagination type (cursor, offset, or link-based)",
-          "Implement extraction loop with proper stopping",
-          "Add rate limit handling with tenacity",
-          "Report progress during extraction"
-        ],
-        aiApproach: "Generate pagination code with AI, then test with different page sizes and data volumes.",
-        deliverable: "paginated_extractor.py with full extraction"
-      }
-    ],
-
-    successCriteria: [
-      "Can handle any pagination pattern",
-      "Implement proper rate limit backoff",
-      "Test edge cases thoroughly"
-    ],
-
-    keyTerms: [
-      { term: "Cursor pagination", definition: "Using a marker/token to request next page" },
-      { term: "Offset pagination", definition: "Using skip/take parameters for pages" },
-      { term: "Exponential backoff", definition: "Increasing wait time between retries" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Infinite loops from bad pagination logic", fix: "Always have a maximum iterations limit" },
-      { mistake: "Not handling empty last page", fix: "Check for empty results as stop condition" }
-    ],
-
-    futureProofNote: "Real APIs require pagination and rate limit handling. These patterns are used in every production data pipeline."
-  },
-
-  {
-    dayNumber: 43,
-    week: 11,
-    topic: "Web Scraping Basics",
-    subtitle: "When there's no API - ethical data extraction",
-
-    objectives: [
-      "Understand web scraping ethics and legality",
-      "Use BeautifulSoup for HTML parsing",
-      "Handle dynamic content considerations",
-      "Respect robots.txt and rate limits"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Paste HTML snippets to AI and ask for parsing code. AI is excellent at generating BeautifulSoup selectors.",
-      warningWhenNotToUseAI: "Always check if scraping is allowed. AI won't warn you about legal/ethical issues."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Web scraping intro", type: "video" },
-      { time: "0:15-0:35", activity: "Ethics, legality, robots.txt", type: "learn" },
-      { time: "0:35-0:55", activity: "BeautifulSoup basics", type: "practice" },
-      { time: "0:55-1:20", activity: "Scrape a practice site", type: "exercise" },
-      { time: "1:20-1:30", activity: "When not to scrape", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Web Scraping with Python", url: "https://www.youtube.com/watch?v=ng2o98k983k", type: "video", duration: "45 min" }
-      ],
-      optional: [
-        { title: "Real Python - Web Scraping", url: "https://realpython.com/beautiful-soup-web-scraper-python/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Practice Site Scraper",
-        description: "Scrape data from a site designed for scraping practice",
-        hints: [
-          "Use http://quotes.toscrape.com/ or similar practice site",
-          "Parse structured data from HTML",
-          "Navigate multiple pages",
-          "Store results in clean format"
-        ],
-        aiApproach: "Paste HTML to AI for selector generation. Verify selectors work before running full scrape.",
-        deliverable: "web_scraper.py with extracted data"
-      }
-    ],
-
-    successCriteria: [
-      "Know when scraping is appropriate",
-      "Can parse HTML with BeautifulSoup",
-      "Respect site policies and rate limits"
-    ],
-
-    keyTerms: [
-      { term: "robots.txt", definition: "File that tells crawlers what's allowed to access" },
-      { term: "BeautifulSoup", definition: "Python library for parsing HTML/XML" },
-      { term: "Selector", definition: "CSS or XPath pattern to find HTML elements" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Scraping without checking terms of service", fix: "Always verify scraping is allowed" },
-      { mistake: "Hammering sites with requests", fix: "Add delays between requests" }
-    ],
-
-    futureProofNote: "Scraping is useful but secondary to APIs. Prefer APIs when available. Know scraping for when there's no other option."
-  },
-
-  {
-    dayNumber: 44,
-    week: 11,
-    topic: "Data Extraction Project",
-    subtitle: "Build a complete data extraction pipeline",
-
-    objectives: [
-      "Design an extraction pipeline architecture",
-      "Combine multiple data sources",
-      "Handle errors and logging",
-      "Store extracted data appropriately"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Use AI to review your pipeline design. Ask about edge cases, error handling, and production readiness.",
-      warningWhenNotToUseAI: "Design the architecture yourself. Use AI for implementation details and code review."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Review project requirements", type: "learn" },
-      { time: "0:15-0:45", activity: "Design and implement pipeline", type: "exercise" },
-      { time: "0:45-1:10", activity: "Add logging and error handling", type: "exercise" },
-      { time: "1:10-1:30", activity: "AI code review", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Python Logging Tutorial", url: "https://www.youtube.com/watch?v=jxmzY9soFXg", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Logging Best Practices", url: "https://docs.python.org/3/howto/logging.html", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Multi-Source Extraction Pipeline",
-        description: "Build a pipeline that extracts data from API and transforms it",
-        hints: [
-          "Extract from at least one API",
-          "Transform and validate the data",
-          "Store results in SQLite database",
-          "Add comprehensive logging"
-        ],
-        aiApproach: "Implement core logic yourself. Use AI to add polish - logging, error handling, type hints.",
-        deliverable: "extraction_pipeline.py with complete pipeline"
-      }
-    ],
-
-    successCriteria: [
-      "Pipeline runs end-to-end",
-      "Errors are handled gracefully",
-      "Logging provides visibility into execution"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 11: APIs and Data Extraction",
-      description: "You should now extract data from any web source.",
-      deliverables: [
-        "api_extractor.py",
-        "paginated_extractor.py",
-        "web_scraper.py",
-        "extraction_pipeline.py project"
-      ],
-      selfAssessment: [
-        "Can I work with any REST API?",
-        "Can I handle pagination and rate limits?",
-        "Do I know when scraping is appropriate?",
-        "Can I build production-quality extraction pipelines?"
-      ]
-    },
-
-    futureProofNote: "Data extraction is where data engineering starts. Every pipeline begins with getting the data. Master this."
-  },
-
-  // ============================================
-  // WEEK 12: Integration and Testing
-  // ============================================
-
-  {
-    dayNumber: 45,
-    week: 12,
-    topic: "Testing Data Pipelines",
-    subtitle: "Quality assurance for data engineering",
-
-    objectives: [
-      "Understand testing strategies for data",
-      "Write unit tests with pytest",
-      "Test data transformations",
-      "Use fixtures and mocking"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Ask AI to generate test cases for your functions. AI is excellent at thinking of edge cases you might miss.",
-      warningWhenNotToUseAI: "Verify AI-generated tests actually test what matters. Don't test trivial things."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python testing with pytest", type: "video" },
-      { time: "0:15-0:35", activity: "Testing strategies for data", type: "learn" },
-      { time: "0:35-0:55", activity: "Write tests for previous code", type: "practice" },
-      { time: "0:55-1:20", activity: "Test your ETL functions", type: "exercise" },
-      { time: "1:20-1:30", activity: "Fixtures and mocking", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Pytest Tutorial", url: "https://www.youtube.com/watch?v=cHYq1MRoyI0", type: "video", duration: "36 min" }
-      ],
-      optional: [
-        { title: "Real Python - Pytest", url: "https://realpython.com/pytest-python-testing/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Test Your Pipeline",
-        description: "Add comprehensive tests to your extraction pipeline",
-        hints: [
-          "Test each function individually",
-          "Use fixtures for test data",
-          "Mock API calls",
-          "Test error handling paths"
-        ],
-        aiApproach: "Ask AI to generate test cases. Review for relevance and add edge cases it missed.",
-        deliverable: "test_pipeline.py with comprehensive tests"
-      }
-    ],
-
-    successCriteria: [
-      "Can write pytest tests",
-      "Know how to mock external dependencies",
-      "Test coverage on critical functions"
-    ],
-
-    keyTerms: [
-      { term: "Unit test", definition: "Test of a single function in isolation" },
-      { term: "Fixture", definition: "Reusable test setup code" },
-      { term: "Mock", definition: "Fake object that replaces real dependencies" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Testing trivial code", fix: "Focus tests on complex logic and edge cases" },
-      { mistake: "Tests that depend on external services", fix: "Mock external dependencies" }
-    ],
-
-    futureProofNote: "Testing is what separates production code from scripts. Data quality issues cost real money. Test your pipelines."
-  },
-
-  {
-    dayNumber: 46,
-    week: 12,
-    topic: "Data Validation Patterns",
-    subtitle: "Catching bad data before it causes problems",
-
-    objectives: [
-      "Implement data validation checks",
-      "Use Pydantic for data validation",
-      "Design validation strategies",
-      "Handle validation failures gracefully"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude'],
-      focusArea: 'learn-with-ai',
-      aiTip: "Ask Claude about Pydantic patterns. It's excellent for generating validation models from data examples.",
-      warningWhenNotToUseAI: "Define validation rules based on business requirements, not just what AI suggests."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Pydantic introduction", type: "video" },
-      { time: "0:15-0:35", activity: "Validation patterns", type: "learn" },
-      { time: "0:35-0:55", activity: "Pydantic models", type: "practice" },
-      { time: "0:55-1:20", activity: "Add validation to pipeline", type: "exercise" },
-      { time: "1:20-1:30", activity: "Error handling strategies", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Pydantic Tutorial", url: "https://www.youtube.com/watch?v=502XOB0u8OY", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Pydantic Documentation", url: "https://docs.pydantic.dev/", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Validated Data Pipeline",
-        description: "Add Pydantic validation to your data pipeline",
-        hints: [
-          "Create Pydantic models for each data structure",
-          "Validate at pipeline boundaries",
-          "Handle validation errors appropriately",
-          "Log validation failures for debugging"
-        ],
-        aiApproach: "Show AI your data structure and ask for Pydantic model. Review and adjust constraints.",
-        deliverable: "validated_pipeline.py with Pydantic models"
-      }
-    ],
-
-    successCriteria: [
-      "Can create Pydantic models",
-      "Validate data at pipeline boundaries",
-      "Handle validation errors gracefully"
-    ],
-
-    keyTerms: [
-      { term: "Pydantic", definition: "Python library for data validation using type hints" },
-      { term: "Schema", definition: "Definition of expected data structure and types" },
-      { term: "Validation boundary", definition: "Point where external data enters your system" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Validating too late in the pipeline", fix: "Validate as early as possible" },
-      { mistake: "Silently dropping invalid records", fix: "Log and track validation failures" }
-    ],
-
-    futureProofNote: "Data validation is essential for data quality. Pydantic is increasingly used in modern Python data tools."
-  },
-
-  {
-    dayNumber: 47,
-    week: 12,
-    topic: "Logging and Observability",
-    subtitle: "Knowing what your pipelines are doing",
-
-    objectives: [
-      "Implement structured logging",
-      "Design log levels and messages",
-      "Add metrics and monitoring hooks",
-      "Debug pipelines using logs"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Ask AI to add logging to existing code. It's great at placing log statements in the right locations.",
-      warningWhenNotToUseAI: "Don't log sensitive data. Review AI-generated logging for privacy issues."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python logging deep dive", type: "video" },
-      { time: "0:15-0:35", activity: "Logging best practices", type: "learn" },
-      { time: "0:35-0:55", activity: "Add logging to code", type: "practice" },
-      { time: "0:55-1:20", activity: "Observable pipeline project", type: "exercise" },
-      { time: "1:20-1:30", activity: "Debugging with logs", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Python Logging Guide", url: "https://www.youtube.com/watch?v=9L77QExPmI0", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Structlog Library", url: "https://www.structlog.org/", type: "docs" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Observable Pipeline",
-        description: "Add comprehensive logging and metrics to your pipeline",
-        hints: [
-          "Configure logging with appropriate levels",
-          "Log at key pipeline stages",
-          "Include useful context in log messages",
-          "Add timing metrics for performance tracking"
-        ],
-        aiApproach: "Ask AI to add logging to your existing code. Review for completeness and privacy.",
-        deliverable: "observable_pipeline.py with comprehensive logging"
-      }
-    ],
-
-    successCriteria: [
-      "Logging configured correctly",
-      "Appropriate log levels used",
-      "Can debug issues using logs"
-    ],
-
-    keyTerms: [
-      { term: "Log level", definition: "Severity of log message (DEBUG, INFO, WARNING, ERROR)" },
-      { term: "Structured logging", definition: "Logging with consistent, parseable format" },
-      { term: "Observability", definition: "Ability to understand system state from outputs" }
-    ],
-
-    commonMistakes: [
-      { mistake: "Logging too much at INFO level", fix: "Use DEBUG for verbose information" },
-      { mistake: "Not including context in logs", fix: "Add identifiers like job_id, record_id" }
-    ],
-
-    futureProofNote: "Observability is essential for production systems. You can't fix what you can't see. Log thoughtfully."
-  },
-
-  {
-    dayNumber: 48,
-    week: 12,
-    topic: "Code Quality and Documentation",
-    subtitle: "Professional-grade code for your portfolio",
-
-    objectives: [
-      "Use linters and formatters (black, ruff)",
-      "Write comprehensive docstrings",
-      "Create README documentation",
-      "Organize projects professionally"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'claude', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "AI is excellent at writing documentation. Generate docstrings and README content, then review for accuracy.",
-      warningWhenNotToUseAI: "Verify AI-generated documentation matches what the code actually does."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python code quality tools", type: "video" },
-      { time: "0:15-0:35", activity: "black, ruff, mypy setup", type: "learn" },
-      { time: "0:35-0:55", activity: "Add docstrings to code", type: "practice" },
-      { time: "0:55-1:20", activity: "Create project documentation", type: "exercise" },
-      { time: "1:20-1:30", activity: "Portfolio preparation", type: "review" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Python Code Formatting", url: "https://www.youtube.com/watch?v=SsoOG6ZeyUI", type: "video", duration: "15 min" }
-      ],
-      optional: [
-        { title: "Google Python Style Guide", url: "https://google.github.io/styleguide/pyguide.html", type: "reference" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Portfolio-Ready Codebase",
-        description: "Polish your Q1 code to portfolio quality",
-        hints: [
-          "Run black and ruff on all code",
-          "Add type hints throughout",
-          "Write docstrings for public functions",
-          "Create README with setup instructions"
-        ],
-        aiApproach: "Use AI to generate documentation drafts. Review and edit for accuracy.",
-        deliverable: "Polished codebase with documentation"
-      }
-    ],
-
-    successCriteria: [
-      "Code passes linting",
-      "All public functions documented",
-      "README explains how to use the code"
-    ],
-
-    weeklyCheckpoint: {
-      title: "Week 12: Integration and Testing",
-      description: "You should now write production-quality code.",
-      deliverables: [
-        "test_pipeline.py with tests",
-        "validated_pipeline.py with Pydantic",
-        "observable_pipeline.py with logging",
-        "Polished, documented codebase"
-      ],
-      selfAssessment: [
-        "Do I write tests for important code?",
-        "Do I validate data at boundaries?",
-        "Can I debug issues using logs?",
-        "Is my code portfolio-ready?"
-      ]
-    },
-
-    futureProofNote: "Code quality is what makes you hireable. Clean, tested, documented code is the mark of a professional."
-  },
-
-  // ============================================
-  // WEEK 13: Q1 Capstone Project
-  // ============================================
-
-  {
-    dayNumber: 49,
-    week: 13,
-    topic: "Q1 Capstone: Project Planning",
-    subtitle: "Design a complete data pipeline from scratch",
-
-    objectives: [
-      "Define capstone project requirements",
-      "Design system architecture",
-      "Break project into tasks",
-      "Set up project structure"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['chatgpt', 'claude'],
-      focusArea: 'prompt-engineering',
-      aiTip: "Use AI as a thought partner for architecture design. Describe your idea and ask for feedback and suggestions.",
-      warningWhenNotToUseAI: "The design decisions are yours. AI helps refine, but you own the architecture."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:20", activity: "Define project scope", type: "learn" },
-      { time: "0:20-0:45", activity: "Design architecture", type: "exercise" },
-      { time: "0:45-1:10", activity: "Break into tasks", type: "exercise" },
-      { time: "1:10-1:30", activity: "Set up project structure", type: "exercise" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Data Pipeline Architecture Patterns", url: "https://www.youtube.com/watch?v=VtzvF17ysbc", type: "video", duration: "20 min" }
-      ],
-      optional: [
-        { title: "Project Planning Best Practices", url: "https://realpython.com/python-project-documentation/", type: "article" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Capstone Project Design",
-        description: "Design a complete data pipeline that demonstrates Q1 skills",
-        hints: [
-          "Extract data from at least one API",
-          "Transform and validate the data",
-          "Store in a properly modeled database",
-          "Include tests, logging, and documentation"
-        ],
-        aiApproach: "Discuss your design with AI. Ask for potential problems and improvements.",
-        deliverable: "DESIGN.md with architecture and task breakdown"
-      }
-    ],
-
-    successCriteria: [
-      "Clear project requirements defined",
-      "Architecture documented",
-      "Tasks broken down and estimated"
-    ],
-
-    futureProofNote: "Planning is where senior engineers add value. Anyone can code a solution - designing the right solution is the skill."
-  },
-
-  {
-    dayNumber: 50,
-    week: 13,
-    topic: "Q1 Capstone: Implementation Day 1",
-    subtitle: "Build the extraction layer",
-
-    objectives: [
-      "Implement data extraction",
-      "Handle errors and edge cases",
-      "Add logging and monitoring",
-      "Test extraction thoroughly"
+      "Understand the Alpha Vantage API",
+      "Build data extraction code",
+      "Handle API rate limits and errors",
+      "Structure raw data for storage"
     ],
 
     aiIntegration: {
       toolsUsed: ['copilot', 'cursor'],
-      focusArea: 'ai-review',
-      aiTip: "Use Copilot for implementation speed. Have AI review your code for edge cases you might have missed.",
-      warningWhenNotToUseAI: "You should be able to explain every line. Don't use code you don't understand."
+      focusArea: 'learn-with-ai',
+      aiTip: "Use AI to help with API integration boilerplate, but design the error handling yourself."
     },
 
     sessionPlan: [
-      { time: "0:00-0:45", activity: "Implement extraction", type: "exercise" },
-      { time: "0:45-1:15", activity: "Add tests and error handling", type: "exercise" },
-      { time: "1:15-1:30", activity: "AI code review", type: "review" }
+      { time: "0:00-0:30", activity: "API exploration and design", type: "learn" },
+      { time: "0:30-1:15", activity: "Build extraction code", type: "exercise" },
+      { time: "1:15-1:30", activity: "Test with real API", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Your previous extraction code", url: "", type: "reference" }
+        { title: "Alpha Vantage API Docs", url: "https://www.alphavantage.co/documentation/", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Extraction Layer",
-        description: "Build the extraction portion of your capstone",
-        hints: [
-          "Reuse patterns from Week 11",
-          "Handle all error cases",
-          "Add comprehensive logging",
-          "Write tests for extraction"
-        ],
-        aiApproach: "Code with AI assistance. Review everything for understanding.",
-        deliverable: "Working extraction layer with tests"
+        title: "Stock Data Extractor",
+        description: "Build a robust API client for stock data",
+        deliverable: "stock_extractor.py with error handling"
       }
     ],
 
     successCriteria: [
-      "Extraction works reliably",
-      "Errors handled gracefully",
-      "Tests pass"
+      "API integration working",
+      "Proper error handling",
+      "Rate limiting handled"
     ],
 
-    futureProofNote: "Building from scratch with guidance is how you internalize skills. This project proves you can deliver."
+    futureProofNote: "API integration is core to data engineering. This project proves you can do it."
   },
 
   {
-    dayNumber: 51,
-    week: 13,
-    topic: "Q1 Capstone: Implementation Day 2",
-    subtitle: "Build the transformation and loading layers",
-
-    objectives: [
-      "Implement data transformations",
-      "Build the database schema",
-      "Load data into the database",
-      "Add validation throughout"
-    ],
-
-    aiIntegration: {
-      toolsUsed: ['copilot', 'cursor'],
-      focusArea: 'ai-review',
-      aiTip: "Use AI to generate boilerplate, but design the transformations yourself based on your domain understanding.",
-      warningWhenNotToUseAI: "Schema design and transformation logic should come from your understanding of the data."
-    },
-
-    sessionPlan: [
-      { time: "0:00-0:30", activity: "Implement transformations", type: "exercise" },
-      { time: "0:30-1:00", activity: "Build database and loading", type: "exercise" },
-      { time: "1:00-1:30", activity: "Integration testing", type: "exercise" }
-    ],
-
-    resources: {
-      required: [
-        { title: "Your previous SQL and Python-SQL code", url: "", type: "reference" }
-      ]
-    },
-
-    exercises: [
-      {
-        title: "Transformation and Loading",
-        description: "Complete the transformation and loading layers",
-        hints: [
-          "Apply all relevant data transformations",
-          "Validate data before loading",
-          "Use appropriate bulk loading",
-          "Test end-to-end pipeline"
-        ],
-        aiApproach: "Use AI for implementation, you design the logic.",
-        deliverable: "Working transformation and loading with tests"
-      }
-    ],
-
-    successCriteria: [
-      "Transformations produce correct output",
-      "Data loads successfully",
-      "End-to-end pipeline works"
-    ],
-
-    futureProofNote: "A complete working pipeline is worth more than ten partially finished projects. Finish this one."
+    dayNumber: 18, week: 5, topic: "Project 1: AWS Lambda Deployment",
+    subtitle: "Deploy extraction to serverless", objectives: ["Create Lambda function", "Configure triggers", "Handle Lambda limitations", "Deploy with AWS CLI/SAM"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Use AI for Lambda boilerplate but understand the execution model." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Lambda development and deployment", type: "exercise" }],
+    resources: { required: [{ title: "AWS Lambda Docs", url: "https://docs.aws.amazon.com/lambda/", type: "docs" }] },
+    exercises: [{ title: "Lambda Deployment", description: "Deploy stock extractor to Lambda", deliverable: "Working Lambda function" }],
+    successCriteria: ["Lambda deployed", "Triggers configured", "Logs visible in CloudWatch"],
+    futureProofNote: "Serverless is a key pattern for cost-effective data pipelines."
   },
 
   {
-    dayNumber: 52,
-    week: 13,
-    topic: "Q1 Capstone: Polish and Review",
-    subtitle: "Complete, document, and reflect on Q1 journey",
+    dayNumber: 19, week: 5, topic: "Project 1: S3 Storage & Partitioning",
+    subtitle: "Structure data for analytics", objectives: ["Design S3 partition strategy", "Implement data landing zone", "Handle data formats", "Build transformation layer"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Use AI to generate S3 code, you design the partition strategy." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "S3 storage implementation", type: "exercise" }],
+    resources: { required: [{ title: "S3 Best Practices", url: "https://docs.aws.amazon.com/s3/", type: "docs" }] },
+    exercises: [{ title: "S3 Data Lake", description: "Implement partitioned storage", deliverable: "S3 structure with proper partitions" }],
+    successCriteria: ["Data partitioned by date", "Raw and processed zones", "Proper file formats"],
+    futureProofNote: "Good data organization is essential for scalable analytics."
+  },
 
-    objectives: [
-      "Polish code to portfolio quality",
-      "Write comprehensive documentation",
-      "Reflect on Q1 learning",
-      "Plan Q2 goals"
-    ],
+  {
+    dayNumber: 20, week: 5, topic: "Project 1: PostgreSQL Setup",
+    subtitle: "Build the analytics database", objectives: ["Design star schema", "Create tables and indexes", "Load data from S3", "Query optimization"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'ai-review', aiTip: "Use AI for SQL generation, you design the schema." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Database setup and loading", type: "exercise" }],
+    resources: { required: [{ title: "PostgreSQL Docs", url: "https://www.postgresql.org/docs/", type: "docs" }] },
+    exercises: [{ title: "Analytics Database", description: "Create and populate PostgreSQL schema", deliverable: "Working database with stock data" }],
+    successCriteria: ["Schema designed", "Data loaded", "Queries optimized"],
+    futureProofNote: "Database design is fundamental. This demonstrates your SQL skills."
+  },
 
-    aiIntegration: {
-      toolsUsed: ['claude', 'chatgpt'],
-      focusArea: 'ai-review',
-      aiTip: "Use AI for documentation writing and code review. Get feedback on your project from multiple AI perspectives.",
-      warningWhenNotToUseAI: "The reflection is yours. AI can help articulate, but the insights come from you."
-    },
+  {
+    dayNumber: 21, week: 6, topic: "Project 1: Data Transformation Pipeline",
+    subtitle: "Build the transformation layer", objectives: ["Implement data cleaning", "Calculate technical indicators", "Handle data quality issues", "Build idempotent transformations"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'ai-review', aiTip: "AI helps with calculations, you ensure data quality." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Transformation development", type: "exercise" }],
+    resources: { required: [] },
+    exercises: [{ title: "Transformation Pipeline", description: "Clean and transform stock data", deliverable: "transformation.py with full pipeline" }],
+    successCriteria: ["Transformations correct", "Idempotent operations", "Quality checks in place"],
+    futureProofNote: "Transformation logic is where domain knowledge meets code."
+  },
 
-    sessionPlan: [
-      { time: "0:00-0:30", activity: "Code polish and documentation", type: "exercise" },
-      { time: "0:30-1:00", activity: "Final testing and fixes", type: "exercise" },
-      { time: "1:00-1:30", activity: "Q1 reflection and Q2 planning", type: "review" }
-    ],
+  {
+    dayNumber: 22, week: 6, topic: "Project 1: Airflow DAG Basics",
+    subtitle: "Orchestrate the pipeline", objectives: ["Create first Airflow DAG", "Define task dependencies", "Implement basic scheduling", "Handle errors in DAGs"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Use AI for DAG boilerplate, understand the execution model." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Airflow DAG development", type: "exercise" }],
+    resources: { required: [{ title: "Airflow Docs", url: "https://airflow.apache.org/docs/", type: "docs" }] },
+    exercises: [{ title: "Stock Pipeline DAG", description: "Create Airflow DAG for stock pipeline", deliverable: "stock_pipeline_dag.py" }],
+    successCriteria: ["DAG runs successfully", "Dependencies correct", "Error handling works"],
+    futureProofNote: "Airflow is industry standard. This is essential experience."
+  },
 
-    resources: {
-      required: [
-        { title: "Your complete Q1 work", url: "", type: "reference" }
-      ]
-    },
+  {
+    dayNumber: 23, week: 6, topic: "Project 1: Streamlit Dashboard",
+    subtitle: "Build the visualization layer", objectives: ["Create interactive dashboard", "Display real-time data", "Add user controls", "Deploy dashboard"],
+    aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Streamlit is perfect for AI-assisted development. Let it help." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Dashboard development", type: "exercise" }],
+    resources: { required: [{ title: "Streamlit Docs", url: "https://docs.streamlit.io/", type: "docs" }] },
+    exercises: [{ title: "Stock Dashboard", description: "Create interactive stock dashboard", deliverable: "streamlit_app.py deployed" }],
+    successCriteria: ["Dashboard deployed", "Shows real-time data", "Interactive controls"],
+    futureProofNote: "Visualization skills make you a complete data engineer."
+  },
 
-    exercises: [
-      {
-        title: "Q1 Capstone Completion",
-        description: "Finish and polish your capstone project",
-        hints: [
-          "Run linters and formatters",
-          "Complete README with setup and usage",
-          "Record a demo or write a walkthrough",
-          "Push to GitHub for your portfolio"
-        ],
-        aiApproach: "Use AI for documentation drafts. Make it your own voice.",
-        deliverable: "Complete, polished capstone on GitHub"
-      }
-    ],
+  {
+    dayNumber: 24, week: 6, topic: "Project 1: Polish & Documentation",
+    subtitle: "Complete your showcase project", objectives: ["Polish code to portfolio quality", "Write comprehensive README", "Create architecture diagram", "Record demo"],
+    aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Use AI for documentation drafts, make it your voice." },
+    sessionPlan: [{ time: "0:00-1:30", activity: "Project finalization", type: "exercise" }],
+    resources: { required: [] },
+    exercises: [{ title: "Project 1 Completion", description: "Finalize and document the project", deliverable: "Complete GitHub repository" }],
+    successCriteria: ["Code polished", "README complete", "Architecture diagram done"],
+    weeklyCheckpoint: { title: "Month 1 Complete: Project 1 Done", description: "You've built a complete data pipeline. This is interview-ready.", deliverables: ["Live pipeline running", "GitHub with professional README", "Architecture diagram", "Streamlit dashboard"], selfAssessment: ["Can I explain every component?", "Is this portfolio-ready?", "Would I be proud to show this?"] },
+    futureProofNote: "PROJECT 1 COMPLETE. This alone shows you can build production data pipelines."
+  },
 
-    successCriteria: [
-      "Project is complete and polished",
-      "Documentation is professional",
-      "Code is on GitHub"
-    ],
+  // ============================================================================
+  // WEEKS 7-10: DBT + PROJECT 2 (Days 25-40) - Streamlined
+  // ============================================================================
 
-    weeklyCheckpoint: {
-      title: "Q1 Complete: Python & SQL Mastery",
-      description: "You've completed the foundation. You can now write production-quality Python and SQL.",
-      deliverables: [
-        "Complete Q1 capstone project",
-        "All weekly exercises in workspace",
-        "Portfolio-ready GitHub repository",
-        "Q2 learning plan"
-      ],
-      selfAssessment: [
-        "Can I build data pipelines from scratch?",
-        "Is my Python code production-quality?",
-        "Can I write complex analytical SQL?",
-        "Am I using AI effectively without over-relying on it?"
-      ]
-    },
+  { dayNumber: 25, week: 7, topic: "dbt Fundamentals", subtitle: "Modern analytics engineering", objectives: ["Understand dbt philosophy", "Create first dbt project", "Write models with refs", "Run and test models"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "dbt + AI is a powerful combo. Use it." }, sessionPlan: [{ time: "0:00-1:30", activity: "dbt fundamentals", type: "learn" }], resources: { required: [{ title: "dbt Learn", url: "https://courses.getdbt.com/", type: "tutorial" }] }, exercises: [{ title: "First dbt Project", deliverable: "Working dbt project" }], successCriteria: ["dbt project running", "Models building"], futureProofNote: "dbt is essential for modern data stacks." },
 
-    futureProofNote: "Q1 gave you the foundation. Python and SQL skills are timeless - they'll serve you regardless of how AI tools evolve. You now understand what AI generates, not just how to use it."
-  }
+  { dayNumber: 26, week: 7, topic: "dbt Materializations", subtitle: "Tables, views, incremental", objectives: ["Understand materialization types", "Choose right materialization", "Configure materializations"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Let AI explain materializations with examples." }, sessionPlan: [{ time: "0:00-1:30", activity: "Materialization practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Materialization Practice", deliverable: "Models with different materializations" }], successCriteria: ["Correct materializations chosen"], futureProofNote: "Materialization choice is a key interview topic." },
+
+  { dayNumber: 27, week: 7, topic: "dbt Staging → Marts Pattern", subtitle: "Professional dbt architecture", objectives: ["Understand staging layer", "Build intermediate models", "Create mart models"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "This pattern is fundamental - learn it well." }, sessionPlan: [{ time: "0:00-1:30", activity: "dbt architecture", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Layer Architecture", deliverable: "staging/intermediate/marts folders" }], successCriteria: ["Clean separation of layers"], futureProofNote: "This pattern is industry standard." },
+
+  { dayNumber: 28, week: 7, topic: "dbt Sources & Seeds", subtitle: "Define your data sources", objectives: ["Configure sources", "Create seed files", "Document sources"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Sources and seeds are simple - get them right." }, sessionPlan: [{ time: "0:00-1:30", activity: "Sources and seeds", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Source Configuration", deliverable: "sources.yml and seeds" }], successCriteria: ["Sources documented", "Seeds loading"], futureProofNote: "Proper source configuration is professional practice." },
+
+  { dayNumber: 29, week: 8, topic: "dbt Testing", subtitle: "Data quality in dbt", objectives: ["Built-in tests", "Custom tests", "Test coverage strategy"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Testing is where dbt shines. Learn it well." }, sessionPlan: [{ time: "0:00-1:30", activity: "dbt testing", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Test Coverage", deliverable: "Comprehensive test suite" }], successCriteria: ["100% model coverage"], futureProofNote: "Testing is a certification topic." },
+
+  { dayNumber: 30, week: 8, topic: "Custom dbt Tests", subtitle: "Advanced data validation", objectives: ["Write custom schema tests", "Data tests for business rules", "Test macros"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Custom tests show advanced skills." }, sessionPlan: [{ time: "0:00-1:30", activity: "Custom tests", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Custom Tests", deliverable: "Custom test macros" }], successCriteria: ["Custom tests working"], futureProofNote: "Custom tests demonstrate mastery." },
+
+  { dayNumber: 31, week: 8, topic: "dbt Macros & Jinja", subtitle: "DRY principles in dbt", objectives: ["Write macros", "Use Jinja templating", "Create reusable code"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Macros are powerful - AI helps write them." }, sessionPlan: [{ time: "0:00-1:30", activity: "Macros practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Macro Library", deliverable: "Reusable macros" }], successCriteria: ["Macros working"], futureProofNote: "Macro skills are valued." },
+
+  { dayNumber: 32, week: 8, topic: "dbt Packages & Docs", subtitle: "Ecosystem and documentation", objectives: ["Use dbt packages", "Generate documentation", "Deploy dbt docs"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Documentation is your friend in interviews." }, sessionPlan: [{ time: "0:00-1:30", activity: "Packages and docs", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "dbt Docs Site", deliverable: "Deployed dbt docs" }], successCriteria: ["Docs deployed"], futureProofNote: "Good documentation is professional." },
+
+  { dayNumber: 33, week: 9, topic: "Project 2: NBA API Integration", subtitle: "Start analytics platform", objectives: ["Explore NBA APIs", "Build ingestion pipeline", "Handle multiple endpoints"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "API integration patterns from Project 1 apply here." }, sessionPlan: [{ time: "0:00-1:30", activity: "NBA data ingestion", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "NBA Ingestion", deliverable: "nba_ingestion.py" }], successCriteria: ["Data flowing"], futureProofNote: "Second project reinforces skills." },
+
+  { dayNumber: 34, week: 9, topic: "Project 2: Snowflake Setup", subtitle: "Cloud data warehouse", objectives: ["Set up Snowflake", "Load data", "Configure dbt connection"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Snowflake is industry standard - learn it." }, sessionPlan: [{ time: "0:00-1:30", activity: "Snowflake setup", type: "exercise" }], resources: { required: [{ title: "Snowflake Docs", url: "https://docs.snowflake.com/", type: "docs" }] }, exercises: [{ title: "Snowflake Environment", deliverable: "Working Snowflake with data" }], successCriteria: ["Snowflake running", "dbt connected"], futureProofNote: "Snowflake experience is highly valued." },
+
+  { dayNumber: 35, week: 9, topic: "Project 2: dbt Staging Models", subtitle: "Build the foundation", objectives: ["Create staging models", "Clean NBA data", "Add tests"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Apply dbt patterns from training." }, sessionPlan: [{ time: "0:00-1:30", activity: "Staging development", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Staging Layer", deliverable: "Complete staging models" }], successCriteria: ["Staging complete"], futureProofNote: "Clean staging is the foundation." },
+
+  { dayNumber: 36, week: 9, topic: "Project 2: Intermediate Models", subtitle: "Business logic layer", objectives: ["Build intermediate transformations", "Join data sources", "Calculate metrics"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Intermediate layer is where business logic lives." }, sessionPlan: [{ time: "0:00-1:30", activity: "Intermediate development", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Intermediate Layer", deliverable: "Intermediate models" }], successCriteria: ["Intermediate complete"], futureProofNote: "This layer shows domain understanding." },
+
+  { dayNumber: 37, week: 10, topic: "Project 2: Marts & Dimensional Model", subtitle: "Analytics-ready data", objectives: ["Build dimension tables", "Create fact tables", "Optimize for analytics"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Dimensional modeling is a key interview skill." }, sessionPlan: [{ time: "0:00-1:30", activity: "Marts development", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Marts Layer", deliverable: "Dimensional model" }], successCriteria: ["Star schema complete"], futureProofNote: "Dimensional modeling is essential." },
+
+  { dayNumber: 38, week: 10, topic: "Project 2: Test Coverage", subtitle: "Quality assurance", objectives: ["Add comprehensive tests", "Create data quality checks", "Document models"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'ai-review', aiTip: "Test coverage shows professional practice." }, sessionPlan: [{ time: "0:00-1:30", activity: "Testing", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Full Test Suite", deliverable: "100% test coverage" }], successCriteria: ["All tests passing"], futureProofNote: "Testing is expected." },
+
+  { dayNumber: 39, week: 10, topic: "Project 2: Dashboard", subtitle: "Visualization layer", objectives: ["Build NBA dashboard", "Interactive analysis", "Deploy dashboard"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Dashboard makes the project tangible." }, sessionPlan: [{ time: "0:00-1:30", activity: "Dashboard development", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "NBA Dashboard", deliverable: "Deployed dashboard" }], successCriteria: ["Dashboard live"], futureProofNote: "Visualization completes the story." },
+
+  { dayNumber: 40, week: 10, topic: "Project 2: Polish + dbt Cert Prep", subtitle: "Complete Month 2", objectives: ["Polish project", "Prepare for dbt certification", "Document everything"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Use AI for cert prep questions." }, sessionPlan: [{ time: "0:00-1:30", activity: "Project completion", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Project 2 Complete", deliverable: "Portfolio-ready project" }], successCriteria: ["Project complete", "Cert prep started"], weeklyCheckpoint: { title: "Month 2 Complete: dbt Master", description: "Two projects complete. dbt certification ready.", deliverables: ["NBA Analytics Platform", "dbt project with 20+ models", "Snowflake experience"], selfAssessment: ["Ready for dbt cert?", "Two strong portfolio pieces?"] }, futureProofNote: "MONTH 2 COMPLETE. Two portfolio projects done." },
+
+  // ============================================================================
+  // WEEKS 11-14: AIRFLOW + PROJECT 3 + START APPLYING (Days 41-56)
+  // ============================================================================
+
+  { dayNumber: 41, week: 11, topic: "Airflow Architecture", subtitle: "Deep dive into orchestration", objectives: ["Understand Airflow components", "Scheduler, workers, metadata DB", "Deployment options"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Understand architecture before coding." }, sessionPlan: [{ time: "0:00-1:30", activity: "Airflow architecture", type: "learn" }], resources: { required: [{ title: "Airflow Concepts", url: "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/index.html", type: "docs" }] }, exercises: [{ title: "Architecture Diagram", deliverable: "Airflow architecture notes" }], successCriteria: ["Understand all components"], futureProofNote: "Architecture understanding is senior-level." },
+
+  { dayNumber: 42, week: 11, topic: "DAG Design Patterns", subtitle: "Professional DAG design", objectives: ["DAG best practices", "Idempotency patterns", "Error handling"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Good DAG design is crucial for production." }, sessionPlan: [{ time: "0:00-1:30", activity: "DAG patterns", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "DAG Patterns", deliverable: "Pattern examples" }], successCriteria: ["Understand patterns"], futureProofNote: "DAG design is an interview topic." },
+
+  { dayNumber: 43, week: 11, topic: "TaskFlow API & Operators", subtitle: "Modern Airflow development", objectives: ["TaskFlow API", "Common operators", "Custom operators intro"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "TaskFlow is modern Airflow - learn it." }, sessionPlan: [{ time: "0:00-1:30", activity: "TaskFlow development", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "TaskFlow DAG", deliverable: "Modern DAG implementation" }], successCriteria: ["TaskFlow working"], futureProofNote: "Modern Airflow skills." },
+
+  { dayNumber: 44, week: 11, topic: "XComs & Dependencies", subtitle: "Task communication", objectives: ["XCom patterns", "Complex dependencies", "Branching logic"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "XComs are important for complex pipelines." }, sessionPlan: [{ time: "0:00-1:30", activity: "XCom practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "XCom Pipeline", deliverable: "DAG with XComs" }], successCriteria: ["XComs working"], futureProofNote: "Complex DAG skills." },
+
+  { dayNumber: 45, week: 12, topic: "Airflow Testing", subtitle: "Test your DAGs", objectives: ["Unit testing DAGs", "Integration testing", "CI/CD for Airflow"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "DAG testing is professional practice." }, sessionPlan: [{ time: "0:00-1:30", activity: "DAG testing", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "DAG Tests", deliverable: "Test suite for DAGs" }], successCriteria: ["Tests passing"], futureProofNote: "Testing is expected." },
+
+  { dayNumber: 46, week: 12, topic: "Error Handling in DAGs", subtitle: "Production error patterns", objectives: ["Retry logic", "Alerting", "Dead letter patterns"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Error handling makes or breaks production." }, sessionPlan: [{ time: "0:00-1:30", activity: "Error handling", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Robust DAG", deliverable: "DAG with full error handling" }], successCriteria: ["Errors handled gracefully"], futureProofNote: "Production error handling is senior-level." },
+
+  { dayNumber: 47, week: 12, topic: "Resume & LinkedIn Polish", subtitle: "START APPLYING", objectives: ["Update resume with projects", "Polish LinkedIn", "Start job applications"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Use AI to review resume bullets." }, sessionPlan: [{ time: "0:00-1:30", activity: "Resume work + applications", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Application Ready", deliverable: "Polished resume, 5 applications" }], successCriteria: ["Resume ready", "5 apps submitted"], futureProofNote: "START APPLYING NOW." },
+
+  { dayNumber: 48, week: 12, topic: "Applications Sprint", subtitle: "Apply to 10 companies", objectives: ["Submit 10 applications", "Tailor each application", "Track in spreadsheet"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "AI helps customize cover letters." }, sessionPlan: [{ time: "0:00-1:30", activity: "Application submission", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "10 Applications", deliverable: "10 submitted applications" }], successCriteria: ["10 apps submitted"], futureProofNote: "Volume matters. Keep applying." },
+
+  { dayNumber: 49, week: 13, topic: "Project 3: Multi-Source DAGs", subtitle: "Complex orchestration", objectives: ["Build multi-API DAGs", "Parallel extraction", "Data consolidation"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Project 3 shows orchestration mastery." }, sessionPlan: [{ time: "0:00-1:30", activity: "Multi-source DAG", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Multi-Source Pipeline", deliverable: "Complex DAG structure" }], successCriteria: ["Multiple sources working"], futureProofNote: "Complexity showcase." },
+
+  { dayNumber: 50, week: 13, topic: "Project 3: Great Expectations", subtitle: "Data quality framework", objectives: ["Set up Great Expectations", "Create expectations", "Integrate with DAGs"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "GX is industry standard for data quality." }, sessionPlan: [{ time: "0:00-1:30", activity: "Great Expectations setup", type: "exercise" }], resources: { required: [{ title: "Great Expectations Docs", url: "https://docs.greatexpectations.io/", type: "docs" }] }, exercises: [{ title: "GX Integration", deliverable: "Working GX suite" }], successCriteria: ["Expectations running"], futureProofNote: "Data quality is essential." },
+
+  { dayNumber: 51, week: 13, topic: "Project 3: Quality Framework", subtitle: "Build comprehensive checks", objectives: ["Define quality rules", "Automated validation", "Quarantine layer"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Quality framework shows maturity." }, sessionPlan: [{ time: "0:00-1:30", activity: "Quality framework", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Quality Rules", deliverable: "Complete quality framework" }], successCriteria: ["Framework complete"], futureProofNote: "Data quality is a senior focus." },
+
+  { dayNumber: 52, week: 13, topic: "Applications: Keep Applying", subtitle: "Continue job search", objectives: ["Submit 7 applications", "Follow up on previous", "Refine approach"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Track everything in spreadsheet." }, sessionPlan: [{ time: "0:00-1:30", activity: "Applications", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "7 More Applications", deliverable: "7 new applications" }], successCriteria: ["7 apps submitted"], futureProofNote: "Consistency in applying." },
+
+  { dayNumber: 53, week: 14, topic: "Project 3: Monitoring", subtitle: "Observable pipelines", objectives: ["Build monitoring dashboard", "Set up alerting", "Track SLAs"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Monitoring shows production thinking." }, sessionPlan: [{ time: "0:00-1:30", activity: "Monitoring setup", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Monitoring Dashboard", deliverable: "Pipeline dashboard" }], successCriteria: ["Monitoring live"], futureProofNote: "Observability is senior-level." },
+
+  { dayNumber: 54, week: 14, topic: "Project 3: Deployment", subtitle: "Production deployment", objectives: ["Containerize project", "Deploy to cloud", "Production configuration"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'learn-with-ai', aiTip: "Deployment shows end-to-end skill." }, sessionPlan: [{ time: "0:00-1:30", activity: "Deployment", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Production Deploy", deliverable: "Deployed project" }], successCriteria: ["Project deployed"], futureProofNote: "Deployment is essential." },
+
+  { dayNumber: 55, week: 14, topic: "Project 3: Documentation", subtitle: "Complete the project", objectives: ["Write documentation", "Create architecture diagram", "Record demo"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Documentation makes portfolio shine." }, sessionPlan: [{ time: "0:00-1:30", activity: "Documentation", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Complete Documentation", deliverable: "Portfolio-ready docs" }], successCriteria: ["Docs complete"], futureProofNote: "Documentation is professional." },
+
+  { dayNumber: 56, week: 14, topic: "30+ Applications Milestone", subtitle: "Month 3 complete", objectives: ["Hit 30 applications", "Review responses", "Adjust strategy"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Analyze what's working." }, sessionPlan: [{ time: "0:00-1:30", activity: "Application review", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "30 App Milestone", deliverable: "30+ applications submitted" }], successCriteria: ["30+ apps", "Strategy refined"], weeklyCheckpoint: { title: "Month 3 Complete: Three Projects + Applying", description: "Portfolio complete. Applications flowing.", deliverables: ["Three portfolio projects", "30+ applications", "Interview readiness"], selfAssessment: ["Portfolio strong?", "Application response rate?"] }, futureProofNote: "MONTH 3 COMPLETE. Portfolio done, now close." },
+
+  // ============================================================================
+  // WEEKS 15-18: AWS CERTIFICATION (Days 57-72) - Condensed
+  // ============================================================================
+
+  { dayNumber: 57, week: 15, topic: "AWS SAA: S3 Deep Dive", subtitle: "Storage mastery", objectives: ["S3 storage classes", "Lifecycle policies", "Cross-region replication"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "S3 is ~10% of exam." }, sessionPlan: [{ time: "0:00-1:30", activity: "S3 study", type: "learn" }], resources: { required: [] }, exercises: [{ title: "S3 Practice", deliverable: "S3 practice questions" }], successCriteria: ["S3 concepts clear"], futureProofNote: "AWS cert proves cloud skills." },
+
+  { dayNumber: 58, week: 15, topic: "AWS SAA: EC2 + Lambda", subtitle: "Compute services", objectives: ["EC2 instance types", "Lambda patterns", "Pricing models"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Compute is major exam topic." }, sessionPlan: [{ time: "0:00-1:30", activity: "Compute study", type: "learn" }], resources: { required: [] }, exercises: [{ title: "Compute Practice", deliverable: "Practice questions" }], successCriteria: ["Compute clear"], futureProofNote: "Compute knowledge essential." },
+
+  { dayNumber: 59, week: 15, topic: "AWS SAA: RDS + Redshift", subtitle: "Database services", objectives: ["RDS features", "Redshift architecture", "Aurora"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Databases are key for DE." }, sessionPlan: [{ time: "0:00-1:30", activity: "Database study", type: "learn" }], resources: { required: [] }, exercises: [{ title: "Database Practice", deliverable: "Practice questions" }], successCriteria: ["Database clear"], futureProofNote: "AWS database knowledge." },
+
+  { dayNumber: 60, week: 15, topic: "Applications: 7 This Week", subtitle: "Keep momentum", objectives: ["Submit 7 applications", "Track responses"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Balance study with applying." }, sessionPlan: [{ time: "0:00-1:30", activity: "Applications", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Weekly Applications", deliverable: "7 apps" }], successCriteria: ["7 apps submitted"], futureProofNote: "Keep applying." },
+
+  { dayNumber: 61, week: 16, topic: "AWS SAA: VPC + Networking", subtitle: "Network architecture", objectives: ["VPC design", "Security groups", "Route tables"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Networking is critical." }, sessionPlan: [{ time: "0:00-1:30", activity: "Networking study", type: "learn" }], resources: { required: [] }, exercises: [{ title: "VPC Practice", deliverable: "Practice questions" }], successCriteria: ["VPC clear"], futureProofNote: "Network security essential." },
+
+  { dayNumber: 62, week: 16, topic: "AWS SAA: IAM Deep Dive", subtitle: "Security fundamentals", objectives: ["IAM policies", "Roles and federation", "Organizations"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "IAM is always on the exam." }, sessionPlan: [{ time: "0:00-1:30", activity: "IAM study", type: "learn" }], resources: { required: [] }, exercises: [{ title: "IAM Practice", deliverable: "Practice questions" }], successCriteria: ["IAM clear"], futureProofNote: "Security knowledge critical." },
+
+  { dayNumber: 63, week: 16, topic: "AWS SAA: Glue + Athena", subtitle: "Data services", objectives: ["Glue ETL", "Athena queries", "Data catalog"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Data services for DE." }, sessionPlan: [{ time: "0:00-1:30", activity: "Data services", type: "learn" }], resources: { required: [] }, exercises: [{ title: "Glue Practice", deliverable: "Practice questions" }], successCriteria: ["Data services clear"], futureProofNote: "AWS data services." },
+
+  { dayNumber: 64, week: 16, topic: "Applications + Interviews", subtitle: "Interview prep starts", objectives: ["7 applications", "Prep for interviews"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Interviews may start coming." }, sessionPlan: [{ time: "0:00-1:30", activity: "Apps + prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interview Prep", deliverable: "7 apps + prep" }], successCriteria: ["Ready for interviews"], futureProofNote: "Interview mode starting." },
+
+  { dayNumber: 65, week: 17, topic: "AWS SAA: Practice Exam 1", subtitle: "First mock exam", objectives: ["Take practice exam", "Identify weak areas"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Practice exams show readiness." }, sessionPlan: [{ time: "0:00-1:30", activity: "Practice exam", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Practice Exam 1", deliverable: "Score and analysis" }], successCriteria: ["70%+ score"], futureProofNote: "Practice exams essential." },
+
+  { dayNumber: 66, week: 17, topic: "AWS SAA: Review Weak Areas", subtitle: "Targeted study", objectives: ["Review missed topics", "Deep dive weak areas"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Focus on weak areas." }, sessionPlan: [{ time: "0:00-1:30", activity: "Review", type: "learn" }], resources: { required: [] }, exercises: [{ title: "Weak Area Review", deliverable: "Improved understanding" }], successCriteria: ["Weak areas addressed"], futureProofNote: "Targeted study effective." },
+
+  { dayNumber: 67, week: 17, topic: "AWS SAA: Practice Exam 2", subtitle: "Second mock exam", objectives: ["Take second practice", "Validate improvement"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Should see improvement." }, sessionPlan: [{ time: "0:00-1:30", activity: "Practice exam 2", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Practice Exam 2", deliverable: "Score improvement" }], successCriteria: ["80%+ score"], futureProofNote: "Improvement shows readiness." },
+
+  { dayNumber: 68, week: 17, topic: "First Interviews", subtitle: "Interview season", objectives: ["Conduct first interviews", "Learn from each one"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Debrief after each interview." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interviews", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interview Debrief", deliverable: "Interview notes" }], successCriteria: ["Interviews happening"], futureProofNote: "Each interview is practice." },
+
+  { dayNumber: 69, week: 18, topic: "AWS SAA: Final Review", subtitle: "Last prep day", objectives: ["Final review", "Rest before exam"], aiIntegration: { toolsUsed: ['chatgpt'], focusArea: 'learn-with-ai', aiTip: "Light review, don't cram." }, sessionPlan: [{ time: "0:00-1:30", activity: "Final review", type: "learn" }], resources: { required: [] }, exercises: [{ title: "Final Review", deliverable: "Ready for exam" }], successCriteria: ["Confident for exam"], futureProofNote: "Ready to certify." },
+
+  { dayNumber: 70, week: 18, topic: "AWS SAA: TAKE EXAM", subtitle: "Certification day", objectives: ["Take AWS SAA exam", "PASS"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "No AI in exams!" }, sessionPlan: [{ time: "0:00-1:30", activity: "EXAM DAY", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Take Exam", deliverable: "AWS SAA Certification" }], successCriteria: ["CERTIFIED"], futureProofNote: "AWS SAA on resume." },
+
+  { dayNumber: 71, week: 18, topic: "Interview Prep Intensifies", subtitle: "Full interview mode", objectives: ["System design practice", "Behavioral prep"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Practice system design." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interview prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interview Practice", deliverable: "Practice sessions" }], successCriteria: ["Ready for interviews"], futureProofNote: "Interview mode." },
+
+  { dayNumber: 72, week: 18, topic: "5-10 Interviews Scheduled", subtitle: "Month 4 complete", objectives: ["Have interviews scheduled", "Pipeline building"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Keep pipeline full." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interview scheduling", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interview Pipeline", deliverable: "5-10 interviews scheduled" }], successCriteria: ["Pipeline full"], weeklyCheckpoint: { title: "Month 4 Complete: AWS Certified + Interviewing", description: "AWS certified. Interview pipeline active.", deliverables: ["AWS SAA Certification", "5-10 interviews scheduled"], selfAssessment: ["Certified?", "Interviews happening?"] }, futureProofNote: "MONTH 4 COMPLETE. Now close." },
+
+  // ============================================================================
+  // WEEKS 19-22: INTERVIEW PREP + INTERVIEWING (Days 73-88) - Condensed
+  // ============================================================================
+
+  { dayNumber: 73, week: 19, topic: "System Design: Data Pipelines", subtitle: "Design interviews", objectives: ["Pipeline design patterns", "Scalability discussion"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Practice explaining designs." }, sessionPlan: [{ time: "0:00-1:30", activity: "System design", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Pipeline Design", deliverable: "Design practice" }], successCriteria: ["Can design pipelines"], futureProofNote: "System design is senior-level." },
+
+  { dayNumber: 74, week: 19, topic: "System Design: Data Warehouses", subtitle: "Warehouse architecture", objectives: ["Warehouse design", "Schema decisions"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Know trade-offs." }, sessionPlan: [{ time: "0:00-1:30", activity: "Warehouse design", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Warehouse Design", deliverable: "Design practice" }], successCriteria: ["Can design warehouses"], futureProofNote: "Warehouse knowledge essential." },
+
+  { dayNumber: 75, week: 19, topic: "System Design: Streaming", subtitle: "Real-time systems", objectives: ["Streaming architecture", "Event processing"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Know when to use streaming." }, sessionPlan: [{ time: "0:00-1:30", activity: "Streaming design", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Streaming Design", deliverable: "Design practice" }], successCriteria: ["Can discuss streaming"], futureProofNote: "Streaming shows breadth." },
+
+  { dayNumber: 76, week: 19, topic: "Continue Interviewing", subtitle: "Interview execution", objectives: ["Conduct interviews", "Improve with each"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Debrief after each." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interviews", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interviews", deliverable: "Interview notes" }], successCriteria: ["Interviews happening"], futureProofNote: "Every interview is practice." },
+
+  { dayNumber: 77, week: 20, topic: "SQL Interview Questions", subtitle: "Technical prep", objectives: ["Complex SQL patterns", "Window functions", "Optimization"], aiIntegration: { toolsUsed: ['copilot'], focusArea: 'manual-practice', aiTip: "Practice SQL without AI." }, sessionPlan: [{ time: "0:00-1:30", activity: "SQL practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "SQL Practice", deliverable: "SQL solutions" }], successCriteria: ["SQL sharp"], futureProofNote: "SQL always tested." },
+
+  { dayNumber: 78, week: 20, topic: "Python Coding Challenges", subtitle: "Coding prep", objectives: ["Data structures", "Algorithm practice"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "No AI for coding practice." }, sessionPlan: [{ time: "0:00-1:30", activity: "Python practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Python Practice", deliverable: "Coding solutions" }], successCriteria: ["Python sharp"], futureProofNote: "Coding always tested." },
+
+  { dayNumber: 79, week: 20, topic: "Data Modeling Questions", subtitle: "Modeling interviews", objectives: ["Dimensional modeling", "Schema design"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Know modeling patterns." }, sessionPlan: [{ time: "0:00-1:30", activity: "Modeling practice", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Modeling Practice", deliverable: "Design examples" }], successCriteria: ["Modeling confident"], futureProofNote: "Modeling expected." },
+
+  { dayNumber: 80, week: 20, topic: "Continue Interviewing", subtitle: "Keep momentum", objectives: ["More interviews", "Refine approach"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "You're improving." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interviews", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Interviews", deliverable: "Progress" }], successCriteria: ["Improving"], futureProofNote: "Getting better." },
+
+  { dayNumber: 81, week: 21, topic: "Behavioral Prep (STAR)", subtitle: "Soft skills", objectives: ["STAR method", "Story library", "Leadership examples"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Prepare 5-7 stories." }, sessionPlan: [{ time: "0:00-1:30", activity: "Behavioral prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Story Library", deliverable: "STAR stories" }], successCriteria: ["Stories ready"], futureProofNote: "Behavioral always asked." },
+
+  { dayNumber: 82, week: 21, topic: "Mock Interview 1", subtitle: "Full practice", objectives: ["Complete mock interview", "Get feedback"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Practice with friend or AI." }, sessionPlan: [{ time: "0:00-1:30", activity: "Mock interview", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Mock Interview", deliverable: "Feedback notes" }], successCriteria: ["Got feedback"], futureProofNote: "Mocks improve performance." },
+
+  { dayNumber: 83, week: 21, topic: "Mock Interview 2", subtitle: "Second mock", objectives: ["Apply feedback", "Improve delivery"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Focus on weak areas." }, sessionPlan: [{ time: "0:00-1:30", activity: "Mock interview", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Mock Interview 2", deliverable: "Improved performance" }], successCriteria: ["Better than first"], futureProofNote: "Iteration improves." },
+
+  { dayNumber: 84, week: 21, topic: "Continue Interviewing", subtitle: "Getting close", objectives: ["Final round interviews", "Closing conversations"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Start talking offers." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interviews", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Final Rounds", deliverable: "Progress to offers" }], successCriteria: ["Final rounds happening"], futureProofNote: "Getting close." },
+
+  { dayNumber: 85, week: 22, topic: "Refine Your Story", subtitle: "Polish narrative", objectives: ["Refine career narrative", "Project stories"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Your story is your brand." }, sessionPlan: [{ time: "0:00-1:30", activity: "Story refinement", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Career Story", deliverable: "Polished narrative" }], successCriteria: ["Story compelling"], futureProofNote: "Narrative matters." },
+
+  { dayNumber: 86, week: 22, topic: "Technical Deep Dives", subtitle: "Expert mode", objectives: ["Deep technical discussions", "Architecture explanations"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Know your projects deeply." }, sessionPlan: [{ time: "0:00-1:30", activity: "Technical prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Project Deep Dive", deliverable: "Expert explanations" }], successCriteria: ["Expert level"], futureProofNote: "Deep knowledge impresses." },
+
+  { dayNumber: 87, week: 22, topic: "Negotiation Prep", subtitle: "Get what you're worth", objectives: ["Negotiation strategy", "Research compensation"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Know your number and walk away point." }, sessionPlan: [{ time: "0:00-1:30", activity: "Negotiation prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Negotiation Strategy", deliverable: "Negotiation plan" }], successCriteria: ["Strategy ready"], futureProofNote: "Negotiation gets you $10-20k more." },
+
+  { dayNumber: 88, week: 22, topic: "Multiple Offers in Play", subtitle: "Month 5 complete", objectives: ["Multiple offers or close", "Compare opportunities"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Leverage multiple offers." }, sessionPlan: [{ time: "0:00-1:30", activity: "Offer comparison", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Offer Analysis", deliverable: "Comparison matrix" }], successCriteria: ["Offers in hand or coming"], weeklyCheckpoint: { title: "Month 5 Complete: Final Stretch", description: "Offers coming. Negotiation time.", deliverables: ["Multiple interview processes", "Negotiation ready"], selfAssessment: ["Offers coming?", "Ready to negotiate?"] }, futureProofNote: "MONTH 5 COMPLETE. Close it." },
+
+  // ============================================================================
+  // WEEKS 23-24: CLOSE OFFERS (Days 89-96)
+  // ============================================================================
+
+  { dayNumber: 89, week: 23, topic: "Final Round Prep", subtitle: "Close strong", objectives: ["Final round preparation", "Executive presence"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Final rounds are about fit." }, sessionPlan: [{ time: "0:00-1:30", activity: "Final prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Final Round Ready", deliverable: "Prepared" }], successCriteria: ["Ready to close"], futureProofNote: "Final rounds decide offers." },
+
+  { dayNumber: 90, week: 23, topic: "Final Interviews", subtitle: "Execute", objectives: ["Conduct final interviews", "Show your best"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "Trust your preparation." }, sessionPlan: [{ time: "0:00-1:30", activity: "Interviews", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Final Interviews", deliverable: "Completed finals" }], successCriteria: ["Finals done"], futureProofNote: "You've got this." },
+
+  { dayNumber: 91, week: 23, topic: "Compare Offers", subtitle: "Make the right choice", objectives: ["Analyze offers", "Consider total comp", "Evaluate culture"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Consider more than just salary." }, sessionPlan: [{ time: "0:00-1:30", activity: "Offer analysis", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Offer Comparison", deliverable: "Decision framework" }], successCriteria: ["Clear preference"], futureProofNote: "Right choice matters long-term." },
+
+  { dayNumber: 92, week: 23, topic: "Negotiate Aggressively", subtitle: "Get what you're worth", objectives: ["Execute negotiation", "Counter-offer strategy"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Always negotiate. Always." }, sessionPlan: [{ time: "0:00-1:30", activity: "Negotiation", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Negotiate", deliverable: "Improved offer" }], successCriteria: ["Better offer secured"], futureProofNote: "Negotiation is expected." },
+
+  { dayNumber: 93, week: 24, topic: "Accept Offer ($160-170k)", subtitle: "YOU DID IT", objectives: ["Accept the offer", "Get everything in writing"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "Read the contract carefully." }, sessionPlan: [{ time: "0:00-1:30", activity: "Accept offer", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Accept Offer", deliverable: "SIGNED OFFER" }], successCriteria: ["OFFER ACCEPTED"], futureProofNote: "GOAL ACHIEVED." },
+
+  { dayNumber: 94, week: 24, topic: "Give Notice", subtitle: "Professional exit", objectives: ["Resign professionally", "Plan transition"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "Leave on good terms." }, sessionPlan: [{ time: "0:00-1:30", activity: "Resignation", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Give Notice", deliverable: "Notice given" }], successCriteria: ["Resigned professionally"], futureProofNote: "Reputation matters." },
+
+  { dayNumber: 95, week: 24, topic: "Prep for New Role", subtitle: "Get ready", objectives: ["Prepare for day 1", "Research company deeply"], aiIntegration: { toolsUsed: ['claude'], focusArea: 'ai-review', aiTip: "Be ready to contribute." }, sessionPlan: [{ time: "0:00-1:30", activity: "Day 1 prep", type: "exercise" }], resources: { required: [] }, exercises: [{ title: "Day 1 Ready", deliverable: "Prep complete" }], successCriteria: ["Ready to start"], futureProofNote: "First impression matters." },
+
+  { dayNumber: 96, week: 24, topic: "NEW CHAPTER BEGINS!", subtitle: "PROGRAM COMPLETE", objectives: ["Celebrate", "Start new role", "Pay it forward"], aiIntegration: { toolsUsed: ['none'], focusArea: 'manual-practice', aiTip: "You earned this." }, sessionPlan: [{ time: "0:00-1:30", activity: "CELEBRATE", type: "review" }], resources: { required: [] }, exercises: [{ title: "CELEBRATE", deliverable: "NEW JOB STARTED" }], successCriteria: ["$160-170k DATA ENGINEER"], weeklyCheckpoint: { title: "PROGRAM COMPLETE", description: "You did it. From BofA BA to $160-170k Data Engineer in 6 months.", deliverables: ["New job started", "Three portfolio projects", "AWS + dbt certified", "$60-70k raise achieved"], selfAssessment: ["Did I achieve my goal?", "YES."] }, futureProofNote: "CONGRATULATIONS. Your new chapter begins now." }
 ];
 
-// ============================================
-// END OF Q1 LESSONS
-// ============================================
-// Q2-Q8 lessons will be built following the same AI-enhanced pattern:
-// - Q2 (Weeks 14-26): Cloud Fundamentals (AWS) & Infrastructure
-// - Q3 (Weeks 27-39): Orchestration (Airflow/Dagster) & Workflow Automation
-// - Q4 (Weeks 40-52): dbt & Modern Data Stack
-// - Q5 (Weeks 53-65): System Design & Architecture
-// - Q6 (Weeks 66-78): Data Quality & Governance
-// - Q7 (Weeks 79-91): Advanced Topics & Specialization
-// - Q8 (Weeks 92-104): Interview Prep & Career Launch
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
 
-// Helper function to get lesson by day number
+// Get lesson by day number
 export function getLessonByDay(dayNumber: number): Lesson | undefined {
   return Q1_LESSONS.find(l => l.dayNumber === dayNumber);
 }
@@ -4557,7 +2003,7 @@ export function getLessonsByWeek(weekNumber: number): Lesson[] {
   return Q1_LESSONS.filter(l => l.week === weekNumber);
 }
 
-// Export the full curriculum
+// Export the full curriculum (all 96 lessons)
 export const ALL_LESSONS: Lesson[] = [
   ...Q1_LESSONS,
 ];

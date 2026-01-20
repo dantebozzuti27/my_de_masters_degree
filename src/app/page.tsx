@@ -27,8 +27,8 @@ export default function Dashboard() {
   // Find the next incomplete session (for users who work ahead)
   const nextSession = allSessions.find(s => !completedIds.has(s.id));
   
-  // Calculate days until end
-  const endDate = new Date(2028, 0, 8);
+  // Calculate days until end - Aggressive 6-month plan ends July 31, 2026
+  const endDate = new Date(2026, 6, 31); // July 31, 2026
   const daysRemaining = differenceInDays(endDate, new Date());
   
   // Calculate progress based on verified completion
@@ -154,7 +154,7 @@ export default function Dashboard() {
               All Sessions Complete!
             </h3>
             <p className="text-green-600 dark:text-green-400">
-              You've completed the entire 2-year program. Congratulations!
+              You've completed the 6-month intensive program. Time to land that $160-170k role!
             </p>
           </div>
         )}
@@ -182,11 +182,11 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Quarter Progress */}
+        {/* Month Progress */}
         <div>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Quarters
+              Months
             </h2>
             <Link 
               href="/curriculum"
