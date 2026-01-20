@@ -1,401 +1,313 @@
-# Senior Data Engineer Curriculum
-## 2-Year Study Plan (416 Sessions)
+# AGGRESSIVE 6-MONTH DATA ENGINEER CURRICULUM
+## Goal: Land $160-170k Role by July 2026
 
-**Goal:** $200k+ Senior Data Engineer Role  
-**Schedule:** 4 days/week, 90 min/session (Mon-Thu, 7:00-8:30 PM)  
+**Schedule:** 25-27 hours/week (maximum intensity)  
 **Start Date:** January 12, 2026  
-**End Date:** January 2028
+**Target End Date:** July 2026
 
 ---
 
-## Quarter 1: Python & SQL Foundations
-**Weeks 1-13 | 52 Sessions | Jan - Apr 2026**
+## Your Current Progress
 
-### Week 1: Development Environment & Python Basics
-| Day | Topic |
-|-----|-------|
-| 1 | Development Environment + AI Tools Setup |
-| 2 | Python Fundamentals with AI |
-| 3 | Control Flow with AI Assistance |
-| 4 | Functions & Data Structures |
+| Day | Topic | Status |
+|-----|-------|--------|
+| 1 | Development Environment + AI Tools | ✅ Complete |
+| 2 | Python Variables & Data Types | ✅ Complete |
+| 3 | Control Flow & Functions | ✅ Complete |
+| 4 | Data Structures | ✅ Complete |
+| 5 | Python Comprehensions | ✅ Complete |
+| 6 | Dictionaries & JSON | ✅ Complete |
+| 7 | File I/O & Context Managers | ✅ Complete |
 
-### Week 2: Python Data Handling
-| Day | Topic |
-|-----|-------|
-| 5 | List Comprehensions & AI Patterns |
-| 6 | Dictionaries & JSON |
-| 7 | File I/O & Context Managers |
-| 8 | Error Handling & Defensive Code |
-
-### Week 3: Advanced Python
-| Day | Topic |
-|-----|-------|
-| 9 | Advanced Function Patterns (*args, **kwargs) |
-| 10 | Lambda Functions & Functional Programming |
-| 11 | Python Module System |
-| 12 | Building Your First Utility Library |
-
-### Week 4: Object-Oriented Python
-| Day | Topic |
-|-----|-------|
-| 13 | Classes and Objects Fundamentals |
-| 14 | Properties and Magic Methods |
-| 15 | Inheritance and Composition |
-| 16 | Dataclasses and Type Hints |
-
-### Week 5: Data File Processing
-| Day | Topic |
-|-----|-------|
-| 17 | File I/O and Context Managers (Advanced) |
-| 18 | CSV and Excel Processing |
-| 19 | JSON and API Data |
-| 20 | Data Serialization: Pickle, YAML, and Parquet |
-
-### Week 6: SQL Fundamentals
-| Day | Topic |
-|-----|-------|
-| 21 | SQL Foundations and SELECT |
-| 22 | Aggregations and GROUP BY |
-| 23 | JOINs Fundamentals |
-| 24 | Subqueries and CTEs |
-
-### Week 7: Intermediate SQL
-| Day | Topic |
-|-----|-------|
-| 25 | Window Functions Introduction |
-| 26 | Advanced Window Functions |
-| 27 | String and Date Functions |
-| 28 | CASE Statements and Conditional Logic |
-
-### Week 8: Advanced SQL
-| Day | Topic |
-|-----|-------|
-| 29 | Query Performance and EXPLAIN |
-| 30 | Set Operations and Advanced Joins |
-| 31 | Data Integrity and Transactions |
-| 32 | SQL Project: End-to-End Analytics |
-
-### Week 9: Data Modeling
-| Day | Topic |
-|-----|-------|
-| 33 | Dimensional Modeling Concepts |
-| 34 | Normalization and Denormalization |
-| 35 | Slowly Changing Dimensions |
-| 36 | Data Modeling Project |
-
-### Week 10: Python + SQL Integration
-| Day | Topic |
-|-----|-------|
-| 37 | Database Connections with Python |
-| 38 | SQLAlchemy Introduction |
-| 39 | Pandas and SQL Integration |
-| 40 | Bulk Data Operations |
-
-### Week 11: APIs & Web Data
-| Day | Topic |
-|-----|-------|
-| 41 | REST API Fundamentals |
-| 42 | Pagination and Rate Limiting |
-| 43 | Web Scraping Basics |
-| 44 | Data Extraction Project |
-
-### Week 12: Testing & Quality
-| Day | Topic |
-|-----|-------|
-| 45 | Testing Data Pipelines |
-| 46 | Data Validation Patterns |
-| 47 | Logging and Observability |
-| 48 | Code Quality and Documentation |
-
-### Week 13: Q1 Capstone
-| Day | Topic |
-|-----|-------|
-| 49 | Q1 Capstone: Project Planning |
-| 50 | Q1 Capstone: Implementation Day 1 |
-| 51 | Q1 Capstone: Implementation Day 2 |
-| 52 | Q1 Capstone: Polish and Review |
+**You're on track for Month 1!**
 
 ---
 
-## Quarter 2: ETL Patterns & Data Quality
-**Weeks 14-26 | 52 Sessions | Apr - Jun 2026**
+## MONTH 1: FOUNDATIONS + PROJECT 1 (Feb 2026)
+**Goal:** Core Python + Git + AWS Basics + First Production Project
 
-### Week 14-15: ETL Fundamentals
-- Extract patterns (APIs, databases, files)
-- Transform operations
-- Load strategies
-- Incremental processing
+### Week 1-2: Core Skills (Days 1-16)
 
-### Week 16-17: Data Validation
-- Great Expectations framework
-- Schema validation
-- Data quality rules
-- Automated testing
+| Day | Topic | Status |
+|-----|-------|--------|
+| 1 | Development Environment + AI Tools | ✅ Done |
+| 2 | Python Variables & Data Types | ✅ Done |
+| 3 | Control Flow & Functions | ✅ Done |
+| 4 | Data Structures | ✅ Done |
+| 5 | Python Comprehensions | ✅ Done |
+| 6 | Dictionaries & JSON | ✅ Done |
+| 7 | File I/O & Context Managers | ✅ Done |
+| 8 | Error Handling & Defensive Code | 🔄 Next |
+| 9 | Classes & OOP Basics | |
+| 10 | Logging & Production Python | |
+| 11 | Git Mastery: Branching & PRs | |
+| 12 | Git Workflows & Collaboration | |
+| 13 | AWS Setup: IAM & S3 Basics | |
+| 14 | AWS Lambda Fundamentals | |
+| 15 | Docker Fundamentals | |
+| 16 | Docker for Data Engineering | |
 
-### Week 18-19: Data Quality Frameworks
-- Data quality dimensions
-- Monitoring and alerting
-- SLA management
-- Quality dashboards
+### Week 3-4: PROJECT 1 - Real-Time Stock Pipeline (Days 17-24)
 
-### Week 20-22: Batch Processing
-- Batch vs streaming
-- Scheduling patterns
-- Dependency management
-- Failure recovery
+**Architecture:**
+```
+Alpha Vantage API → AWS Lambda (Python) → S3 (raw data) 
+→ Lambda (transform) → PostgreSQL (RDS) 
+→ Airflow (orchestration) → Streamlit Dashboard
+```
 
-### Week 23-25: Advanced ETL
-- CDC (Change Data Capture)
-- Slowly Changing Dimensions implementation
-- Data deduplication
-- Large-scale processing
+| Day | Topic |
+|-----|-------|
+| 17 | Project 1: API Integration Setup |
+| 18 | Project 1: Lambda Deployment |
+| 19 | Project 1: S3 Storage Patterns |
+| 20 | Project 1: Transformation Logic |
+| 21 | Project 1: PostgreSQL Setup |
+| 22 | Project 1: Airflow DAG Basics |
+| 23 | Project 1: Streamlit Dashboard |
+| 24 | Project 1: Polish & Documentation |
 
-### Week 26: Q2 Capstone
-- End-to-end ETL pipeline
-- Data quality integration
-- Documentation and testing
-
----
-
-## Quarter 3: dbt Mastery
-**Weeks 27-39 | 52 Sessions | Jul - Sep 2026**
-
-### Week 27-28: dbt Fundamentals
-- dbt Core installation and setup
-- Project structure
-- Models and materializations
-- ref() and source()
-
-### Week 29-30: dbt Modeling
-- Staging, intermediate, marts pattern
-- Naming conventions
-- Model organization
-- Incremental models
-
-### Week 31-32: dbt Testing
-- Schema tests
-- Data tests
-- Custom tests
-- Test coverage
-
-### Week 33-34: dbt Advanced
-- Macros and Jinja
-- Packages
-- Hooks and operations
-- dbt Cloud features
-
-### Week 35-37: dbt Best Practices
-- Style guides
-- Documentation
-- CI/CD integration
-- Performance optimization
-
-### Week 38: Certification Prep
-- **dbt Analytics Engineering Certification**
-
-### Week 39: Q3 Capstone
-- Production dbt project
-- Full documentation
-- CI/CD pipeline
+**Deliverable by Feb 28:**
+- ✅ Live pipeline running daily
+- ✅ GitHub with professional README
+- ✅ Architecture diagram
+- ✅ Deployed Streamlit dashboard
+- ✅ Comprehensive documentation
 
 ---
 
-## Quarter 4: AWS Foundations
-**Weeks 40-52 | 52 Sessions | Sep - Dec 2026**
+## MONTH 2: dbt MASTERY + PROJECT 2 (Mar 2026)
+**Goal:** dbt Certification + Analytics Platform Project
 
-### Week 40-42: AWS Core
-- IAM and security
-- S3 storage patterns
-- EC2 basics
-- VPC networking
+### Week 5-6: dbt Deep Dive (Days 25-32)
 
-### Week 43-45: AWS Data Services
-- Glue ETL
-- Athena queries
-- Redshift fundamentals
-- Data pipeline patterns
+| Day | Topic |
+|-----|-------|
+| 25 | dbt Fundamentals: Setup & First Model |
+| 26 | dbt Models & Materializations |
+| 27 | Staging → Intermediate → Marts Pattern |
+| 28 | dbt Sources & Documentation |
+| 29 | dbt Testing: Schema Tests |
+| 30 | dbt Testing: Data & Custom Tests |
+| 31 | dbt Macros & Jinja |
+| 32 | dbt Packages & Best Practices |
 
-### Week 46-48: AWS Integration
-- Lambda functions
-- Step Functions
-- EventBridge
-- SNS/SQS
+### Week 7-8: PROJECT 2 - NBA Analytics Platform (Days 33-40)
 
-### Week 49-51: Certification Prep
-- **AWS Cloud Practitioner Certification**
+**Architecture:**
+```
+NBA API → Python ingestion → Snowflake (raw layer)
+→ dbt (staging/intermediate/marts) → Snowflake (analytics)
+→ Streamlit dashboard
+```
 
-### Week 52: Q4 Capstone
-- AWS-based data pipeline
-- Infrastructure as code
-- Monitoring setup
+| Day | Topic |
+|-----|-------|
+| 33 | Project 2: Data Ingestion Setup |
+| 34 | Project 2: Snowflake Configuration |
+| 35 | Project 2: dbt Staging Models |
+| 36 | Project 2: dbt Intermediate Models |
+| 37 | Project 2: dbt Marts (Facts & Dims) |
+| 38 | Project 2: Full Test Coverage |
+| 39 | Project 2: dbt Docs & Dashboard |
+| 40 | Project 2: Polish & Certification Prep |
 
----
-
-## Quarter 5: Orchestration
-**Weeks 53-65 | 52 Sessions | Dec 2026 - Mar 2027**
-
-### Week 53-56: Airflow Fundamentals
-- Installation and architecture
-- DAG design
-- Operators and sensors
-- XComs and task communication
-
-### Week 57-60: Airflow Production
-- Best practices
-- Testing DAGs
-- Monitoring and alerting
-- Scaling strategies
-
-### Week 61-63: Dagster
-- Dagster fundamentals
-- Assets and jobs
-- Comparison with Airflow
-- When to use each
-
-### Week 64: Advanced Orchestration
-- Event-driven pipelines
-- Hybrid approaches
-- Multi-cloud orchestration
-
-### Week 65: Q5 Capstone
-- Production orchestration system
-- Multiple pipelines
-- Full monitoring
+**Deliverable by Mar 31:**
+- ✅ Production dbt project (15-20 models)
+- ✅ Full test coverage
+- ✅ dbt docs site deployed
+- ✅ Interactive dashboard
+- ✅ **dbt Analytics Engineering Certification**
 
 ---
 
-## Quarter 6: AWS Advanced
-**Weeks 66-78 | 52 Sessions | Mar - Jun 2027**
+## MONTH 3: AIRFLOW + PROJECT 3 + START APPLYING (Apr 2026)
+**Goal:** Orchestration Mastery + Complex Project + Begin Job Search
 
-### Week 66-68: Real-time Processing
-- Kinesis Streams
-- Kinesis Firehose
-- Real-time analytics
-- Lambda processing
+### Week 9-10: Airflow Production Skills (Days 41-48)
 
-### Week 69-71: Serverless Data
-- Lambda best practices
-- API Gateway
-- DynamoDB for data
-- Serverless ETL
+| Day | Topic |
+|-----|-------|
+| 41 | Airflow Architecture Deep Dive |
+| 42 | DAG Design Patterns |
+| 43 | Operators & Sensors |
+| 44 | XComs & Task Communication |
+| 45 | Testing Airflow DAGs |
+| 46 | Monitoring & Alerting |
+| 47 | Error Handling & Retries |
+| 48 | Production Best Practices |
 
-### Week 72-74: Advanced Glue
-- Glue Studio
-- Glue DataBrew
-- Glue Catalog
-- Performance tuning
+### Week 11-12: PROJECT 3 - Financial Data Quality Platform (Days 49-56)
 
-### Week 75-77: Certification Prep
-- **AWS Data Engineer Associate Certification**
+**Architecture:**
+```
+Multiple APIs (stocks, forex, crypto) → Airflow orchestration
+→ Python validation framework → PostgreSQL
+→ Great Expectations (data quality) → Monitoring dashboard
+→ Email alerts on quality failures
+```
 
-### Week 78: Q6 Capstone
-- Advanced AWS pipeline
-- Real-time + batch
-- Full production setup
+| Day | Topic |
+|-----|-------|
+| 49 | Project 3: Multi-Source Ingestion DAGs |
+| 50 | Project 3: Great Expectations Setup |
+| 51 | Project 3: Data Quality Framework |
+| 52 | Project 3: Complex DAG Dependencies |
+| 53 | Project 3: Monitoring Dashboard |
+| 54 | Project 3: Alerting System |
+| 55 | Project 3: Docker Compose Setup |
+| 56 | Project 3: Final Polish & Deploy |
 
----
-
-## Quarter 7: System Design & Governance
-**Weeks 79-91 | 52 Sessions | Jun - Aug 2027**
-
-### Week 79-82: Architecture Patterns
-- Lambda architecture
-- Kappa architecture
-- Data mesh principles
-- Lakehouse patterns
-
-### Week 83-86: Data Governance
-- Metadata management
-- Data catalogs
-- Lineage tracking
-- Access control
-
-### Week 87-89: Advanced Topics
-- Data contracts
-- Schema evolution
-- Multi-tenancy
-- Cost optimization
-
-### Week 90: System Design Practice
-- Whiteboard exercises
-- Trade-off discussions
-- Scale considerations
-
-### Week 91: Q7 Capstone
-- Architecture proposal
-- Governance framework
-- Documentation
+**Deliverable by Apr 30:**
+- ✅ Complex Airflow DAGs with dependencies
+- ✅ Data quality checks with Great Expectations
+- ✅ Monitoring dashboard
+- ✅ Professional error handling
+- ✅ **START APPLYING: 15-20 applications/week**
 
 ---
 
-## Quarter 8: Interview Prep & Career Launch
-**Weeks 92-104 | 52 Sessions | Aug 2027 - Jan 2028**
+## MONTH 4: AWS CERT + HEAVY APPLICATIONS (May 2026)
+**Goal:** AWS Certification + Consistent Applications
 
-### Week 92-95: System Design Interviews
-- Common patterns
-- Practice problems
-- Communication skills
-- Whiteboard techniques
+### Week 13-16: AWS Solutions Architect Prep (Days 57-72)
 
-### Week 96-99: Coding Interviews
-- SQL challenges
-- Python problems
-- Data structure review
-- LeetCode practice
+| Day | Topic |
+|-----|-------|
+| 57-60 | AWS Core: S3, IAM, VPC Deep Dive |
+| 61-64 | AWS Compute: Lambda, EC2, ECS |
+| 65-68 | AWS Data: RDS, Redshift, Glue |
+| 69-72 | Practice Exams & Certification |
 
-### Week 100-102: Behavioral Prep
-- STAR method
-- Leadership principles
-- Conflict resolution
-- Project deep dives
-
-### Week 103: Portfolio Polish
-- GitHub cleanup
-- Project documentation
-- LinkedIn optimization
-- Resume refinement
-
-### Week 104: Launch
-- Application strategy
-- Negotiation prep
-- Offer evaluation
-- **🎯 $200k+ Role**
+**Deliverable by May 31:**
+- ✅ **AWS Solutions Architect Associate Certification**
+- ✅ 25-30 applications submitted
+- ✅ First interviews scheduled
 
 ---
 
-## Certifications Timeline
+## MONTH 5: INTERVIEW PREP + HEAVY INTERVIEWING (Jun 2026)
+**Goal:** Interview Skills + Multiple Offers in Play
 
-| Quarter | Certification | Target Date |
-|---------|--------------|-------------|
-| Q3 | dbt Analytics Engineering | Sep 2026 |
-| Q4 | AWS Cloud Practitioner | Dec 2026 |
-| Q6 | AWS Data Engineer Associate | Jun 2027 |
+### Week 17-20: Interview Intensive (Days 73-88)
+
+| Day | Topic |
+|-----|-------|
+| 73-76 | System Design: Data Pipeline Patterns |
+| 77-80 | SQL Interview Deep Dive |
+| 81-84 | Python Coding Challenges |
+| 85-88 | Behavioral Prep (STAR Method) |
+
+**Focus Areas:**
+- "Design a data pipeline for [scenario]"
+- "How would you handle [data quality issue]"
+- "Explain your most complex project"
+- AWS architecture discussions
+
+**Activities:**
+- 20+ applications/week
+- Accept every interview
+- Iterate on your story
 
 ---
 
-## Key Skills by Quarter
+## MONTH 6: CLOSE OFFERS (Jul 2026)
+**Goal:** Multiple Offers + Accept $160-170k Role
 
-| Quarter | Primary Skills |
-|---------|---------------|
-| Q1 | Python, SQL, Data Modeling |
-| Q2 | ETL, Data Quality, Validation |
-| Q3 | dbt, Analytics Engineering |
-| Q4 | AWS Core, Cloud Fundamentals |
-| Q5 | Airflow, Dagster, Orchestration |
-| Q6 | AWS Advanced, Real-time Processing |
-| Q7 | Architecture, Governance, System Design |
-| Q8 | Interviews, Career Strategy |
+### Week 21-24: Final Push (Days 89-96)
+
+| Day | Topic |
+|-----|-------|
+| 89-92 | Portfolio Polish & Final Practice |
+| 93-96 | Negotiation Prep & Closing |
+
+**Activities:**
+- Continue interviewing
+- Get multiple offers in play
+- Negotiate aggressively
+- **🎯 Accept $160-170k offer**
 
 ---
 
-**Total Investment:**
-- 416 sessions x 90 minutes = 624 hours
-- 2 years of consistent practice
-- 3 professional certifications
-- Production-ready portfolio
+## THE 3 PORTFOLIO PROJECTS
 
-**Expected Outcome:**
-- Senior Data Engineer role
-- $200k+ total compensation
-- Deep technical expertise
-- Interview-ready skills
+### Project 1: Real-Time Stock Pipeline
+**Tech:** Python, AWS (Lambda, S3, RDS), PostgreSQL, Airflow, Streamlit, Docker
+
+### Project 2: NBA Analytics Platform (dbt Showcase)
+**Tech:** Python, Snowflake, dbt, Streamlit, GitHub Actions
+
+### Project 3: Multi-Source Financial Data Quality Platform
+**Tech:** Python, Airflow, PostgreSQL, Great Expectations, Docker, Grafana
+
+---
+
+## CERTIFICATIONS TIMELINE
+
+| Month | Certification | Status |
+|-------|--------------|--------|
+| March | dbt Analytics Engineering | 🎯 Target |
+| May | AWS Solutions Architect Associate | 🎯 Target |
+
+---
+
+## TOP 10 TARGET COMPANIES
+
+### Tier 1 - Highest Probability
+1. **dbt Labs** - Analytics Engineer $140-170k
+2. **Ramp** - Analytics Engineer / DE $150-180k
+3. **Brex** - DE roles $150-170k
+
+### Tier 2 - Strong Fit
+4. **Datadog** - DE $150-180k
+5. **Plaid** - DE $160-180k
+6. **Affirm** - DE/Analytics Engineer $150-170k
+
+### Tier 3 - Reach
+7. **Stripe** - DE $170-200k
+8. **Capital One** - DE $140-160k
+9. **Two Sigma** - Data Infrastructure $160-200k
+10. **Robinhood** - DE $150-180k
+
+---
+
+## WEEKLY TIME COMMITMENT
+
+| Time Block | Hours |
+|------------|-------|
+| Mon-Thu Evenings (2 hrs each) | 8 hrs |
+| Commute (3 office days) | 5 hrs |
+| WFH Mornings (2 days) | 3 hrs |
+| Weekend (both days) | 7 hrs |
+| Friday Evening | 2 hrs |
+| **Total** | **25-27 hrs/week** |
+
+---
+
+## SUCCESS METRICS
+
+| Month | Milestone |
+|-------|-----------|
+| Feb | ✅ Project 1 complete and deployed |
+| Mar | ✅ Project 2 complete + dbt certified |
+| Apr | ✅ Project 3 complete + 30 applications |
+| May | ✅ AWS certified + 5-10 interviews |
+| Jun | ✅ Final rounds, multiple offers |
+| Jul | ✅ Accept $160-170k offer |
+
+---
+
+## WHAT YOU'RE CUTTING
+
+❌ Dagster (Airflow is enough)  
+❌ Advanced Glue (learn on job)  
+❌ Kinesis/real-time (not critical for first role)  
+❌ Deep system design (basics only)  
+❌ LeetCode grind (not typical for DE)  
+
+**Focus:** Minimum skills to pass interviews + impressive portfolio
+
+---
+
+**Total: 96 sessions over 6 months**  
+**Target: $160-170k Data Engineer role by July 2026**

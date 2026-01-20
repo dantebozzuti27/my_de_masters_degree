@@ -1,12 +1,12 @@
 # SDE Tracker 🚀
 
-**Your interactive companion for the 2-Year Senior Data Engineer Study Plan**
+**Aggressive 6-Month Data Engineer Transition Plan**
 
-Track your progress through 416 study sessions designed to prepare you for $200k+ Senior Data Engineer roles.
+Track your progress through 96 focused sessions designed to land a $160-170k Data Engineer role by July 2026.
 
-![SDE Tracker Dashboard](https://img.shields.io/badge/Sessions-416-blue)
-![Progress](https://img.shields.io/badge/Duration-2_Years-purple)
-![Goal](https://img.shields.io/badge/Target-$200k+-green)
+![SDE Tracker Dashboard](https://img.shields.io/badge/Sessions-96-blue)
+![Progress](https://img.shields.io/badge/Duration-6_Months-purple)
+![Goal](https://img.shields.io/badge/Target-$160k+-green)
 
 ## Current Progress
 
@@ -21,7 +21,7 @@ Track your progress through 416 study sessions designed to prepare you for $200k
 | 7 | File I/O & Context Managers | ✅ Complete |
 | 8 | Error Handling & Defensive Code | 🔄 Next Up |
 
-**Week 2, Day 3 of 104 weeks**
+**Month 1, Week 2 — On track for Project 1 by end of February!**
 
 ## Features
 
@@ -134,18 +134,16 @@ npm run build  # Also scans workspace for verified progress
 npm start
 ```
 
-## Study Plan Overview
+## 6-Month Plan Overview
 
-| Quarter | Focus | Certification |
-|---------|-------|---------------|
-| Q1 (Jan-Apr 2026) | Python & SQL Foundations | — |
-| Q2 (Apr-Jun 2026) | ETL Patterns & Data Quality | — |
-| Q3 (Jul-Sep 2026) | dbt Mastery | **dbt Analytics Engineering** |
-| Q4 (Sep-Dec 2026) | AWS Foundations | **AWS Cloud Practitioner** |
-| Q5 (Dec-Mar 2027) | Orchestration (Airflow/Dagster) | — |
-| Q6 (Mar-Jun 2027) | AWS Advanced | **AWS Data Engineer Associate** |
-| Q7 (Jun-Aug 2027) | System Design & Governance | — |
-| Q8 (Aug-Jan 2028) | Interview Prep & Career Launch | 🎯 **$200k+ Role** |
+| Month | Focus | Deliverable |
+|-------|-------|-------------|
+| Feb | Foundations + AWS Basics | **Project 1: Stock Pipeline** |
+| Mar | dbt Mastery | **Project 2: NBA Analytics** + dbt Cert |
+| Apr | Airflow + Start Applying | **Project 3: Data Quality Platform** |
+| May | AWS Certification | **AWS SA Associate** + Interviews |
+| Jun | Interview Prep | Multiple offers in play |
+| Jul | Close Offers | 🎯 **$160-170k Role** |
 
 ## How Progress Works
 
