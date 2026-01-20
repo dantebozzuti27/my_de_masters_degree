@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-20T02:40:42.644Z",
+  "generatedAt": "2026-01-20T02:44:19.816Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -103,10 +103,10 @@
         "3": {
           "exercises": {
             "day10_functional.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 26,
               "completedFunctions": 3,
-              "incompletePatterns": 0,
+              "incompletePatterns": 21,
               "completePatterns": 4,
               "hash": "14e20ed4",
               "lines": 476,
@@ -117,7 +117,7 @@
               "complete": false,
               "totalFunctions": 18,
               "completedFunctions": 0,
-              "incompletePatterns": 1,
+              "incompletePatterns": 17,
               "completePatterns": 0,
               "hash": "6a212786",
               "lines": 467,
@@ -128,7 +128,7 @@
               "complete": false,
               "totalFunctions": 22,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 21,
               "completePatterns": 0,
               "hash": "e92a7e11",
               "lines": 211,
@@ -136,10 +136,10 @@
               "modifiedAt": "2026-01-17T20:29:44.426Z"
             },
             "day9_advanced_functions.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 18,
-              "completedFunctions": 3,
-              "incompletePatterns": 1,
+              "completedFunctions": 0,
+              "incompletePatterns": 17,
               "completePatterns": 3,
               "hash": "ac8d51ab",
               "lines": 481,
@@ -491,8 +491,8 @@
   },
   "summary": {
     "totalExercises": 12,
-    "completedExercises": 10,
-    "completionRate": 83
+    "completedExercises": 8,
+    "completionRate": 67
   },
   "dayStatus": {
     "1": {
@@ -528,11 +528,11 @@
       "file": "q1-python-sql/week-02/exercises/day8_error_handling.py"
     },
     "9": {
-      "complete": true,
+      "complete": false,
       "file": "q1-python-sql/week-03/exercises/day9_advanced_functions.py"
     },
     "10": {
-      "complete": true,
+      "complete": false,
       "file": "q1-python-sql/week-03/exercises/day10_functional.py"
     },
     "11": {

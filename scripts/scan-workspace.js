@@ -34,9 +34,9 @@ const INCOMPLETE_PATTERNS = [
   // Explicit placeholder markers (in function body, not in instructions)
   /# YOUR CODE HERE/m,
   
-  // Function with ONLY pass - look for def followed by docstring then pass
-  // This matches incomplete functions, not exception classes
-  /def \w+\([^)]*\):[^"]*"""\s*\n\s*pass\s*$/m,
+  // Bare pass statements in functions (but not in exception class definitions)
+  // Match pass that is indented (inside a function), not at class level
+  /^\s{4}pass\s*$/m,  // 4-space indented pass = likely incomplete function
   
   // Empty result variable followed immediately by return (template pattern)
   /result\s*=\s*\[\s*\]\s*\n\s*return\s+result\s*$/m,
@@ -65,12 +65,22 @@ function analyzeExerciseFile(filePath) {
     const content = fs.readFileSync(filePath, 'utf-8');
     const lines = content.split('\n');
     
-    // Count incomplete patterns found
+    // Count incomplete patterns found (count actual occurrences, not just patterns)
     let incompleteCount = 0;
     for (const pattern of INCOMPLETE_PATTERNS) {
-      if (pattern.test(content)) {
-        incompleteCount++;
-      }
+      const globalPattern = new RegExp(pattern.source, 'gm');
+      const matches = content.match(globalPattern) || [];
+      incompleteCount += matches.length;
+    }
+    
+    // Special case: allow up to 2 pass statements (exception classes are OK)
+    // But if there are many pass statements, clearly incomplete
+    const passMatches = content.match(/^\s{4}pass\s*$/gm) || [];
+    if (passMatches.length > 3) {
+      incompleteCount = passMatches.length;  // Override with actual count
+    } else if (passMatches.length <= 2) {
+      // Likely just exception classes - don't count as incomplete
+      incompleteCount = Math.max(0, incompleteCount - passMatches.length);
     }
     
     // Count complete patterns found  
