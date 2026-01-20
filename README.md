@@ -8,14 +8,34 @@ Track your progress through 416 study sessions designed to prepare you for $200k
 ![Progress](https://img.shields.io/badge/Duration-2_Years-purple)
 ![Goal](https://img.shields.io/badge/Target-$200k+-green)
 
+## Current Progress
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 1 | Development Environment + AI Tools | ✅ Complete |
+| 2 | Python Variables & Data Types | ✅ Complete |
+| 3 | Control Flow & Functions | ✅ Complete |
+| 4 | Data Structures | ✅ Complete |
+| 5 | Python Comprehensions | ✅ Complete |
+| 6 | Dictionaries & JSON | ✅ Complete |
+| 7 | File I/O & Context Managers | ✅ Complete |
+| 8 | Error Handling & Defensive Code | 🔄 Next Up |
+
+**Week 2, Day 3 of 104 weeks**
+
 ## Features
 
 ### 📊 Dashboard
-- Today's session with full details and context
+- Next incomplete session with full details
 - Overall progress with visual indicators
-- Current streak tracking
 - Week-at-a-glance view
 - Quarter progress overview
+
+### 💻 Verified Progress (Portfolio)
+- **Your code IS your progress** — no manual checkboxes
+- Complete exercises in the `workspace/` folder
+- Build-time scanner verifies completion
+- Your solutions become your portfolio
 
 ### 📅 Calendar
 - Full calendar view of all 416 sessions
@@ -27,21 +47,42 @@ Track your progress through 416 study sessions designed to prepare you for $200k
 - 8 quarters of structured learning
 - 104 weeks broken down by topic
 - Expandable week/quarter views
-- Track completion at every level
+- AI-enhanced lessons with practical exercises
 
 ### 📈 Statistics
 - Skill progress tracking (SQL, Python, Cloud, Orchestration, dbt)
 - Certification timeline and countdown
-- Average session ratings
-- Pace tracking (ahead/behind schedule)
-- Time invested tracking
+- Verified completion rates
 
-### ⚙️ Settings
-- Export progress as JSON backup
-- Import progress from backup
-- Copy data to clipboard
-- Reset progress (with confirmation)
-- Quick links to learning resources
+## Workspace Structure
+
+```
+workspace/
+├── q1-python-sql/
+│   ├── week-01/
+│   │   └── exercises/
+│   │       ├── day1_verify_setup.py
+│   │       ├── day2_variables.py
+│   │       ├── day3_functions.py
+│   │       └── day4_data_structures.py
+│   ├── week-02/
+│   │   └── exercises/
+│   │       ├── day5_comprehensions.py
+│   │       ├── day6_dicts_json.py
+│   │       ├── day7_file_io.py
+│   │       └── day8_error_handling.py
+│   └── week-03/
+│       └── exercises/
+│           ├── day9_advanced_functions.py
+│           ├── day10_functional.py
+│           ├── day11_modules.py
+│           └── day12_utility_library.py
+```
+
+Each exercise file includes:
+- Docstrings explaining the concept
+- Multiple functions to implement
+- Built-in test suite (`python3 dayX_*.py`)
 
 ## Tech Stack
 
@@ -50,21 +91,22 @@ Track your progress through 416 study sessions designed to prepare you for $200k
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
 - **Date Handling:** date-fns
-- **State:** React Context + Local Storage
+- **Progress Verification:** Build-time workspace scanner
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ 
+- Python 3.11+
 - npm or yarn
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/sde-tracker.git
-cd sde-tracker
+git clone https://github.com/dantebozzuti27/my_de_masters_degree.git
+cd my_de_masters_degree/sde-tracker
 
 # Install dependencies
 npm install
@@ -75,27 +117,22 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Running Exercises
+
+```bash
+# Navigate to an exercise
+cd workspace/q1-python-sql/week-02/exercises
+
+# Run the exercise tests
+python3 day7_file_io.py
+```
+
 ### Build for Production
 
 ```bash
-npm run build
+npm run build  # Also scans workspace for verified progress
 npm start
 ```
-
-## Deploy to Vercel
-
-The easiest way to deploy this app is with [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/sde-tracker)
-
-Or deploy manually:
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your GitHub repository
-4. Click "Deploy"
-
-That's it! Vercel will automatically detect Next.js and configure everything.
 
 ## Study Plan Overview
 
@@ -110,23 +147,26 @@ That's it! Vercel will automatically detect Next.js and configure everything.
 | Q7 (Jun-Aug 2027) | System Design & Governance | — |
 | Q8 (Aug-Jan 2028) | Interview Prep & Career Launch | 🎯 **$200k+ Role** |
 
-## Data Persistence
+## How Progress Works
 
-Your progress is stored in your browser's Local Storage. This means:
+1. **Complete exercises** in the `workspace/` folder
+2. **Run tests** to verify: `python3 dayX_*.py`
+3. **Commit your code** to the repo
+4. **Build triggers scanner** that verifies completion
+5. **Dashboard updates** to show verified progress
 
-- ✅ Your data stays on your device
-- ✅ No account needed
-- ✅ Works offline
-- ⚠️ Clearing browser data will erase progress
-- 💡 Use the Export feature to backup your data!
+No manual tracking needed — your code speaks for itself.
 
-## Contributing
+## Deploy to Vercel
 
-Contributions are welcome! Feel free to:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/dantebozzuti27/my_de_masters_degree)
 
-- Report bugs
-- Suggest features
-- Submit pull requests
+Or deploy manually:
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your GitHub repository
+4. Click "Deploy"
 
 ## License
 
