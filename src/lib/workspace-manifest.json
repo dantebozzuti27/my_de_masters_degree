@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-20T02:50:38.572Z",
+  "generatedAt": "2026-01-20T03:06:08.162Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -487,6 +487,10 @@
           "exercises": {}
         }
       }
+    },
+    "NaN": {
+      "folder": "month6-job-search",
+      "weeks": {}
     }
   },
   "summary": {

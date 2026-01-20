@@ -219,6 +219,7 @@ function scanWorkspace() {
     dayStatus: {}
   };
   
+  // Support both old (q1-python-sql) and new (month1-foundations) folder structures
   const quarterDirs = [
     'q1-python-sql',
     'q2-etl-quality', 
@@ -227,7 +228,14 @@ function scanWorkspace() {
     'q5-orchestration',
     'q6-aws-advanced',
     'q7-system-design',
-    'q8-interview-prep'
+    'q8-interview-prep',
+    // New 6-month plan structure
+    'month1-foundations',
+    'month2-dbt-analytics',
+    'month3-airflow-orchestration',
+    'month4-advanced-projects',
+    'month5-interview-prep',
+    'month6-job-search'
   ];
   
   for (const quarterDir of quarterDirs) {

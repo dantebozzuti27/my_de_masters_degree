@@ -1279,35 +1279,84 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:15", activity: "Video: Python OOP Basics", type: "video" },
-      { time: "0:15-0:40", activity: "Class design patterns for data pipelines", type: "learn" },
-      { time: "0:40-1:15", activity: "Build DataExtractor and DataValidator classes", type: "exercise" },
-      { time: "1:15-1:30", activity: "Review and test your classes", type: "review" }
+      { time: "0:00-0:15", activity: "Video: Python OOP Basics - Corey Schafer", type: "video" },
+      { time: "0:15-0:35", activity: "Class design patterns: when OOP helps vs hurts", type: "learn" },
+      { time: "0:35-0:55", activity: "Exercise 1-2: Basic classes + __str__/__repr__", type: "exercise" },
+      { time: "0:55-1:15", activity: "Exercise 3: Properties - computed attributes", type: "exercise" },
+      { time: "1:15-1:35", activity: "Exercise 4: Class methods and static methods", type: "exercise" },
+      { time: "1:35-1:55", activity: "Exercise 5-6: DataExtractor, DataValidator, composition", type: "exercise" },
+      { time: "1:55-2:00", activity: "Run tests, review patterns learned", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Corey Schafer - OOP Tutorial", url: "https://www.youtube.com/watch?v=ZDa-Z5JzLYM", type: "video", duration: "15 min" }
+        { title: "Corey Schafer - OOP Tutorial", url: "https://www.youtube.com/watch?v=ZDa-Z5JzLYM", type: "video" }
+      ],
+      optional: [
+        { title: "Real Python: OOP Guide", url: "https://realpython.com/python3-object-oriented-programming/", type: "article" }
       ]
     },
 
     exercises: [
       {
-        title: "DataExtractor Class",
-        description: "Build a class that encapsulates data extraction logic",
-        hints: [
-          "Store configuration in __init__",
-          "Add extract() method for fetching data",
-          "Add validate() method for checking data quality"
-        ],
-        deliverable: "data_extractor.py with DataExtractor class"
+        title: "Exercise 1: Basic Class Design",
+        description: "DataRecord and User classes with __init__ and methods",
+        estimatedTime: 20,
+        deliverable: "Completed DataRecord and User classes"
+      },
+      {
+        title: "Exercise 2: __str__ and __repr__",
+        description: "Control how objects display - Pipeline and APIResponse classes",
+        estimatedTime: 15,
+        deliverable: "Proper string representations"
+      },
+      {
+        title: "Exercise 3: Properties",
+        description: "DataBatch and Connection with computed properties",
+        estimatedTime: 20,
+        deliverable: "Classes with @property decorators"
+      },
+      {
+        title: "Exercise 4: Class & Static Methods",
+        description: "Config and DataLoader with factory methods",
+        estimatedTime: 20,
+        deliverable: "Factory patterns with @classmethod"
+      },
+      {
+        title: "Exercise 5: DataExtractor Pattern",
+        description: "Production-ready data extractor class",
+        estimatedTime: 25,
+        deliverable: "Complete DataExtractor with state management"
+      },
+      {
+        title: "Exercise 6: Composition",
+        description: "DataPipeline using Logger - composition over inheritance",
+        estimatedTime: 20,
+        deliverable: "Pipeline with injected dependencies"
       }
+    ],
+
+    keyTerms: [
+      { term: "__init__", definition: "Constructor method - called when creating an instance" },
+      { term: "__str__", definition: "Human-readable string representation" },
+      { term: "__repr__", definition: "Unambiguous string for debugging - should be valid Python" },
+      { term: "@property", definition: "Decorator that makes a method act like an attribute" },
+      { term: "@classmethod", definition: "Method that receives class as first argument - for factory methods" },
+      { term: "Composition", definition: "Building objects by combining other objects (has-a relationship)" }
+    ],
+
+    commonMistakes: [
+      "Creating classes when simple functions would work better",
+      "Forgetting self in method definitions",
+      "Using inheritance when composition is cleaner",
+      "Not implementing __repr__ for debugging"
     ],
 
     successCriteria: [
       "Can design classes for pipeline components",
-      "Understand when OOP adds value",
-      "Classes are well-documented and tested"
+      "Understand when OOP adds value vs overhead",
+      "All exercises pass tests",
+      "Classes are well-documented with docstrings"
     ],
 
     futureProofNote: "Most data engineering libraries use OOP. Understanding classes helps you use Pandas, SQLAlchemy, Airflow effectively."
@@ -1335,29 +1384,73 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:20", activity: "Python logging module deep dive", type: "learn" },
-      { time: "0:20-0:50", activity: "Configuration management patterns", type: "practice" },
-      { time: "0:50-1:20", activity: "Build a configurable data pipeline", type: "exercise" },
-      { time: "1:20-1:30", activity: "Review logging output", type: "review" }
+      { time: "0:00-0:20", activity: "Python logging module - levels, handlers, formatters", type: "learn" },
+      { time: "0:20-0:40", activity: "Exercise 1: Basic logger setup", type: "exercise" },
+      { time: "0:40-1:05", activity: "Exercise 2: Structured (JSON) logging", type: "exercise" },
+      { time: "1:05-1:25", activity: "Exercise 3: Environment-based configuration", type: "exercise" },
+      { time: "1:25-1:45", activity: "Exercise 4: File-based configuration", type: "exercise" },
+      { time: "1:45-2:00", activity: "Exercise 5: Complete configurable pipeline", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "Python Logging Tutorial", url: "https://docs.python.org/3/howto/logging.html", type: "docs" }
+        { title: "Python Logging Tutorial", url: "https://docs.python.org/3/howto/logging.html", type: "docs" },
+        { title: "12-Factor App Config", url: "https://12factor.net/config", type: "article" }
       ]
     },
 
     exercises: [
       {
-        title: "Production Logging Setup",
-        description: "Create a reusable logging configuration for data pipelines",
-        deliverable: "logging_config.py with structured logging setup"
+        title: "Exercise 1: Basic Logger Setup",
+        description: "Create loggers with console and file handlers",
+        estimatedTime: 20,
+        deliverable: "setup_basic_logger and setup_file_logger functions"
+      },
+      {
+        title: "Exercise 2: Structured Logger",
+        description: "JSON-formatted logs for production systems",
+        estimatedTime: 25,
+        deliverable: "StructuredLogger class with level filtering"
+      },
+      {
+        title: "Exercise 3: Environment Config",
+        description: "Load config from environment variables with type conversion",
+        estimatedTime: 20,
+        deliverable: "EnvConfig class with get_bool, get_int, get_list"
+      },
+      {
+        title: "Exercise 4: File Config",
+        description: "Load config from JSON files with nested access",
+        estimatedTime: 20,
+        deliverable: "FileConfig class with get_nested and merge"
+      },
+      {
+        title: "Exercise 5: Configurable Pipeline",
+        description: "Complete pipeline with logging and configuration",
+        estimatedTime: 30,
+        deliverable: "ConfigurablePipeline class with full observability"
       }
+    ],
+
+    keyTerms: [
+      { term: "Log Level", definition: "Severity of message: DEBUG < INFO < WARNING < ERROR < CRITICAL" },
+      { term: "Handler", definition: "Destination for log messages (console, file, network)" },
+      { term: "Formatter", definition: "Controls the output format of log messages" },
+      { term: "Structured Logging", definition: "JSON-formatted logs for machine parsing" },
+      { term: "12-Factor App", definition: "Methodology for building cloud-native apps - config via env vars" }
+    ],
+
+    commonMistakes: [
+      "Logging sensitive data (passwords, tokens)",
+      "Using print() instead of logging",
+      "Hardcoding configuration instead of using environment variables",
+      "Not setting appropriate log levels for different environments"
     ],
 
     successCriteria: [
       "Proper log levels (DEBUG, INFO, WARNING, ERROR)",
       "Configuration from environment variables",
+      "Structured JSON logs working",
       "No sensitive data in logs"
     ],
 
@@ -1386,30 +1479,90 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:20", activity: "Git branching strategies", type: "learn" },
-      { time: "0:20-0:50", activity: "Practice branching and merging", type: "practice" },
-      { time: "0:50-1:20", activity: "Resolve merge conflicts", type: "exercise" },
-      { time: "1:20-1:30", activity: "Review Git history", type: "review" }
+      { time: "0:00-0:10", activity: "Exercise 1: Repository setup and first commits", type: "exercise" },
+      { time: "0:10-0:30", activity: "Exercise 2: Branching practice - feature branches", type: "exercise" },
+      { time: "0:30-0:50", activity: "Exercise 3: Merging and conflict resolution", type: "exercise" },
+      { time: "0:50-1:10", activity: "Exercise 4: Commit message conventions", type: "exercise" },
+      { time: "1:10-1:25", activity: "Exercise 5: Viewing history and blame", type: "exercise" },
+      { time: "1:25-1:40", activity: "Exercise 6: Undoing changes safely", type: "exercise" },
+      { time: "1:40-1:55", activity: "Exercise 7: Git stash", type: "exercise" },
+      { time: "1:55-2:00", activity: "Take Git quiz, verify exercises", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "Git Branching Tutorial", url: "https://learngitbranching.js.org/", type: "interactive" }
+        { title: "Learn Git Branching", url: "https://learngitbranching.js.org/", type: "interactive" }
+      ],
+      optional: [
+        { title: "Atlassian Git Tutorial", url: "https://www.atlassian.com/git/tutorials", type: "tutorial" }
       ]
     },
 
     exercises: [
       {
-        title: "Git Workflow Practice",
-        description: "Create branches, make changes, merge, and resolve conflicts",
-        deliverable: "Clean Git history with multiple branches"
+        title: "Exercise 1: Repository Setup",
+        description: "Initialize repo, create initial commits with proper structure",
+        estimatedTime: 10,
+        deliverable: "Git repo with README and .gitignore"
+      },
+      {
+        title: "Exercise 2: Branching Practice",
+        description: "Create feature branches, switch between them, make changes",
+        estimatedTime: 20,
+        deliverable: "Multiple branches with commits"
+      },
+      {
+        title: "Exercise 3: Merging Practice",
+        description: "Merge branches, resolve conflicts when they occur",
+        estimatedTime: 20,
+        deliverable: "Clean merged history"
+      },
+      {
+        title: "Exercise 4: Commit Messages",
+        description: "Practice conventional commit format (Add:, Fix:, etc.)",
+        estimatedTime: 20,
+        deliverable: "Well-formatted commit history"
+      },
+      {
+        title: "Exercise 5: History Exploration",
+        description: "Use git log, git show, git diff, git blame",
+        estimatedTime: 15,
+        deliverable: "Understanding of history commands"
+      },
+      {
+        title: "Exercise 6: Undoing Changes",
+        description: "Practice reset, revert, checkout safely",
+        estimatedTime: 15,
+        deliverable: "Safely undone changes"
+      },
+      {
+        title: "Exercise 7: Git Stash",
+        description: "Save work in progress, switch branches, restore",
+        estimatedTime: 10,
+        deliverable: "Stash workflow mastered"
       }
+    ],
+
+    keyTerms: [
+      { term: "Branch", definition: "Independent line of development" },
+      { term: "Merge", definition: "Combine changes from different branches" },
+      { term: "Conflict", definition: "When same lines changed in both branches" },
+      { term: "Stash", definition: "Temporarily save uncommitted changes" },
+      { term: "HEAD", definition: "Pointer to current commit/branch" }
+    ],
+
+    commonMistakes: [
+      "Committing directly to main instead of using branches",
+      "Vague commit messages like 'fixed stuff'",
+      "Force pushing without understanding consequences",
+      "Not pulling before starting work"
     ],
 
     successCriteria: [
       "Can create and merge branches",
-      "Handle merge conflicts",
-      "Write clear commit messages"
+      "Handle merge conflicts confidently",
+      "Write clear commit messages",
+      "Use stash for work-in-progress"
     ],
 
     futureProofNote: "Git proficiency is non-negotiable for any engineering role."
@@ -1437,30 +1590,87 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:20", activity: "PR best practices", type: "learn" },
-      { time: "0:20-0:50", activity: "Create and review PRs", type: "practice" },
-      { time: "0:50-1:20", activity: "GitHub Actions intro", type: "exercise" },
-      { time: "1:20-1:30", activity: "Week 3 checkpoint", type: "review" }
+      { time: "0:00-0:15", activity: "Exercise 1: Create GitHub repository", type: "exercise" },
+      { time: "0:15-0:35", activity: "Exercise 2: Feature branch workflow", type: "exercise" },
+      { time: "0:35-0:55", activity: "Exercise 3: Create a Pull Request", type: "exercise" },
+      { time: "0:55-1:20", activity: "Exercise 4: Code review practice", type: "exercise" },
+      { time: "1:20-1:40", activity: "Exercise 5: Handle review feedback", type: "exercise" },
+      { time: "1:40-1:55", activity: "Exercise 6-7: Merge strategies & Issues", type: "exercise" },
+      { time: "1:55-2:00", activity: "Week 3 checkpoint review", type: "review" }
     ],
 
     resources: {
       required: [
-        { title: "GitHub PR Guide", url: "https://docs.github.com/en/pull-requests", type: "docs" }
+        { title: "GitHub Pull Requests", url: "https://docs.github.com/en/pull-requests", type: "docs" }
+      ],
+      optional: [
+        { title: "GitHub Actions Quickstart", url: "https://docs.github.com/en/actions/quickstart", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "Professional PR Workflow",
-        description: "Create a PR with proper description, request review, iterate on feedback",
-        deliverable: "Merged PR with clean commit history"
+        title: "Exercise 1: GitHub Repository",
+        description: "Create a new repository on GitHub with README and .gitignore",
+        estimatedTime: 15,
+        deliverable: "Public repository for portfolio"
+      },
+      {
+        title: "Exercise 2: Feature Branch Workflow",
+        description: "Create branch, push, see 'Compare & pull request' button",
+        estimatedTime: 20,
+        deliverable: "Branch pushed to GitHub"
+      },
+      {
+        title: "Exercise 3: Create Pull Request",
+        description: "Write professional PR with summary, changes, testing",
+        estimatedTime: 20,
+        deliverable: "PR with proper description"
+      },
+      {
+        title: "Exercise 4: Code Review",
+        description: "Practice reviewing code - add comments, suggest changes",
+        estimatedTime: 25,
+        deliverable: "Review comments on PR"
+      },
+      {
+        title: "Exercise 5: Handle Feedback",
+        description: "Make requested changes, push updates, respond to comments",
+        estimatedTime: 20,
+        deliverable: "Updated PR ready to merge"
+      },
+      {
+        title: "Exercise 6: Merge Strategies",
+        description: "Understand merge, squash, and rebase options",
+        estimatedTime: 15,
+        deliverable: "Successfully merged PR"
+      },
+      {
+        title: "Exercise 7: Issues",
+        description: "Create and reference issues in commits",
+        estimatedTime: 15,
+        deliverable: "Issue linked to PR"
       }
+    ],
+
+    keyTerms: [
+      { term: "Pull Request", definition: "Request to merge changes into a branch" },
+      { term: "Code Review", definition: "Examining code changes for quality and issues" },
+      { term: "Squash Merge", definition: "Combine all commits into one when merging" },
+      { term: "GitHub Actions", definition: "CI/CD automation built into GitHub" }
+    ],
+
+    commonMistakes: [
+      "PRs that are too large - break into smaller pieces",
+      "Missing PR description",
+      "Not responding to review comments",
+      "Merging without approval"
     ],
 
     successCriteria: [
       "PRs have clear descriptions",
       "Can give and receive code review",
-      "Basic GitHub Actions working"
+      "Understand merge strategies"
     ],
 
     weeklyCheckpoint: {
@@ -1506,29 +1716,87 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:30", activity: "AWS account and IAM setup", type: "learn" },
-      { time: "0:30-1:00", activity: "AWS CLI configuration", type: "practice" },
-      { time: "1:00-1:30", activity: "Create IAM user and policies", type: "exercise" }
+      { time: "0:00-0:20", activity: "Exercise 1: AWS account creation (if needed)", type: "exercise" },
+      { time: "0:20-0:30", activity: "Exercise 2: Enable MFA on root account", type: "exercise" },
+      { time: "0:30-0:50", activity: "Exercise 3: Create IAM admin user", type: "exercise" },
+      { time: "0:50-1:05", activity: "Exercise 4: Configure AWS CLI", type: "exercise" },
+      { time: "1:05-1:25", activity: "Exercise 5: Understanding IAM policies", type: "learn" },
+      { time: "1:25-1:45", activity: "Exercise 6: Create data engineering role", type: "exercise" },
+      { time: "1:45-2:00", activity: "Exercise 7: Set up billing alerts + quiz", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "AWS IAM Getting Started", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html", type: "docs" }
+        { title: "AWS IAM Getting Started", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html", type: "docs" },
+        { title: "AWS Free Tier", url: "https://aws.amazon.com/free/", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "AWS Environment Setup",
-        description: "Set up AWS account with proper IAM configuration",
-        deliverable: "Working AWS CLI with proper credentials"
+        title: "Exercise 1: AWS Account Setup",
+        description: "Create AWS account if you don't have one",
+        estimatedTime: 20,
+        deliverable: "Active AWS account"
+      },
+      {
+        title: "Exercise 2: Root Account MFA",
+        description: "Enable MFA on root account - CRITICAL security step",
+        estimatedTime: 10,
+        deliverable: "MFA enabled on root"
+      },
+      {
+        title: "Exercise 3: IAM Admin User",
+        description: "Create IAM user for daily work with admin access",
+        estimatedTime: 20,
+        deliverable: "IAM user with MFA"
+      },
+      {
+        title: "Exercise 4: AWS CLI Setup",
+        description: "Install and configure AWS CLI with access keys",
+        estimatedTime: 15,
+        deliverable: "aws sts get-caller-identity works"
+      },
+      {
+        title: "Exercise 5: IAM Policies",
+        description: "Read and understand IAM policy structure",
+        estimatedTime: 20,
+        deliverable: "Can read and write basic policies"
+      },
+      {
+        title: "Exercise 6: Data Pipeline Role",
+        description: "Create IAM role for Lambda/data pipelines",
+        estimatedTime: 20,
+        deliverable: "data-pipeline-role created"
+      },
+      {
+        title: "Exercise 7: Billing Alerts",
+        description: "Set up billing alerts to avoid surprise charges",
+        estimatedTime: 15,
+        deliverable: "CloudWatch billing alarm"
       }
+    ],
+
+    keyTerms: [
+      { term: "IAM", definition: "Identity and Access Management - controls who can do what" },
+      { term: "Policy", definition: "JSON document defining permissions" },
+      { term: "Role", definition: "Identity for services/apps, not humans" },
+      { term: "MFA", definition: "Multi-Factor Authentication - extra security layer" },
+      { term: "Least Privilege", definition: "Only grant permissions actually needed" }
+    ],
+
+    commonMistakes: [
+      "Not enabling MFA on root account",
+      "Using root account for daily work",
+      "Committing access keys to Git",
+      "Overly permissive IAM policies"
     ],
 
     successCriteria: [
       "AWS CLI working",
       "IAM user with least-privilege",
-      "MFA enabled on root account"
+      "MFA enabled on root account",
+      "Billing alerts configured"
     ],
 
     futureProofNote: "AWS skills are highly valued. This is the foundation for cloud data engineering."
@@ -1554,29 +1822,87 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:30", activity: "S3 concepts and best practices", type: "learn" },
-      { time: "0:30-1:00", activity: "Create buckets and upload data", type: "practice" },
-      { time: "1:00-1:30", activity: "boto3 S3 operations", type: "exercise" }
+      { time: "0:00-0:15", activity: "Exercise 1: Create S3 bucket with proper naming", type: "exercise" },
+      { time: "0:15-0:35", activity: "Exercise 2: Data lake folder structure", type: "exercise" },
+      { time: "0:35-0:55", activity: "Exercise 3: Upload/download with CLI and Python", type: "exercise" },
+      { time: "0:55-1:10", activity: "Exercise 4: S3 Select - query in place", type: "exercise" },
+      { time: "1:10-1:25", activity: "Exercise 5: Lifecycle policies", type: "exercise" },
+      { time: "1:25-1:45", activity: "Exercise 6: Bucket policies", type: "exercise" },
+      { time: "1:45-2:00", activity: "Exercise 7: Event notifications + verify", type: "exercise" }
     ],
 
     resources: {
       required: [
-        { title: "AWS S3 User Guide", url: "https://docs.aws.amazon.com/s3/", type: "docs" }
+        { title: "AWS S3 User Guide", url: "https://docs.aws.amazon.com/s3/", type: "docs" },
+        { title: "boto3 S3 Docs", url: "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html", type: "docs" }
       ]
     },
 
     exercises: [
       {
-        title: "S3 Data Lake Structure",
-        description: "Create S3 bucket with proper folder structure for data lake",
-        deliverable: "S3 bucket with raw/processed/analytics folders"
+        title: "Exercise 1: Create Bucket",
+        description: "Create bucket with proper naming (globally unique)",
+        estimatedTime: 15,
+        deliverable: "S3 bucket created"
+      },
+      {
+        title: "Exercise 2: Folder Structure",
+        description: "Create raw/processed/curated/archive structure",
+        estimatedTime: 20,
+        deliverable: "Data lake structure in place"
+      },
+      {
+        title: "Exercise 3: Upload/Download",
+        description: "Use AWS CLI and boto3 for S3 operations",
+        estimatedTime: 20,
+        deliverable: "Files uploaded and downloaded"
+      },
+      {
+        title: "Exercise 4: S3 Select",
+        description: "Query JSON data in S3 without full download",
+        estimatedTime: 15,
+        deliverable: "S3 Select query working"
+      },
+      {
+        title: "Exercise 5: Lifecycle Policies",
+        description: "Set up automatic transitions to cheaper storage",
+        estimatedTime: 15,
+        deliverable: "Lifecycle rule for archive folder"
+      },
+      {
+        title: "Exercise 6: Bucket Policies",
+        description: "Control access at bucket level",
+        estimatedTime: 20,
+        deliverable: "Bucket policy allowing specific role"
+      },
+      {
+        title: "Exercise 7: Event Notifications",
+        description: "Trigger actions when files arrive",
+        estimatedTime: 15,
+        deliverable: "Event notification configured"
       }
+    ],
+
+    keyTerms: [
+      { term: "Bucket", definition: "Container for objects in S3" },
+      { term: "Object", definition: "File stored in S3 (up to 5TB)" },
+      { term: "Prefix", definition: "Folder-like path in S3 (s3://bucket/prefix/file)" },
+      { term: "Storage Class", definition: "Tier determining cost/access speed" },
+      { term: "Lifecycle Policy", definition: "Rules for automatic data management" }
+    ],
+
+    commonMistakes: [
+      "Not using partitioning for large datasets",
+      "Public buckets (major security risk)",
+      "Forgetting about data transfer costs",
+      "Not enabling versioning for important data"
     ],
 
     successCriteria: [
       "S3 bucket created with proper structure",
       "Can upload/download with boto3",
-      "Understand lifecycle policies"
+      "Understand lifecycle policies",
+      "Bucket policies configured"
     ],
 
     futureProofNote: "S3 is fundamental to AWS data engineering. Master it."
@@ -1602,29 +1928,82 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:30", activity: "Docker concepts", type: "learn" },
-      { time: "0:30-1:00", activity: "Write Dockerfiles", type: "practice" },
-      { time: "1:00-1:30", activity: "Build and run containers", type: "exercise" }
+      { time: "0:00-0:15", activity: "Exercise 1: Docker installation verification", type: "exercise" },
+      { time: "0:15-0:30", activity: "Exercise 2: Images vs containers concepts", type: "learn" },
+      { time: "0:30-0:55", activity: "Exercise 3: Your first Dockerfile", type: "exercise" },
+      { time: "0:55-1:20", activity: "Exercise 4: Dockerfile with dependencies", type: "exercise" },
+      { time: "1:20-1:40", activity: "Exercise 5: Volumes - persisting data", type: "exercise" },
+      { time: "1:40-1:55", activity: "Exercise 6: Networking - exposing ports", type: "exercise" },
+      { time: "1:55-2:00", activity: "Docker quiz + verify", type: "review" }
     ],
 
     resources: {
       required: [
         { title: "Docker Getting Started", url: "https://docs.docker.com/get-started/", type: "docs" }
+      ],
+      optional: [
+        { title: "Docker Curriculum", url: "https://docker-curriculum.com/", type: "tutorial" }
       ]
     },
 
     exercises: [
       {
-        title: "Containerize Python App",
-        description: "Create Dockerfile for a Python data application",
-        deliverable: "Working Docker container for your app"
+        title: "Exercise 1: Docker Installation",
+        description: "Install Docker Desktop, run hello-world",
+        estimatedTime: 15,
+        deliverable: "Docker installed and running"
+      },
+      {
+        title: "Exercise 2: Images & Containers",
+        description: "Pull images, list, run containers",
+        estimatedTime: 15,
+        deliverable: "Understanding of image vs container"
+      },
+      {
+        title: "Exercise 3: First Dockerfile",
+        description: "Create simple Python app Dockerfile",
+        estimatedTime: 25,
+        deliverable: "Working Docker image"
+      },
+      {
+        title: "Exercise 4: Dependencies",
+        description: "Dockerfile with requirements.txt, proper layering",
+        estimatedTime: 25,
+        deliverable: "Image with Python dependencies"
+      },
+      {
+        title: "Exercise 5: Volumes",
+        description: "Mount directories for persistent data",
+        estimatedTime: 20,
+        deliverable: "Container with volume mount"
+      },
+      {
+        title: "Exercise 6: Port Mapping",
+        description: "Expose ports for web applications",
+        estimatedTime: 15,
+        deliverable: "Container with exposed port"
       }
+    ],
+
+    keyTerms: [
+      { term: "Image", definition: "Read-only template for creating containers" },
+      { term: "Container", definition: "Running instance of an image" },
+      { term: "Dockerfile", definition: "Text file with instructions to build image" },
+      { term: "Volume", definition: "Persistent storage for container data" },
+      { term: "Layer", definition: "Each instruction in Dockerfile creates a cached layer" }
+    ],
+
+    commonMistakes: [
+      "Using :latest tag (not reproducible)",
+      "Not leveraging layer caching (copy deps first)",
+      "Running as root in production",
+      "Large images (use slim/alpine bases)"
     ],
 
     successCriteria: [
       "Can write Dockerfiles",
       "Can build and run containers",
-      "Understand image layers"
+      "Understand volumes and port mapping"
     ],
 
     futureProofNote: "Docker is standard for modern deployment. Essential skill."
@@ -1650,29 +2029,74 @@ export const Q1_LESSONS: Lesson[] = [
     },
 
     sessionPlan: [
-      { time: "0:00-0:30", activity: "Advanced Docker patterns", type: "learn" },
-      { time: "0:30-1:00", activity: "Docker Compose setup", type: "practice" },
-      { time: "1:00-1:30", activity: "Week 4 project work", type: "exercise" }
+      { time: "0:00-0:30", activity: "Exercise 1: Containerized data pipeline", type: "exercise" },
+      { time: "0:30-1:10", activity: "Exercise 2: Local data stack with Docker Compose", type: "exercise" },
+      { time: "1:10-1:30", activity: "Exercise 3: Database init scripts", type: "exercise" },
+      { time: "1:30-1:55", activity: "Exercise 4-5: Python app with database + workflow", type: "exercise" },
+      { time: "1:55-2:00", activity: "Week 4 checkpoint + verify stack", type: "review" }
     ],
 
     resources: {
       required: [
         { title: "Docker Compose Docs", url: "https://docs.docker.com/compose/", type: "docs" }
+      ],
+      optional: [
+        { title: "Awesome Compose Examples", url: "https://github.com/docker/awesome-compose", type: "reference" }
       ]
     },
 
     exercises: [
       {
-        title: "Docker Compose Stack",
-        description: "Create docker-compose.yml for Python app + PostgreSQL",
-        deliverable: "Working multi-container setup"
+        title: "Exercise 1: Data Pipeline Container",
+        description: "Build complete data extraction pipeline in Docker",
+        estimatedTime: 30,
+        deliverable: "Containerized extractor with volume mounts"
+      },
+      {
+        title: "Exercise 2: Local Data Stack",
+        description: "Docker Compose with Postgres, MinIO, Redis, Adminer",
+        estimatedTime: 40,
+        deliverable: "Full local development environment"
+      },
+      {
+        title: "Exercise 3: Database Init",
+        description: "Auto-create tables on first container start",
+        estimatedTime: 20,
+        deliverable: "Init scripts that run automatically"
+      },
+      {
+        title: "Exercise 4: App with Database",
+        description: "Python app connecting to Postgres in Docker",
+        estimatedTime: 25,
+        deliverable: "End-to-end data flow working"
+      },
+      {
+        title: "Exercise 5: Dev Workflow",
+        description: "Hot reload, mounted volumes, interactive debugging",
+        estimatedTime: 10,
+        deliverable: "Efficient development workflow"
       }
     ],
 
+    keyTerms: [
+      { term: "Docker Compose", definition: "Tool for defining multi-container applications" },
+      { term: "Service", definition: "One container configuration in docker-compose.yml" },
+      { term: "depends_on", definition: "Define service startup order" },
+      { term: "healthcheck", definition: "Verify service is ready before dependent starts" },
+      { term: "Named Volume", definition: "Docker-managed persistent storage" }
+    ],
+
+    commonMistakes: [
+      "Not waiting for database to be ready",
+      "Hardcoding connection strings (use environment vars)",
+      "Not using named volumes for data",
+      "Forgetting to rebuild after Dockerfile changes"
+    ],
+
     successCriteria: [
-      "Docker Compose working",
-      "Multi-stage builds",
-      "Clean, optimized images"
+      "Docker Compose stack running",
+      "Postgres, MinIO accessible",
+      "Python app connects to database"
     ],
 
     weeklyCheckpoint: {
