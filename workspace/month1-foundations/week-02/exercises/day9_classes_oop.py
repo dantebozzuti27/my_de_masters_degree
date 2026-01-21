@@ -14,6 +14,9 @@ WHY THIS MATTERS:
 - Senior engineers understand OOP trade-offs
 """
 
+from pyexpat import errors
+from queue import Empty
+from sys import api_version
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 import json
@@ -51,7 +54,9 @@ class DataRecord:
         TODO: Store data, source, and created_at (current datetime)
         """
         # YOUR CODE HERE
-        pass
+        self.data = data
+        self.source = source
+        self.created_at = datetime.now()
     
     def get(self, key: str, default: Any = None) -> Any:
         """
@@ -65,7 +70,7 @@ class DataRecord:
             0
         """
         # YOUR CODE HERE
-        pass
+        return self.data.get(key, default)
     
     def update(self, key: str, value: Any) -> None:
         """
@@ -78,7 +83,7 @@ class DataRecord:
             2
         """
         # YOUR CODE HERE
-        pass
+        self.data[key] = value
 
 
 class User:
@@ -103,12 +108,19 @@ class User:
         3. Raise ValueError if email is invalid
         """
         # YOUR CODE HERE
-        pass
-    
+        if "@" not in email:
+            raise ValueError("Invalid Email")
+        self.email = email
+        self.display_name = display_name
+        
+
+
     def is_valid_email(self, email: str) -> bool:
         """Check if email contains @ symbol."""
         # YOUR CODE HERE
-        pass
+        if "@" not in email:
+            return False
+        else: return True
 
 
 # =============================================================================
@@ -135,7 +147,9 @@ class Pipeline:
     def __init__(self, name: str, steps: List[str]):
         """Store name and steps."""
         # YOUR CODE HERE
-        pass
+        self.name = name
+        self.steps = steps
+        
     
     def __repr__(self) -> str:
         """
@@ -143,7 +157,7 @@ class Pipeline:
         Format: Pipeline('name', steps=['step1', 'step2'])
         """
         # YOUR CODE HERE
-        pass
+        return f"Pipeline('{self.name}' steps={self.steps})"
     
     def __str__(self) -> str:
         """
@@ -151,7 +165,7 @@ class Pipeline:
         Format: Pipeline: name (N steps)
         """
         # YOUR CODE HERE
-        pass
+        return f"Pipeline: {self.name} ({len(self.steps)} steps)"
 
 
 class APIResponse:
@@ -172,17 +186,23 @@ class APIResponse:
     def __init__(self, status: int, data: Dict, latency: float):
         """Store status, data, and latency."""
         # YOUR CODE HERE
-        pass
+        self.status = status
+        self.data = data
+        self.latency = latency
     
     def __repr__(self) -> str:
         """Return: APIResponse(status=X, data_size=Y, latency=Z)"""
         # YOUR CODE HERE
-        pass
+        return f"APIResponse(status={self.status}, data_size={len(self.data)}, latency={self.latency})"
     
     def __str__(self) -> str:
         """Return: 'STATUS OK/ERROR (Xs)' based on status code"""
         # YOUR CODE HERE
-        pass
+        if self.status < 400:
+            result = "OK"
+        else:
+            result = "ERROR"
+        return f"{self.status} {result} ({self.latency}s)"
 
 
 # =============================================================================
@@ -226,25 +246,29 @@ class DataBatch:
     def count(self) -> int:
         """Return number of records."""
         # YOUR CODE HERE
-        pass
+        return len(self.records)
     
     @property
     def is_empty(self) -> bool:
         """Return True if no records."""
         # YOUR CODE HERE
-        pass
+        return len(self._records) == 0
     
     @property
     def first(self) -> Optional[Dict]:
         """Return first record or None if empty."""
         # YOUR CODE HERE
-        pass
+        if self._records:
+            return self._records[0]
+        return None
     
     @property
     def last(self) -> Optional[Dict]:
         """Return last record or None if empty."""
         # YOUR CODE HERE
-        pass
+        if self._records:
+            return self._records[-1]
+        return None
 
 
 class Connection:
@@ -265,29 +289,34 @@ class Connection:
     def __init__(self, host: str, port: int):
         """Store host, port, and initial connection state."""
         # YOUR CODE HERE - set host, port, _connected = False
-        pass
+        self.host = host
+        self.port = port
+        self._connected = False
     
     @property
     def status(self) -> str:
         """Return 'connected' or 'disconnected'."""
         # YOUR CODE HERE
-        pass
+        if self._connected is False:
+            return "disconnected"
+        else: return "connected"
+
     
     @property
     def connection_string(self) -> str:
         """Return 'host:port' format."""
         # YOUR CODE HERE
-        pass
+        return f"{self.host}:{self.port}"
     
     def connect(self) -> None:
         """Set connection state to True."""
         # YOUR CODE HERE
-        pass
+        self._connected = True
     
     def disconnect(self) -> None:
         """Set connection state to False."""
         # YOUR CODE HERE
-        pass
+        self._connected = False
 
 
 # =============================================================================
@@ -318,12 +347,12 @@ class Config:
     def __init__(self, settings: Dict[str, Any]):
         """Store settings dictionary."""
         # YOUR CODE HERE
-        pass
+        self.settings = settings
     
     def get(self, key: str, default: Any = None) -> Any:
         """Get a setting value."""
         # YOUR CODE HERE
-        pass
+        return self.settings.get(key, default)
     
     @classmethod
     def from_json(cls, json_string: str) -> "Config":
@@ -335,14 +364,16 @@ class Config:
         """
         # YOUR CODE HERE
         # Hint: use json.loads() then create instance with cls(...)
-        pass
+        settings_dict = json.loads(json_string)
+        return cls(settings_dict)
+
     
     @classmethod
     def default(cls) -> "Config":
         """Create Config with default settings."""
         defaults = {"debug": False, "port": 8080, "timeout": 30}
         # YOUR CODE HERE
-        pass
+        return cls(defaults)
     
     @staticmethod
     def validate_port(port: int) -> bool:
@@ -353,7 +384,10 @@ class Config:
         Returns True if port is valid (1-65535).
         """
         # YOUR CODE HERE
-        pass
+        if 1 <= port <= 65535:
+            return True
+        else: return False
+
 
 
 class DataLoader:
@@ -372,25 +406,29 @@ class DataLoader:
     def __init__(self, source: str, source_type: str):
         """Store source and source_type."""
         # YOUR CODE HERE
-        pass
+        self.source = source
+        self.source_type = source_type
     
     @classmethod
     def from_csv_path(cls, path: str) -> "DataLoader":
         """Create loader for CSV file."""
         # YOUR CODE HERE
-        pass
+        return cls(path, "csv")
     
     @classmethod
     def from_api_endpoint(cls, url: str) -> "DataLoader":
         """Create loader for API endpoint."""
         # YOUR CODE HERE
-        pass
+        return cls(url, "api")
     
     @staticmethod
     def is_valid_url(url: str) -> bool:
         """Check if URL starts with http:// or https://"""
         # YOUR CODE HERE
-        pass
+        if url.startswith(("http://" , "https://")):
+            return True
+        else: return False
+
 
 
 # =============================================================================
@@ -430,25 +468,28 @@ class DataExtractor:
         - _last_extract_time (starts as None)
         """
         # YOUR CODE HERE
-        pass
+        self.name = name
+        self.config = config
+        self._extract_count = 0
+        self._last_extract_time = None
     
     @property
     def is_configured(self) -> bool:
         """Return True if config has 'base_url' key."""
         # YOUR CODE HERE
-        pass
+        return "base_url" in self.config
     
     @property
     def extract_count(self) -> int:
         """Return number of extracts performed."""
         # YOUR CODE HERE
-        pass
+        return self._extract_count
     
     @property
     def last_extract_time(self) -> Optional[datetime]:
         """Return time of last extract, or None if never extracted."""
         # YOUR CODE HERE
-        pass
+        return self._last_extract_time
     
     def extract(self, endpoint: str) -> Dict[str, Any]:
         """
@@ -467,7 +508,10 @@ class DataExtractor:
             1
         """
         # YOUR CODE HERE
-        pass
+        self._extract_count = self._extract_count + 1
+        self._last_extract_time = datetime.now()
+        return {"endpoint": endpoint, "config": self.config, "timestamp": self._last_extract_time}
+
     
     def validate(self, data: Dict) -> bool:
         """
@@ -475,12 +519,12 @@ class DataExtractor:
         Return True if data is a non-empty dict.
         """
         # YOUR CODE HERE
-        pass
+        return len(data) > 0
     
     def __repr__(self) -> str:
         """Return: DataExtractor('name', extracts=N)"""
         # YOUR CODE HERE
-        pass
+        return f"DataExtractor('{self.name}', extracts={self._extract_count})"
 
 
 class DataValidator:
@@ -504,13 +548,14 @@ class DataValidator:
         Schema maps field names to expected types.
         """
         # YOUR CODE HERE
-        pass
+        self.schema = schema
+        self._errors = []
     
     @property
     def errors(self) -> List[str]:
         """Return list of validation errors from last validate() call."""
         # YOUR CODE HERE
-        pass
+        return self._errors
     
     def validate(self, data: Dict[str, Any]) -> bool:
         """
@@ -522,7 +567,13 @@ class DataValidator:
         4. Return True if no errors
         """
         # YOUR CODE HERE
-        pass
+        self._errors = []
+        for field_name, expected_type in self.schema.items():
+            actual_value = data.get(field_name)
+            if not isinstance(actual_value, expected_type):
+                self._errors.append("error message here")
+        return len(self._errors) == 0
+
     
     def validate_batch(self, records: List[Dict]) -> Dict[str, Any]:
         """
@@ -536,7 +587,17 @@ class DataValidator:
             }
         """
         # YOUR CODE HERE
-        pass
+        valid_count = 0
+        invalid_count = 0
+        invalid_indices = []
+        for index, record in enumerate(records):
+            if self.validate(record):
+                valid_count += 1
+            else:
+                invalid_count += 1
+                invalid_indices.append(index)
+        return {"valid_count": valid_count, "invalid_count": invalid_count, "invalid_indices": invalid_indices}
+        
 
 
 # =============================================================================
@@ -587,7 +648,9 @@ class DataPipeline:
         Create self.logger as Logger(name)
         """
         # YOUR CODE HERE
-        pass
+        self.name = name
+        self.steps = steps
+        self.logger = Logger(name)
     
     def run(self) -> bool:
         """
@@ -598,12 +661,15 @@ class DataPipeline:
         3. Return True
         """
         # YOUR CODE HERE
-        pass
+        self.logger.info("Pipeline started")
+        for step in self.steps:
+            self.logger.info(f"Running step: {step}")
+        return True
     
     def get_logs(self) -> List[str]:
         """Return all log messages."""
         # YOUR CODE HERE
-        pass
+        return self.logger.messages
 
 
 # =============================================================================
