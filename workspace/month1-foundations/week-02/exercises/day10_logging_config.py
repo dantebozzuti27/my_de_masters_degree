@@ -16,6 +16,7 @@ WHY THIS MATTERS:
 
 import logging
 import json
+from operator import truediv
 import os
 from typing import Any, Dict, Optional, List
 from datetime import datetime
@@ -51,7 +52,13 @@ def setup_basic_logger(name: str, level: str = "INFO") -> logging.Logger:
     6. Return logger
     """
     # YOUR CODE HERE
-    pass
+    logger = logging.getLogger(name)
+    logger.setLevel(getattr(logging, level.upper()))
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter('[%(levelname)s] %(name)s %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
 
 
 def setup_file_logger(name: str, filepath: str, level: str = "DEBUG") -> logging.Logger:
@@ -71,7 +78,13 @@ def setup_file_logger(name: str, filepath: str, level: str = "DEBUG") -> logging
     6. Return logger
     """
     # YOUR CODE HERE
-    pass
+    logger = logging.getLogger(name)
+    logger.setLevel(getattr(logging, level.upper()))
+    handler = logging.FileHandler(filepath)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
 
 
 # =============================================================================
@@ -104,7 +117,10 @@ class StructuredLogger:
         Initialize self.entries as empty list to capture logs.
         """
         # YOUR CODE HERE
-        pass
+        self.name = name
+        self.min_level = min_level.upper()
+        self.entries = []
+
     
     def _should_log(self, level: str) -> bool:
         """
@@ -115,7 +131,10 @@ class StructuredLogger:
         """
         levels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
         # YOUR CODE HERE
-        pass
+        levels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+        incoming_index = levels.index(level)
+        minimum_index = levels.index(self.min_level)
+        return incoming_index >= minimum_index
     
     def _create_entry(self, level: str, message: str, **kwargs) -> Dict:
         """
@@ -129,7 +148,14 @@ class StructuredLogger:
         - Any additional kwargs
         """
         # YOUR CODE HERE
-        pass
+        entry = {
+            "timestamp": datetime.now().isoformat(),
+            "level": level,
+            "logger": self.name,
+            "message": message,
+        }
+        entry.update(kwargs)
+        return entry
     
     def log(self, level: str, message: str, **kwargs) -> Optional[Dict]:
         """
@@ -141,7 +167,13 @@ class StructuredLogger:
         4. Return the entry (or None if not logged)
         """
         # YOUR CODE HERE
-        pass
+        if not self._should_log(level):
+            return None
+        entry = self._create_entry(level, message, **kwargs)
+        self.entries.append(entry)
+        return entry
+
+
     
     def debug(self, message: str, **kwargs) -> Optional[Dict]:
         """Log at DEBUG level."""
@@ -168,7 +200,14 @@ class StructuredLogger:
             >>> logger.get_entries()  # All entries
         """
         # YOUR CODE HERE
-        pass
+        if level is None:
+            return self.entries
+        else:
+            result = []
+            for entry in self.entries:
+                if entry["level"] == level:
+                    result.append(entry)
+            return result
 
 
 # =============================================================================
@@ -199,7 +238,7 @@ class EnvConfig:
         If prefix is "APP", we look for "APP_DEBUG", "APP_PORT", etc.
         """
         # YOUR CODE HERE
-        pass
+        self.prefix = prefix
     
     def _get_key(self, name: str) -> str:
         """
@@ -208,7 +247,9 @@ class EnvConfig:
         If prefix is empty, just return name.
         """
         # YOUR CODE HERE
-        pass
+        if self.prefix:
+            return f"{self.prefix}_{name}"
+        return name
     
     def get(self, name: str, default: Optional[str] = None) -> Optional[str]:
         """
@@ -220,7 +261,8 @@ class EnvConfig:
             'localhost'
         """
         # YOUR CODE HERE
-        pass
+        key = self._get_key(name)
+        return os.environ.get(key, default)
     
     def get_bool(self, name: str, default: bool = False) -> bool:
         """
@@ -230,7 +272,10 @@ class EnvConfig:
         Everything else is False.
         """
         # YOUR CODE HERE
-        pass
+        value = self.get(name)
+        if value is None:
+            return default
+        return value.lower() in ("true", "1", "yes")
     
     def get_int(self, name: str, default: int = 0) -> int:
         """
@@ -239,7 +284,13 @@ class EnvConfig:
         Returns default if not set or not a valid integer.
         """
         # YOUR CODE HERE
-        pass
+        value = self.get(name)
+        if value is None:
+            return default
+        try:
+            return int(value)
+        except ValueError:
+            return default
     
     def get_list(self, name: str, separator: str = ",", default: Optional[List[str]] = None) -> List[str]:
         """
@@ -251,7 +302,11 @@ class EnvConfig:
             ['host1', 'host2', 'host3']
         """
         # YOUR CODE HERE
-        pass
+        value = self.get(name)
+        if value is None:
+            return default if default is not None else []
+        return value.split(separator)
+        
     
     def require(self, name: str) -> str:
         """
@@ -260,7 +315,11 @@ class EnvConfig:
         Use for critical config like database URLs.
         """
         # YOUR CODE HERE
-        pass
+        value = self.get(name)
+        if value is None:
+            key = self._get_key(name)
+            raise ValueError(f"Required env variable {key} is not set")
+        return value
 
 
 # =============================================================================
@@ -283,12 +342,12 @@ class FileConfig:
     def __init__(self, settings: Dict[str, Any]):
         """Store settings dictionary."""
         # YOUR CODE HERE
-        pass
+        self.settings = settings
     
     def get(self, key: str, default: Any = None) -> Any:
         """Get a value with optional default."""
         # YOUR CODE HERE
-        pass
+        return self.settings.get(key, default)
     
     def get_nested(self, path: str, default: Any = None) -> Any:
         """
@@ -302,8 +361,15 @@ class FileConfig:
             5432
         """
         # YOUR CODE HERE
-        pass
-    
+        keys = path.split(".")
+        value = self.settings
+        for key in keys:
+            if isinstance(value, dict) and key in value:
+                value = value[key]
+            else:
+                return default
+        return value    
+
     @classmethod
     def from_json_file(cls, filepath: str) -> "FileConfig":
         """
@@ -312,7 +378,11 @@ class FileConfig:
         If file doesn't exist, return empty config.
         """
         # YOUR CODE HERE
-        pass
+        if not os.path.exists(filepath):
+            return cls({})
+        with open(filepath, 'r') as f:
+            settings = json.load(f)
+        return cls(settings)
     
     def merge(self, other: "FileConfig") -> "FileConfig":
         """
@@ -321,7 +391,8 @@ class FileConfig:
         Returns a new FileConfig.
         """
         # YOUR CODE HERE
-        pass
+        merged = {**self.settings, **other.settings}
+        return FileConfig(merged)
     
     def validate_required(self, keys: List[str]) -> List[str]:
         """
@@ -329,7 +400,12 @@ class FileConfig:
         Returns list of missing keys.
         """
         # YOUR CODE HERE
-        pass
+        missing = []
+        for key in keys:
+            if key not in self.settings:
+                missing.append(key)
+        return missing
+
 
 
 # =============================================================================
@@ -397,7 +473,21 @@ class ConfigurablePipeline:
         TODO: Implement this method
         """
         # YOUR CODE HERE
-        pass
+        self.start_time = datetime.now()
+        self.logger.info("Pipeline started", steps=len(self.steps))
+        if self.debug:
+            self.logger.debug("Configuration", config=self.config)
+        for step in self.steps:
+            self.logger.info(f"starting step: {step}")
+            self._execute_step(step)
+            self.logger.info(f"completed step: {step}")
+        self.end_time = datetime.now()
+        duration = (self.end_time - self.start_time).total_seconds()
+        self.logger.info("pipeline complete", duration_seconds=duration)
+        return {
+            "steps_executed": len(self.executed_steps),
+            "duration_seconds": duration
+        }
     
     def _execute_step(self, step: str) -> bool:
         """
@@ -407,12 +497,13 @@ class ConfigurablePipeline:
         In real code, this would call actual step functions.
         """
         # YOUR CODE HERE
-        pass
+        self.executed_steps.append(step)
+        return True
     
     def get_logs(self) -> List[Dict]:
         """Return all log entries."""
         # YOUR CODE HERE
-        pass
+        return self.logger.get_entries()
     
     def get_stats(self) -> Dict[str, Any]:
         """
@@ -426,7 +517,22 @@ class ConfigurablePipeline:
         - status: "not_started", "completed", or "dry_run"
         """
         # YOUR CODE HERE
-        pass
+        if self.start_time is None:
+            status = "not_started"
+        elif self.dry_run:
+            status = "dry_run"
+        else:
+            status = "completed"
+        duration = None
+        if self.start_time and self.end_time:
+            duration = (self.end_time - self.start_time).total_seconds()
+        return {
+            "name": self.name,
+            "steps_total": len(self.steps),
+            "steps_executed": len(self.executed_steps),
+            "duration_seconds": duration,
+            "status": status
+        }
 
 
 # =============================================================================
