@@ -31,12 +31,13 @@ const INCOMPLETE_PATTERNS = [
   /^\s*is_learning_python\s*=\s*False\s*#/m,
   /^\s*name\s*=\s*""\s*#.*Replace/m,
   
-  // Explicit placeholder markers (in function body, not in instructions)
-  /# YOUR CODE HERE/m,
+  // Explicit placeholder markers ONLY if followed by pass or nothing
+  // This avoids false positives when user fills in code but leaves the comment
+  /# YOUR CODE HERE\s*\n\s*pass\s*$/m,
   
   // Bare pass statements in functions (but not in exception class definitions)
   // Match pass that is indented (inside a function), not at class level
-  /^\s{4}pass\s*$/m,  // 4-space indented pass = likely incomplete function
+  /^\s{4,8}pass\s*$/m,  // 4-8 space indented pass = likely incomplete function
   
   // Empty result variable followed immediately by return (template pattern)
   /result\s*=\s*\[\s*\]\s*\n\s*return\s+result\s*$/m,
@@ -240,8 +241,15 @@ function scanWorkspace() {
   
   for (const quarterDir of quarterDirs) {
     const quarterPath = path.join(WORKSPACE_DIR, quarterDir);
-    const quarterNum = parseInt(quarterDir.split('-')[0].replace('q', ''));
-    manifest.quarters[quarterNum] = {
+    
+    // Extract number from folder name (works for both q1-xxx and month1-xxx)
+    const numMatch = quarterDir.match(/\d+/);
+    const quarterNum = numMatch ? parseInt(numMatch[0]) : 0;
+    
+    // Use a prefix for month dirs to avoid collision with q dirs
+    const key = quarterDir.startsWith('month') ? `m${quarterNum}` : quarterNum;
+    
+    manifest.quarters[key] = {
       folder: quarterDir,
       weeks: scanQuarter(quarterPath)
     };
@@ -264,10 +272,23 @@ function scanWorkspace() {
         if (dayMatch) {
           const absoluteDay = parseInt(dayMatch[1]);
           
-          manifest.dayStatus[absoluteDay] = {
-            complete: exercise.complete,
-            file: exercise.path
-          };
+          // If we already have a complete status for this day, don't overwrite with incomplete
+          // This handles cases where old curriculum files exist alongside new ones
+          const existingStatus = manifest.dayStatus[absoluteDay];
+          if (!existingStatus || 
+              exercise.complete || 
+              (!existingStatus.complete && !exercise.complete)) {
+            // Prioritize month1-foundations files over old q1- files
+            const isNewCurriculum = exercise.path.startsWith('month');
+            const existingIsNew = existingStatus?.file?.startsWith('month');
+            
+            if (!existingStatus || exercise.complete || isNewCurriculum || !existingIsNew) {
+              manifest.dayStatus[absoluteDay] = {
+                complete: exercise.complete,
+                file: exercise.path
+              };
+            }
+          }
         }
       }
     }
