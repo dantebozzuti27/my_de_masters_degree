@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - Code review skills are highly valued
 - Good PRs get merged faster
 - This is how you'll work every day as a data engineer
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import subprocess
 import os

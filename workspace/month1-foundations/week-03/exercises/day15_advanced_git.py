@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Day 13: Advanced Git + Code Review Practice
+Day 15: Advanced Git + Code Review Practice
 ============================================
-Duration: 2-2.5 hours (Friday)
+Duration: 2-2.5 hours
 
 Deep dive into Git workflows, history rewriting, and code review skills.
 This builds on Days 11-12 to make you truly proficient.
@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - Good code review skills are highly valued
 - Git mastery = faster, cleaner workflows
 - This is what separates juniors from seniors
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import subprocess
 import os

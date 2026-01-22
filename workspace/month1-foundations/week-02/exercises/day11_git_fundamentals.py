@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - Branching/merging is daily work
 - Clean commit history = professional code
 - Interviewers check your GitHub for commit quality
+
+COMPLETION: Delete the marker below when you've finished all terminal exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN TERMINAL EXERCISES COMPLETE
 
 import subprocess
 import os

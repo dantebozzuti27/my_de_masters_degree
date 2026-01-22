@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Day 15: Docker Fundamentals
+Day 18: Docker Fundamentals
 ============================
 Duration: 2 hours
 
@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - All modern deployments use containers
 - Airflow, dbt, databases - all run in Docker
 - This is a must-have skill for data engineers
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import os
 import subprocess

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Day 13: AWS Account Setup & IAM
+Day 16: AWS Account Setup & IAM
 ================================
 Duration: 2 hours
 
@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - IAM security knowledge is mandatory
 - Bad IAM = security breaches, massive bills
 - This is always an interview topic
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import os
 from typing import Dict, List, Optional

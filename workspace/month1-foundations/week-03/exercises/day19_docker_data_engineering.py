@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Day 16: Docker for Data Engineering
+Day 19: Docker for Data Engineering
 =====================================
 Duration: 2 hours
 
@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - Local development should mirror production
 - Docker Compose = instant data stack
 - This is how senior engineers work
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import os
 import json

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Day 14: S3 Fundamentals & Best Practices
+Day 17: S3 Fundamentals & Best Practices
 =========================================
 Duration: 2 hours
 
@@ -12,7 +12,11 @@ WHY THIS MATTERS:
 - Understanding S3 = understanding modern data architecture
 - Every data pipeline uses S3 somewhere
 - Cost optimization depends on S3 knowledge
+
+COMPLETION: Delete the marker below when you've finished all exercises.
 """
+
+# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import boto3
 import json

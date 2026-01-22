@@ -35,9 +35,12 @@ const INCOMPLETE_PATTERNS = [
   // This avoids false positives when user fills in code but leaves the comment
   /# YOUR CODE HERE\s*\n\s*pass\s*$/m,
   
-  // Bare pass statements in functions (but not in exception class definitions)
-  // Match pass that is indented (inside a function), not at class level
-  /^\s{4,8}pass\s*$/m,  // 4-8 space indented pass = likely incomplete function
+  // Standalone completion markers (for terminal-based exercises)
+  /^# YOUR CODE HERE - DELETE/m,
+  
+  // Bare pass statements in functions (at first indent level only)
+  // Match pass that is exactly 4 spaces indented (top of function), not nested
+  /^    pass\s*$/m,  // Exactly 4 spaces = likely incomplete function
   
   // Empty result variable followed immediately by return (template pattern)
   /result\s*=\s*\[\s*\]\s*\n\s*return\s+result\s*$/m,
@@ -143,9 +146,9 @@ function analyzeExerciseFile(filePath) {
     }
     
     // Determine overall completion
-    // Complete if: more complete patterns than incomplete, OR specific functions done
-    const isComplete = (completeCount > 0 && incompleteCount === 0) || 
-                       (completedFunctions > 0 && incompleteCount < 2);
+    // Complete if: has complete patterns AND zero incomplete patterns
+    // The DELETE marker must be removed for terminal-based exercises
+    const isComplete = (completeCount > 0 && incompleteCount === 0);
     
     return {
       complete: isComplete,

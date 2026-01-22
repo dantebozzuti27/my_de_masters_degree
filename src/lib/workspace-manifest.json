@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-22T01:58:10.492Z",
+  "generatedAt": "2026-01-22T02:02:27.040Z",
   "quarters": {
     "1": {
       "folder": "q1-python-sql",
@@ -10,7 +10,7 @@
               "complete": true,
               "totalFunctions": 9,
               "completedFunctions": 1,
-              "incompletePatterns": 1,
+              "incompletePatterns": 0,
               "completePatterns": 4,
               "hash": "5530c63d",
               "lines": 238,
@@ -505,26 +505,26 @@
               "modifiedAt": "2026-01-22T01:57:53.981Z"
             },
             "day11_git_fundamentals.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 6,
               "completedFunctions": 1,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 2,
-              "hash": "8a89fe42",
-              "lines": 503,
+              "hash": "21bb19ad",
+              "lines": 507,
               "path": "month1-foundations/week-02/exercises/day11_git_fundamentals.py",
-              "modifiedAt": "2026-01-20T02:57:51.081Z"
+              "modifiedAt": "2026-01-22T01:59:57.412Z"
             },
             "day12_github_prs.py": {
               "complete": false,
               "totalFunctions": 5,
               "completedFunctions": 0,
-              "incompletePatterns": 5,
+              "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "72f90d4e",
-              "lines": 536,
+              "hash": "9f368c7d",
+              "lines": 540,
               "path": "month1-foundations/week-02/exercises/day12_github_prs.py",
-              "modifiedAt": "2026-01-20T02:58:50.222Z"
+              "modifiedAt": "2026-01-22T02:00:13.189Z"
             },
             "day9_classes_oop.py": {
               "complete": true,
@@ -542,59 +542,59 @@
         "3": {
           "exercises": {
             "day15_advanced_git.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 5,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "6d1c9df9",
-              "lines": 482,
+              "hash": "1596ca62",
+              "lines": 486,
               "path": "month1-foundations/week-03/exercises/day15_advanced_git.py",
-              "modifiedAt": "2026-01-20T03:17:13.232Z"
+              "modifiedAt": "2026-01-22T02:00:16.876Z"
             },
             "day16_aws_iam.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 6,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "a93ec887",
-              "lines": 551,
+              "hash": "c4c665aa",
+              "lines": 555,
               "path": "month1-foundations/week-03/exercises/day16_aws_iam.py",
-              "modifiedAt": "2026-01-20T02:59:55.382Z"
+              "modifiedAt": "2026-01-22T02:00:19.057Z"
             },
             "day17_s3_fundamentals.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 12,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 4,
-              "hash": "f8184f34",
-              "lines": 526,
+              "hash": "ab944a76",
+              "lines": 530,
               "path": "month1-foundations/week-03/exercises/day17_s3_fundamentals.py",
-              "modifiedAt": "2026-01-20T03:00:53.659Z"
+              "modifiedAt": "2026-01-22T02:00:21.707Z"
             },
             "day18_docker_fundamentals.py": {
-              "complete": true,
+              "complete": false,
               "totalFunctions": 7,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "238c9b63",
-              "lines": 636,
+              "hash": "828f3dd0",
+              "lines": 640,
               "path": "month1-foundations/week-03/exercises/day18_docker_fundamentals.py",
-              "modifiedAt": "2026-01-20T03:01:51.283Z"
+              "modifiedAt": "2026-01-22T02:00:24.015Z"
             },
             "day19_docker_data_engineering.py": {
               "complete": false,
               "totalFunctions": 8,
               "completedFunctions": 0,
-              "incompletePatterns": 0,
+              "incompletePatterns": 1,
               "completePatterns": 0,
-              "hash": "1edf85a2",
-              "lines": 641,
+              "hash": "d3bba3e2",
+              "lines": 645,
               "path": "month1-foundations/week-03/exercises/day19_docker_data_engineering.py",
-              "modifiedAt": "2026-01-20T03:02:54.173Z"
+              "modifiedAt": "2026-01-22T02:00:26.547Z"
             }
           }
         }
@@ -623,8 +623,8 @@
   },
   "summary": {
     "totalExercises": 21,
-    "completedExercises": 15,
-    "completionRate": 71
+    "completedExercises": 10,
+    "completionRate": 48
   },
   "dayStatus": {
     "1": {
@@ -668,7 +668,7 @@
       "file": "month1-foundations/week-02/exercises/day10_logging_config.py"
     },
     "11": {
-      "complete": true,
+      "complete": false,
       "file": "month1-foundations/week-02/exercises/day11_git_fundamentals.py"
     },
     "12": {
@@ -676,19 +676,19 @@
       "file": "month1-foundations/week-02/exercises/day12_github_prs.py"
     },
     "15": {
-      "complete": true,
+      "complete": false,
       "file": "month1-foundations/week-03/exercises/day15_advanced_git.py"
     },
     "16": {
-      "complete": true,
+      "complete": false,
       "file": "month1-foundations/week-03/exercises/day16_aws_iam.py"
     },
     "17": {
-      "complete": true,
+      "complete": false,
       "file": "month1-foundations/week-03/exercises/day17_s3_fundamentals.py"
     },
     "18": {
-      "complete": true,
+      "complete": false,
       "file": "month1-foundations/week-03/exercises/day18_docker_fundamentals.py"
     },
     "19": {
