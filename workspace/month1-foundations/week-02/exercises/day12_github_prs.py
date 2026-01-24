@@ -13,10 +13,8 @@ WHY THIS MATTERS:
 - Good PRs get merged faster
 - This is how you'll work every day as a data engineer
 
-COMPLETION: Delete the marker below when you've finished all exercises.
+COMPLETION: Exercises completed!
 """
-
-# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 import subprocess
 import os
