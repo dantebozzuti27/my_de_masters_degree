@@ -61,7 +61,7 @@ export function generateAllSessions(): StudySession[] {
       dayNumber,
       weekNumber,
       quarterId,
-      dayOfWeek: dayInWeek as 0 | 1 | 2 | 3,
+      dayOfWeek: dayInWeek as 0 | 1 | 2 | 3 | 4 | 5 | 6,
       topic: topics[dayInWeek] || `Day ${dayNumber} Study Session`,
       objectives: [],
       resources: []

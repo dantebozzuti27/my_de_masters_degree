@@ -38,7 +38,7 @@ export interface StudySession {
   weekNumber: number;
   quarterId: number;
   date?: string; // Optional - not tied to specific dates
-  dayOfWeek?: 0 | 1 | 2 | 3; // Optional - complete at your own pace
+  dayOfWeek?: 0 | 1 | 2 | 3 | 4 | 5 | 6; // 0=Mon, 6=Sun
   topic: string;
   objectives: string[];
   resources: Resource[];

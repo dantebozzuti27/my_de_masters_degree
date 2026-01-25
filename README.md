@@ -27,7 +27,7 @@
 
 ## Complete 168-Day Curriculum
 
-### Month 1: Foundations (Feb 2026) — Days 1-35
+### Month 1: Foundations (Feb 2026) — Weeks 1-5, Days 1-35
 
 #### Week 1: Python Fundamentals (Days 1-7)
 | Day | Topic |
@@ -86,7 +86,7 @@
 
 ---
 
-### Month 2: dbt Mastery (Mar 2026) — Days 36-64
+### Month 2: dbt Mastery (Mar 2026) — Weeks 6-9, Days 36-63
 
 #### Week 6: dbt Fundamentals (Days 36-42)
 | Day | Topic |
@@ -121,7 +121,7 @@
 | 55 | Project 2 Deep Work |
 | 56 | Project 2 Testing |
 
-#### Week 9: Project 2 Part 2 (Days 57-64)
+#### Week 9: Project 2 Complete + dbt Cert (Days 57-63)
 | Day | Topic |
 |-----|-------|
 | 57 | dbt Test Coverage + Docs |
@@ -131,186 +131,186 @@
 | 61 | dbt Certification Final Prep |
 | 62 | **dbt Cert Exam Attempt** |
 | 63 | Month 2 Review |
-| 64 | Buffer/Catch-up |
 
 ---
 
-### Month 3: Airflow + Start Applying (Apr 2026) — Days 65-92
+### Month 3: Airflow + Start Applying (Apr 2026) — Weeks 10-13, Days 64-91
 
-#### Week 10: Airflow Fundamentals (Days 65-71)
+#### Week 10: Airflow Fundamentals (Days 64-70)
 | Day | Topic |
 |-----|-------|
-| 65 | Airflow Architecture Deep Dive |
-| 66 | DAG Design Patterns |
-| 67 | Operators and TaskFlow API |
-| 68 | Task Dependencies + XComs |
-| 69 | Airflow Connections + Hooks |
-| 70 | Airflow Lab: Build Complex DAG |
-| 71 | Airflow Testing Intro |
+| 64 | Airflow Architecture Deep Dive |
+| 65 | DAG Design Patterns |
+| 66 | Operators and TaskFlow API |
+| 67 | Task Dependencies + XComs |
+| 68 | Airflow Connections + Hooks |
+| 69 | Airflow Lab: Build Complex DAG |
+| 70 | Airflow Testing Intro |
 
-#### Week 11: Airflow Production + Apply (Days 72-78)
+#### Week 11: Airflow Production + Apply (Days 71-77)
 | Day | Topic |
 |-----|-------|
-| 72 | Airflow Testing + Monitoring |
-| 73 | Error Handling in DAGs |
-| 74 | Resume + LinkedIn Polish — **START APPLYING** |
-| 75 | First 5 Applications |
-| 76 | More Applications + Airflow Practice |
-| 77 | Application Sprint (10 apps) |
-| 78 | Week Review + Application Tracking |
+| 71 | Airflow Testing + Monitoring |
+| 72 | Error Handling in DAGs |
+| 73 | Resume + LinkedIn Polish — **START APPLYING** |
+| 74 | First 5 Applications |
+| 75 | More Applications + Airflow Practice |
+| 76 | Application Sprint (10 apps) |
+| 77 | Week Review + Application Tracking |
 
-#### Week 12: Project 3 Part 1 (Days 79-85)
+#### Week 12: Project 3 Part 1 (Days 78-84)
 | Day | Topic |
 |-----|-------|
-| 79 | Multi-Source Ingestion DAGs |
-| 80 | Great Expectations Setup |
-| 81 | Data Quality Framework |
-| 82 | Quality Checks Integration |
-| 83 | Applications + Project Work |
-| 84 | Project 3 Deep Work |
-| 85 | Project 3 Debug + Review |
+| 78 | Multi-Source Ingestion DAGs |
+| 79 | Great Expectations Setup |
+| 80 | Data Quality Framework |
+| 81 | Quality Checks Integration |
+| 82 | Applications + Project Work |
+| 83 | Project 3 Deep Work |
+| 84 | Project 3 Debug + Review |
 
-#### Week 13: Project 3 Part 2 (Days 86-92)
+#### Week 13: Project 3 Part 2 (Days 85-91)
 | Day | Topic |
 |-----|-------|
-| 86 | Monitoring + Alerting Setup |
-| 87 | Final Polish + Deployment |
-| 88 | Project 3 Documentation |
-| 89 | Applications (25+ total) |
-| 90 | More Applications |
-| 91 | Application Sprint + Portfolio |
-| 92 | Month 3 Review (30+ apps) |
+| 85 | Monitoring + Alerting Setup |
+| 86 | Final Polish + Deployment |
+| 87 | Project 3 Documentation |
+| 88 | Applications (25+ total) |
+| 89 | More Applications |
+| 90 | Application Sprint + Portfolio |
+| 91 | Month 3 Review (30+ apps) |
 
 ---
 
-### Month 4: AWS Certification (May 2026) — Days 93-120
+### Month 4: AWS Certification (May 2026) — Weeks 14-17, Days 92-119
 
-#### Week 14: AWS SAA - Compute & Storage (Days 93-99)
+#### Week 14: AWS SAA - Compute & Storage (Days 92-98)
 | Day | Topic |
 |-----|-------|
-| 93 | AWS SAA: S3 Deep Dive |
-| 94 | AWS SAA: EC2 + Lambda Advanced |
-| 95 | AWS SAA: RDS + Redshift |
-| 96 | Applications (7/week pace) |
-| 97 | AWS SAA: EBS + Storage |
-| 98 | AWS Lab Day + Applications |
-| 99 | AWS Review + Flashcards |
+| 92 | AWS SAA: S3 Deep Dive |
+| 93 | AWS SAA: EC2 + Lambda Advanced |
+| 94 | AWS SAA: RDS + Redshift |
+| 95 | Applications (7/week pace) |
+| 96 | AWS SAA: EBS + Storage |
+| 97 | AWS Lab Day + Applications |
+| 98 | AWS Review + Flashcards |
 
-#### Week 15: AWS SAA - Networking (Days 100-106)
+#### Week 15: AWS SAA - Networking (Days 99-105)
 | Day | Topic |
 |-----|-------|
-| 100 | AWS SAA: VPC + Networking |
-| 101 | AWS SAA: IAM Deep Dive |
-| 102 | AWS SAA: Glue + Athena |
-| 103 | Applications + Interview Prep |
-| 104 | AWS SAA: CloudWatch + Monitoring |
-| 105 | AWS Practice Exam 1 |
-| 106 | Review Weak Areas |
+| 99 | AWS SAA: VPC + Networking |
+| 100 | AWS SAA: IAM Deep Dive |
+| 101 | AWS SAA: Glue + Athena |
+| 102 | Applications + Interview Prep |
+| 103 | AWS SAA: CloudWatch + Monitoring |
+| 104 | AWS Practice Exam 1 |
+| 105 | Review Weak Areas |
 
-#### Week 16: AWS SAA Final Prep (Days 107-113)
+#### Week 16: AWS SAA Final Prep (Days 106-112)
 | Day | Topic |
 |-----|-------|
-| 107 | AWS SAA: Practice Exam 2 |
-| 108 | AWS SAA: Deep Dive Weak Areas |
-| 109 | AWS SAA: Practice Exam 3 |
-| 110 | First Interviews This Week |
-| 111 | AWS SAA: Final Review |
-| 112 | **AWS SAA: TAKE EXAM** |
-| 113 | Celebrate + Interview Prep |
+| 106 | AWS SAA: Practice Exam 2 |
+| 107 | AWS SAA: Deep Dive Weak Areas |
+| 108 | AWS SAA: Practice Exam 3 |
+| 109 | First Interviews This Week |
+| 110 | AWS SAA: Final Review |
+| 111 | **AWS SAA: TAKE EXAM** |
+| 112 | Celebrate + Interview Prep |
 
-#### Week 17: Interview Ramp Up (Days 114-120)
+#### Week 17: Interview Ramp Up (Days 113-119)
 | Day | Topic |
 |-----|-------|
-| 114 | Interview Prep: SQL Deep Dive |
-| 115 | Interview Prep: Python Challenges |
-| 116 | Interview Prep: System Design Intro |
-| 117 | Active Interviewing |
-| 118 | Interview Prep + Applications |
-| 119 | Mock Interview Day |
-| 120 | Month 4 Review (5-10 interviews) |
+| 113 | Interview Prep: SQL Deep Dive |
+| 114 | Interview Prep: Python Challenges |
+| 115 | Interview Prep: System Design Intro |
+| 116 | Active Interviewing |
+| 117 | Interview Prep + Applications |
+| 118 | Mock Interview Day |
+| 119 | Month 4 Review (5-10 interviews) |
 
 ---
 
-### Month 5: Interview Intensive (Jun 2026) — Days 121-148
+### Month 5: Interview Intensive (Jun 2026) — Weeks 18-21, Days 120-147
 
-#### Week 18: System Design Practice (Days 121-127)
+#### Week 18: System Design Practice (Days 120-126)
 | Day | Topic |
 |-----|-------|
-| 121 | System Design: Data Pipelines |
-| 122 | System Design: Data Warehouses |
-| 123 | System Design: Streaming Systems |
-| 124 | Active Interviewing |
-| 125 | System Design: Real-time Analytics |
-| 126 | System Design Deep Practice |
-| 127 | Interview Debrief + Prep |
+| 120 | System Design: Data Pipelines |
+| 121 | System Design: Data Warehouses |
+| 122 | System Design: Streaming Systems |
+| 123 | Active Interviewing |
+| 124 | System Design: Real-time Analytics |
+| 125 | System Design Deep Practice |
+| 126 | Interview Debrief + Prep |
 
-#### Week 19: Technical Interview Practice (Days 128-134)
+#### Week 19: Technical Interview Practice (Days 127-133)
 | Day | Topic |
 |-----|-------|
-| 128 | SQL Interview: Window Functions |
-| 129 | SQL Interview: CTEs + Subqueries |
-| 130 | Python: Data Structures |
-| 131 | Active Interviewing |
-| 132 | Data Modeling Questions |
-| 133 | Full Mock Interview Day |
-| 134 | Interview Prep + Review |
+| 127 | SQL Interview: Window Functions |
+| 128 | SQL Interview: CTEs + Subqueries |
+| 129 | Python: Data Structures |
+| 130 | Active Interviewing |
+| 131 | Data Modeling Questions |
+| 132 | Full Mock Interview Day |
+| 133 | Interview Prep + Review |
 
-#### Week 20: Behavioral + Mock Interviews (Days 135-141)
+#### Week 20: Behavioral + Mock Interviews (Days 134-140)
 | Day | Topic |
 |-----|-------|
-| 135 | Behavioral Prep (STAR Method) |
-| 136 | Tell Me About Yourself |
-| 137 | Leadership + Conflict Questions |
-| 138 | Active Interviewing |
-| 139 | Mock Interview 1 |
-| 140 | Mock Interview 2 + Feedback |
-| 141 | Refine Interview Answers |
+| 134 | Behavioral Prep (STAR Method) |
+| 135 | Tell Me About Yourself |
+| 136 | Leadership + Conflict Questions |
+| 137 | Active Interviewing |
+| 138 | Mock Interview 1 |
+| 139 | Mock Interview 2 + Feedback |
+| 140 | Refine Interview Answers |
 
-#### Week 21: Interview Refinement (Days 142-148)
+#### Week 21: Interview Refinement (Days 141-147)
 | Day | Topic |
 |-----|-------|
-| 142 | Refine Your Story |
-| 143 | Technical Deep Dives |
-| 144 | Negotiation Research |
-| 145 | Active Interviewing |
-| 146 | Final Round Prep |
-| 147 | Practice Final Rounds |
-| 148 | Month 5 Review (multiple offers) |
+| 141 | Refine Your Story |
+| 142 | Technical Deep Dives |
+| 143 | Negotiation Research |
+| 144 | Active Interviewing |
+| 145 | Final Round Prep |
+| 146 | Practice Final Rounds |
+| 147 | Month 5 Review (multiple offers) |
 
 ---
 
-### Month 6: Close Offers (Jul 2026) — Days 149-168
+### Month 6: Close Offers (Jul 2026) — Weeks 22-24, Days 148-168
 
-#### Week 22: Final Push (Days 149-155)
+#### Week 22: Final Push (Days 148-154)
 | Day | Topic |
 |-----|-------|
-| 149 | Final Round Prep |
+| 148 | Final Round Prep |
+| 149 | Final Interviews |
 | 150 | Final Interviews |
-| 151 | Final Interviews |
-| 152 | Compare Offers |
-| 153 | Negotiation Strategy |
-| 154 | Negotiate Aggressively |
-| 155 | Review Offer Details |
+| 151 | Compare Offers |
+| 152 | Negotiation Strategy |
+| 153 | Negotiate Aggressively |
+| 154 | Review Offer Details |
 
-#### Week 23: Negotiate + Accept (Days 156-162)
+#### Week 23: Negotiate + Accept (Days 155-161)
 | Day | Topic |
 |-----|-------|
-| 156 | Counter-Offer Calls |
-| 157 | Final Negotiations |
-| 158 | **Accept Best Offer ($160-170k)** |
-| 159 | Give Notice |
-| 160 | Transition Planning |
-| 161 | Celebrate! |
-| 162 | Prep for New Role |
+| 155 | Counter-Offer Calls |
+| 156 | Final Negotiations |
+| 157 | **Accept Best Offer ($160-170k)** |
+| 158 | Give Notice |
+| 159 | Transition Planning |
+| 160 | Celebrate! |
+| 161 | Prep for New Role |
 
-#### Week 24: Launch (Days 163-168)
+#### Week 24: Launch (Days 162-168)
 | Day | Topic |
 |-----|-------|
-| 163 | Knowledge Transfer at Current Job |
-| 164 | Finish Strong at Current Job |
-| 165 | Study New Company Stack |
-| 166 | Prep Day 1 Questions |
-| 167 | Last Day Current Job |
+| 162 | Knowledge Transfer at Current Job |
+| 163 | Finish Strong at Current Job |
+| 164 | Study New Company Stack |
+| 165 | Prep Day 1 Questions |
+| 166 | Last Day Current Job |
+| 167 | Rest + Celebrate |
 | 168 | **NEW CHAPTER BEGINS!** |
 
 ---
@@ -319,17 +319,17 @@
 
 ```
 workspace/
-├── month1-foundations/     # Feb 2026: Days 1-35
+├── month1-foundations/     # Weeks 1-5: Days 1-35
 │   ├── week-01/           # Days 1-7
 │   ├── week-02/           # Days 8-14
 │   ├── week-03/           # Days 15-21
 │   ├── week-04/           # Days 22-28
 │   └── week-05/           # Days 29-35
-├── month2-dbt/            # Mar 2026: Days 36-64
-├── month3-airflow/        # Apr 2026: Days 65-92
-├── month4-aws-cert/       # May 2026: Days 93-120
-├── month5-interviews/     # Jun 2026: Days 121-148
-└── month6-close/          # Jul 2026: Days 149-168
+├── month2-dbt/            # Weeks 6-9: Days 36-63
+├── month3-airflow/        # Weeks 10-13: Days 64-91
+├── month4-aws-cert/       # Weeks 14-17: Days 92-119
+├── month5-interviews/     # Weeks 18-21: Days 120-147
+└── month6-close/          # Weeks 22-24: Days 148-168
 ```
 
 ---
@@ -348,8 +348,8 @@ workspace/
 
 | Certification | Target Date |
 |--------------|-------------|
-| dbt Analytics Engineering | March 2026 |
-| AWS Solutions Architect Associate | May 2026 |
+| dbt Analytics Engineering | March 2026 (Day 62) |
+| AWS Solutions Architect Associate | May 2026 (Day 111) |
 
 ---
 
