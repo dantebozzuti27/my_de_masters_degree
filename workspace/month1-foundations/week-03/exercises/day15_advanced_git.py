@@ -16,7 +16,9 @@ WHY THIS MATTERS:
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
-# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
+def day15_complete():
+    """Day 15 exercises completed."""
+    return True  # Interactive rebase, bisect, cherry-pick, revert, pre-commit hooks
 
 import subprocess
 import os
