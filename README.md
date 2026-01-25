@@ -19,9 +19,14 @@ Track your progress through 96 focused sessions designed to land a $160-170k Dat
 | 5 | Python Comprehensions | ✅ Complete |
 | 6 | Dictionaries & JSON | ✅ Complete |
 | 7 | File I/O & Context Managers | ✅ Complete |
-| 8 | Error Handling & Defensive Code | 🔄 Next Up |
+| 8 | Error Handling & Defensive Code | ✅ Complete |
+| 9 | Python Classes & OOP | ✅ Complete |
+| 10 | Logging & Configuration | ✅ Complete |
+| 11 | Git Fundamentals | ✅ Complete |
+| 12 | GitHub PRs & Workflows | ✅ Complete |
+| 13 | Week 2 Project: CLI Data Tool | 🔄 In Progress |
 
-**Month 1, Week 2 — On track for Project 1 by end of February!**
+**Month 1, Week 2 — 12/168 days complete (7%)**
 
 ## Features
 
@@ -58,25 +63,31 @@ Track your progress through 96 focused sessions designed to land a $160-170k Dat
 
 ```
 workspace/
-├── q1-python-sql/
-│   ├── week-01/
-│   │   └── exercises/
-│   │       ├── day1_verify_setup.py
-│   │       ├── day2_variables.py
-│   │       ├── day3_functions.py
-│   │       └── day4_data_structures.py
-│   ├── week-02/
-│   │   └── exercises/
-│   │       ├── day5_comprehensions.py
-│   │       ├── day6_dicts_json.py
-│   │       ├── day7_file_io.py
-│   │       └── day8_error_handling.py
-│   └── week-03/
-│       └── exercises/
-│           ├── day9_advanced_functions.py
-│           ├── day10_functional.py
-│           ├── day11_modules.py
-│           └── day12_utility_library.py
+├── month1-foundations/
+│   ├── week-01/exercises/          # Days 1-7: Python Fundamentals
+│   │   ├── day1_verify_setup.py
+│   │   ├── day2_variables.py
+│   │   ├── day3_functions.py
+│   │   ├── day4_data_structures.py
+│   │   ├── day5_comprehensions.py
+│   │   ├── day6_dicts_json.py
+│   │   └── day7_file_io.py
+│   ├── week-02/exercises/          # Days 8-14: Production Python + Git
+│   │   ├── day8_error_handling.py
+│   │   ├── day9_classes_oop.py
+│   │   ├── day10_logging_config.py
+│   │   ├── day11_git_fundamentals.py
+│   │   ├── day12_github_prs.py
+│   │   ├── day13_cli_project.py    # Week 2 Project
+│   │   └── day14_week_review.py
+│   ├── week-02/projects/           # Project work
+│   │   └── cli-data-tool/          # Day 13 project
+│   └── week-03/exercises/          # Days 15-21: AWS + Docker
+│       ├── day15_advanced_git.py
+│       ├── day16_aws_iam.py
+│       ├── day17_s3_fundamentals.py
+│       ├── day18_docker_fundamentals.py
+│       └── day19_docker_data_engineering.py
 ```
 
 Each exercise file includes:

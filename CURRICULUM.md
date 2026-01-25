@@ -18,15 +18,21 @@
 | 5 | Python Comprehensions | ✅ Complete |
 | 6 | Dictionaries & JSON | ✅ Complete |
 | 7 | File I/O & Context Managers | ✅ Complete |
+| 8 | Error Handling & Defensive Code | ✅ Complete |
+| 9 | Python Classes & OOP | ✅ Complete |
+| 10 | Logging & Configuration | ✅ Complete |
+| 11 | Git Fundamentals | ✅ Complete |
+| 12 | GitHub PRs & Workflows | ✅ Complete |
+| 13 | Week 2 Project: CLI Data Tool | 🔄 In Progress |
 
-**You're on track for Month 1!**
+**12/168 days complete — Week 2 in progress!**
 
 ---
 
 ## MONTH 1: FOUNDATIONS + PROJECT 1 (Feb 2026)
 **Goal:** Core Python + Git + AWS Basics + First Production Project
 
-### Week 1-2: Core Skills (Days 1-16)
+### Week 1: Python Fundamentals (Days 1-7) ✅ COMPLETE
 
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -37,15 +43,30 @@
 | 5 | Python Comprehensions | ✅ Done |
 | 6 | Dictionaries & JSON | ✅ Done |
 | 7 | File I/O & Context Managers | ✅ Done |
-| 8 | Error Handling & Defensive Code | 🔄 Next |
-| 9 | Classes & OOP Basics | |
-| 10 | Logging & Production Python | |
-| 11 | Git Mastery: Branching & PRs | |
-| 12 | Git Workflows & Collaboration | |
-| 13 | AWS Setup: IAM & S3 Basics | |
-| 14 | AWS Lambda Fundamentals | |
-| 15 | Docker Fundamentals | |
-| 16 | Docker for Data Engineering | |
+
+### Week 2: Production Python + Git (Days 8-14)
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 8 | Error Handling & Defensive Code | ✅ Done |
+| 9 | Python Classes & OOP | ✅ Done |
+| 10 | Logging & Configuration | ✅ Done |
+| 11 | Git Fundamentals | ✅ Done |
+| 12 | GitHub PRs & Workflows | ✅ Done |
+| 13 | Week 2 Project: CLI Data Tool | 🔄 In Progress |
+| 14 | Review + Plan Week 3 | |
+
+### Week 3: Advanced Git + AWS + Docker (Days 15-21)
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 15 | Advanced Git & Code Review | |
+| 16 | AWS Setup: IAM & CLI | |
+| 17 | S3 Fundamentals | |
+| 18 | Docker Fundamentals | |
+| 19 | Docker for Data Engineering | |
+| 20 | Week 3 Project: Containerized Pipeline | |
+| 21 | Review + Plan Week 4 | |
 
 ### Week 3-4: PROJECT 1 - Real-Time Stock Pipeline (Days 17-24)
 
