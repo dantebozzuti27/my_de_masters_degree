@@ -26,6 +26,7 @@ COMPLETION: Delete the marker below when project is complete.
 
 import argparse
 import csv
+from dataclasses import field
 import json
 import logging
 import os
@@ -640,7 +641,16 @@ class JSONWriter(DataWriter):
         5. Return count
         """
         # YOUR CODE HERE
-        pass
+        self.logger.info(f"Writing to {self.filepath}")
+        records = batch.to_list()
+        with open(self.filepath, 'w') as f:
+            if self.pretty:
+                json.dump(records, f, indent=2)
+            else:
+                json.dump(records, f)
+        self.logger.info(f"Wrote {len(records)} records")
+        return len(records)
+
 
 
 class CSVWriter(DataWriter):
@@ -659,7 +669,18 @@ class CSVWriter(DataWriter):
         6. Return count
         """
         # YOUR CODE HERE
-        pass
+        self.logger.info(f"Writing to {self.filepath}")
+        records = batch.to_list()
+        if not records:
+            return 0
+        fieldnames = list(records[0].keys())
+        with open(self.filepath, 'w', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(records)
+        self.logger.info(f"wrote {len(records)} records")
+        return len(records)
+
 
 
 # =============================================================================
@@ -707,12 +728,48 @@ class DataProcessor:
         7. Return stats
         """
         # YOUR CODE HERE
-        pass
+        import datetime
+        self.stats["start_time"] = datetime.datetime.now()
+        self.stats["input_file"] = input_path
+        self.stats["output_file"] = output_path
+        self.logger.info(f"Starting processing: {input_path} -> {output_path}")
+
+        reader = get_reader(input_path, self.logger)
+        batch = reader.read()
+        self.stats["records_read"] = len(batch)
+        
+        if schema:
+            batch.validate_all(schema)
+            valid = [r for r in batch if r.is_valid]
+            invalid = [r for r in batch if not r.is_valid]
+            self.stats["records_valid"] = len(valid)
+            self.stats["records_invalid"] = len(invalid)
+
+        if transformers:
+            pipeline = Pipeline(transformers)
+            batch = pipeline.run(batch)
+        
+        if output_path.endswith('.json'):
+            writer = JSONWriter(output_path, logger=self.logger)
+        else:
+            writer = CSVWriter(output_path, logger=self.logger)
+        self.stats["records_written"] = writer.write(batch)
+
+        self.stats["end_time"] = datetime.datetime.now()
+        self.logger.info("Processing complete")
+
+        return self.stats
+
     
     def print_stats(self) -> None:
         """Print processing statistics to console."""
         # YOUR CODE HERE
-        pass
+        print("\n" + "=" * 40)
+        print("PROCESSING STATISTICS")
+        print("=" * 40)
+        for key,value in self.stats.items():
+            print(f" {key}: {value}")
+        print("=" * 40)
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -740,7 +797,14 @@ Examples:
     
     # TODO: Add arguments using parser.add_argument()
     # YOUR CODE HERE
-    
+    parser.add_argument('-i', '--input', required=True, help='Input file path')
+    parser.add_argument('-o', '--output', required=True, help='Output file path')
+
+    parser.add_argument('-c', '--config', help='Config file path')
+    parser.add_argument('--log-level', default='INFO',
+                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
+                        help='Logging level')
+    parser.add_argument('--validate', action='store_true', help='Enable validation')
     return parser
 
 
@@ -757,7 +821,16 @@ def main():
     6. Exit with appropriate code
     """
     # YOUR CODE HERE
-    pass
+    parser = create_parser()
+    args = parser.parse_args()
+
+    config = Config(args.config)
+    if args.log_level:
+        config.settings['log_level'] = args.log_level
+    
+    processor = DataProcessor(config)
+    processor.run(args.input, args.output)
+    processor.print_stats()
 
 
 # =============================================================================
