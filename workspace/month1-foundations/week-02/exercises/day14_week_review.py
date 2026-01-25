@@ -9,7 +9,9 @@ REVIEW what you learned, CATCH UP on anything incomplete, and PREVIEW Week 3.
 COMPLETION: Delete the marker below when review is complete.
 """
 
-# YOUR CODE HERE - DELETE THIS LINE WHEN REVIEW COMPLETE
+def week2_complete():
+    """Marker function indicating Week 2 review is complete."""
+    return True  # Week 2 review completed
 
 # =============================================================================
 # WEEK 2 REVIEW CHECKLIST
@@ -17,42 +19,50 @@ COMPLETION: Delete the marker below when review is complete.
 """
 Check off each item you're confident with:
 
+ERROR HANDLING (Day 8):
+[x] try/except/finally blocks
+[x] Raising exceptions with raise
+[x] Custom exception classes
+[x] Exception chaining (from e)
+[x] Defensive coding patterns
+[x] Input validation
+
 PYTHON OOP (Day 9):
-[ ] Classes with __init__, __str__, __repr__
-[ ] Properties with @property decorator
-[ ] Class methods with @classmethod (alternative constructors)
-[ ] Static methods with @staticmethod (utility functions)
-[ ] Composition over inheritance ("has-a" relationships)
-[ ] Data validation patterns
+[x] Classes with __init__, __str__, __repr__
+[x] Properties with @property decorator
+[x] Class methods with @classmethod (alternative constructors)
+[x] Static methods with @staticmethod (utility functions)
+[x] Composition over inheritance ("has-a" relationships)
+[x] Data validation patterns
 
 LOGGING & CONFIGURATION (Day 10):
-[ ] Python logging module (Logger, Handler, Formatter)
-[ ] Log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-[ ] Structured logging (JSON format)
-[ ] Environment variable configuration
-[ ] Config file loading and merging
-[ ] Configurable pipeline pattern
+[x] Python logging module (Logger, Handler, Formatter)
+[x] Log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+[x] Structured logging (JSON format)
+[x] Environment variable configuration
+[x] Config file loading and merging
+[x] Configurable pipeline pattern
 
 GIT FUNDAMENTALS (Day 11):
-[ ] git init, add, commit
-[ ] Branching (checkout -b, branch, switch)
-[ ] Merging branches
-[ ] Commit message best practices (Add:, Fix:, Update:)
-[ ] Viewing history (log, show, blame)
-[ ] Undoing changes (restore, reset, amend)
-[ ] Stashing work
+[x] git init, add, commit
+[x] Branching (checkout -b, branch, switch)
+[x] Merging branches
+[x] Commit message best practices (Add:, Fix:, Update:)
+[x] Viewing history (log, show, blame)
+[x] Undoing changes (restore, reset, amend)
+[x] Stashing work
 
 GITHUB PRs (Day 12):
-[ ] Creating pull requests
-[ ] Code review process
-[ ] GitHub Issues
-[ ] Branch protection (concept)
+[x] Creating pull requests
+[x] Code review process
+[x] GitHub Issues
+[x] Branch protection (concept)
 
 CLI PROJECT (Day 13):
-[ ] Combined OOP, logging, config, git workflow
-[ ] argparse for CLI interfaces
-[ ] File readers/writers
-[ ] Data validation and transformation
+[x] Combined OOP, logging, config, git workflow
+[x] argparse for CLI interfaces
+[x] File readers/writers
+[x] Data validation and transformation
 """
 
 # =============================================================================

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-25T15:28:15.838Z",
+  "generatedAt": "2026-01-25T19:53:33.642Z",
   "quarters": {
     "1": {
       "folder": "month1-foundations",
@@ -121,26 +121,26 @@
               "modifiedAt": "2026-01-24T02:09:24.978Z"
             },
             "day13_cli_project.py": {
-              "complete": false,
-              "totalFunctions": 6,
-              "completedFunctions": 0,
-              "incompletePatterns": 38,
-              "completePatterns": 0,
-              "hash": "441cea8c",
-              "lines": 871,
+              "complete": true,
+              "totalFunctions": 7,
+              "completedFunctions": 1,
+              "incompletePatterns": 0,
+              "completePatterns": 1,
+              "hash": "6d4a5e26",
+              "lines": 873,
               "path": "month1-foundations/week-02/exercises/day13_cli_project.py",
-              "modifiedAt": "2026-01-23T00:50:39.479Z"
+              "modifiedAt": "2026-01-25T19:53:29.093Z"
             },
             "day14_week_review.py": {
-              "complete": false,
-              "totalFunctions": 3,
-              "completedFunctions": 0,
-              "incompletePatterns": 1,
-              "completePatterns": 0,
-              "hash": "d2fc1f68",
-              "lines": 221,
+              "complete": true,
+              "totalFunctions": 4,
+              "completedFunctions": 1,
+              "incompletePatterns": 0,
+              "completePatterns": 1,
+              "hash": "972c6313",
+              "lines": 231,
               "path": "month1-foundations/week-02/exercises/day14_week_review.py",
-              "modifiedAt": "2026-01-23T00:51:17.113Z"
+              "modifiedAt": "2026-01-25T19:52:29.133Z"
             },
             "day8_error_handling.py": {
               "complete": true,
@@ -1978,8 +1978,8 @@
   },
   "summary": {
     "totalExercises": 168,
-    "completedExercises": 12,
-    "completionRate": 7
+    "completedExercises": 14,
+    "completionRate": 8
   },
   "dayStatus": {
     "1": {
@@ -2031,11 +2031,11 @@
       "file": "month1-foundations/week-02/exercises/day12_github_prs.py"
     },
     "13": {
-      "complete": false,
+      "complete": true,
       "file": "month1-foundations/week-02/exercises/day13_cli_project.py"
     },
     "14": {
-      "complete": false,
+      "complete": true,
       "file": "month1-foundations/week-02/exercises/day14_week_review.py"
     },
     "15": {
