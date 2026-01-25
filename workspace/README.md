@@ -1,52 +1,43 @@
-# 🎓 SDE Masters Degree - Your Workspace
+# Workspace: 6-Month Data Engineer Transition
 
-This is where ALL your actual work lives. Every exercise, project, and deliverable goes here.
+**Goal:** $160-170k Data Engineer role by July 2026
 
-## 📁 Structure
+## Structure
 
 ```
 workspace/
-├── q1-python-sql/          # Quarter 1: Python & SQL Foundations
-│   ├── week-01/            # Week 1: Dev Environment & Python Basics
-│   │   ├── exercises/      # Your completed exercises
-│   │   ├── notes.md        # Your notes and learnings
-│   │   └── README.md       # Week objectives and checklist
-│   ├── week-02/            # Week 2: Data Structures & File I/O
-│   └── ...
-├── q2-etl-quality/         # Quarter 2: ETL Patterns & Data Quality
-├── q3-dbt-mastery/         # Quarter 3: dbt Mastery
-├── q4-aws-foundations/     # Quarter 4: AWS Foundations
-├── q5-orchestration/       # Quarter 5: Orchestration
-├── q6-aws-advanced/        # Quarter 6: AWS Advanced
-├── q7-system-design/       # Quarter 7: System Design & Governance
-├── q8-interview-prep/      # Quarter 8: Interview Prep
-└── projects/               # Your side projects
-    ├── etl-generator/      # The Schema-Aware ETL Generator
-    └── portfolio/          # Your final portfolio
+├── month1-foundations/     # Feb 2026 - Days 1-35
+│   ├── week-01/           # Days 1-7: Python Fundamentals
+│   ├── week-02/           # Days 8-14: Production Python + Git
+│   ├── week-03/           # Days 15-21: AWS + Docker
+│   ├── week-04/           # Days 22-28: Project 1 Part 1
+│   └── week-05/           # Days 29-35: Project 1 Part 2
+│
+├── month2-dbt/            # Mar 2026 - Days 36-63
+│   └── dbt certification + Project 2: NBA Analytics
+│
+├── month3-airflow/        # Apr 2026 - Days 64-91
+│   └── Airflow + Project 3: Data Quality Platform
+│
+├── month4-aws-cert/       # May 2026 - Days 92-119
+│   └── AWS Solutions Architect certification
+│
+├── month5-interviews/     # Jun 2026 - Days 120-147
+│   └── System design, SQL, Python challenges
+│
+└── month6-close/          # Jul 2026 - Days 148-168
+    └── Final interviews, negotiation, close
 ```
 
-## 🎯 How to Use This
+## How Progress Works
 
-1. **Before each session:** Navigate to the correct week folder
-2. **During the session:** Create your exercise files in `exercises/`
-3. **After the session:** Update `notes.md` with learnings
-4. **Weekly:** Check off items in the week's `README.md`
+1. Complete exercises in each day's `.py` file
+2. Run tests: `python3 dayX_*.py`
+3. Scanner detects completion at build time
+4. Dashboard shows verified progress
 
-## 📊 Your Progress Shows Up
+## Current Progress
 
-When you push to GitHub and deploy to Vercel:
-- Your completed exercises appear in the Portfolio section
-- Code snippets are syntax-highlighted
-- Notes are displayed alongside lessons
-
-## 💡 Tips
-
-- Name files descriptively: `day1_fizzbuzz.py` not `exercise1.py`
-- Add comments explaining your thinking
-- Commit after EVERY session
-- Your git history IS your proof of progress
-
----
-
-**Start Date:** January 12, 2026
-**Target:** Senior Data Engineer @ $200k+
+- **Days 1-12:** Complete
+- **Day 13:** In Progress (CLI Project)
+- **Total:** 12/168 days (7%)

@@ -223,38 +223,28 @@ function scanWorkspace() {
     dayStatus: {}
   };
   
-  // Support both old (q1-python-sql) and new (month1-foundations) folder structures
-  const quarterDirs = [
-    'q1-python-sql',
-    'q2-etl-quality', 
-    'q3-dbt-mastery',
-    'q4-aws-foundations',
-    'q5-orchestration',
-    'q6-aws-advanced',
-    'q7-system-design',
-    'q8-interview-prep',
-    // New 6-month plan structure
-    'month1-foundations',
-    'month2-dbt-analytics',
-    'month3-airflow-orchestration',
-    'month4-advanced-projects',
-    'month5-interview-prep',
-    'month6-job-search'
+  // 6-month aggressive plan structure
+  const monthDirs = [
+    'month1-foundations',    // Feb 2026: Days 1-35
+    'month2-dbt',            // Mar 2026: Days 36-63
+    'month3-airflow',        // Apr 2026: Days 64-91
+    'month4-aws-cert',       // May 2026: Days 92-119
+    'month5-interviews',     // Jun 2026: Days 120-147
+    'month6-close'           // Jul 2026: Days 148-168
   ];
   
-  for (const quarterDir of quarterDirs) {
-    const quarterPath = path.join(WORKSPACE_DIR, quarterDir);
+  for (const monthDir of monthDirs) {
+    const monthPath = path.join(WORKSPACE_DIR, monthDir);
     
-    // Extract number from folder name (works for both q1-xxx and month1-xxx)
-    const numMatch = quarterDir.match(/\d+/);
-    const quarterNum = numMatch ? parseInt(numMatch[0]) : 0;
+    // Extract month number from folder name (month1, month2, etc.)
+    const numMatch = monthDir.match(/\d+/);
+    const monthNum = numMatch ? parseInt(numMatch[0]) : 0;
     
-    // Use a prefix for month dirs to avoid collision with q dirs
-    const key = quarterDir.startsWith('month') ? `m${quarterNum}` : quarterNum;
+    if (!fs.existsSync(monthPath)) continue;
     
-    manifest.quarters[key] = {
-      folder: quarterDir,
-      weeks: scanQuarter(quarterPath)
+    manifest.quarters[monthNum] = {
+      folder: monthDir,
+      weeks: scanQuarter(monthPath)
     };
   }
   
@@ -321,7 +311,7 @@ function main() {
     for (const [wNum, week] of Object.entries(quarter.weeks)) {
       for (const [fileName, exercise] of Object.entries(week.exercises)) {
         const status = exercise.complete ? '✅' : '⬜';
-        console.log(`   ${status} Q${qNum}/W${wNum}: ${fileName}`);
+        console.log(`   ${status} M${qNum}/W${wNum}: ${fileName}`);
         if (!exercise.complete && exercise.incompletePatterns) {
           console.log(`      └─ ${exercise.incompletePatterns} placeholder patterns found`);
         }
