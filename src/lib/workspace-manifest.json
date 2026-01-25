@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-25T02:42:22.798Z",
+  "generatedAt": "2026-01-25T03:01:47.129Z",
   "quarters": {
     "1": {
       "folder": "month1-foundations",
@@ -174,10 +174,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "1596ca62",
+              "hash": "d6d4bff8",
               "lines": 486,
               "path": "month1-foundations/week-03/exercises/day15_advanced_git.py",
-              "modifiedAt": "2026-01-22T02:00:16.876Z"
+              "modifiedAt": "2026-01-25T02:50:51.239Z"
             },
             "day16_aws_iam.py": {
               "complete": false,
@@ -185,10 +185,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "c4c665aa",
+              "hash": "091b390e",
               "lines": 555,
               "path": "month1-foundations/week-03/exercises/day16_aws_iam.py",
-              "modifiedAt": "2026-01-22T02:00:19.057Z"
+              "modifiedAt": "2026-01-25T02:51:01.606Z"
             },
             "day17_s3_fundamentals.py": {
               "complete": false,
@@ -196,10 +196,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 1,
               "completePatterns": 4,
-              "hash": "ab944a76",
+              "hash": "2fd90469",
               "lines": 530,
               "path": "month1-foundations/week-03/exercises/day17_s3_fundamentals.py",
-              "modifiedAt": "2026-01-22T02:00:21.707Z"
+              "modifiedAt": "2026-01-25T02:51:05.039Z"
             },
             "day18_docker_fundamentals.py": {
               "complete": false,
@@ -207,10 +207,10 @@
               "completedFunctions": 0,
               "incompletePatterns": 1,
               "completePatterns": 1,
-              "hash": "828f3dd0",
+              "hash": "a82abd8d",
               "lines": 640,
               "path": "month1-foundations/week-03/exercises/day18_docker_fundamentals.py",
-              "modifiedAt": "2026-01-22T02:00:24.015Z"
+              "modifiedAt": "2026-01-25T02:51:17.485Z"
             },
             "day19_docker_data_engineering.py": {
               "complete": false,
@@ -218,10 +218,194 @@
               "completedFunctions": 0,
               "incompletePatterns": 1,
               "completePatterns": 0,
-              "hash": "d3bba3e2",
+              "hash": "3a0afd52",
               "lines": 645,
               "path": "month1-foundations/week-03/exercises/day19_docker_data_engineering.py",
-              "modifiedAt": "2026-01-22T02:00:26.547Z"
+              "modifiedAt": "2026-01-25T02:51:18.759Z"
+            },
+            "day20_week3_project.py": {
+              "complete": false,
+              "totalFunctions": 4,
+              "completedFunctions": 1,
+              "incompletePatterns": 1,
+              "completePatterns": 2,
+              "hash": "feb0d841",
+              "lines": 536,
+              "path": "month1-foundations/week-03/exercises/day20_week3_project.py",
+              "modifiedAt": "2026-01-25T02:52:10.371Z"
+            },
+            "day21_week3_review.py": {
+              "complete": false,
+              "totalFunctions": 4,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "3bef1c86",
+              "lines": 353,
+              "path": "month1-foundations/week-03/exercises/day21_week3_review.py",
+              "modifiedAt": "2026-01-25T02:52:54.022Z"
+            }
+          }
+        },
+        "4": {
+          "exercises": {
+            "day22_docker_compose.py": {
+              "complete": false,
+              "totalFunctions": 3,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 1,
+              "hash": "8b3de430",
+              "lines": 217,
+              "path": "month1-foundations/week-04/exercises/day22_docker_compose.py",
+              "modifiedAt": "2026-01-25T02:53:21.949Z"
+            },
+            "day23_api_integration.py": {
+              "complete": false,
+              "totalFunctions": 1,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a970f0c0",
+              "lines": 295,
+              "path": "month1-foundations/week-04/exercises/day23_api_integration.py",
+              "modifiedAt": "2026-01-25T02:53:48.894Z"
+            },
+            "day24_lambda_deployment.py": {
+              "complete": false,
+              "totalFunctions": 6,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 1,
+              "hash": "ec9e6f15",
+              "lines": 291,
+              "path": "month1-foundations/week-04/exercises/day24_lambda_deployment.py",
+              "modifiedAt": "2026-01-25T02:54:14.117Z"
+            },
+            "day25_s3_partitioning.py": {
+              "complete": false,
+              "totalFunctions": 1,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "788acc7f",
+              "lines": 307,
+              "path": "month1-foundations/week-04/exercises/day25_s3_partitioning.py",
+              "modifiedAt": "2026-01-25T02:54:50.727Z"
+            },
+            "day26_postgresql_schema.py": {
+              "complete": false,
+              "totalFunctions": 2,
+              "completedFunctions": 1,
+              "incompletePatterns": 1,
+              "completePatterns": 1,
+              "hash": "db8d2cbc",
+              "lines": 381,
+              "path": "month1-foundations/week-04/exercises/day26_postgresql_schema.py",
+              "modifiedAt": "2026-01-25T02:55:26.566Z"
+            },
+            "day27_project1_deepwork.py": {
+              "complete": false,
+              "totalFunctions": 2,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "7933bed4",
+              "lines": 335,
+              "path": "month1-foundations/week-04/exercises/day27_project1_deepwork.py",
+              "modifiedAt": "2026-01-25T02:56:03.890Z"
+            },
+            "day28_week4_review.py": {
+              "complete": false,
+              "totalFunctions": 4,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "f43fc000",
+              "lines": 287,
+              "path": "month1-foundations/week-04/exercises/day28_week4_review.py",
+              "modifiedAt": "2026-01-25T02:56:33.294Z"
+            }
+          }
+        },
+        "5": {
+          "exercises": {
+            "day29_data_transformation.py": {
+              "complete": false,
+              "totalFunctions": 1,
+              "completedFunctions": 1,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "217f1bcf",
+              "lines": 329,
+              "path": "month1-foundations/week-05/exercises/day29_data_transformation.py",
+              "modifiedAt": "2026-01-25T02:57:12.297Z"
+            },
+            "day30_airflow_basics.py": {
+              "complete": false,
+              "totalFunctions": 4,
+              "completedFunctions": 1,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "98544556",
+              "lines": 321,
+              "path": "month1-foundations/week-05/exercises/day30_airflow_basics.py",
+              "modifiedAt": "2026-01-25T02:57:42.760Z"
+            },
+            "day31_airflow_aws.py": {
+              "complete": false,
+              "totalFunctions": 6,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c80ee249",
+              "lines": 261,
+              "path": "month1-foundations/week-05/exercises/day31_airflow_aws.py",
+              "modifiedAt": "2026-01-25T02:58:07.479Z"
+            },
+            "day32_streamlit_basics.py": {
+              "complete": false,
+              "totalFunctions": 5,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "f0724b6a",
+              "lines": 303,
+              "path": "month1-foundations/week-05/exercises/day32_streamlit_basics.py",
+              "modifiedAt": "2026-01-25T02:58:32.169Z"
+            },
+            "day33_dashboard_integration.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ca3b320e",
+              "lines": 68,
+              "path": "month1-foundations/week-05/exercises/day33_dashboard_integration.py",
+              "modifiedAt": "2026-01-25T02:58:44.691Z"
+            },
+            "day34_project1_polish.py": {
+              "complete": false,
+              "totalFunctions": 2,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "628e93cf",
+              "lines": 156,
+              "path": "month1-foundations/week-05/exercises/day34_project1_polish.py",
+              "modifiedAt": "2026-01-25T02:59:03.020Z"
+            },
+            "day35_month1_review.py": {
+              "complete": false,
+              "totalFunctions": 3,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "1767fafe",
+              "lines": 165,
+              "path": "month1-foundations/week-05/exercises/day35_month1_review.py",
+              "modifiedAt": "2026-01-25T02:59:24.165Z"
             }
           }
         }
@@ -229,29 +413,1573 @@
     },
     "2": {
       "folder": "month2-dbt",
-      "weeks": {}
+      "weeks": {
+        "6": {
+          "exercises": {
+            "day36_dbt_fundamentals.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "8d8018ed",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day36_dbt_fundamentals.py",
+              "modifiedAt": "2026-01-25T03:01:30.169Z"
+            },
+            "day37_dbt_materializations.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e0298aa4",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day37_dbt_materializations.py",
+              "modifiedAt": "2026-01-25T03:01:30.169Z"
+            },
+            "day38_staging_intermediate_marts.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "70d5b4f0",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day38_staging_intermediate_marts.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day39_dbt_sources_seeds.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9a4c22d6",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day39_dbt_sources_seeds.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day40_dbt_practice.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "109a88cc",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day40_dbt_practice.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day41_dbt_deep_dive.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "d18c0652",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day41_dbt_deep_dive.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day42_dbt_testing_intro.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "7d2b2a9f",
+              "lines": 18,
+              "path": "month2-dbt/week-06/exercises/day42_dbt_testing_intro.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            }
+          }
+        },
+        "7": {
+          "exercises": {
+            "day43_dbt_testing.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "6543d496",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day43_dbt_testing.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day44_custom_dbt_tests.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "500e222c",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day44_custom_dbt_tests.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day45_dbt_macros_jinja.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "87ce5c7f",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day45_dbt_macros_jinja.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day46_dbt_packages_docs.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "17d79578",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day46_dbt_packages_docs.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day47_dbt_advanced_patterns.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "d9092c8d",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day47_dbt_advanced_patterns.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day48_dbt_mastery_practice.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "8c2cca20",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day48_dbt_mastery_practice.py",
+              "modifiedAt": "2026-01-25T03:01:30.170Z"
+            },
+            "day49_dbt_cert_prep.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a1b63452",
+              "lines": 18,
+              "path": "month2-dbt/week-07/exercises/day49_dbt_cert_prep.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            }
+          }
+        },
+        "8": {
+          "exercises": {
+            "day50_nba_api_ingestion.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "d450f63f",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day50_nba_api_ingestion.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day51_snowflake_setup.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "98cc2ebe",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day51_snowflake_setup.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day52_dbt_staging_nba.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ff14175a",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day52_dbt_staging_nba.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day53_dbt_intermediate_models.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "705e3338",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day53_dbt_intermediate_models.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day54_dbt_marts_dimensional.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "038b369a",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day54_dbt_marts_dimensional.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day55_project2_deep_work.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5cbba70e",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day55_project2_deep_work.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day56_project2_testing.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e3ed2b93",
+              "lines": 18,
+              "path": "month2-dbt/week-08/exercises/day56_project2_testing.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            }
+          }
+        },
+        "9": {
+          "exercises": {
+            "day57_dbt_test_coverage.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "df68f8f0",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day57_dbt_test_coverage.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day58_streamlit_nba.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "97f48b79",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day58_streamlit_nba.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day59_dashboard_advanced.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "4dfd8725",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day59_dashboard_advanced.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day60_project2_polish.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ba3d7c3e",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day60_project2_polish.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day61_dbt_cert_final_prep.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "26573c1d",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day61_dbt_cert_final_prep.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day62_dbt_cert_exam.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "1144872d",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day62_dbt_cert_exam.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day63_month2_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ae271b1f",
+              "lines": 18,
+              "path": "month2-dbt/week-09/exercises/day63_month2_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            }
+          }
+        }
+      }
     },
     "3": {
       "folder": "month3-airflow",
-      "weeks": {}
+      "weeks": {
+        "10": {
+          "exercises": {
+            "day64_airflow_architecture.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5f48a90a",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day64_airflow_architecture.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day65_dag_design_patterns.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "b0c960ad",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day65_dag_design_patterns.py",
+              "modifiedAt": "2026-01-25T03:01:30.171Z"
+            },
+            "day66_operators_taskflow.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9e885a7c",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day66_operators_taskflow.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day67_task_dependencies_xcoms.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ae7749ef",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day67_task_dependencies_xcoms.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day68_airflow_connections_hooks.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "058d2ff0",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day68_airflow_connections_hooks.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day69_airflow_complex_dag.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5c6ec778",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day69_airflow_complex_dag.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day70_airflow_testing.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c7c8825f",
+              "lines": 18,
+              "path": "month3-airflow/week-10/exercises/day70_airflow_testing.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            }
+          }
+        },
+        "11": {
+          "exercises": {
+            "day71_airflow_monitoring.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "333fe3ad",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day71_airflow_monitoring.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day72_dag_error_handling.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "715e7075",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day72_dag_error_handling.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day73_resume_linkedin.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ee9bfcc1",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day73_resume_linkedin.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day74_first_applications.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e127ff6c",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day74_first_applications.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day75_applications_airflow.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a390fcc4",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day75_applications_airflow.py",
+              "modifiedAt": "2026-01-25T03:01:30.172Z"
+            },
+            "day76_application_sprint.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "cdaee914",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day76_application_sprint.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day77_week_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "8d053924",
+              "lines": 18,
+              "path": "month3-airflow/week-11/exercises/day77_week_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            }
+          }
+        },
+        "12": {
+          "exercises": {
+            "day78_multi_source_dags.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "b20be826",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day78_multi_source_dags.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day79_great_expectations.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "67c68dcb",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day79_great_expectations.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day80_data_quality_framework.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "af9083ea",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day80_data_quality_framework.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day81_quality_integration.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "85c60818",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day81_quality_integration.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day82_applications_project.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c3e11654",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day82_applications_project.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day83_project3_deep_work.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ea4a18c7",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day83_project3_deep_work.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            },
+            "day84_project3_debug.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "6e4bf6a5",
+              "lines": 18,
+              "path": "month3-airflow/week-12/exercises/day84_project3_debug.py",
+              "modifiedAt": "2026-01-25T03:01:30.173Z"
+            }
+          }
+        },
+        "13": {
+          "exercises": {
+            "day85_monitoring_alerting.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "515f89b3",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day85_monitoring_alerting.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day86_final_deployment.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "4621e104",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day86_final_deployment.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day87_project3_documentation.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c591baba",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day87_project3_documentation.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day88_applications_25.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ffc8a521",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day88_applications_25.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day89_more_applications.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "32384317",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day89_more_applications.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day90_application_portfolio.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "26c1bfc2",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day90_application_portfolio.py",
+              "modifiedAt": "2026-01-25T03:01:30.174Z"
+            },
+            "day91_month3_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9b1dd699",
+              "lines": 18,
+              "path": "month3-airflow/week-13/exercises/day91_month3_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.175Z"
+            }
+          }
+        }
+      }
     },
     "4": {
       "folder": "month4-aws-cert",
-      "weeks": {}
+      "weeks": {
+        "14": {
+          "exercises": {
+            "day92_aws_s3_deep_dive.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ea620642",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day92_aws_s3_deep_dive.py",
+              "modifiedAt": "2026-01-25T03:01:30.175Z"
+            },
+            "day93_aws_ec2_lambda.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "618e4bff",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day93_aws_ec2_lambda.py",
+              "modifiedAt": "2026-01-25T03:01:30.175Z"
+            },
+            "day94_aws_rds_redshift.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "7ee1ba74",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day94_aws_rds_redshift.py",
+              "modifiedAt": "2026-01-25T03:01:30.175Z"
+            },
+            "day95_applications_pace.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "f65a0062",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day95_applications_pace.py",
+              "modifiedAt": "2026-01-25T03:01:30.175Z"
+            },
+            "day96_aws_ebs_storage.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "0efed0ba",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day96_aws_ebs_storage.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day97_aws_lab_day.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "74e7fe3b",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day97_aws_lab_day.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day98_aws_review_flashcards.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "dd1afb22",
+              "lines": 18,
+              "path": "month4-aws-cert/week-14/exercises/day98_aws_review_flashcards.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            }
+          }
+        },
+        "15": {
+          "exercises": {
+            "day100_aws_iam_deep_dive.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9634bf03",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day100_aws_iam_deep_dive.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day101_aws_glue_athena.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "0347cf6d",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day101_aws_glue_athena.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day102_applications_interview_prep.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "6d18591c",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day102_applications_interview_prep.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day103_aws_cloudwatch.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "2ea94851",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day103_aws_cloudwatch.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            },
+            "day104_aws_practice_exam_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "36427d30",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day104_aws_practice_exam_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day105_review_weak_areas.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "82b08770",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day105_review_weak_areas.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day99_aws_vpc_networking.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "3aacd13f",
+              "lines": 18,
+              "path": "month4-aws-cert/week-15/exercises/day99_aws_vpc_networking.py",
+              "modifiedAt": "2026-01-25T03:01:30.176Z"
+            }
+          }
+        },
+        "16": {
+          "exercises": {
+            "day106_aws_practice_exam_2.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "70d7795b",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day106_aws_practice_exam_2.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day107_aws_weak_areas.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "533de4a3",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day107_aws_weak_areas.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day108_aws_practice_exam_3.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a246016b",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day108_aws_practice_exam_3.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day109_first_interviews.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "4b79eb7c",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day109_first_interviews.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day110_aws_final_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "bdba4101",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day110_aws_final_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day111_aws_exam_day.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "56d6688d",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day111_aws_exam_day.py",
+              "modifiedAt": "2026-01-25T03:01:30.177Z"
+            },
+            "day112_celebrate_interview_prep.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "2731f8e2",
+              "lines": 18,
+              "path": "month4-aws-cert/week-16/exercises/day112_celebrate_interview_prep.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            }
+          }
+        },
+        "17": {
+          "exercises": {
+            "day113_interview_sql.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "06998716",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day113_interview_sql.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day114_interview_python.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "48af62bd",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day114_interview_python.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day115_interview_system_design.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "337b6980",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day115_interview_system_design.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day116_active_interviewing_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "65f6c34a",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day116_active_interviewing_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day117_interview_applications.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a3f0f710",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day117_interview_applications.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day118_mock_interview_day.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5a2fb454",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day118_mock_interview_day.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day119_month4_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "7f87f506",
+              "lines": 18,
+              "path": "month4-aws-cert/week-17/exercises/day119_month4_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            }
+          }
+        }
+      }
     },
     "5": {
       "folder": "month5-interviews",
-      "weeks": {}
+      "weeks": {
+        "18": {
+          "exercises": {
+            "day120_system_design_pipelines.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a271be6d",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day120_system_design_pipelines.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day121_system_design_warehouses.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "0d264e0f",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day121_system_design_warehouses.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day122_system_design_streaming.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5905415d",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day122_system_design_streaming.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day123_active_interviewing_2.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "12b7217d",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day123_active_interviewing_2.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day124_system_design_realtime.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ba2794dc",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day124_system_design_realtime.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day125_system_design_practice.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "d0893a09",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day125_system_design_practice.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            },
+            "day126_interview_debrief.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9a243fca",
+              "lines": 18,
+              "path": "month5-interviews/week-18/exercises/day126_interview_debrief.py",
+              "modifiedAt": "2026-01-25T03:01:30.178Z"
+            }
+          }
+        },
+        "19": {
+          "exercises": {
+            "day127_sql_window_functions.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "2fa6bc2c",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day127_sql_window_functions.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day128_sql_ctes_subqueries.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "1d9e158b",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day128_sql_ctes_subqueries.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day129_python_data_structures.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c334017b",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day129_python_data_structures.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day130_active_interviewing_3.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "20bbcd9a",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day130_active_interviewing_3.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day131_data_modeling_questions.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "b8c8094d",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day131_data_modeling_questions.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day132_mock_interview_full.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "b4cdb2a5",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day132_mock_interview_full.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day133_interview_prep_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9e83f767",
+              "lines": 18,
+              "path": "month5-interviews/week-19/exercises/day133_interview_prep_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            }
+          }
+        },
+        "20": {
+          "exercises": {
+            "day134_behavioral_star.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "59f347c4",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day134_behavioral_star.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day135_tell_me_about_yourself.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9cb7a2a3",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day135_tell_me_about_yourself.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day136_leadership_conflict.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "f122cdf5",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day136_leadership_conflict.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day137_active_interviewing_4.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5ad9b8e5",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day137_active_interviewing_4.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day138_mock_interview_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "4a6ce9f3",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day138_mock_interview_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day139_mock_interview_2.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "bae34223",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day139_mock_interview_2.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day140_refine_answers.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ca526172",
+              "lines": 18,
+              "path": "month5-interviews/week-20/exercises/day140_refine_answers.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            }
+          }
+        },
+        "21": {
+          "exercises": {
+            "day141_refine_story.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e0a54de2",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day141_refine_story.py",
+              "modifiedAt": "2026-01-25T03:01:30.179Z"
+            },
+            "day142_technical_deep_dives.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e2901978",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day142_technical_deep_dives.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day143_negotiation_research.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "ba8540de",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day143_negotiation_research.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day144_active_interviewing_5.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "7026af54",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day144_active_interviewing_5.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day145_final_round_prep_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "376cb54d",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day145_final_round_prep_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day146_practice_final_rounds.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "06ba3552",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day146_practice_final_rounds.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day147_month5_review.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "5036c4f3",
+              "lines": 18,
+              "path": "month5-interviews/week-21/exercises/day147_month5_review.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            }
+          }
+        }
+      }
     },
     "6": {
       "folder": "month6-close",
-      "weeks": {}
+      "weeks": {
+        "22": {
+          "exercises": {
+            "day148_final_round_prep_2.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a33f08e2",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day148_final_round_prep_2.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day149_final_interviews_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "3cc9353d",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day149_final_interviews_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day150_final_interviews_2.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "251003bf",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day150_final_interviews_2.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day151_compare_offers.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "3c45f2a5",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day151_compare_offers.py",
+              "modifiedAt": "2026-01-25T03:01:30.180Z"
+            },
+            "day152_negotiation_strategy.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "c3f1ee86",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day152_negotiation_strategy.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day153_negotiate_aggressively.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "9c167246",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day153_negotiate_aggressively.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day154_review_offer_details.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "276275e0",
+              "lines": 18,
+              "path": "month6-close/week-22/exercises/day154_review_offer_details.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            }
+          }
+        },
+        "23": {
+          "exercises": {
+            "day155_counter_offer_calls.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "53551c51",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day155_counter_offer_calls.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day156_final_negotiations.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "fc2bced7",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day156_final_negotiations.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day157_accept_offer.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "2e84821c",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day157_accept_offer.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day158_give_notice.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "1806eea6",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day158_give_notice.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day159_transition_planning.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a45ccaaf",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day159_transition_planning.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day160_celebrate.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "e9721215",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day160_celebrate.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day161_prep_new_role.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "befd85ec",
+              "lines": 18,
+              "path": "month6-close/week-23/exercises/day161_prep_new_role.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            }
+          }
+        },
+        "24": {
+          "exercises": {
+            "day162_knowledge_transfer.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "b63d1e11",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day162_knowledge_transfer.py",
+              "modifiedAt": "2026-01-25T03:01:30.181Z"
+            },
+            "day163_finish_strong.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "4b7cdfdf",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day163_finish_strong.py",
+              "modifiedAt": "2026-01-25T03:01:30.182Z"
+            },
+            "day164_study_new_stack.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "042261bb",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day164_study_new_stack.py",
+              "modifiedAt": "2026-01-25T03:01:30.182Z"
+            },
+            "day165_prep_day_1.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "15e2e3dd",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day165_prep_day_1.py",
+              "modifiedAt": "2026-01-25T03:01:30.182Z"
+            },
+            "day166_last_day.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "a695af4f",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day166_last_day.py",
+              "modifiedAt": "2026-01-25T03:01:30.182Z"
+            },
+            "day167_rest_celebrate.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "09464639",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day167_rest_celebrate.py",
+              "modifiedAt": "2026-01-25T03:01:30.183Z"
+            },
+            "day168_new_chapter.py": {
+              "complete": false,
+              "totalFunctions": 0,
+              "completedFunctions": 0,
+              "incompletePatterns": 1,
+              "completePatterns": 0,
+              "hash": "93a760e4",
+              "lines": 18,
+              "path": "month6-close/week-24/exercises/day168_new_chapter.py",
+              "modifiedAt": "2026-01-25T03:01:30.183Z"
+            }
+          }
+        }
+      }
     }
   },
   "summary": {
-    "totalExercises": 19,
+    "totalExercises": 168,
     "completedExercises": 12,
-    "completionRate": 63
+    "completionRate": 7
   },
   "dayStatus": {
     "1": {
@@ -329,6 +2057,602 @@
     "19": {
       "complete": false,
       "file": "month1-foundations/week-03/exercises/day19_docker_data_engineering.py"
+    },
+    "20": {
+      "complete": false,
+      "file": "month1-foundations/week-03/exercises/day20_week3_project.py"
+    },
+    "21": {
+      "complete": false,
+      "file": "month1-foundations/week-03/exercises/day21_week3_review.py"
+    },
+    "22": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day22_docker_compose.py"
+    },
+    "23": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day23_api_integration.py"
+    },
+    "24": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day24_lambda_deployment.py"
+    },
+    "25": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day25_s3_partitioning.py"
+    },
+    "26": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day26_postgresql_schema.py"
+    },
+    "27": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day27_project1_deepwork.py"
+    },
+    "28": {
+      "complete": false,
+      "file": "month1-foundations/week-04/exercises/day28_week4_review.py"
+    },
+    "29": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day29_data_transformation.py"
+    },
+    "30": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day30_airflow_basics.py"
+    },
+    "31": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day31_airflow_aws.py"
+    },
+    "32": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day32_streamlit_basics.py"
+    },
+    "33": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day33_dashboard_integration.py"
+    },
+    "34": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day34_project1_polish.py"
+    },
+    "35": {
+      "complete": false,
+      "file": "month1-foundations/week-05/exercises/day35_month1_review.py"
+    },
+    "36": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day36_dbt_fundamentals.py"
+    },
+    "37": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day37_dbt_materializations.py"
+    },
+    "38": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day38_staging_intermediate_marts.py"
+    },
+    "39": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day39_dbt_sources_seeds.py"
+    },
+    "40": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day40_dbt_practice.py"
+    },
+    "41": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day41_dbt_deep_dive.py"
+    },
+    "42": {
+      "complete": false,
+      "file": "month2-dbt/week-06/exercises/day42_dbt_testing_intro.py"
+    },
+    "43": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day43_dbt_testing.py"
+    },
+    "44": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day44_custom_dbt_tests.py"
+    },
+    "45": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day45_dbt_macros_jinja.py"
+    },
+    "46": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day46_dbt_packages_docs.py"
+    },
+    "47": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day47_dbt_advanced_patterns.py"
+    },
+    "48": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day48_dbt_mastery_practice.py"
+    },
+    "49": {
+      "complete": false,
+      "file": "month2-dbt/week-07/exercises/day49_dbt_cert_prep.py"
+    },
+    "50": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day50_nba_api_ingestion.py"
+    },
+    "51": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day51_snowflake_setup.py"
+    },
+    "52": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day52_dbt_staging_nba.py"
+    },
+    "53": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day53_dbt_intermediate_models.py"
+    },
+    "54": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day54_dbt_marts_dimensional.py"
+    },
+    "55": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day55_project2_deep_work.py"
+    },
+    "56": {
+      "complete": false,
+      "file": "month2-dbt/week-08/exercises/day56_project2_testing.py"
+    },
+    "57": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day57_dbt_test_coverage.py"
+    },
+    "58": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day58_streamlit_nba.py"
+    },
+    "59": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day59_dashboard_advanced.py"
+    },
+    "60": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day60_project2_polish.py"
+    },
+    "61": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day61_dbt_cert_final_prep.py"
+    },
+    "62": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day62_dbt_cert_exam.py"
+    },
+    "63": {
+      "complete": false,
+      "file": "month2-dbt/week-09/exercises/day63_month2_review.py"
+    },
+    "64": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day64_airflow_architecture.py"
+    },
+    "65": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day65_dag_design_patterns.py"
+    },
+    "66": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day66_operators_taskflow.py"
+    },
+    "67": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day67_task_dependencies_xcoms.py"
+    },
+    "68": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day68_airflow_connections_hooks.py"
+    },
+    "69": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day69_airflow_complex_dag.py"
+    },
+    "70": {
+      "complete": false,
+      "file": "month3-airflow/week-10/exercises/day70_airflow_testing.py"
+    },
+    "71": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day71_airflow_monitoring.py"
+    },
+    "72": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day72_dag_error_handling.py"
+    },
+    "73": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day73_resume_linkedin.py"
+    },
+    "74": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day74_first_applications.py"
+    },
+    "75": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day75_applications_airflow.py"
+    },
+    "76": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day76_application_sprint.py"
+    },
+    "77": {
+      "complete": false,
+      "file": "month3-airflow/week-11/exercises/day77_week_review.py"
+    },
+    "78": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day78_multi_source_dags.py"
+    },
+    "79": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day79_great_expectations.py"
+    },
+    "80": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day80_data_quality_framework.py"
+    },
+    "81": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day81_quality_integration.py"
+    },
+    "82": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day82_applications_project.py"
+    },
+    "83": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day83_project3_deep_work.py"
+    },
+    "84": {
+      "complete": false,
+      "file": "month3-airflow/week-12/exercises/day84_project3_debug.py"
+    },
+    "85": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day85_monitoring_alerting.py"
+    },
+    "86": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day86_final_deployment.py"
+    },
+    "87": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day87_project3_documentation.py"
+    },
+    "88": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day88_applications_25.py"
+    },
+    "89": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day89_more_applications.py"
+    },
+    "90": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day90_application_portfolio.py"
+    },
+    "91": {
+      "complete": false,
+      "file": "month3-airflow/week-13/exercises/day91_month3_review.py"
+    },
+    "92": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day92_aws_s3_deep_dive.py"
+    },
+    "93": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day93_aws_ec2_lambda.py"
+    },
+    "94": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day94_aws_rds_redshift.py"
+    },
+    "95": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day95_applications_pace.py"
+    },
+    "96": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day96_aws_ebs_storage.py"
+    },
+    "97": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day97_aws_lab_day.py"
+    },
+    "98": {
+      "complete": false,
+      "file": "month4-aws-cert/week-14/exercises/day98_aws_review_flashcards.py"
+    },
+    "99": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day99_aws_vpc_networking.py"
+    },
+    "100": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day100_aws_iam_deep_dive.py"
+    },
+    "101": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day101_aws_glue_athena.py"
+    },
+    "102": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day102_applications_interview_prep.py"
+    },
+    "103": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day103_aws_cloudwatch.py"
+    },
+    "104": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day104_aws_practice_exam_1.py"
+    },
+    "105": {
+      "complete": false,
+      "file": "month4-aws-cert/week-15/exercises/day105_review_weak_areas.py"
+    },
+    "106": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day106_aws_practice_exam_2.py"
+    },
+    "107": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day107_aws_weak_areas.py"
+    },
+    "108": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day108_aws_practice_exam_3.py"
+    },
+    "109": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day109_first_interviews.py"
+    },
+    "110": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day110_aws_final_review.py"
+    },
+    "111": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day111_aws_exam_day.py"
+    },
+    "112": {
+      "complete": false,
+      "file": "month4-aws-cert/week-16/exercises/day112_celebrate_interview_prep.py"
+    },
+    "113": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day113_interview_sql.py"
+    },
+    "114": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day114_interview_python.py"
+    },
+    "115": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day115_interview_system_design.py"
+    },
+    "116": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day116_active_interviewing_1.py"
+    },
+    "117": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day117_interview_applications.py"
+    },
+    "118": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day118_mock_interview_day.py"
+    },
+    "119": {
+      "complete": false,
+      "file": "month4-aws-cert/week-17/exercises/day119_month4_review.py"
+    },
+    "120": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day120_system_design_pipelines.py"
+    },
+    "121": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day121_system_design_warehouses.py"
+    },
+    "122": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day122_system_design_streaming.py"
+    },
+    "123": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day123_active_interviewing_2.py"
+    },
+    "124": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day124_system_design_realtime.py"
+    },
+    "125": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day125_system_design_practice.py"
+    },
+    "126": {
+      "complete": false,
+      "file": "month5-interviews/week-18/exercises/day126_interview_debrief.py"
+    },
+    "127": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day127_sql_window_functions.py"
+    },
+    "128": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day128_sql_ctes_subqueries.py"
+    },
+    "129": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day129_python_data_structures.py"
+    },
+    "130": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day130_active_interviewing_3.py"
+    },
+    "131": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day131_data_modeling_questions.py"
+    },
+    "132": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day132_mock_interview_full.py"
+    },
+    "133": {
+      "complete": false,
+      "file": "month5-interviews/week-19/exercises/day133_interview_prep_review.py"
+    },
+    "134": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day134_behavioral_star.py"
+    },
+    "135": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day135_tell_me_about_yourself.py"
+    },
+    "136": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day136_leadership_conflict.py"
+    },
+    "137": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day137_active_interviewing_4.py"
+    },
+    "138": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day138_mock_interview_1.py"
+    },
+    "139": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day139_mock_interview_2.py"
+    },
+    "140": {
+      "complete": false,
+      "file": "month5-interviews/week-20/exercises/day140_refine_answers.py"
+    },
+    "141": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day141_refine_story.py"
+    },
+    "142": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day142_technical_deep_dives.py"
+    },
+    "143": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day143_negotiation_research.py"
+    },
+    "144": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day144_active_interviewing_5.py"
+    },
+    "145": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day145_final_round_prep_1.py"
+    },
+    "146": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day146_practice_final_rounds.py"
+    },
+    "147": {
+      "complete": false,
+      "file": "month5-interviews/week-21/exercises/day147_month5_review.py"
+    },
+    "148": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day148_final_round_prep_2.py"
+    },
+    "149": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day149_final_interviews_1.py"
+    },
+    "150": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day150_final_interviews_2.py"
+    },
+    "151": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day151_compare_offers.py"
+    },
+    "152": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day152_negotiation_strategy.py"
+    },
+    "153": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day153_negotiate_aggressively.py"
+    },
+    "154": {
+      "complete": false,
+      "file": "month6-close/week-22/exercises/day154_review_offer_details.py"
+    },
+    "155": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day155_counter_offer_calls.py"
+    },
+    "156": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day156_final_negotiations.py"
+    },
+    "157": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day157_accept_offer.py"
+    },
+    "158": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day158_give_notice.py"
+    },
+    "159": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day159_transition_planning.py"
+    },
+    "160": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day160_celebrate.py"
+    },
+    "161": {
+      "complete": false,
+      "file": "month6-close/week-23/exercises/day161_prep_new_role.py"
+    },
+    "162": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day162_knowledge_transfer.py"
+    },
+    "163": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day163_finish_strong.py"
+    },
+    "164": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day164_study_new_stack.py"
+    },
+    "165": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day165_prep_day_1.py"
+    },
+    "166": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day166_last_day.py"
+    },
+    "167": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day167_rest_celebrate.py"
+    },
+    "168": {
+      "complete": false,
+      "file": "month6-close/week-24/exercises/day168_new_chapter.py"
     }
   }
 }

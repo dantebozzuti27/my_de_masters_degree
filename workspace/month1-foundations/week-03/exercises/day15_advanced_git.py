@@ -475,7 +475,7 @@ if __name__ == "__main__":
         elif cmd == "checklist":
             print(CODE_REVIEW_CHECKLIST)
     else:
-        print("Day 13: Advanced Git + Code Review Practice")
+        print("Day 15: Advanced Git + Code Review Practice")
         print("=" * 45)
         print("\nThis is a practice-focused day.")
         print("Open this file and follow the exercises in terminal.")

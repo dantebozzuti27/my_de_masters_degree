@@ -634,11 +634,11 @@ if __name__ == "__main__":
             path = sys.argv[2] if len(sys.argv) > 2 else "data-pipeline"
             create_data_pipeline_project(path)
     else:
-        print("Day 16: Docker for Data Engineering")
+        print("Day 19: Docker for Data Engineering")
         print("=" * 40)
         print("\nApply Docker to data engineering workflows.")
         print("\nCommands:")
-        print("  python day16_docker_data_engineering.py verify    - Check running services")
-        print("  python day16_docker_data_engineering.py templates - List compose templates")
-        print("  python day16_docker_data_engineering.py template <name> - Show template")
-        print("  python day16_docker_data_engineering.py create [path] - Create starter project")
+        print("  python day19_docker_data_engineering.py verify    - Check running services")
+        print("  python day19_docker_data_engineering.py templates - List compose templates")
+        print("  python day19_docker_data_engineering.py template <name> - Show template")
+        print("  python day19_docker_data_engineering.py create [path] - Create starter project")

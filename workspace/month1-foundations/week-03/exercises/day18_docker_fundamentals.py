@@ -628,12 +628,12 @@ if __name__ == "__main__":
             for name in DOCKERFILE_TEMPLATES:
                 print(f"  - {name}")
     else:
-        print("Day 15: Docker Fundamentals")
+        print("Day 18: Docker Fundamentals")
         print("=" * 40)
         print("\nThis is a Docker-focused day.")
         print("Follow the exercises in terminal.")
         print("\nCommands:")
-        print("  python day15_docker_fundamentals.py verify    - Verify Docker setup")
-        print("  python day15_docker_fundamentals.py quiz      - Take the Docker quiz")
-        print("  python day15_docker_fundamentals.py templates - List Dockerfile templates")
-        print("  python day15_docker_fundamentals.py template <name> - Show a template")
+        print("  python day18_docker_fundamentals.py verify    - Verify Docker setup")
+        print("  python day18_docker_fundamentals.py quiz      - Take the Docker quiz")
+        print("  python day18_docker_fundamentals.py templates - List Dockerfile templates")
+        print("  python day18_docker_fundamentals.py template <name> - Show a template")

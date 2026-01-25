@@ -543,12 +543,12 @@ if __name__ == "__main__":
             for name in POLICY_TEMPLATES:
                 print(f"  - {name}")
     else:
-        print("Day 13: AWS Account Setup & IAM")
+        print("Day 16: AWS Account Setup & IAM")
         print("=" * 40)
         print("\nThis is an AWS Console-focused day.")
         print("Follow the exercises in the AWS Console.")
         print("\nCommands:")
-        print("  python day13_aws_iam.py quiz      - Take the IAM quiz")
-        print("  python day13_aws_iam.py verify    - Verify your setup")
-        print("  python day13_aws_iam.py templates - List policy templates")
-        print("  python day13_aws_iam.py policy <name> [bucket] - Show policy")
+        print("  python day16_aws_iam.py quiz      - Take the IAM quiz")
+        print("  python day16_aws_iam.py verify    - Verify your setup")
+        print("  python day16_aws_iam.py templates - List policy templates")
+        print("  python day16_aws_iam.py policy <name> [bucket] - Show policy")
