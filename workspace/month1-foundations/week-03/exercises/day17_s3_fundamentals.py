@@ -1,529 +1,784 @@
 #!/usr/bin/env python3
 """
-Day 17: S3 Fundamentals & Best Practices
-=========================================
-Duration: 2 hours
+Day 17: S3 Fundamentals - Complete Beginner to Production
+==========================================================
+Duration: 3-4 hours total
 
-Learn S3 - the backbone of data engineering on AWS.
-Storage, organization, and access patterns for data pipelines.
+Today you'll learn Amazon S3 from absolute scratch - what it is, why it matters,
+and how to use it like a senior data engineer.
 
-WHY THIS MATTERS:
-- S3 is the universal data lake storage
-- Understanding S3 = understanding modern data architecture
-- Every data pipeline uses S3 somewhere
-- Cost optimization depends on S3 knowledge
+DAILY STRUCTURE:
+├── LEARN (60-90 min): Videos + Reading
+├── BUILD (2-2.5 hrs): Hands-on coding
+└── REVIEW (15-30 min): Document + commit
+
+PREREQUISITES: AWS account with CLI configured (Day 16)
 
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
 # YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
+# =============================================================================
+# PART 1: LEARN (60-90 minutes)
+# =============================================================================
+"""
+WHAT IS S3?
+===========
+S3 = Simple Storage Service. It's Amazon's object storage service.
+
+Think of it like an infinite hard drive in the cloud where you can store
+any type of file: JSON, CSV, Parquet, images, videos, anything.
+
+WHY DOES S3 MATTER FOR DATA ENGINEERING?
+========================================
+- It's the BACKBONE of modern data architecture
+- Every data pipeline stores data in S3
+- It's incredibly cheap ($0.023 per GB/month)
+- It's infinitely scalable
+- It's 99.999999999% durable (11 9s)
+
+KEY CONCEPTS (memorize these):
+=============================
+
+1. BUCKET
+   - A container for objects (like a folder at the root level)
+   - Name must be GLOBALLY unique across ALL of AWS
+   - Example: "dante-data-lake-dev" (no one else can use this name)
+
+2. OBJECT
+   - Any file you store in S3
+   - Has a KEY (the path/filename) and VALUE (the data)
+   - Example: Key = "raw/users/2026/01/25/users.json"
+
+3. PREFIX
+   - The "folder path" to objects
+   - S3 doesn't actually have folders - it's flat storage
+   - The "/" in keys creates the illusion of folders
+   - Example: Prefix = "raw/users/" returns all objects starting with that
+
+4. STORAGE CLASSES
+   - Standard: Frequently accessed data (most expensive)
+   - Intelligent-Tiering: Auto-moves based on access patterns
+   - Glacier: Archive storage (cheap but slow to retrieve)
+
+5. VERSIONING
+   - Keep multiple versions of the same object
+   - Protects against accidental deletes
+   - ALWAYS enable for production data lakes
+
+
+LEARNING RESOURCES (Pick 1-2, spend 60-90 min):
+===============================================
+
+VIDEO (Choose one):
+- AWS S3 Tutorial for Beginners (TechWorld with Nana) - 25 min
+  https://www.youtube.com/watch?v=e6w9LwZJFIA
+  
+- AWS S3 Masterclass (Be A Better Dev) - 45 min  
+  https://www.youtube.com/watch?v=tfU0JEZjcsg
+
+READING:
+- "Fundamentals of Data Engineering" Chapter 6: Storage
+  Focus on: Object Storage section (pages 180-195)
+  
+- AWS S3 Documentation - Getting Started
+  https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html
+
+After watching/reading, answer these questions in your notes:
+1. What's the difference between a bucket and an object?
+2. Why would you use Glacier instead of Standard storage?
+3. What does "11 9s durability" mean in practice?
+
+When you've completed the LEARN section, move to BUILD.
+"""
+
+# =============================================================================
+# PART 2: BUILD (2-2.5 hours)
+# =============================================================================
+
 import boto3
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
 from botocore.exceptions import ClientError
 
-# =============================================================================
-# S3 EXERCISES (AWS Console + Code)
-# =============================================================================
+"""
+EXERCISE 1: VERIFY YOUR S3 ACCESS (5 min)
+=========================================
+
+Before we build anything, let's verify your AWS CLI can access S3.
+
+Run these commands in your terminal:
+
+    aws s3 ls
+    
+This lists all your buckets. If you see your bucket from Day 16
+(dante-data-lake-dev), you're ready.
+
+If you get an error, go back to Day 16 and fix your AWS CLI configuration.
+"""
+
 
 """
-EXERCISE 1: Create Your First Bucket (15 min)
-==============================================
+EXERCISE 2: UNDERSTAND BUCKET NAMING (10 min)
+=============================================
 
-Using AWS Console:
+S3 bucket names have strict rules. Let's understand them.
 
-1. Go to S3 service
-2. Click "Create bucket"
-3. Bucket name: your-name-data-lake-dev (must be globally unique!)
-   Example: dante-data-lake-dev
-4. Region: us-east-1 (or your preferred)
-5. Block Public Access: Keep ALL blocked (default)
-6. Versioning: Enable (important for data protection)
-7. Tags: Add "Environment: dev", "Project: learning"
-8. Click "Create bucket"
+RULES:
+- 3-63 characters long
+- Only lowercase letters, numbers, and hyphens
+- Must start with a letter or number
+- Cannot end with a hyphen
+- Cannot contain consecutive periods
+- Cannot be formatted like an IP address (e.g., 192.168.1.1)
+- GLOBALLY UNIQUE across all AWS accounts worldwide
 
-Naming conventions:
-- company-project-environment (e.g., acme-analytics-prod)
-- Use lowercase, hyphens, no underscores
-- Be consistent across projects
+GOOD NAMES:
+- dante-data-lake-dev
+- acme-analytics-prod
+- my-company-raw-data-2026
 
+BAD NAMES:
+- Data_Lake (uppercase and underscore)
+- my.bucket.name (consecutive periods)
+- -bucket-name (starts with hyphen)
+- a (too short)
 
-EXERCISE 2: S3 Organization Structure (20 min)
-===============================================
-
-Create a proper data lake structure:
-
-Using AWS Console or CLI:
-
-aws s3api put-object --bucket YOUR-BUCKET --key raw/
-aws s3api put-object --bucket YOUR-BUCKET --key processed/
-aws s3api put-object --bucket YOUR-BUCKET --key curated/
-aws s3api put-object --bucket YOUR-BUCKET --key archive/
-
-Standard data lake layers:
-├── raw/              # Original data, never modified
-│   ├── api/          # Data from APIs
-│   ├── database/     # Database exports
-│   └── files/        # Uploaded files
-├── processed/        # Cleaned, validated data
-├── curated/          # Business-ready, aggregated
-└── archive/          # Old data, cheap storage
-
-Partition pattern:
-raw/api/users/year=2024/month=01/day=15/users_20240115.json
-
-Why partitions matter:
-- Query only what you need
-- Massive cost and speed improvements
-- Essential for big data
+YOUR TASK:
+Think of a naming convention for your future projects:
+    {your-name}-{project}-{environment}
+    
+Example: dante-stockpipeline-dev, dante-stockpipeline-prod
+"""
 
 
-EXERCISE 3: Upload/Download Data (20 min)
+"""
+EXERCISE 3: CREATE BUCKET VIA CLI (15 min)
 ==========================================
 
-Practice with CLI and Python:
+You already have a bucket from Day 16, but let's practice creating
+one via CLI (the command line - how you'll do it in production).
 
-CLI commands:
-# Upload a file
-aws s3 cp local_file.json s3://your-bucket/raw/api/
+Run this in your terminal (replace YOUR_UNIQUE_NAME):
 
-# Upload a folder
-aws s3 cp ./data/ s3://your-bucket/raw/ --recursive
+    aws s3api create-bucket \
+        --bucket YOUR_UNIQUE_NAME-learning-bucket \
+        --region us-east-1
+        
+NOTE: For us-east-1, you don't need LocationConstraint.
+For other regions, you'd add:
+    --create-bucket-configuration LocationConstraint=us-west-2
 
-# Download a file
-aws s3 cp s3://your-bucket/raw/file.json ./local/
+Verify it was created:
 
-# Sync folders (only copy changed files)
-aws s3 sync ./data/ s3://your-bucket/raw/
+    aws s3 ls
 
-# List bucket contents
-aws s3 ls s3://your-bucket/
-aws s3 ls s3://your-bucket/raw/ --recursive
+You should see both buckets now.
 
-See Python code below for programmatic access.
-
-
-EXERCISE 4: S3 Select - Query Data in Place (15 min)
-=====================================================
-
-S3 Select lets you query data without downloading it all.
-
-1. Upload a JSON Lines file to your bucket
-2. Use S3 Select to query it
-3. Compare cost/speed to downloading entire file
-
-See s3_select_example() function below.
-
-
-EXERCISE 5: Lifecycle Policies (15 min)
-========================================
-
-Automatically manage data lifecycle:
-
-1. Go to your bucket → Management → Lifecycle rules
-2. Create a lifecycle rule:
-   - Name: "archive-old-data"
-   - Apply to: Prefix "archive/"
-   - Transitions:
-     - Move to S3 Standard-IA after 30 days
-     - Move to Glacier after 90 days
-   - Expiration: Delete after 365 days
-
-Storage classes:
-- Standard: Frequent access, highest cost
-- Standard-IA: Infrequent access, lower cost
-- Glacier: Archive, very low cost, retrieval takes time
-- Deep Archive: Cheapest, retrieval takes hours
-
-
-EXERCISE 6: Bucket Policies (20 min)
-=====================================
-
-Control access at the bucket level:
-
-1. Go to bucket → Permissions → Bucket policy
-2. Add a policy that allows read access from a specific IAM role
-
-Example policy (read-only for a role):
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowDataPipelineRead",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::YOUR_ACCOUNT:role/data-pipeline-role"
-            },
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::your-bucket",
-                "arn:aws:s3:::your-bucket/*"
-            ]
-        }
-    ]
-}
-
-
-EXERCISE 7: Event Notifications (15 min)
-========================================
-
-Trigger actions when files arrive:
-
-1. Go to bucket → Properties → Event notifications
-2. Create a notification:
-   - Name: "new-file-notification"
-   - Prefix: "raw/" (only for raw folder)
-   - Event: PUT (new files)
-   - Destination: SNS topic (or Lambda later)
-
-This is how you build reactive pipelines:
-New file → S3 event → Lambda → Process → Store
+IMPORTANT: We'll delete this learning bucket later to avoid charges.
 """
 
-# =============================================================================
-# S3 PYTHON HELPERS
-# =============================================================================
 
+"""
+EXERCISE 4: UNDERSTAND DATA LAKE STRUCTURE (20 min)
+===================================================
+
+Professional data engineers organize S3 buckets with a standard structure:
+
+    bucket/
+    ├── raw/              # Original data, NEVER modified
+    │   ├── source1/      # Data from first source
+    │   └── source2/      # Data from second source
+    ├── processed/        # Cleaned, validated data
+    ├── curated/          # Business-ready, aggregated
+    └── archive/          # Old data, moved to Glacier
+
+WHY THIS STRUCTURE?
+- raw/: Keep original data forever. If you mess up, you can reprocess.
+- processed/: Cleaned data that's ready for analysis
+- curated/: Final datasets for business users/dashboards
+- archive/: Old data you rarely need but must keep
+
+PARTITIONING:
+For large datasets, we partition by date:
+
+    raw/users/year=2026/month=01/day=25/users.json
+    
+WHY PARTITION?
+- Query engines (Athena, Spark) only read the partitions you need
+- Instead of scanning 1TB, you might scan 10GB for one day
+- MASSIVE cost and speed savings
+
+CREATE THE STRUCTURE:
+Run these commands in your terminal:
+
+    aws s3api put-object --bucket dante-data-lake-dev --key raw/
+    aws s3api put-object --bucket dante-data-lake-dev --key processed/
+    aws s3api put-object --bucket dante-data-lake-dev --key curated/
+    aws s3api put-object --bucket dante-data-lake-dev --key archive/
+    
+Verify:
+
+    aws s3 ls s3://dante-data-lake-dev/
+    
+You should see:
+    PRE archive/
+    PRE curated/
+    PRE processed/
+    PRE raw/
+"""
+
+
+"""
+EXERCISE 5: UPLOAD DATA WITH CLI (20 min)
+=========================================
+
+Let's upload some test data using CLI commands.
+
+STEP 1: Create a test file locally
+
+    echo '{"id": 1, "name": "Alice", "email": "alice@example.com"}' > /tmp/user1.json
+    echo '{"id": 2, "name": "Bob", "email": "bob@example.com"}' > /tmp/user2.json
+
+STEP 2: Upload single file
+
+    aws s3 cp /tmp/user1.json s3://dante-data-lake-dev/raw/api/users/
+    
+STEP 3: Upload with partitioned path (production pattern)
+
+    aws s3 cp /tmp/user2.json s3://dante-data-lake-dev/raw/api/users/year=2026/month=01/day=25/
+    
+STEP 4: List what you uploaded
+
+    aws s3 ls s3://dante-data-lake-dev/raw/api/users/ --recursive
+
+KEY CLI COMMANDS TO MEMORIZE:
+
+    aws s3 cp <local> <s3>     # Upload file
+    aws s3 cp <s3> <local>     # Download file
+    aws s3 sync <local> <s3>   # Sync folder (only changed files)
+    aws s3 ls <s3-path>        # List objects
+    aws s3 rm <s3-path>        # Delete object
+    aws s3 rm <s3-path> --recursive  # Delete folder
+"""
+
+
+"""
+EXERCISE 6: DOWNLOAD DATA WITH CLI (10 min)
+===========================================
+
+Now let's download data from S3.
+
+STEP 1: Download single file
+
+    aws s3 cp s3://dante-data-lake-dev/raw/api/users/user1.json /tmp/downloaded_user1.json
+    cat /tmp/downloaded_user1.json
+
+STEP 2: Download entire folder
+
+    mkdir -p /tmp/s3-download
+    aws s3 cp s3://dante-data-lake-dev/raw/api/users/ /tmp/s3-download/ --recursive
+    ls -la /tmp/s3-download/
+
+STEP 3: Sync (only copy changed files - great for incremental updates)
+
+    mkdir -p /tmp/s3-sync
+    aws s3 sync s3://dante-data-lake-dev/raw/api/users/ /tmp/s3-sync/
+
+Run sync again - notice it says "0 files" because nothing changed.
+"""
+
+
+"""
+EXERCISE 7: PYTHON + BOTO3 BASICS (30 min)
+==========================================
+
+Now let's use Python to interact with S3. This is how you'll build pipelines.
+
+boto3 is the official AWS SDK for Python. You installed it on Day 16.
+"""
+
+# S3 Client Setup
 def get_s3_client():
-    """Get S3 client with default credentials."""
+    """
+    Create an S3 client.
+    
+    boto3 automatically uses credentials from:
+    1. Environment variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+    2. ~/.aws/credentials file (created by 'aws configure')
+    3. IAM role (when running on AWS)
+    """
     return boto3.client('s3')
 
 
 def list_buckets() -> List[str]:
     """
-    List all S3 buckets in your account.
+    List all buckets in your account.
     
     Returns:
         List of bucket names
     """
     s3 = get_s3_client()
     response = s3.list_buckets()
-    return [bucket['Name'] for bucket in response['Buckets']]
+    
+    buckets = []
+    for bucket in response['Buckets']:
+        buckets.append(bucket['Name'])
+        print(f"  {bucket['Name']} (created: {bucket['CreationDate']})")
+    
+    return buckets
 
 
-def list_objects(bucket: str, prefix: str = "", max_keys: int = 100) -> List[Dict]:
+def list_objects(bucket: str, prefix: str = "") -> List[Dict]:
     """
     List objects in a bucket with optional prefix filter.
     
     Args:
-        bucket: Bucket name
-        prefix: Only return objects starting with this prefix
-        max_keys: Maximum number of objects to return
-    
+        bucket: Name of the bucket
+        prefix: Filter objects by prefix (e.g., "raw/api/")
+        
     Returns:
-        List of object metadata dicts
-    
-    Example:
-        >>> list_objects("my-bucket", prefix="raw/api/")
+        List of object metadata dictionaries
     """
     s3 = get_s3_client()
     
-    try:
-        response = s3.list_objects_v2(
-            Bucket=bucket,
-            Prefix=prefix,
-            MaxKeys=max_keys
-        )
-        
-        objects = []
-        for obj in response.get('Contents', []):
+    # Use paginator for buckets with many objects (>1000)
+    paginator = s3.get_paginator('list_objects_v2')
+    
+    objects = []
+    for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
+        for obj in page.get('Contents', []):
             objects.append({
                 'key': obj['Key'],
                 'size': obj['Size'],
-                'last_modified': obj['LastModified'].isoformat(),
-                'storage_class': obj.get('StorageClass', 'STANDARD')
+                'last_modified': obj['LastModified'].isoformat()
             })
+    
+    return objects
+
+
+"""
+EXERCISE 8: UPLOAD DATA WITH PYTHON (30 min)
+============================================
+
+Let's build production-quality upload functions.
+"""
+
+def upload_json(bucket: str, key: str, data: Any) -> bool:
+    """
+    Upload JSON data to S3.
+    
+    Args:
+        bucket: Bucket name
+        key: Object key (path)
+        data: Python object to serialize as JSON
         
-        return objects
-    except ClientError as e:
-        print(f"Error: {e}")
-        return []
-
-
-def upload_file(bucket: str, local_path: str, s3_key: str) -> bool:
-    """
-    Upload a file to S3.
-    
-    Args:
-        bucket: Bucket name
-        local_path: Local file path
-        s3_key: S3 object key (path in bucket)
-    
     Returns:
         True if successful
-    
+        
     Example:
-        >>> upload_file("my-bucket", "data.json", "raw/api/data.json")
+        upload_json(
+            bucket="dante-data-lake-dev",
+            key="raw/api/users/user1.json",
+            data={"id": 1, "name": "Alice"}
+        )
     """
     s3 = get_s3_client()
     
     try:
-        s3.upload_file(local_path, bucket, s3_key)
-        print(f"✅ Uploaded {local_path} to s3://{bucket}/{s3_key}")
-        return True
-    except ClientError as e:
-        print(f"❌ Upload failed: {e}")
-        return False
-
-
-def download_file(bucket: str, s3_key: str, local_path: str) -> bool:
-    """
-    Download a file from S3.
-    
-    Args:
-        bucket: Bucket name
-        s3_key: S3 object key
-        local_path: Local destination path
-    
-    Returns:
-        True if successful
-    """
-    s3 = get_s3_client()
-    
-    try:
-        s3.download_file(bucket, s3_key, local_path)
-        print(f"✅ Downloaded s3://{bucket}/{s3_key} to {local_path}")
-        return True
-    except ClientError as e:
-        print(f"❌ Download failed: {e}")
-        return False
-
-
-def upload_json(bucket: str, s3_key: str, data: Any) -> bool:
-    """
-    Upload JSON data directly to S3 (no local file needed).
-    
-    Args:
-        bucket: Bucket name
-        s3_key: S3 object key
-        data: Data to serialize as JSON
-    
-    Returns:
-        True if successful
-    """
-    s3 = get_s3_client()
-    
-    try:
+        # Serialize to JSON string
+        body = json.dumps(data, indent=2, default=str)
+        
+        # Upload with proper content type
         s3.put_object(
             Bucket=bucket,
-            Key=s3_key,
-            Body=json.dumps(data, indent=2, default=str),
+            Key=key,
+            Body=body.encode('utf-8'),
             ContentType='application/json'
         )
-        print(f"✅ Uploaded JSON to s3://{bucket}/{s3_key}")
+        
+        print(f"✅ Uploaded {key} ({len(body)} bytes)")
         return True
+        
     except ClientError as e:
-        print(f"❌ Upload failed: {e}")
+        print(f"❌ Failed to upload {key}: {e}")
         return False
 
 
-def read_json(bucket: str, s3_key: str) -> Optional[Any]:
+def upload_jsonl(bucket: str, key: str, records: List[Dict]) -> bool:
     """
-    Read JSON file from S3.
+    Upload data as JSON Lines (one JSON object per line).
+    
+    JSON Lines (JSONL) is preferred for big data because:
+    - Each line is a complete JSON object
+    - Can be processed line-by-line (streaming)
+    - Works better with Spark, Athena, etc.
     
     Args:
         bucket: Bucket name
-        s3_key: S3 object key
-    
-    Returns:
-        Parsed JSON data
+        key: Object key (should end with .jsonl)
+        records: List of dictionaries
+        
+    Example:
+        upload_jsonl(
+            bucket="dante-data-lake-dev",
+            key="raw/api/users/users_20260125.jsonl",
+            records=[{"id": 1}, {"id": 2}, {"id": 3}]
+        )
     """
     s3 = get_s3_client()
     
     try:
-        response = s3.get_object(Bucket=bucket, Key=s3_key)
-        content = response['Body'].read().decode('utf-8')
-        return json.loads(content)
+        # Convert to JSON Lines format
+        lines = [json.dumps(record, default=str) for record in records]
+        body = '\n'.join(lines)
+        
+        s3.put_object(
+            Bucket=bucket,
+            Key=key,
+            Body=body.encode('utf-8'),
+            ContentType='application/x-ndjson'  # JSONL content type
+        )
+        
+        print(f"✅ Uploaded {key} ({len(records)} records, {len(body)} bytes)")
+        return True
+        
     except ClientError as e:
-        print(f"❌ Read failed: {e}")
+        print(f"❌ Failed to upload {key}: {e}")
+        return False
+
+
+def generate_partitioned_key(prefix: str, source: str, entity: str) -> str:
+    """
+    Generate a properly partitioned S3 key.
+    
+    This is THE pattern for data engineering. Memorize it.
+    
+    Args:
+        prefix: Base prefix (e.g., "raw")
+        source: Data source (e.g., "api", "database")
+        entity: Entity name (e.g., "users", "orders")
+        
+    Returns:
+        Partitioned key like: raw/api/users/year=2026/month=01/day=25/users_20260125_143022.jsonl
+    """
+    now = datetime.now(timezone.utc)
+    
+    partition = f"year={now.year}/month={now.month:02d}/day={now.day:02d}"
+    filename = f"{entity}_{now.strftime('%Y%m%d_%H%M%S')}.jsonl"
+    
+    return f"{prefix}/{source}/{entity}/{partition}/{filename}"
+
+
+"""
+EXERCISE 9: DOWNLOAD DATA WITH PYTHON (20 min)
+==============================================
+
+Now let's read data back from S3.
+"""
+
+def download_json(bucket: str, key: str) -> Optional[Any]:
+    """
+    Download and parse JSON from S3.
+    
+    Args:
+        bucket: Bucket name
+        key: Object key
+        
+    Returns:
+        Parsed JSON data, or None if failed
+    """
+    s3 = get_s3_client()
+    
+    try:
+        response = s3.get_object(Bucket=bucket, Key=key)
+        body = response['Body'].read().decode('utf-8')
+        data = json.loads(body)
+        
+        print(f"✅ Downloaded {key}")
+        return data
+        
+    except ClientError as e:
+        if e.response['Error']['Code'] == 'NoSuchKey':
+            print(f"❌ Object not found: {key}")
+        else:
+            print(f"❌ Failed to download {key}: {e}")
         return None
 
 
-def generate_partitioned_key(
-    prefix: str,
-    date: datetime,
-    filename: str,
-    partition_format: str = "year={Y}/month={m}/day={d}"
-) -> str:
+def download_jsonl(bucket: str, key: str) -> List[Dict]:
     """
-    Generate a partitioned S3 key.
-    
-    Args:
-        prefix: Base prefix (e.g., "raw/api/users")
-        date: Date for partitioning
-        filename: File name
-        partition_format: Format string for partitions
-    
-    Returns:
-        Full S3 key
-    
-    Example:
-        >>> generate_partitioned_key("raw/users", datetime(2024, 1, 15), "data.json")
-        'raw/users/year=2024/month=01/day=15/data.json'
-    """
-    partition = partition_format.format(
-        Y=date.strftime("%Y"),
-        m=date.strftime("%m"),
-        d=date.strftime("%d")
-    )
-    return f"{prefix}/{partition}/{filename}"
-
-
-def s3_select_example(bucket: str, s3_key: str, query: str) -> List[Dict]:
-    """
-    Query JSON data in S3 using S3 Select.
-    
-    This is more efficient than downloading entire files.
+    Download and parse JSON Lines from S3.
     
     Args:
         bucket: Bucket name
-        s3_key: S3 key to a JSON Lines file
-        query: SQL-like query
-    
+        key: Object key
+        
     Returns:
-        Query results
-    
-    Example:
-        >>> s3_select_example(
-        ...     "my-bucket",
-        ...     "data.jsonl",
-        ...     "SELECT * FROM s3object s WHERE s.age > 25"
-        ... )
+        List of parsed records
     """
     s3 = get_s3_client()
     
     try:
-        response = s3.select_object_content(
-            Bucket=bucket,
-            Key=s3_key,
-            ExpressionType='SQL',
-            Expression=query,
-            InputSerialization={'JSON': {'Type': 'LINES'}},
-            OutputSerialization={'JSON': {}}
-        )
+        response = s3.get_object(Bucket=bucket, Key=key)
+        body = response['Body'].read().decode('utf-8')
         
-        results = []
-        for event in response['Payload']:
-            if 'Records' in event:
-                for line in event['Records']['Payload'].decode().strip().split('\n'):
-                    if line:
-                        results.append(json.loads(line))
+        records = []
+        for line in body.strip().split('\n'):
+            if line:  # Skip empty lines
+                records.append(json.loads(line))
         
-        return results
+        print(f"✅ Downloaded {key} ({len(records)} records)")
+        return records
+        
     except ClientError as e:
-        print(f"❌ S3 Select failed: {e}")
+        print(f"❌ Failed to download {key}: {e}")
         return []
 
 
-# =============================================================================
-# S3 COST CALCULATOR
-# =============================================================================
-
-S3_PRICING = {
-    "STANDARD": 0.023,       # per GB per month
-    "STANDARD_IA": 0.0125,   # Infrequent Access
-    "GLACIER": 0.004,        # Archive
-    "DEEP_ARCHIVE": 0.00099  # Deep Archive
-}
-
-def estimate_storage_cost(size_gb: float, storage_class: str = "STANDARD", months: int = 1) -> float:
+def check_object_exists(bucket: str, key: str) -> bool:
     """
-    Estimate S3 storage cost.
+    Check if an object exists in S3.
     
-    Args:
-        size_gb: Size in gigabytes
-        storage_class: S3 storage class
-        months: Number of months
-    
-    Returns:
-        Estimated cost in USD
+    Useful for idempotency - don't re-upload if already exists.
     """
-    rate = S3_PRICING.get(storage_class, S3_PRICING["STANDARD"])
-    return size_gb * rate * months
-
-
-def print_cost_comparison(size_gb: float, months: int = 12) -> None:
-    """Print cost comparison across storage classes."""
-    print(f"\nCost comparison for {size_gb} GB over {months} months:\n")
-    print(f"{'Storage Class':<20} {'Monthly':<12} {'Annual':<12}")
-    print("-" * 44)
-    
-    for storage_class, rate in S3_PRICING.items():
-        monthly = size_gb * rate
-        annual = monthly * min(months, 12)
-        print(f"{storage_class:<20} ${monthly:>10.2f}  ${annual:>10.2f}")
-
-
-# =============================================================================
-# Verification
-# =============================================================================
-
-def verify_s3_setup() -> None:
-    """Verify S3 setup and permissions."""
-    print("=" * 60)
-    print("S3 SETUP VERIFICATION")
-    print("=" * 60 + "\n")
+    s3 = get_s3_client()
     
     try:
-        buckets = list_buckets()
-        print(f"✅ S3 access verified - found {len(buckets)} buckets")
-        
-        if buckets:
-            print("\nYour buckets:")
-            for bucket in buckets:
-                print(f"   - {bucket}")
-        else:
-            print("\n⚠️  No buckets found. Create one following Exercise 1.")
-        
-    except Exception as e:
-        print(f"❌ Cannot access S3: {e}")
-        print("   Check your AWS credentials and permissions.")
-    
-    print("\n" + "-" * 40)
-    print("Checklist:")
-    print("[ ] Created data lake bucket")
-    print("[ ] Set up folder structure (raw/processed/curated)")
-    print("[ ] Enabled versioning")
-    print("[ ] Created lifecycle rules")
-    print("[ ] Tested upload/download")
-    print("-" * 40)
+        s3.head_object(Bucket=bucket, Key=key)
+        return True
+    except ClientError as e:
+        if e.response['Error']['Code'] == '404':
+            return False
+        raise
 
+
+"""
+EXERCISE 10: BUILD A MINI PIPELINE (45 min)
+===========================================
+
+Let's put it all together with a real-world pattern:
+1. Fetch data from an API
+2. Add metadata (ingestion timestamp, source)
+3. Upload to S3 with proper partitioning
+4. Verify the upload
+"""
+
+import requests
+
+def run_pipeline():
+    """
+    Mini data pipeline: API → S3
+    
+    This is the core pattern you'll use in production.
+    """
+    bucket = "dante-data-lake-dev"
+    
+    print("=" * 60)
+    print("MINI DATA PIPELINE")
+    print("=" * 60)
+    
+    # STEP 1: Fetch data from API
+    print("\n📥 Step 1: Fetching data from API...")
+    try:
+        response = requests.get(
+            "https://jsonplaceholder.typicode.com/users",
+            timeout=30
+        )
+        response.raise_for_status()
+        users = response.json()
+        print(f"   Fetched {len(users)} users")
+    except requests.RequestException as e:
+        print(f"   ❌ Failed to fetch: {e}")
+        return
+    
+    # STEP 2: Add metadata to each record
+    print("\n🏷️  Step 2: Adding metadata...")
+    ingestion_time = datetime.now(timezone.utc).isoformat()
+    
+    for user in users:
+        user['_ingested_at'] = ingestion_time
+        user['_source'] = 'jsonplaceholder_api'
+        user['_pipeline_version'] = '1.0'
+    
+    print(f"   Added metadata to {len(users)} records")
+    
+    # STEP 3: Generate partitioned key
+    print("\n📁 Step 3: Generating partitioned key...")
+    key = generate_partitioned_key(
+        prefix="raw",
+        source="api",
+        entity="users"
+    )
+    print(f"   Key: {key}")
+    
+    # STEP 4: Check if already exists (idempotency)
+    print("\n🔍 Step 4: Checking for existing data...")
+    if check_object_exists(bucket, key):
+        print(f"   ⚠️  Object already exists, skipping upload")
+        return
+    print("   Object does not exist, proceeding with upload")
+    
+    # STEP 5: Upload to S3
+    print("\n📤 Step 5: Uploading to S3...")
+    success = upload_jsonl(bucket, key, users)
+    
+    if not success:
+        print("   ❌ Pipeline failed!")
+        return
+    
+    # STEP 6: Verify the upload
+    print("\n✅ Step 6: Verifying upload...")
+    downloaded = download_jsonl(bucket, key)
+    
+    if len(downloaded) == len(users):
+        print(f"   ✅ Verified: {len(downloaded)} records match!")
+    else:
+        print(f"   ❌ Mismatch: expected {len(users)}, got {len(downloaded)}")
+    
+    # Summary
+    print("\n" + "=" * 60)
+    print("PIPELINE COMPLETE")
+    print("=" * 60)
+    print(f"Records processed: {len(users)}")
+    print(f"S3 location: s3://{bucket}/{key}")
+
+
+"""
+EXERCISE 11: LIFECYCLE POLICIES (20 min - Console)
+===================================================
+
+Lifecycle policies automatically manage data as it ages.
+
+Go to AWS Console:
+1. S3 → Your bucket → Management tab
+2. Create lifecycle rule:
+   - Name: "archive-old-raw-data"
+   - Scope: Prefix "raw/"
+   - Transitions:
+     * Move to Glacier after 90 days
+   - Expiration:
+     * Delete after 365 days
+
+This automatically:
+- Moves old raw data to cheap storage
+- Deletes ancient data you don't need
+- Saves money without manual intervention
+"""
+
+
+# =============================================================================
+# PART 3: REVIEW (15-30 min)
+# =============================================================================
+
+"""
+REVIEW CHECKLIST:
+=================
+
+Technical Skills - can you do these without looking?
+[ ] Create an S3 bucket with aws s3api
+[ ] Upload a file with aws s3 cp
+[ ] Download a file with aws s3 cp
+[ ] List objects with aws s3 ls
+[ ] Upload JSON with boto3 put_object()
+[ ] Download JSON with boto3 get_object()
+[ ] Generate partitioned S3 keys
+
+Concepts - can you explain these?
+[ ] What's the difference between a bucket and an object?
+[ ] Why do we partition data by date?
+[ ] What's the difference between S3 Standard and Glacier?
+[ ] Why use JSON Lines instead of regular JSON?
+[ ] What does "idempotent" mean for a pipeline?
+
+KNOWLEDGE CHECK QUESTIONS:
+==========================
+
+1. You have 5 years of sales data (500GB). Users only query the last 30 days.
+   How would you structure this in S3? What lifecycle policy would you use?
+   
+2. Your pipeline runs daily at midnight. Sometimes it fails and reruns.
+   How do you prevent duplicate data in S3?
+   
+3. A data scientist complains that Athena queries are slow. They're querying
+   one day of data but it takes 10 minutes. What's likely wrong?
+
+Write your answers in a notes file before moving on.
+
+
+COMMIT YOUR WORK:
+================
+
+    cd ~/cursor/Projects/Business/SDE_PATH/sde-tracker
+    git add -A
+    git commit -m "Complete Day 17: S3 Fundamentals"
+    git push
+
+WHAT'S NEXT:
+============
+Day 18: Docker Fundamentals
+- What Docker is and why it matters
+- Images vs containers
+- Building your first Dockerfile
+- Running containers locally
+"""
+
+
+# =============================================================================
+# MAIN - Test your code
+# =============================================================================
 
 if __name__ == "__main__":
-    import sys
+    print("\n" + "=" * 60)
+    print("DAY 17: S3 FUNDAMENTALS")
+    print("=" * 60)
     
-    if len(sys.argv) > 1:
-        cmd = sys.argv[1]
-        if cmd == "verify":
-            verify_s3_setup()
-        elif cmd == "list":
-            buckets = list_buckets()
-            print("Your S3 buckets:")
-            for b in buckets:
-                print(f"  - {b}")
-        elif cmd == "cost":
-            size = float(sys.argv[2]) if len(sys.argv) > 2 else 100
-            print_cost_comparison(size)
-        elif cmd == "partition":
-            key = generate_partitioned_key(
-                "raw/api/users",
-                datetime.now(),
-                "data.json"
-            )
-            print(f"Example partitioned key: {key}")
+    print("\nChoose an exercise to test:")
+    print("1. List buckets")
+    print("2. List objects in bucket")
+    print("3. Run mini pipeline")
+    print("4. Test upload/download")
+    
+    choice = input("\nEnter choice (1-4): ").strip()
+    
+    if choice == "1":
+        print("\n📦 Your S3 Buckets:")
+        list_buckets()
+        
+    elif choice == "2":
+        bucket = input("Bucket name: ").strip() or "dante-data-lake-dev"
+        prefix = input("Prefix (or Enter for all): ").strip()
+        
+        print(f"\n📂 Objects in s3://{bucket}/{prefix}")
+        objects = list_objects(bucket, prefix)
+        for obj in objects:
+            print(f"  {obj['key']} ({obj['size']} bytes)")
+        print(f"\nTotal: {len(objects)} objects")
+        
+    elif choice == "3":
+        run_pipeline()
+        
+    elif choice == "4":
+        bucket = "dante-data-lake-dev"
+        
+        # Test upload
+        test_data = {"test": True, "timestamp": datetime.now().isoformat()}
+        key = "raw/test/test_upload.json"
+        
+        print("\n📤 Testing upload...")
+        upload_json(bucket, key, test_data)
+        
+        print("\n📥 Testing download...")
+        downloaded = download_json(bucket, key)
+        print(f"Downloaded: {downloaded}")
+        
+        print("\n🗑️  Cleaning up test file...")
+        s3 = get_s3_client()
+        s3.delete_object(Bucket=bucket, Key=key)
+        print("Done!")
+    
     else:
-        print("Day 17: S3 Fundamentals")
-        print("=" * 40)
-        print("\nThis is an S3-focused day.")
-        print("Follow exercises in AWS Console and with this code.")
-        print("\nCommands:")
-        print("  python day17_s3_fundamentals.py verify    - Verify S3 access")
-        print("  python day17_s3_fundamentals.py list      - List your buckets")
-        print("  python day17_s3_fundamentals.py cost [GB] - Cost comparison")
-        print("  python day17_s3_fundamentals.py partition - Show partition example")
+        print("Invalid choice")
