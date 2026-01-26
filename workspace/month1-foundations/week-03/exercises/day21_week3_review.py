@@ -1,352 +1,508 @@
 #!/usr/bin/env python3
 """
-Day 21: Week 3 Review + Plan Week 4
-====================================
-Duration: 3-4 hours (Sunday review day)
+Day 21: Week 3 Review - Consolidation Day
+==========================================
+Duration: 2-3 hours
 
-Review everything from Week 3, identify gaps, plan Week 4.
-Consolidate your knowledge before moving to Project 1.
+Today is a consolidation day. You'll:
+1. Review all Week 3 concepts
+2. Fill knowledge gaps
+3. Practice key skills
+4. Prepare for Week 4
 
-WHY THIS MATTERS:
-- Review solidifies learning
-- Gap identification prevents future problems
-- Planning ensures focused execution
-- This is how senior engineers maintain momentum
+DAILY STRUCTURE:
+├── REVIEW (60 min): Concept review and self-assessment
+├── PRACTICE (90 min): Hands-on reinforcement
+└── PREPARE (30 min): Week 4 preview
 
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
 # YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
-from typing import Dict, List
-from datetime import datetime
-
 # =============================================================================
-# WEEK 3 REVIEW
+# PART 1: CONCEPT REVIEW (60 min)
 # =============================================================================
+"""
+WEEK 3 LEARNING OBJECTIVES - Self Assessment
+=============================================
 
-WEEK_3_TOPICS = {
-    "Day 15: Advanced Git": {
-        "skills": [
-            "Interactive rebase (squash, fixup, reword)",
-            "Git bisect for bug hunting",
-            "Cherry-pick and revert",
-            "Pre-commit hooks",
-            "Code review best practices"
-        ],
-        "commands": [
-            "git rebase -i HEAD~N",
-            "git bisect start/good/bad",
-            "git cherry-pick <hash>",
-            "git revert <hash>",
-            "pre-commit install"
-        ]
-    },
-    "Day 16: AWS IAM": {
-        "skills": [
-            "AWS account security (MFA, no root)",
-            "IAM users vs roles",
-            "IAM policies (JSON structure)",
-            "Programmatic access (CLI)",
-            "Billing alerts"
-        ],
-        "commands": [
-            "aws configure",
-            "aws sts get-caller-identity",
-            "aws iam list-users",
-            "aws iam get-policy"
-        ]
-    },
-    "Day 17: S3 Fundamentals": {
-        "skills": [
-            "Bucket creation and naming",
-            "Data lake structure (raw/processed/curated)",
-            "Partitioning patterns",
-            "Storage classes and lifecycle",
-            "Bucket policies"
-        ],
-        "commands": [
-            "aws s3 cp/sync",
-            "aws s3 ls",
-            "aws s3api put-object",
-            "aws s3api create-bucket"
-        ]
-    },
-    "Day 18: Docker Fundamentals": {
-        "skills": [
-            "Images vs containers",
-            "Dockerfile writing",
-            "Docker commands (build, run, exec)",
-            "Port mapping and volumes",
-            "Multi-stage builds"
-        ],
-        "commands": [
-            "docker build -t name .",
-            "docker run -d -p 8080:80 name",
-            "docker exec -it container bash",
-            "docker logs container",
-            "docker ps / docker images"
-        ]
-    },
-    "Day 19: Docker for Data Engineering": {
-        "skills": [
-            "Docker Compose basics",
-            "Multi-container applications",
-            "Environment variables",
-            "Volume persistence",
-            "Networking between containers"
-        ],
-        "commands": [
-            "docker-compose up -d",
-            "docker-compose down",
-            "docker-compose logs -f",
-            "docker-compose exec service bash"
-        ]
-    },
-    "Day 20: Week 3 Project": {
-        "skills": [
-            "End-to-end containerized pipeline",
-            "ETL pattern implementation",
-            "Configuration management",
-            "Error handling and logging",
-            "Local and S3 storage"
-        ],
-        "deliverables": [
-            "Working Dockerfile",
-            "docker-compose.yml",
-            "ETL pipeline code",
-            "README documentation"
-        ]
-    }
-}
+Rate yourself on each topic (1-5):
+1 = Never heard of it
+2 = Heard of it, don't understand
+3 = Understand concept, can't do it
+4 = Can do with reference
+5 = Can do from memory
 
 
-def print_week_review() -> None:
-    """Print Week 3 review checklist."""
-    print("=" * 70)
-    print("WEEK 3 REVIEW: Advanced Git + AWS + Docker")
-    print("=" * 70)
-    
-    for day, content in WEEK_3_TOPICS.items():
-        print(f"\n{day}")
-        print("-" * 50)
-        
-        if "skills" in content:
-            print("Skills:")
-            for skill in content["skills"]:
-                print(f"  [ ] {skill}")
-        
-        if "commands" in content:
-            print("\nKey Commands:")
-            for cmd in content["commands"]:
-                print(f"      {cmd}")
-        
-        if "deliverables" in content:
-            print("\nDeliverables:")
-            for d in content["deliverables"]:
-                print(f"  [ ] {d}")
+DAY 15: ADVANCED GIT
+--------------------
+
+[ ] Interactive rebase (git rebase -i)
+    Rating: ___
+    Can you: Squash commits? Reorder commits? Reword messages?
+
+[ ] Git bisect
+    Rating: ___
+    Can you: Find which commit introduced a bug?
+
+[ ] Cherry-pick
+    Rating: ___
+    Can you: Apply a specific commit to another branch?
+
+[ ] Pre-commit hooks
+    Rating: ___
+    Can you: Set up and configure pre-commit hooks?
+
+If rating < 4, review Day 15 exercises.
 
 
-# =============================================================================
-# SELF-ASSESSMENT QUIZ
-# =============================================================================
+DAY 16: AWS IAM
+---------------
 
-QUIZ_QUESTIONS = [
-    {
-        "topic": "Git",
-        "question": "When should you NOT use git rebase -i?",
-        "answer": "On commits that have been pushed to a shared branch"
-    },
-    {
-        "topic": "AWS",
-        "question": "What's the first thing you should do after creating an AWS account?",
-        "answer": "Enable MFA on the root account"
-    },
-    {
-        "topic": "IAM",
-        "question": "What's the difference between IAM users and roles?",
-        "answer": "Users = humans with credentials; Roles = temporary credentials for services"
-    },
-    {
-        "topic": "S3",
-        "question": "Why do we partition data in S3?",
-        "answer": "To query only what we need - reduces cost and improves speed"
-    },
-    {
-        "topic": "Docker",
-        "question": "What's the difference between an image and a container?",
-        "answer": "Image = template (class); Container = running instance (object)"
-    },
-    {
-        "topic": "Docker",
-        "question": "How do you persist data when a container is removed?",
-        "answer": "Use volumes (-v or volumes: in docker-compose)"
-    },
-    {
-        "topic": "Security",
-        "question": "Where should you NEVER store AWS credentials?",
-        "answer": "In a git repository (use environment variables or secrets manager)"
-    }
-]
+[ ] AWS account structure
+    Rating: ___
+    Can you: Explain root vs IAM users?
+
+[ ] IAM policies
+    Rating: ___
+    Can you: Explain what a policy does?
+
+[ ] AWS CLI configuration
+    Rating: ___
+    Can you: Run aws configure and verify it works?
+
+[ ] aws sts get-caller-identity
+    Rating: ___
+    Can you: Verify your CLI is authenticated?
+
+If rating < 4, review Day 16 exercises.
 
 
-def run_self_assessment() -> None:
-    """Run self-assessment quiz."""
-    print("=" * 60)
-    print("WEEK 3 SELF-ASSESSMENT")
-    print("=" * 60)
-    print("\nFor each question, think of your answer before revealing.\n")
-    
-    score = 0
-    for i, q in enumerate(QUIZ_QUESTIONS, 1):
-        print(f"Q{i} [{q['topic']}]: {q['question']}")
-        input("  (Press Enter to reveal answer...)")
-        print(f"  ANSWER: {q['answer']}")
-        
-        response = input("  Did you get it right? (y/n): ").lower()
-        if response == 'y':
-            score += 1
-            print("  ✅ Great!\n")
-        else:
-            print("  📚 Review this topic.\n")
-    
-    print("=" * 60)
-    print(f"Score: {score}/{len(QUIZ_QUESTIONS)}")
-    
-    if score == len(QUIZ_QUESTIONS):
-        print("🎉 Perfect! You've mastered Week 3!")
-    elif score >= 5:
-        print("👍 Good job! Minor review needed.")
-    else:
-        print("📚 Spend more time reviewing before Week 4.")
-
-
-# =============================================================================
-# WEEK 4 PLANNING
-# =============================================================================
-
-WEEK_4_PREVIEW = """
-WEEK 4: PROJECT 1 - STOCK MARKET PIPELINE (Days 22-28)
-======================================================
-
-This week you start building your first portfolio project!
-
-Day 22: Docker Compose + Local Dev Stack
-  - Set up local development environment
-  - PostgreSQL in Docker
-  - Local Airflow (optional)
-
-Day 23: Alpha Vantage API Integration
-  - Sign up for free API key
-  - Build stock data extractor
-  - Handle rate limits and errors
-
-Day 24: AWS Lambda Deployment
-  - Deploy extraction as Lambda
-  - CloudWatch scheduling
-  - Error alerts
-
-Day 25: S3 Storage + Partitioning
-  - Raw data to S3
-  - Proper partitioning
-  - Data lake structure
-
-Day 26: PostgreSQL Schema Design
-  - Dimensional modeling
-  - Fact and dimension tables
-  - Loading patterns
-
-Day 27: Project 1 Deep Work (Saturday)
-  - Connect all components
-  - End-to-end testing
-  - Debug and fix issues
-
-Day 28: Review + Debug (Sunday)
-  - Polish and document
-  - Prepare for Week 5
-
-PREPARATION FOR WEEK 4:
+DAY 17: S3 FUNDAMENTALS
 -----------------------
-[ ] Alpha Vantage API key (https://www.alphavantage.co/support/#api-key)
-[ ] AWS account fully set up
-[ ] Docker Desktop running
-[ ] Week 3 project working
-[ ] Create github.com/yourusername/stock-market-pipeline repo
+
+[ ] S3 buckets and objects
+    Rating: ___
+    Can you: Create a bucket? Upload/download objects?
+
+[ ] S3 partitioning
+    Rating: ___
+    Can you: Explain year=YYYY/month=MM/day=DD pattern?
+
+[ ] boto3 S3 operations
+    Rating: ___
+    Can you: Upload JSON with boto3? List objects?
+
+[ ] Data lake structure (raw/processed/curated)
+    Rating: ___
+    Can you: Explain why we use this structure?
+
+If rating < 4, review Day 17 exercises.
+
+
+DAY 18: DOCKER FUNDAMENTALS
+---------------------------
+
+[ ] Images vs containers
+    Rating: ___
+    Can you: Explain the difference?
+
+[ ] Dockerfile instructions
+    Rating: ___
+    Can you: Write FROM, WORKDIR, COPY, RUN, CMD?
+
+[ ] docker run flags
+    Rating: ___
+    Can you: Use -it, -e, -v, -p correctly?
+
+[ ] Docker layers and caching
+    Rating: ___
+    Can you: Explain why we order Dockerfile for caching?
+
+If rating < 4, review Day 18 exercises.
+
+
+DAY 19: DOCKER FOR DATA ENGINEERING
+-----------------------------------
+
+[ ] Docker Compose
+    Rating: ___
+    Can you: Write docker-compose.yml?
+
+[ ] Running databases in Docker
+    Rating: ___
+    Can you: Start PostgreSQL in Docker?
+
+[ ] Container networking
+    Rating: ___
+    Can you: Connect containers by service name?
+
+[ ] Volumes for persistence
+    Rating: ___
+    Can you: Persist database data?
+
+If rating < 4, review Day 19 exercises.
+
+
+DAY 20: WEEK 3 PROJECT
+----------------------
+
+[ ] Multi-module Python project
+    Rating: ___
+    Did you: Build the complete pipeline?
+
+[ ] Environment-based configuration
+    Rating: ___
+    Can you: Load config from environment variables?
+
+[ ] Structured logging
+    Rating: ___
+    Can you: Set up JSON logging?
+
+[ ] End-to-end pipeline
+    Rating: ___
+    Can you: Run API → S3 pipeline in Docker?
+
+If you didn't complete Day 20, go back and finish it!
 """
 
 
-def print_week_4_plan() -> None:
-    """Print Week 4 preview and preparation checklist."""
-    print(WEEK_4_PREVIEW)
+# =============================================================================
+# PART 2: PRACTICE EXERCISES (90 min)
+# =============================================================================
+"""
+EXERCISE 1: QUICK COMMAND DRILL (15 min)
+========================================
+
+Without looking at notes, type these commands from memory.
+
+AWS CLI:
+1. List all S3 buckets: _______________
+2. Upload file to S3: _______________
+3. List objects in bucket: _______________
+4. Download from S3: _______________
+5. Check who you are: _______________
+
+Docker:
+1. List running containers: _______________
+2. Run interactive container: _______________
+3. Build image from Dockerfile: _______________
+4. Run with environment variable: _______________
+5. Run with volume mount: _______________
+
+Docker Compose:
+1. Start all services: _______________
+2. Start in background: _______________
+3. View logs: _______________
+4. Stop and remove: _______________
+5. Execute command in container: _______________
+
+
+ANSWERS (check after attempting):
+
+AWS CLI:
+1. aws s3 ls
+2. aws s3 cp <local> s3://<bucket>/<key>
+3. aws s3 ls s3://<bucket>/ [--recursive]
+4. aws s3 cp s3://<bucket>/<key> <local>
+5. aws sts get-caller-identity
+
+Docker:
+1. docker ps
+2. docker run -it <image> bash
+3. docker build -t <name> .
+4. docker run -e VAR=value <image>
+5. docker run -v /host:/container <image>
+
+Docker Compose:
+1. docker compose up
+2. docker compose up -d
+3. docker compose logs
+4. docker compose down
+5. docker compose exec <service> <command>
+"""
+
+
+"""
+EXERCISE 2: S3 OPERATIONS PRACTICE (20 min)
+===========================================
+
+Let's verify your S3 skills.
+
+STEP 1: Create test data
+
+    echo '{"exercise": "day21", "timestamp": "'$(date -Iseconds)'"}' > /tmp/review_test.json
+
+STEP 2: Upload with partitioning
+
+    aws s3 cp /tmp/review_test.json s3://dante-data-lake-dev/raw/test/review/year=2026/month=01/day=26/
+
+STEP 3: List to verify
+
+    aws s3 ls s3://dante-data-lake-dev/raw/test/review/ --recursive
+
+STEP 4: Download and verify
+
+    aws s3 cp s3://dante-data-lake-dev/raw/test/review/year=2026/month=01/day=26/review_test.json /tmp/downloaded_review.json
+    cat /tmp/downloaded_review.json
+
+STEP 5: Clean up
+
+    aws s3 rm s3://dante-data-lake-dev/raw/test/ --recursive
+"""
+
+
+"""
+EXERCISE 3: DOCKER SKILLS PRACTICE (25 min)
+===========================================
+
+Let's verify your Docker skills.
+
+STEP 1: Pull and run Python container
+
+    docker run -it --rm python:3.11-slim python -c "print('Hello from Docker')"
+
+STEP 2: Run with environment variable
+
+    docker run -it --rm -e GREETING="Data Engineering Rules" python:3.11-slim python -c "import os; print(os.getenv('GREETING'))"
+
+STEP 3: Run with volume mount
+
+    mkdir -p /tmp/docker-test
+    echo "print('Hello from mounted file')" > /tmp/docker-test/script.py
+    docker run -it --rm -v /tmp/docker-test:/app python:3.11-slim python /app/script.py
+
+STEP 4: Build a quick image
+
+    mkdir -p /tmp/quick-docker
+    cat > /tmp/quick-docker/Dockerfile << 'EOF'
+FROM python:3.11-slim
+RUN pip install requests
+CMD ["python", "-c", "import requests; print(requests.get('https://httpbin.org/ip').json())"]
+EOF
+    
+    cd /tmp/quick-docker
+    docker build -t quick-test .
+    docker run --rm quick-test
+
+STEP 5: Clean up
+
+    docker rmi quick-test
+    rm -rf /tmp/quick-docker /tmp/docker-test
+"""
+
+
+"""
+EXERCISE 4: DOCKER COMPOSE PRACTICE (30 min)
+============================================
+
+Let's build a quick multi-container setup.
+
+STEP 1: Create project
+
+    mkdir -p ~/review-compose
+    cd ~/review-compose
+
+STEP 2: Create docker-compose.yml
+
+    cat > ~/review-compose/docker-compose.yml << 'EOF'
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: review
+      POSTGRES_PASSWORD: reviewpass
+      POSTGRES_DB: review_db
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U review -d review_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: python:3.11-slim
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      python -c "
+      import time
+      print('App starting...')
+      print('Database is healthy!')
+      print('App would connect to db:5432')
+      time.sleep(10)
+      print('App finished')
+      "
+EOF
+
+STEP 3: Start and observe
+
+    cd ~/review-compose
+    docker compose up
+
+Watch how:
+- PostgreSQL starts first
+- Health check runs
+- App waits for healthy database
+- App runs after database is ready
+
+STEP 4: Stop and clean up
+
+    docker compose down
+    rm -rf ~/review-compose
+"""
 
 
 # =============================================================================
-# GAP ANALYSIS
+# PART 3: WEEK 4 PREVIEW (30 min)
 # =============================================================================
+"""
+WEEK 4 PREVIEW
+==============
 
-def identify_gaps() -> None:
-    """Interactive gap identification."""
-    print("=" * 60)
-    print("GAP ANALYSIS - Be honest with yourself")
-    print("=" * 60)
-    
-    areas = [
-        ("Git rebase and history rewriting", "Day 15"),
-        ("AWS console navigation", "Day 16"),
-        ("IAM policies (reading and writing)", "Day 16"),
-        ("S3 data organization", "Day 17"),
-        ("Dockerfile writing", "Day 18"),
-        ("Docker Compose", "Day 19"),
-        ("End-to-end pipeline building", "Day 20")
-    ]
-    
-    gaps = []
-    
-    for area, day in areas:
-        print(f"\n{area} ({day})")
-        rating = input("  Rate your confidence (1=weak, 5=strong): ")
-        try:
-            if int(rating) < 3:
-                gaps.append((area, day))
-        except:
-            pass
-    
-    print("\n" + "=" * 60)
-    if gaps:
-        print("AREAS TO REVIEW:")
-        for area, day in gaps:
-            print(f"  ⚠️  {area} - Review {day}")
-        print("\nSpend 30-60 min reviewing these before Week 4.")
-    else:
-        print("✅ No major gaps identified. You're ready for Week 4!")
+Next week we go deeper into real data engineering:
 
 
+DAY 22: ADVANCED DOCKER COMPOSE
+-------------------------------
+- Multi-service architectures
+- Networks and service discovery
+- Environment file management
+- Production-ready configurations
+
+
+DAY 23: API INTEGRATION PATTERNS
+--------------------------------
+- Rate limiting and throttling
+- Pagination handling
+- OAuth and API keys
+- Error handling strategies
+
+
+DAY 24: AWS LAMBDA BASICS
+-------------------------
+- What is serverless?
+- Creating your first Lambda function
+- Event triggers
+- Lambda + S3 integration
+
+
+DAY 25: ADVANCED S3 PATTERNS
+----------------------------
+- Lifecycle policies
+- Cross-region replication
+- S3 event notifications
+- S3 Select for querying
+
+
+DAY 26: POSTGRESQL DEEP DIVE
+----------------------------
+- Schema design for data engineering
+- Indexing strategies
+- COPY command for bulk loading
+- Connection pooling
+
+
+DAY 27: PROJECT 1 - DEEP WORK
+-----------------------------
+- Extended project work
+- Building complete pipeline
+- Documentation
+
+
+DAY 28: WEEK 4 REVIEW
+---------------------
+- Consolidation and review
+- Gap filling
+
+
+PREP CHECKLIST FOR WEEK 4:
+=========================
+
+[ ] Docker Desktop running
+[ ] AWS CLI configured and working
+[ ] PostgreSQL running in Docker (from Day 19)
+[ ] Week 3 project complete (Day 20)
+[ ] All Week 3 concepts rated 4+ (or reviewed)
+
+
+WHAT TO READ/WATCH THIS WEEK:
+=============================
+
+Optional but recommended:
+
+1. VIDEO: "AWS Lambda Tutorial" - TechWorld with Nana (30 min)
+   https://www.youtube.com/watch?v=97q30JjEq9Y
+   
+2. READING: "Fundamentals of Data Engineering" Chapter 7
+   Focus on: Orchestration section
+
+3. VIDEO: "PostgreSQL Tutorial for Beginners" - freeCodeCamp (4 hours)
+   https://www.youtube.com/watch?v=qw--VYLpxG4
+   Just watch the first hour for basics
+"""
+
+
 # =============================================================================
-# MAIN
+# WEEK 3 COMPLETION
 # =============================================================================
+"""
+WEEK 3 COMPLETION CHECKLIST:
+============================
+
+Technical Milestones:
+[ ] Git: Can do interactive rebase, bisect, cherry-pick
+[ ] AWS: Have IAM user, CLI configured, S3 bucket created
+[ ] S3: Can upload/download, understand partitioning
+[ ] Docker: Can write Dockerfile, build image, run container
+[ ] Compose: Can write docker-compose.yml, run multi-container apps
+[ ] Project: Built containerized API → S3 pipeline
+
+Knowledge Milestones:
+[ ] Understand data lake structure (raw/processed/curated)
+[ ] Understand container vs image vs Dockerfile
+[ ] Understand environment-based configuration
+[ ] Understand structured logging
+
+Portfolio Milestones:
+[ ] Week 3 project committed to GitHub
+[ ] S3 bucket has organized data
+
+
+FINAL COMMIT:
+=============
+
+    cd ~/cursor/Projects/Business/SDE_PATH/sde-tracker
+    git add -A
+    git commit -m "Complete Day 21: Week 3 Review - All Week 3 objectives met"
+    git push
+
+
+CONGRATULATIONS!
+================
+
+You've completed Week 3. You now have:
+- Real cloud experience (AWS S3)
+- Container skills (Docker)
+- A production-style data pipeline
+
+Week 4 will build on this foundation with:
+- AWS Lambda (serverless)
+- PostgreSQL (databases)
+- More complex pipelines
+
+See you in Week 4!
+"""
+
 
 if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) > 1:
-        cmd = sys.argv[1]
-        if cmd == "review":
-            print_week_review()
-        elif cmd == "quiz":
-            run_self_assessment()
-        elif cmd == "gaps":
-            identify_gaps()
-        elif cmd == "week4":
-            print_week_4_plan()
-    else:
-        print("Day 21: Week 3 Review + Plan Week 4")
-        print("=" * 40)
-        print("\nThis is a REVIEW day (3-4 hours).")
-        print("Consolidate learning and prepare for Project 1.")
-        print("\nCommands:")
-        print("  python day21_week3_review.py review - Review Week 3 topics")
-        print("  python day21_week3_review.py quiz   - Self-assessment quiz")
-        print("  python day21_week3_review.py gaps   - Identify knowledge gaps")
-        print("  python day21_week3_review.py week4  - Preview Week 4")
-        print("\nRecommended order:")
-        print("  1. review → 2. quiz → 3. gaps → 4. week4")
+    print("Day 21: Week 3 Review")
+    print("=" * 50)
+    print("\nComplete the self-assessment above.")
+    print("Any topic rated below 4? Review that day's exercises.")
+    print("\nThen complete the practice exercises to reinforce skills.")
