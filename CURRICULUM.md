@@ -24,9 +24,15 @@
 | 10 | Logging & Configuration | ✅ Complete |
 | 11 | Git Fundamentals | ✅ Complete |
 | 12 | GitHub PRs & Workflows | ✅ Complete |
-| 13 | Week 2 Project: CLI Data Tool | 🔄 In Progress |
+| 13 | Week 2 Project: CLI Data Tool | ✅ Complete |
+| 14 | Week 2 Review | ✅ Complete |
+| 15 | Advanced Git + Code Review | ✅ Complete |
+| 16 | AWS Account Setup (IAM, CLI) | ✅ Complete |
+| 17 | S3 Fundamentals | ✅ Complete |
+| 18 | Docker Fundamentals | ✅ Complete |
+| 19 | Docker for Data Engineering | 🔄 In Progress |
 
-**12/168 days complete — Week 2 in progress!**
+**18/168 days complete — Week 3 in progress!**
 
 ---
 
@@ -53,19 +59,19 @@
 | 10 | Logging & Configuration | ✅ |
 | 11 | Git Fundamentals | ✅ |
 | 12 | GitHub PRs & Workflows | ✅ |
-| 13 | Week 2 Project: CLI Data Tool | 🔄 |
-| 14 | Review + Plan Week 3 | |
+| 13 | Week 2 Project: CLI Data Tool | ✅ |
+| 14 | Review + Plan Week 3 | ✅ |
 
 ### Week 3: AWS + Docker Basics (Days 15-21)
-| Day | Topic |
-|-----|-------|
-| 15 | Advanced Git + Code Review |
-| 16 | AWS Account Setup (IAM, CLI) |
-| 17 | S3 Fundamentals |
-| 18 | Docker Fundamentals |
-| 19 | Docker for Data Engineering |
-| 20 | Week 3 Project: Containerized Pipeline |
-| 21 | Review + Plan Week 4 |
+| Day | Topic | Status |
+|-----|-------|--------|
+| 15 | Advanced Git + Code Review | ✅ |
+| 16 | AWS Account Setup (IAM, CLI) | ✅ |
+| 17 | S3 Fundamentals | ✅ |
+| 18 | Docker Fundamentals | ✅ |
+| 19 | Docker for Data Engineering | 🔄 |
+| 20 | Week 3 Project: Containerized Pipeline | |
+| 21 | Review + Plan Week 4 | |
 
 ### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | Topic |

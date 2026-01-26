@@ -5,7 +5,7 @@
 
 ---
 
-## Current Progress: 12/168 Days (7%)
+## Current Progress: 18/168 Days (11%)
 
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -21,7 +21,13 @@
 | 10 | Logging & Configuration | ✅ |
 | 11 | Git Fundamentals | ✅ |
 | 12 | GitHub PRs & Workflows | ✅ |
-| 13 | Week 2 Project: CLI Data Tool | 🔄 |
+| 13 | Week 2 Project: CLI Data Tool | ✅ |
+| 14 | Week 2 Review | ✅ |
+| 15 | Advanced Git + Code Review | ✅ |
+| 16 | AWS Account Setup (IAM, CLI) | ✅ |
+| 17 | S3 Fundamentals | ✅ |
+| 18 | Docker Fundamentals | ✅ |
+| 19 | Docker for Data Engineering | 🔄 |
 
 ---
 
