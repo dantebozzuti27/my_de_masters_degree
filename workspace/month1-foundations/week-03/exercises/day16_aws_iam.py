@@ -16,7 +16,9 @@ WHY THIS MATTERS:
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
-# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
+def day16_complete():
+    """Day 16 exercises completed."""
+    return True  # AWS IAM setup, MFA, CLI configured, billing alerts
 
 import os
 from typing import Dict, List, Optional
