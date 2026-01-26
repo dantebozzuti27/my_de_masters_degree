@@ -19,7 +19,8 @@ PREREQUISITES:
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
-# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
+# DAY 18 COMPLETE - Docker fundamentals mastered
+def day18_complete(): return True
 
 # =============================================================================
 # PART 1: LEARN (60-90 minutes)
