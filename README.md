@@ -57,16 +57,16 @@
 | 13 | Week 2 Project: Build CLI Data Tool |
 | 14 | Review + Plan Week 3 |
 
-#### Week 3: AWS + Docker Basics (Days 15-21)
-| Day | Topic |
-|-----|-------|
-| 15 | Advanced Git + Code Review Practice |
-| 16 | AWS Account Setup (IAM, CLI) |
-| 17 | S3 Fundamentals & Best Practices |
-| 18 | Docker Fundamentals |
-| 19 | Docker for Data Engineering |
-| 20 | Week 3 Project: Containerized Pipeline |
-| 21 | Review + Plan Week 4 |
+#### Week 3: AWS + Docker Basics (Days 15-21) 🔄 IN PROGRESS
+| Day | Topic | Status |
+|-----|-------|--------|
+| 15 | Advanced Git + Code Review Practice | ✅ |
+| 16 | AWS Account Setup (IAM, CLI) | ✅ |
+| 17 | S3 Fundamentals & Best Practices | ✅ |
+| 18 | Docker Fundamentals | ✅ |
+| 19 | Docker for Data Engineering | 🔄 |
+| 20 | Week 3 Project: Containerized Pipeline | |
+| 21 | Review + Plan Week 4 | |
 
 #### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | Topic |

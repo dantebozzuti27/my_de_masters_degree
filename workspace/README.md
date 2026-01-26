@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 12/168 Days Complete (7%)
+## Current Progress: 18/168 Days Complete (11%)
 
 ---
 
@@ -21,27 +21,27 @@
 | 6 | `day6_dicts_json.py` | Dictionaries & JSON |
 | 7 | `day7_file_io.py` | File I/O & Context Managers |
 
-### Week 2: Production Python + Git (Days 8-14) 🔄 IN PROGRESS
-| Day | File | Topic |
-|-----|------|-------|
-| 8 | `day8_error_handling.py` | Error Handling & Defensive Code |
-| 9 | `day9_classes_oop.py` | Python Classes & OOP for Production |
-| 10 | `day10_logging_config.py` | Logging & Configuration Management |
-| 11 | `day11_git_fundamentals.py` | Git Fundamentals (branching, commits) |
-| 12 | `day12_github_prs.py` | GitHub PRs & Professional Workflows |
-| 13 | `day13_cli_project.py` | Week 2 Project: Build CLI Data Tool |
-| 14 | `day14_week_review.py` | Review + Plan Week 3 |
+### Week 2: Production Python + Git (Days 8-14) ✅ COMPLETE
+| Day | File | Topic | Status |
+|-----|------|-------|--------|
+| 8 | `day8_error_handling.py` | Error Handling & Defensive Code | ✅ |
+| 9 | `day9_classes_oop.py` | Python Classes & OOP for Production | ✅ |
+| 10 | `day10_logging_config.py` | Logging & Configuration Management | ✅ |
+| 11 | `day11_git_fundamentals.py` | Git Fundamentals (branching, commits) | ✅ |
+| 12 | `day12_github_prs.py` | GitHub PRs & Professional Workflows | ✅ |
+| 13 | `day13_cli_project.py` | Week 2 Project: Build CLI Data Tool | ✅ |
+| 14 | `day14_week_review.py` | Review + Plan Week 3 | ✅ |
 
-### Week 3: AWS + Docker Basics (Days 15-21)
-| Day | File | Topic |
-|-----|------|-------|
-| 15 | `day15_advanced_git.py` | Advanced Git + Code Review Practice |
-| 16 | `day16_aws_iam.py` | AWS Account Setup (IAM, CLI) |
-| 17 | `day17_s3_fundamentals.py` | S3 Fundamentals & Best Practices |
-| 18 | `day18_docker_fundamentals.py` | Docker Fundamentals |
-| 19 | `day19_docker_data_engineering.py` | Docker for Data Engineering |
-| 20 | `day20_week3_project.py` | Week 3 Project: Containerized Pipeline |
-| 21 | `day21_week3_review.py` | Review + Plan Week 4 |
+### Week 3: AWS + Docker Basics (Days 15-21) 🔄 IN PROGRESS
+| Day | File | Topic | Status |
+|-----|------|-------|--------|
+| 15 | `day15_advanced_git.py` | Advanced Git + Code Review Practice | ✅ |
+| 16 | `day16_aws_iam.py` | AWS Account Setup (IAM, CLI) | ✅ |
+| 17 | `day17_s3_fundamentals.py` | S3 Fundamentals & Best Practices | ✅ |
+| 18 | `day18_docker_fundamentals.py` | Docker Fundamentals | ✅ |
+| 19 | `day19_docker_data_engineering.py` | Docker for Data Engineering | 🔄 |
+| 20 | `day20_week3_project.py` | Week 3 Project: Containerized Pipeline | |
+| 21 | `day21_week3_review.py` | Review + Plan Week 4 | |
 
 ### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | File | Topic |

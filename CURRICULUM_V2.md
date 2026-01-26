@@ -38,16 +38,16 @@ Focus: Core Python for data engineering
 ### Week 2: Production Python + Git (Days 8-14) ✅ COMPLETE  
 Focus: OOP, testing, version control
 
-### Week 3: Cloud Fundamentals (Days 15-21)
-| Day | Topic | Learn (60-90 min) | Build (2-2.5 hrs) |
-|-----|-------|-------------------|-------------------|
-| 15 | Advanced Git | Zach Wilson: Git for DE (YT) | Rebase, bisect, hooks practice |
-| 16 | AWS IAM | AWS Skill Builder: IAM | MFA, users, policies, CLI |
-| 17 | S3 Deep Dive | "Fundamentals of DE" Ch 6 | Production pipeline to S3, lifecycle |
-| 18 | Docker Fundamentals | TechWorld Nana: Docker (YT) | Images, containers, Dockerfile |
-| 19 | Docker for DE | Seattle Data Guy: Docker DE | Multi-stage builds, optimization |
-| 20 | **PROJECT DAY** | - | Containerized data pipeline |
-| 21 | Review + Prep | Review week, plan ahead | Document, commit, refactor |
+### Week 3: Cloud Fundamentals (Days 15-21) 🔄 IN PROGRESS
+| Day | Topic | Learn (60-90 min) | Build (2-2.5 hrs) | Status |
+|-----|-------|-------------------|-------------------|--------|
+| 15 | Advanced Git | Zach Wilson: Git for DE (YT) | Rebase, bisect, hooks practice | ✅ |
+| 16 | AWS IAM | AWS Skill Builder: IAM | MFA, users, policies, CLI | ✅ |
+| 17 | S3 Deep Dive | "Fundamentals of DE" Ch 6 | Production pipeline to S3, lifecycle | ✅ |
+| 18 | Docker Fundamentals | TechWorld Nana: Docker (YT) | Images, containers, Dockerfile | ✅ |
+| 19 | Docker for DE | Seattle Data Guy: Docker DE | Multi-stage builds, optimization | 🔄 |
+| 20 | **PROJECT DAY** | - | Containerized data pipeline | |
+| 21 | Review + Prep | Review week, plan ahead | Document, commit, refactor | |
 
 ### Week 4: Lambda + PostgreSQL (Days 22-28)
 | Day | Topic | Learn (60-90 min) | Build (2-2.5 hrs) |
