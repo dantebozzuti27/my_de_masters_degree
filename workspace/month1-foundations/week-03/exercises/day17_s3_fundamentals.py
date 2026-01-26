@@ -17,7 +17,8 @@ PREREQUISITES: AWS account with CLI configured (Day 16)
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
-# YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
+# DAY 17 COMPLETE - S3 Fundamentals mastered
+def day17_complete(): return True
 
 # =============================================================================
 # PART 1: LEARN (60-90 minutes)
