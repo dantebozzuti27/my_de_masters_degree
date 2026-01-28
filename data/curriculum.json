@@ -1,0 +1,374 @@
+{
+  "meta": {
+    "title": "6-Month Data Engineer Curriculum",
+    "goal": "Land $160-170k Role by July 2026",
+    "hoursPerWeek": 25,
+    "totalDays": 168,
+    "startDate": "2026-02-01"
+  },
+  "months": [
+    {
+      "id": 1,
+      "name": "Foundations",
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Python Fundamentals",
+          "days": [
+            { "day": 1, "topic": "Development Environment Setup" },
+            { "day": 2, "topic": "Python Variables & Syntax" },
+            { "day": 3, "topic": "Functions & Control Flow" },
+            { "day": 4, "topic": "Data Structures (Lists, Dicts)" },
+            { "day": 5, "topic": "List Comprehensions" },
+            { "day": 6, "topic": "Dictionaries & JSON" },
+            { "day": 7, "topic": "File I/O & Context Managers" }
+          ]
+        },
+        {
+          "week": 2,
+          "title": "Production Python + Git",
+          "days": [
+            { "day": 8, "topic": "Error Handling & Defensive Code" },
+            { "day": 9, "topic": "Python Classes & OOP" },
+            { "day": 10, "topic": "Logging & Configuration" },
+            { "day": 11, "topic": "Git Fundamentals" },
+            { "day": 12, "topic": "GitHub PRs & Workflows" },
+            { "day": 13, "topic": "Week 2 Project: CLI Data Tool" },
+            { "day": 14, "topic": "Week 2 Review" }
+          ]
+        },
+        {
+          "week": 3,
+          "title": "AWS + Docker Basics",
+          "days": [
+            { "day": 15, "topic": "Advanced Git + Code Review" },
+            { "day": 16, "topic": "AWS Account Setup (IAM, CLI)" },
+            { "day": 17, "topic": "S3 Fundamentals" },
+            { "day": 18, "topic": "Docker Fundamentals" },
+            { "day": 19, "topic": "Project 1: Credit Markets Pipeline" },
+            { "day": 20, "topic": "Project 1: Credit Markets Pipeline" },
+            { "day": 21, "topic": "Project 1: Credit Markets Pipeline" }
+          ]
+        },
+        {
+          "week": 4,
+          "title": "Project 1 Part 1",
+          "days": [
+            { "day": 22, "topic": "Docker Compose + Local Dev Stack" },
+            { "day": 23, "topic": "FRED + SEC EDGAR API Integration" },
+            { "day": 24, "topic": "AWS Lambda Deployment" },
+            { "day": 25, "topic": "S3 Storage + Data Partitioning" },
+            { "day": 26, "topic": "PostgreSQL Setup + Schema Design" },
+            { "day": 27, "topic": "Project 1 Deep Work" },
+            { "day": 28, "topic": "Review + Debug" }
+          ]
+        },
+        {
+          "week": 5,
+          "title": "Project 1 Part 2",
+          "days": [
+            { "day": 29, "topic": "Data Transformation Pipeline" },
+            { "day": 30, "topic": "Airflow DAG Basics" },
+            { "day": 31, "topic": "Connect Airflow to Lambda + S3" },
+            { "day": 32, "topic": "Streamlit Dashboard Basics" },
+            { "day": 33, "topic": "Dashboard Data Integration" },
+            { "day": 34, "topic": "Project 1 Polish + Documentation" },
+            { "day": 35, "topic": "Month 1 Review" }
+          ]
+        }
+      ],
+      "project": {
+        "name": "Credit Markets Pipeline",
+        "repo": "credit-markets-pipeline",
+        "stack": ["Python", "AWS Lambda", "S3", "PostgreSQL", "Airflow", "Streamlit"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "dbt Mastery",
+      "weeks": [
+        {
+          "week": 6,
+          "title": "dbt Fundamentals",
+          "days": [
+            { "day": 36, "topic": "dbt Fundamentals (models, refs)" },
+            { "day": 37, "topic": "dbt Materializations" },
+            { "day": 38, "topic": "Staging → Intermediate → Marts" },
+            { "day": 39, "topic": "dbt Sources and Seeds" },
+            { "day": 40, "topic": "dbt Practice: Transform Stock Data" },
+            { "day": 41, "topic": "dbt Deep Dive" },
+            { "day": 42, "topic": "dbt Review + Testing Intro" }
+          ]
+        },
+        {
+          "week": 7,
+          "title": "dbt Testing & Macros",
+          "days": [
+            { "day": 43, "topic": "dbt Testing (schema + data tests)" },
+            { "day": 44, "topic": "Custom dbt Tests" },
+            { "day": 45, "topic": "dbt Macros and Jinja" },
+            { "day": 46, "topic": "dbt Packages + Documentation" },
+            { "day": 47, "topic": "dbt Advanced Patterns" },
+            { "day": 48, "topic": "dbt Mastery Practice" },
+            { "day": 49, "topic": "dbt Cert Prep Start" }
+          ]
+        },
+        {
+          "week": 8,
+          "title": "Project 2 Part 1",
+          "days": [
+            { "day": 50, "topic": "MLB Stats API Data Ingestion" },
+            { "day": 51, "topic": "Snowflake Setup" },
+            { "day": 52, "topic": "dbt Staging Models for MLB" },
+            { "day": 53, "topic": "dbt Intermediate Models" },
+            { "day": 54, "topic": "dbt Marts + Dimensional Modeling" },
+            { "day": 55, "topic": "Project 2 Deep Work" },
+            { "day": 56, "topic": "Project 2 Testing" }
+          ]
+        },
+        {
+          "week": 9,
+          "title": "Project 2 Complete",
+          "days": [
+            { "day": 57, "topic": "dbt Test Coverage + Docs" },
+            { "day": 58, "topic": "Streamlit Dashboard for MLB" },
+            { "day": 59, "topic": "Dashboard Advanced Features" },
+            { "day": 60, "topic": "Project 2 Polish" },
+            { "day": 61, "topic": "dbt Certification Final Prep" },
+            { "day": 62, "topic": "dbt Cert Exam" },
+            { "day": 63, "topic": "Month 2 Review" }
+          ]
+        }
+      ],
+      "project": {
+        "name": "MLB Analytics Platform",
+        "stack": ["Python", "Snowflake", "dbt", "Streamlit"]
+      },
+      "certification": { "name": "dbt Analytics Engineering", "day": 62 }
+    },
+    {
+      "id": 3,
+      "name": "Airflow + Applying",
+      "weeks": [
+        {
+          "week": 10,
+          "title": "Airflow Fundamentals",
+          "days": [
+            { "day": 64, "topic": "Airflow Architecture Deep Dive" },
+            { "day": 65, "topic": "DAG Design Patterns" },
+            { "day": 66, "topic": "Operators and TaskFlow API" },
+            { "day": 67, "topic": "Task Dependencies + XComs" },
+            { "day": 68, "topic": "Airflow Connections + Hooks" },
+            { "day": 69, "topic": "Airflow Lab: Complex DAG" },
+            { "day": 70, "topic": "Airflow Testing Intro" }
+          ]
+        },
+        {
+          "week": 11,
+          "title": "Airflow Production + Apply",
+          "days": [
+            { "day": 71, "topic": "Airflow Testing + Monitoring" },
+            { "day": 72, "topic": "Error Handling in DAGs" },
+            { "day": 73, "topic": "Resume + LinkedIn Polish - START APPLYING" },
+            { "day": 74, "topic": "First 5 Applications" },
+            { "day": 75, "topic": "More Applications + Airflow Practice" },
+            { "day": 76, "topic": "Application Sprint (10 apps)" },
+            { "day": 77, "topic": "Week Review + Tracking" }
+          ]
+        },
+        {
+          "week": 12,
+          "title": "Project 3 Part 1",
+          "days": [
+            { "day": 78, "topic": "Multi-Source Ingestion DAGs" },
+            { "day": 79, "topic": "Great Expectations Setup" },
+            { "day": 80, "topic": "Data Quality Framework" },
+            { "day": 81, "topic": "Quality Checks Integration" },
+            { "day": 82, "topic": "Applications + Project Work" },
+            { "day": 83, "topic": "Project 3 Deep Work" },
+            { "day": 84, "topic": "Project 3 Debug + Review" }
+          ]
+        },
+        {
+          "week": 13,
+          "title": "Project 3 Complete",
+          "days": [
+            { "day": 85, "topic": "Monitoring + Alerting Setup" },
+            { "day": 86, "topic": "Final Polish + Deployment" },
+            { "day": 87, "topic": "Project 3 Documentation" },
+            { "day": 88, "topic": "Applications (25+ total)" },
+            { "day": 89, "topic": "More Applications" },
+            { "day": 90, "topic": "Application Sprint + Portfolio" },
+            { "day": 91, "topic": "Month 3 Review (30+ apps)" }
+          ]
+        }
+      ],
+      "project": {
+        "name": "Data Quality Platform",
+        "stack": ["Python", "Airflow", "Great Expectations", "PostgreSQL"]
+      }
+    },
+    {
+      "id": 4,
+      "name": "AWS Certification",
+      "weeks": [
+        {
+          "week": 14,
+          "title": "AWS SAA - Compute & Storage",
+          "days": [
+            { "day": 92, "topic": "AWS S3 Deep Dive" },
+            { "day": 93, "topic": "AWS EC2 + Lambda" },
+            { "day": 94, "topic": "AWS RDS + Redshift" },
+            { "day": 95, "topic": "Applications + AWS Practice" },
+            { "day": 96, "topic": "AWS EBS Storage" },
+            { "day": 97, "topic": "AWS Lab Day" },
+            { "day": 98, "topic": "AWS Review + Flashcards" }
+          ]
+        },
+        {
+          "week": 15,
+          "title": "AWS SAA - Networking",
+          "days": [
+            { "day": 99, "topic": "AWS VPC Networking" },
+            { "day": 100, "topic": "AWS IAM Deep Dive" },
+            { "day": 101, "topic": "AWS Glue + Athena" },
+            { "day": 102, "topic": "Applications + Interview Prep" },
+            { "day": 103, "topic": "AWS CloudWatch" },
+            { "day": 104, "topic": "AWS Practice Exam 1" },
+            { "day": 105, "topic": "Review Weak Areas" }
+          ]
+        },
+        {
+          "week": 16,
+          "title": "AWS SAA - Final Prep",
+          "days": [
+            { "day": 106, "topic": "AWS Practice Exam 2" },
+            { "day": 107, "topic": "AWS Weak Areas" },
+            { "day": 108, "topic": "AWS Practice Exam 3" },
+            { "day": 109, "topic": "First Interviews" },
+            { "day": 110, "topic": "AWS Final Review" },
+            { "day": 111, "topic": "AWS Exam Day" },
+            { "day": 112, "topic": "Celebrate + Interview Prep" }
+          ]
+        },
+        {
+          "week": 17,
+          "title": "Interview Ramp Up",
+          "days": [
+            { "day": 113, "topic": "Interview SQL" },
+            { "day": 114, "topic": "Interview Python" },
+            { "day": 115, "topic": "Interview System Design" },
+            { "day": 116, "topic": "Active Interviewing 1" },
+            { "day": 117, "topic": "Interview + Applications" },
+            { "day": 118, "topic": "Mock Interview Day" },
+            { "day": 119, "topic": "Month 4 Review" }
+          ]
+        }
+      ],
+      "certification": { "name": "AWS Solutions Architect Associate", "day": 111 }
+    },
+    {
+      "id": 5,
+      "name": "Interview Intensive",
+      "weeks": [
+        {
+          "week": 18,
+          "title": "System Design Practice",
+          "days": [
+            { "day": 120, "topic": "System Design: Data Pipelines" },
+            { "day": 121, "topic": "System Design: Data Warehouses" },
+            { "day": 122, "topic": "System Design: Streaming" },
+            { "day": 123, "topic": "Active Interviewing 2" },
+            { "day": 124, "topic": "System Design: Realtime" },
+            { "day": 125, "topic": "System Design Practice" },
+            { "day": 126, "topic": "Interview Debrief" }
+          ]
+        },
+        {
+          "week": 19,
+          "title": "Technical Interview Practice",
+          "days": [
+            { "day": 127, "topic": "SQL Window Functions" },
+            { "day": 128, "topic": "SQL CTEs + Subqueries" },
+            { "day": 129, "topic": "Python Data Structures" },
+            { "day": 130, "topic": "Active Interviewing 3" },
+            { "day": 131, "topic": "Data Modeling Questions" },
+            { "day": 132, "topic": "Mock Interview Full" },
+            { "day": 133, "topic": "Interview Prep Review" }
+          ]
+        },
+        {
+          "week": 20,
+          "title": "Behavioral + Mock Interviews",
+          "days": [
+            { "day": 134, "topic": "Behavioral STAR Method" },
+            { "day": 135, "topic": "Tell Me About Yourself" },
+            { "day": 136, "topic": "Leadership + Conflict" },
+            { "day": 137, "topic": "Active Interviewing 4" },
+            { "day": 138, "topic": "Mock Interview 1" },
+            { "day": 139, "topic": "Mock Interview 2" },
+            { "day": 140, "topic": "Refine Answers" }
+          ]
+        },
+        {
+          "week": 21,
+          "title": "Interview Refinement",
+          "days": [
+            { "day": 141, "topic": "Refine Story" },
+            { "day": 142, "topic": "Technical Deep Dives" },
+            { "day": 143, "topic": "Negotiation Research" },
+            { "day": 144, "topic": "Active Interviewing 5" },
+            { "day": 145, "topic": "Final Round Prep 1" },
+            { "day": 146, "topic": "Practice Final Rounds" },
+            { "day": 147, "topic": "Month 5 Review" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Close Offers",
+      "weeks": [
+        {
+          "week": 22,
+          "title": "Final Push",
+          "days": [
+            { "day": 148, "topic": "Final Round Prep 2" },
+            { "day": 149, "topic": "Final Interviews 1" },
+            { "day": 150, "topic": "Final Interviews 2" },
+            { "day": 151, "topic": "Compare Offers" },
+            { "day": 152, "topic": "Negotiation Strategy" },
+            { "day": 153, "topic": "Negotiate Aggressively" },
+            { "day": 154, "topic": "Review Offer Details" }
+          ]
+        },
+        {
+          "week": 23,
+          "title": "Negotiate + Accept",
+          "days": [
+            { "day": 155, "topic": "Counter Offer Calls" },
+            { "day": 156, "topic": "Final Negotiations" },
+            { "day": 157, "topic": "Accept Offer" },
+            { "day": 158, "topic": "Give Notice" },
+            { "day": 159, "topic": "Transition Planning" },
+            { "day": 160, "topic": "Celebrate" },
+            { "day": 161, "topic": "Prep New Role" }
+          ]
+        },
+        {
+          "week": 24,
+          "title": "Launch",
+          "days": [
+            { "day": 162, "topic": "Knowledge Transfer" },
+            { "day": 163, "topic": "Finish Strong" },
+            { "day": 164, "topic": "Study New Stack" },
+            { "day": 165, "topic": "Prep Day 1" },
+            { "day": 166, "topic": "Last Day" },
+            { "day": 167, "topic": "Rest + Celebrate" },
+            { "day": 168, "topic": "New Chapter Begins" }
+          ]
+        }
+      ]
+    }
+  ]
+}
