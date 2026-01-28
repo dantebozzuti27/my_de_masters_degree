@@ -18,6 +18,7 @@ DAILY STRUCTURE:
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
+# DAY 21 - Building Project 1 (Credit Markets Pipeline)
 # YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 # =============================================================================

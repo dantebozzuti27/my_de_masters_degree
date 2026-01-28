@@ -45,9 +45,9 @@ Focus: OOP, testing, version control
 | 16 | AWS IAM | AWS Skill Builder: IAM | MFA, users, policies, CLI | ✅ |
 | 17 | S3 Deep Dive | "Fundamentals of DE" Ch 6 | Production pipeline to S3, lifecycle | ✅ |
 | 18 | Docker Fundamentals | TechWorld Nana: Docker (YT) | Images, containers, Dockerfile | ✅ |
-| 19 | Docker for DE | Seattle Data Guy: Docker DE | Multi-stage builds, optimization | 🔄 |
-| 20 | **PROJECT DAY** | - | Containerized data pipeline | |
-| 21 | Review + Prep | Review week, plan ahead | Document, commit, refactor | |
+| 19 | Project 1 | — | Credit Markets Pipeline: Setup | 🔄 Next |
+| 20 | Project 1 | — | Credit Markets Pipeline: API + S3 | |
+| 21 | Project 1 | — | Credit Markets Pipeline: DB + Deploy | |
 
 ### Week 4: Lambda + PostgreSQL (Days 22-28)
 | Day | Topic | Learn (60-90 min) | Build (2-2.5 hrs) |
@@ -68,7 +68,7 @@ Focus: OOP, testing, version control
 | 31 | Airflow + AWS | - | Connect Lambda, S3 to Airflow |
 | 32 | Streamlit Basics | Streamlit docs + tutorials | Simple dashboard |
 | 33 | Dashboard + Data | - | Connect to PostgreSQL |
-| 34 | **PROJECT 1 POLISH** | - | Stock pipeline end-to-end |
+| 34 | **PROJECT 1 POLISH** | - | Credit markets pipeline end-to-end |
 | 35 | Month 1 Review | "Fundamentals of DE" Ch 1-2 | Portfolio documentation |
 
 ---
@@ -105,14 +105,14 @@ Focus: OOP, testing, version control
 | 52 | Snowflake Setup | Snowflake quickstart | Account, warehouse, database |
 | 53 | Snowflake + dbt | dbt + Snowflake docs | Connect and deploy |
 | 54 | SCD Types | "Data Warehouse Toolkit" Ch 5 | Implement Type 2 SCD |
-| 55 | **PROJECT 2 START** | - | NBA Analytics ingestion |
-| 56 | Project 2 Modeling | - | dbt models for NBA data |
+| 55 | **PROJECT 2 START** | - | MLB Analytics ingestion |
+| 56 | Project 2 Modeling | - | dbt models for MLB data |
 
 ### Week 9: Project 2 Complete + Cert (Days 57-63)
 | Day | Topic | Learn (60-90 min) | Build (2-2.5 hrs) |
 |-----|-------|-------------------|-------------------|
 | 57 | Project 2 dbt | - | Staging → Marts pipeline |
-| 58 | Streamlit + Snowflake | - | NBA analytics dashboard |
+| 58 | Streamlit + Snowflake | - | MLB analytics dashboard |
 | 59 | Dashboard Polish | - | Charts, filters, interactivity |
 | 60 | Testing + Docs | - | Full test coverage, docs |
 | 61 | dbt Cert Final Prep | Practice exams | Review weak areas |

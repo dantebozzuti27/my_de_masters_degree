@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """
-Day 27: Project 1 Deep Work - Full Stack Data Pipeline
-========================================================
+Day 27: Project 1 Deep Work - Credit Markets Pipeline
+======================================================
 Duration: 4-5 hours (Extended project day)
 
 Today you'll build a complete data pipeline combining EVERYTHING from Month 1:
-- API extraction with proper patterns
+- API extraction with proper patterns (FRED, SEC EDGAR)
 - S3 storage with partitioning
 - PostgreSQL loading
 - Docker containerization
 - Error handling and logging
 
 This is your CAPSTONE PROJECT for Month 1.
+
+DATA SOURCES:
+- FRED API: Treasury yields, credit spreads, economic indicators
+- SEC EDGAR: Corporate filings, 10-K, 10-Q
+
+VALUE PROPOSITION:
+- Corporate credit health monitoring
+- Early warning signals for credit deterioration
+- Relevant to fintech (Ramp, Brex, Stripe)
 
 DAILY STRUCTURE:
 ├── DESIGN (30 min): Architecture planning

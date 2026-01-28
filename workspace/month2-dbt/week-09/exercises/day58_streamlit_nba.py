@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Day 58: Streamlit Dashboard for NBA
+Day 58: Streamlit Dashboard for MLB
 ===================================
 Duration: 2-2.5 hours
 
@@ -12,6 +12,6 @@ COMPLETION: Delete the marker below when you've finished all exercises.
 # YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 if __name__ == "__main__":
-    print("Day 58: Streamlit Dashboard for NBA")
+    print("Day 58: Streamlit Dashboard for MLB")
     print("=" * 50)
     print("\nFollow the curriculum for detailed exercises.")

@@ -4,7 +4,11 @@
 
 ---
 
-## Current Progress: 18/168 Days Complete (11%)
+## Current Progress: 18/168 Days Complete — Building Project 1
+
+⚡ **AGGRESSIVE MODE:** Following dante_analysis_updated.md recommendation.
+- Days 19-21: Building Project 1 (Credit Markets Pipeline)
+- Building > Exercises
 
 ---
 
@@ -39,15 +43,15 @@
 | 16 | `day16_aws_iam.py` | AWS Account Setup (IAM, CLI) | ✅ |
 | 17 | `day17_s3_fundamentals.py` | S3 Fundamentals & Best Practices | ✅ |
 | 18 | `day18_docker_fundamentals.py` | Docker Fundamentals | ✅ |
-| 19 | `day19_docker_data_engineering.py` | Docker for Data Engineering | 🔄 |
-| 20 | `day20_week3_project.py` | Week 3 Project: Containerized Pipeline | |
-| 21 | `day21_week3_review.py` | Review + Plan Week 4 | |
+| 19 | `day19_docker_data_engineering.py` | Project 1: Credit Markets Pipeline | 🔄 Next |
+| 20 | `day20_week3_project.py` | Project 1: Credit Markets Pipeline | |
+| 21 | `day21_week3_review.py` | Project 1: Credit Markets Pipeline | |
 
 ### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | File | Topic |
 |-----|------|-------|
 | 22 | `day22_docker_compose.py` | Docker Compose + Local Dev Stack |
-| 23 | `day23_api_integration.py` | Alpha Vantage API Integration |
+| 23 | `day23_api_integration.py` | FRED + SEC EDGAR API Integration |
 | 24 | `day24_lambda_deployment.py` | AWS Lambda Deployment |
 | 25 | `day25_s3_partitioning.py` | S3 Storage + Data Partitioning |
 | 26 | `day26_postgresql_schema.py` | PostgreSQL Setup + Schema Design |
@@ -91,12 +95,12 @@
 | 48 | `day48_dbt_mastery_practice.py` | dbt Mastery Practice |
 | 49 | `day49_dbt_cert_prep.py` | dbt Cert Prep Start |
 
-### Week 8: Project 2 Part 1 - NBA Analytics (Days 50-56)
+### Week 8: Project 2 Part 1 - MLB Analytics (Days 50-56)
 | Day | File | Topic |
 |-----|------|-------|
-| 50 | `day50_nba_api_ingestion.py` | NBA API Data Ingestion |
+| 50 | `day50_mlb_api_ingestion.py` | MLB Stats API Data Ingestion |
 | 51 | `day51_snowflake_setup.py` | Snowflake Setup |
-| 52 | `day52_dbt_staging_nba.py` | dbt Staging Models for NBA |
+| 52 | `day52_dbt_staging_mlb.py` | dbt Staging Models for MLB |
 | 53 | `day53_dbt_intermediate_models.py` | dbt Intermediate Models |
 | 54 | `day54_dbt_marts_dimensional.py` | dbt Marts + Dimensional Modeling |
 | 55 | `day55_project2_deep_work.py` | Project 2 Deep Work |
@@ -106,7 +110,7 @@
 | Day | File | Topic |
 |-----|------|-------|
 | 57 | `day57_dbt_test_coverage.py` | dbt Test Coverage + Docs |
-| 58 | `day58_streamlit_nba.py` | Streamlit Dashboard for NBA |
+| 58 | `day58_streamlit_mlb.py` | Streamlit Dashboard for MLB |
 | 59 | `day59_dashboard_advanced.py` | Dashboard Advanced Features |
 | 60 | `day60_project2_polish.py` | Project 2 Polish |
 | 61 | `day61_dbt_cert_final_prep.py` | dbt Certification Final Prep |
@@ -339,8 +343,8 @@ workspace/
 
 | # | Project | Tech Stack | Deliverables |
 |---|---------|------------|--------------|
-| 1 | **Stock Market Pipeline** | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 (Days 22-35) |
-| 2 | **NBA Analytics Platform** | Python, Snowflake, dbt, Streamlit | Month 2 (Days 50-63) |
+| 1 | **Credit Markets Pipeline** | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 (Days 22-35) |
+| 2 | **MLB Analytics Platform** | Python, Snowflake, dbt, Streamlit | Month 2 (Days 50-63) |
 | 3 | **Financial Data Quality Platform** | Python, Airflow, Great Expectations, PostgreSQL | Month 3 (Days 78-91) |
 
 ---

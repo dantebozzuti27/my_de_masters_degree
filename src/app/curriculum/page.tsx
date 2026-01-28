@@ -30,7 +30,7 @@ export default function CurriculumPage() {
           6-Month Aggressive Plan
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          24 weeks • 96 sessions • Goal: $160-170k by July 2026
+          24 weeks • 168 days • Goal: $160-170k by July 2026
         </p>
       </div>
 
@@ -41,7 +41,7 @@ export default function CurriculumPage() {
           <div>
             <h2 className="text-xl font-bold">6-Month Aggressive Transition</h2>
             <p className="text-blue-100">
-              {completedIds.size} of 96 sessions completed ({Math.round((completedIds.size / 96) * 100)}%)
+              {completedIds.size} of 168 days completed ({Math.round((completedIds.size / 168) * 100)}%)
             </p>
           </div>
         </div>
@@ -177,7 +177,7 @@ export default function CurriculumPage() {
                             </div>
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                {weekCompleted}/4
+                                {weekCompleted}/{weekSessions.length}
                               </span>
                               {isWeekExpanded ? (
                                 <ChevronDown className="w-4 h-4 text-gray-400" />

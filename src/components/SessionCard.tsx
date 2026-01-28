@@ -96,7 +96,7 @@ export function SessionCard({ session, variant = 'full' }: SessionCardProps) {
       {/* Meta info */}
       <div className="flex flex-wrap gap-2 mb-4">
         <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 rounded-full text-sm font-medium">
-          Day {session.dayNumber} of 96
+          Day {session.dayNumber} of 168
         </span>
         <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 rounded-full text-sm font-medium">
           Week {session.weekNumber}

@@ -5,29 +5,18 @@
 
 ---
 
-## Current Progress: 18/168 Days (11%)
+## Current Progress: 18/168 Days — Building Project 1
+
+⚡ **AGGRESSIVE MODE:** Building Project 1 starting Day 19.
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 1 | Development Environment Setup | ✅ |
-| 2 | Python Variables & Syntax | ✅ |
-| 3 | Functions & Control Flow | ✅ |
-| 4 | Data Structures (Lists, Dicts) | ✅ |
-| 5 | List Comprehensions | ✅ |
-| 6 | Dictionaries & JSON | ✅ |
-| 7 | File I/O & Context Managers | ✅ |
-| 8 | Error Handling & Defensive Code | ✅ |
-| 9 | Python Classes & OOP | ✅ |
-| 10 | Logging & Configuration | ✅ |
-| 11 | Git Fundamentals | ✅ |
-| 12 | GitHub PRs & Workflows | ✅ |
-| 13 | Week 2 Project: CLI Data Tool | ✅ |
-| 14 | Week 2 Review | ✅ |
+| 1-14 | Python + Git Fundamentals | ✅ |
 | 15 | Advanced Git + Code Review | ✅ |
 | 16 | AWS Account Setup (IAM, CLI) | ✅ |
 | 17 | S3 Fundamentals | ✅ |
 | 18 | Docker Fundamentals | ✅ |
-| 19 | Docker for Data Engineering | 🔄 |
+| 19 | Project 1: Credit Markets Pipeline | 🔄 Next |
 
 ---
 
@@ -64,15 +53,15 @@
 | 16 | AWS Account Setup (IAM, CLI) | ✅ |
 | 17 | S3 Fundamentals & Best Practices | ✅ |
 | 18 | Docker Fundamentals | ✅ |
-| 19 | Docker for Data Engineering | 🔄 |
-| 20 | Week 3 Project: Containerized Pipeline | |
-| 21 | Review + Plan Week 4 | |
+| 19 | Project 1: Credit Markets Pipeline | 🔄 Next |
+| 20 | Project 1: Credit Markets Pipeline | |
+| 21 | Project 1: Credit Markets Pipeline | |
 
 #### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | Topic |
 |-----|-------|
 | 22 | Docker Compose + Local Dev Stack |
-| 23 | Alpha Vantage API Integration |
+| 23 | FRED + SEC EDGAR API Integration |
 | 24 | AWS Lambda Deployment |
 | 25 | S3 Storage + Data Partitioning |
 | 26 | PostgreSQL Setup + Schema Design |
@@ -116,12 +105,12 @@
 | 48 | dbt Mastery Practice |
 | 49 | dbt Cert Prep Start |
 
-#### Week 8: Project 2 Part 1 - NBA Analytics (Days 50-56)
+#### Week 8: Project 2 Part 1 - MLB Analytics (Days 50-56)
 | Day | Topic |
 |-----|-------|
-| 50 | NBA API Data Ingestion |
+| 50 | MLB Stats API Data Ingestion |
 | 51 | Snowflake Setup |
-| 52 | dbt Staging Models for NBA |
+| 52 | dbt Staging Models for MLB |
 | 53 | dbt Intermediate Models |
 | 54 | dbt Marts + Dimensional Modeling |
 | 55 | Project 2 Deep Work |
@@ -131,7 +120,7 @@
 | Day | Topic |
 |-----|-------|
 | 57 | dbt Test Coverage + Docs |
-| 58 | Streamlit Dashboard for NBA |
+| 58 | Streamlit Dashboard for MLB |
 | 59 | Dashboard Advanced Features |
 | 60 | Project 2 Polish |
 | 61 | dbt Certification Final Prep |
@@ -344,8 +333,8 @@ workspace/
 
 | Project | Tech Stack | Month |
 |---------|------------|-------|
-| **Stock Pipeline** | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 |
-| **NBA Analytics** | Python, Snowflake, dbt, Streamlit | Month 2 |
+| **Credit Markets Pipeline** | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 |
+| **MLB Analytics Platform** | Python, Snowflake, dbt, Streamlit | Month 2 |
 | **Data Quality Platform** | Python, Airflow, Great Expectations, PostgreSQL | Month 3 |
 
 ---

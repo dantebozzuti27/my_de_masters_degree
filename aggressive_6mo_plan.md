@@ -22,12 +22,12 @@
 - Hands-on AWS practice
 - Docker exercises
 
-### Week 3-4: Build Project 1 - Real-Time Stock Pipeline
+### Week 3-4: Build Project 1 - Credit Markets Pipeline
 **THE SHOWCASE PROJECT**
 
 **Architecture:**
 ```
-Alpha Vantage API → AWS Lambda (Python) → S3 (raw data) 
+FRED API + SEC EDGAR → AWS Lambda (Python) → S3 (raw data) 
 → Lambda (transform) → PostgreSQL (RDS) 
 → Airflow (orchestration) → Streamlit Dashboard
 ```
@@ -66,12 +66,12 @@ Alpha Vantage API → AWS Lambda (Python) → S3 (raw data)
 - dbt practice projects
 - Read dbt best practices docs
 
-### Week 7-8: Build Project 2 - NBA Analytics Platform
+### Week 7-8: Build Project 2 - MLB Analytics Platform
 **THE DBT SHOWCASE**
 
 **Architecture:**
 ```
-NBA API → Python ingestion → Snowflake (raw layer)
+MLB Stats API → Python ingestion → Snowflake (raw layer)
 → dbt (staging/intermediate/marts) → Snowflake (analytics)
 → Streamlit dashboard
 ```
@@ -209,18 +209,18 @@ Multiple APIs (stocks, forex, crypto) → Airflow orchestration
 
 ## THE 3 PORTFOLIO PROJECTS (DETAILED)
 
-### PROJECT 1: Real-Time Stock Market Pipeline (ENHANCED)
-**Why This Matters:** Shows end-to-end DE skills, AWS, automation, production thinking
+### PROJECT 1: Credit Markets Pipeline (ENHANCED)
+**Why This Matters:** Shows end-to-end DE skills, AWS, automation, production thinking. Directly relevant to fintech (Ramp, Brex, Stripe).
 
 **Tech Stack:** Python, AWS (Lambda, S3, RDS, CloudWatch), PostgreSQL, Airflow, Streamlit, Docker
 
 **Features:**
-- Ingests real-time stock data from Alpha Vantage API (multiple tickers)
+- Ingests credit market data from FRED API (yields, spreads) + SEC EDGAR (filings)
 - Lambda processes and stores raw data in S3 (partitioned by date)
 - Second Lambda transforms and loads to PostgreSQL
 - Airflow orchestrates daily/hourly runs with retry logic
 - Data quality checks built in (Great Expectations)
-- Streamlit dashboard shows latest prices, trends, alerts
+- Streamlit dashboard shows credit health indicators, trends, alerts
 - CloudWatch monitoring and SNS alerting on failures
 - Comprehensive error handling and logging
 - Infrastructure as Code (Terraform or CloudFormation)
@@ -231,7 +231,7 @@ Multiple APIs (stocks, forex, crypto) → Airflow orchestration
 
 **GitHub Structure:**
 ```
-stock-pipeline/
+credit-markets-pipeline/
 ├── README.md (detailed architecture, setup instructions)
 ├── lambda/
 │   ├── ingestion.py
@@ -250,13 +250,13 @@ stock-pipeline/
 
 ---
 
-### PROJECT 2: NBA Analytics Platform (ENHANCED - dbt Showcase)
-**Why This Matters:** Demonstrates modern analytics engineering, dbt mastery, dimensional modeling
+### PROJECT 2: MLB Analytics Platform (ENHANCED - dbt Showcase)
+**Why This Matters:** Demonstrates modern analytics engineering, dbt mastery, dimensional modeling. Sabermetrics shows complex metrics handling.
 
 **Tech Stack:** Python, Snowflake, dbt, Streamlit, GitHub Actions
 
 **Features:**
-- Ingests NBA stats from multiple APIs (players, teams, games, play-by-play)
+- Ingests MLB stats from MLB Stats API (players, teams, games, Statcast)
 - dbt models: staging → intermediate → marts (25-30 models total)
 - Dimensional model (players, teams, games facts, advanced metrics)
 - 100% test coverage (schema + data + custom tests)

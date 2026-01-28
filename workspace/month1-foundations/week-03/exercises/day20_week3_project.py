@@ -26,6 +26,7 @@ PREREQUISITES: Days 17-19 completed
 COMPLETION: Delete the marker below when you've finished all exercises.
 """
 
+# DAY 20 - Building Project 1 (Credit Markets Pipeline)
 # YOUR CODE HERE - DELETE THIS LINE WHEN EXERCISES COMPLETE
 
 # =============================================================================
