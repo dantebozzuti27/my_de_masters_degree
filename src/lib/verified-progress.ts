@@ -1,36 +1,50 @@
-// Verified Progress - Based on actual workspace files, not manual clicks
+// Verified Progress - Based on data/progress.json
 // This reads from workspace-manifest.json which is generated at build time
 
 import manifestData from './workspace-manifest.json';
 
+export interface DayStatus {
+  complete: boolean;
+  topic: string;
+  month: number;
+  week: number;
+}
+
+export interface WeekData {
+  title: string;
+  days: {
+    day: number;
+    topic: string;
+    complete: boolean;
+  }[];
+}
+
+export interface MonthData {
+  name: string;
+  weeks: {
+    [key: string]: WeekData;
+  };
+}
+
 export interface WorkspaceManifest {
   generatedAt: string;
-  quarters: {
-    [key: string]: {
-      folder: string;
-      weeks: {
-        [key: string]: {
-          exercises: {
-            [key: string]: {
-              complete: boolean;
-              path?: string;
-              incompletePatterns?: number;
-            };
-          };
-        };
-      };
-    };
+  meta: {
+    title: string;
+    goal: string;
+    hoursPerWeek: number;
+    totalDays: number;
+    startDate: string;
   };
   summary: {
-    totalExercises: number;
-    completedExercises: number;
+    totalDays: number;
+    completedDays: number;
     completionRate: number;
   };
+  months: {
+    [key: string]: MonthData;
+  };
   dayStatus: {
-    [key: string]: {
-      complete: boolean;
-      file?: string;
-    };
+    [key: string]: DayStatus;
   };
 }
 
@@ -38,8 +52,7 @@ export interface WorkspaceManifest {
 const manifest = manifestData as WorkspaceManifest;
 
 /**
- * Check if a specific day's exercise is verified complete
- * (based on actual code in workspace, not manual clicks)
+ * Check if a specific day is verified complete
  */
 export function isDayVerifiedComplete(dayNumber: number): boolean {
   return manifest.dayStatus[dayNumber]?.complete ?? false;
@@ -59,39 +72,40 @@ export function getVerifiedCompletedDays(): number[] {
  */
 export function getVerifiedProgress() {
   return {
-    completed: manifest.summary.completedExercises,
-    total: manifest.summary.totalExercises,
+    completed: manifest.summary.completedDays,
+    total: manifest.summary.totalDays,
     percentage: manifest.summary.completionRate,
     generatedAt: manifest.generatedAt
   };
 }
 
 /**
- * Get exercise status for a specific quarter and week
+ * Get days for a specific month and week
  */
-export function getWeekExercises(quarterNum: number, weekNum: number) {
-  return manifest.quarters[quarterNum]?.weeks[weekNum]?.exercises ?? {};
+export function getWeekDays(monthNum: number, weekNum: number) {
+  return manifest.months[monthNum]?.weeks[weekNum]?.days ?? [];
 }
 
 /**
- * Get all quarters with their completion status
+ * Get all months with their completion status
  */
-export function getQuarterProgress() {
-  const result: { quarter: number; completed: number; total: number }[] = [];
+export function getMonthProgress() {
+  const result: { month: number; name: string; completed: number; total: number }[] = [];
   
-  for (const [qNum, quarter] of Object.entries(manifest.quarters)) {
+  for (const [mNum, month] of Object.entries(manifest.months)) {
     let completed = 0;
     let total = 0;
     
-    for (const [_, week] of Object.entries(quarter.weeks)) {
-      for (const [_, exercise] of Object.entries(week.exercises)) {
+    for (const [_, week] of Object.entries(month.weeks)) {
+      for (const day of week.days) {
         total++;
-        if (exercise.complete) completed++;
+        if (day.complete) completed++;
       }
     }
     
     result.push({
-      quarter: parseInt(qNum),
+      month: parseInt(mNum),
+      name: month.name,
       completed,
       total
     });
@@ -101,7 +115,7 @@ export function getQuarterProgress() {
 }
 
 /**
- * Get the raw manifest (for debugging)
+ * Get the raw manifest
  */
 export function getManifest(): WorkspaceManifest {
   return manifest;
