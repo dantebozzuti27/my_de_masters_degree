@@ -30,9 +30,23 @@
 | 16 | AWS Account Setup (IAM, CLI) | ✅ Complete |
 | 17 | S3 Fundamentals | ✅ Complete |
 | 18 | Docker Fundamentals | ✅ Complete |
-| 19 | Docker for Data Engineering | 🔄 In Progress |
+| 19 | Project 1: Credit Markets Pipeline | ✅ Complete |
 
-**18/168 days complete — Week 3 in progress!**
+**19/168 days complete — Project 1 core pipeline complete (Bronze→Silver→Gold)**
+
+### Day 19 Accomplishments:
+- Config (Pydantic settings with SecretStr)
+- FRED Client (treasury yields API)
+- SEC Client (EDGAR filings API)
+- S3 Client (bronze layer storage)
+- PostgreSQL Client (with batch inserts)
+- FRED Transformer (bronze → silver)
+- SEC Transformer (bronze → silver)
+- Daily Pipeline Orchestrator (multi-series)
+- Silver Schema (tables + indexes)
+- Gold View (yield_curve with 2s10s spread)
+- Structured JSON Logging
+- 20x performance optimization (batch inserts)
 
 ---
 
@@ -69,15 +83,15 @@
 | 16 | AWS Account Setup (IAM, CLI) | ✅ |
 | 17 | S3 Fundamentals | ✅ |
 | 18 | Docker Fundamentals | ✅ |
-| 19 | Docker for Data Engineering | 🔄 |
-| 20 | Week 3 Project: Containerized Pipeline | |
-| 21 | Review + Plan Week 4 | |
+| 19 | Project 1: Credit Markets Pipeline | ✅ |
+| 20 | Project 1: Credit Markets Pipeline | 🔄 Next |
+| 21 | Project 1: Credit Markets Pipeline | |
 
 ### Week 4: Project 1 Part 1 (Days 22-28)
 | Day | Topic |
 |-----|-------|
 | 22 | Docker Compose + Local Dev Stack |
-| 23 | Alpha Vantage API Integration |
+| 23 | FRED + SEC EDGAR API Integration |
 | 24 | AWS Lambda Deployment |
 | 25 | S3 Storage + Data Partitioning |
 | 26 | PostgreSQL Setup + Schema Design |
@@ -95,7 +109,9 @@
 | 34 | Project 1 Polish + Documentation |
 | 35 | Month 1 Review |
 
-**Deliverable:** Real-Time Stock Market Pipeline (AWS Lambda, S3, PostgreSQL, Airflow, Streamlit)
+**Deliverable:** Credit Markets Pipeline (AWS Lambda, S3, PostgreSQL, Airflow, Streamlit)
+- Data: FRED API (treasury yields, credit spreads), SEC EDGAR (corporate filings)
+- Value: Corporate credit health monitoring — relevant to fintech (Ramp, Brex, etc.)
 
 ---
 
@@ -128,9 +144,9 @@
 ### Week 8: Project 2 Part 1 (Days 50-56)
 | Day | Topic |
 |-----|-------|
-| 50 | NBA API Data Ingestion |
+| 50 | MLB Stats API Data Ingestion |
 | 51 | Snowflake Setup |
-| 52 | dbt Staging Models for NBA |
+| 52 | dbt Staging Models for MLB |
 | 53 | dbt Intermediate Models |
 | 54 | dbt Marts + Dimensional Modeling |
 | 55 | Project 2 Deep Work |
@@ -140,14 +156,16 @@
 | Day | Topic |
 |-----|-------|
 | 57 | dbt Test Coverage + Docs |
-| 58 | Streamlit Dashboard for NBA |
+| 58 | Streamlit Dashboard for MLB |
 | 59 | Dashboard Advanced Features |
 | 60 | Project 2 Polish |
 | 61 | dbt Certification Final Prep |
 | 62 | **dbt Cert Exam** |
 | 63 | Month 2 Review |
 
-**Deliverable:** NBA Analytics Platform (Snowflake, dbt, Streamlit)  
+**Deliverable:** MLB Analytics Platform (Snowflake, dbt, Streamlit)
+- Data: MLB Stats API (player stats, game logs, Statcast)
+- Value: Sabermetrics showcase — complex metrics, dimensional modeling
 **Certification:** dbt Analytics Engineering
 
 ---
@@ -254,8 +272,8 @@
 
 | Project | Tech Stack | Month |
 |---------|------------|-------|
-| Stock Pipeline | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 |
-| NBA Analytics | Python, Snowflake, dbt, Streamlit | Month 2 |
+| Credit Markets Pipeline | Python, AWS Lambda, S3, PostgreSQL, Airflow, Streamlit | Month 1 |
+| MLB Analytics Platform | Python, Snowflake, dbt, Streamlit | Month 2 |
 | Data Quality Platform | Python, Airflow, Great Expectations, PostgreSQL | Month 3 |
 
 ---
