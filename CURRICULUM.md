@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**19/168 days complete**
+**20/168 days complete**
 
-**Next:** Day 20 - Project 1: Credit Markets Pipeline
+**Next:** Day 21 - Project 1: Credit Markets Pipeline
 
 ---
 
@@ -54,8 +54,8 @@
 | 17 | S3 Fundamentals | Done |
 | 18 | Docker Fundamentals | Done |
 | 19 | Project 1: Credit Markets Pipeline | Done |
-| 20 | Project 1: Credit Markets Pipeline | Next |
-| 21 | Project 1: Credit Markets Pipeline |  |
+| 20 | Project 1: Credit Markets Pipeline | Done |
+| 21 | Project 1: Credit Markets Pipeline | Next |
 
 ### Week 4: Project 1 Part 1
 

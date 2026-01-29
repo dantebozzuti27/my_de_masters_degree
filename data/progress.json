@@ -1,10 +1,14 @@
 {
-  "lastUpdated": "2026-01-28",
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "lastUpdated": "2026-01-29",
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
   "notes": {
     "19": {
       "completedAt": "2026-01-27",
       "summary": "Built Credit Markets Pipeline core: FRED/SEC ingestion, S3 bronze layer, PostgreSQL silver/gold, batch inserts, structured logging"
+    },
+    "20": {
+      "completedAt": "2026-01-29",
+      "summary": "Reference data architecture: database-driven config (fred_series, sec_companies tables), CLI interface, retry decorator with tests, expanded to 18 FRED series and 33 companies, ingested 170k+ rows"
     }
   }
 }
