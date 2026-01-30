@@ -8,7 +8,7 @@
     },
     "20": {
       "completedAt": "2026-01-29",
-      "summary": "Reference data architecture: database-driven config (fred_series, sec_companies tables), CLI interface, retry decorator with tests, expanded to 18 FRED series and 33 companies, ingested 170k+ rows"
+      "summary": "Reference data architecture: database-driven config, CLI, retry decorator, 18 FRED series, 33 companies, 170k+ rows. Enhanced gold layer: full yield curve view, credit stress indicator, company filings summary."
     }
   }
 }
