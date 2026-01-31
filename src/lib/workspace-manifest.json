@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-31T17:59:47.167Z",
+  "generatedAt": "2026-01-31T18:46:26.695Z",
   "meta": {
     "title": "6-Month Data Engineer Curriculum",
     "goal": "Land $160-170k Role by July 2026",
@@ -9,8 +9,8 @@
   },
   "summary": {
     "totalDays": 168,
-    "completedDays": 20,
-    "completionRate": 12
+    "completedDays": 28,
+    "completionRate": 17
   },
   "months": {
     "1": {
@@ -132,7 +132,7 @@
             {
               "day": 21,
               "topic": "Project 1: Credit Markets Pipeline",
-              "complete": false
+              "complete": true
             }
           ]
         },
@@ -142,12 +142,12 @@
             {
               "day": 22,
               "topic": "Docker Compose + Local Dev Stack",
-              "complete": false
+              "complete": true
             },
             {
               "day": 23,
               "topic": "FRED + SEC EDGAR API Integration",
-              "complete": false
+              "complete": true
             },
             {
               "day": 24,
@@ -157,22 +157,22 @@
             {
               "day": 25,
               "topic": "S3 Storage + Data Partitioning",
-              "complete": false
+              "complete": true
             },
             {
               "day": 26,
               "topic": "PostgreSQL Setup + Schema Design",
-              "complete": false
+              "complete": true
             },
             {
               "day": 27,
               "topic": "Project 1 Deep Work",
-              "complete": false
+              "complete": true
             },
             {
               "day": 28,
               "topic": "Review + Debug",
-              "complete": false
+              "complete": true
             }
           ]
         },
@@ -182,7 +182,7 @@
             {
               "day": 29,
               "topic": "Data Transformation Pipeline",
-              "complete": false
+              "complete": true
             },
             {
               "day": 30,
@@ -1126,19 +1126,19 @@
       "week": 3
     },
     "21": {
-      "complete": false,
+      "complete": true,
       "topic": "Project 1: Credit Markets Pipeline",
       "month": 1,
       "week": 3
     },
     "22": {
-      "complete": false,
+      "complete": true,
       "topic": "Docker Compose + Local Dev Stack",
       "month": 1,
       "week": 4
     },
     "23": {
-      "complete": false,
+      "complete": true,
       "topic": "FRED + SEC EDGAR API Integration",
       "month": 1,
       "week": 4
@@ -1150,31 +1150,31 @@
       "week": 4
     },
     "25": {
-      "complete": false,
+      "complete": true,
       "topic": "S3 Storage + Data Partitioning",
       "month": 1,
       "week": 4
     },
     "26": {
-      "complete": false,
+      "complete": true,
       "topic": "PostgreSQL Setup + Schema Design",
       "month": 1,
       "week": 4
     },
     "27": {
-      "complete": false,
+      "complete": true,
       "topic": "Project 1 Deep Work",
       "month": 1,
       "week": 4
     },
     "28": {
-      "complete": false,
+      "complete": true,
       "topic": "Review + Debug",
       "month": 1,
       "week": 4
     },
     "29": {
-      "complete": false,
+      "complete": true,
       "topic": "Data Transformation Pipeline",
       "month": 1,
       "week": 5

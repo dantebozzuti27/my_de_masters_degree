@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**20/168 days complete**
+**28/168 days complete**
 
-**Next:** Day 21 - Project 1: Credit Markets Pipeline
+**Next:** Day 24 - AWS Lambda Deployment
 
 ---
 
@@ -55,25 +55,25 @@
 | 18 | Docker Fundamentals | Done |
 | 19 | Project 1: Credit Markets Pipeline | Done |
 | 20 | Project 1: Credit Markets Pipeline | Done |
-| 21 | Project 1: Credit Markets Pipeline | Next |
+| 21 | Project 1: Credit Markets Pipeline | Done |
 
 ### Week 4: Project 1 Part 1
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 22 | Docker Compose + Local Dev Stack |  |
-| 23 | FRED + SEC EDGAR API Integration |  |
-| 24 | AWS Lambda Deployment |  |
-| 25 | S3 Storage + Data Partitioning |  |
-| 26 | PostgreSQL Setup + Schema Design |  |
-| 27 | Project 1 Deep Work |  |
-| 28 | Review + Debug |  |
+| 22 | Docker Compose + Local Dev Stack | Done |
+| 23 | FRED + SEC EDGAR API Integration | Done |
+| 24 | AWS Lambda Deployment | Next |
+| 25 | S3 Storage + Data Partitioning | Done |
+| 26 | PostgreSQL Setup + Schema Design | Done |
+| 27 | Project 1 Deep Work | Done |
+| 28 | Review + Debug | Done |
 
 ### Week 5: Project 1 Part 2
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 29 | Data Transformation Pipeline |  |
+| 29 | Data Transformation Pipeline | Done |
 | 30 | Airflow DAG Basics |  |
 | 31 | Connect Airflow to Lambda + S3 |  |
 | 32 | Streamlit Dashboard Basics |  |

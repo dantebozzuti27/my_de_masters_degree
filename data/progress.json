@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-01-29",
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  "lastUpdated": "2026-01-31",
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29],
   "notes": {
     "19": {
       "completedAt": "2026-01-27",
@@ -8,7 +8,39 @@
     },
     "20": {
       "completedAt": "2026-01-29",
-      "summary": "Reference data architecture: database-driven config, CLI, retry decorator, 18 FRED series, 33 companies, 170k+ rows. Gold layer: full yield curve, credit stress, company filings, daily snapshot with curve/stress status flags."
+      "summary": "Reference data architecture: database-driven config, CLI, retry decorator, 18 FRED series, 33 companies, 170k+ rows."
+    },
+    "21": {
+      "completedAt": "2026-01-31",
+      "summary": "Backfill CLI command, parallel processing utilities (RateLimiter, ThreadPoolExecutor), integrated parallel fetching into pipeline."
+    },
+    "22": {
+      "completedAt": "2026-01-27",
+      "summary": "Docker Compose local dev stack: PostgreSQL, LocalStack (S3), Redis containers."
+    },
+    "23": {
+      "completedAt": "2026-01-27",
+      "summary": "FRED and SEC EDGAR API integration with httpx, retry decorator, User-Agent handling."
+    },
+    "25": {
+      "completedAt": "2026-01-27",
+      "summary": "S3 bronze layer storage with date-partitioned keys, LocalStack for local development."
+    },
+    "26": {
+      "completedAt": "2026-01-27",
+      "summary": "PostgreSQL silver layer schema, reference tables (fred_series, sec_companies), gold layer views."
+    },
+    "27": {
+      "completedAt": "2026-01-31",
+      "summary": "Deep work: 4 gold views (yield curve, credit stress, company filings, daily snapshot), parallel processing, rate limiting."
+    },
+    "28": {
+      "completedAt": "2026-01-31",
+      "summary": "Debug and testing: fixed CIK format mismatch, tested parallel pipeline, verified S3 storage."
+    },
+    "29": {
+      "completedAt": "2026-01-29",
+      "summary": "Data transformation pipeline: FRED/SEC transformers, batch inserts, idempotent upserts with ON CONFLICT."
     }
   }
 }
