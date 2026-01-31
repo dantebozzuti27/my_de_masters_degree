@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**28/168 days complete**
+**21/168 days complete**
 
-**Next:** Day 24 - AWS Lambda Deployment
+**Next:** Day 22 - Docker Compose + Local Dev Stack
 
 ---
 
@@ -61,19 +61,19 @@
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 22 | Docker Compose + Local Dev Stack | Done |
-| 23 | FRED + SEC EDGAR API Integration | Done |
-| 24 | AWS Lambda Deployment | Next |
-| 25 | S3 Storage + Data Partitioning | Done |
-| 26 | PostgreSQL Setup + Schema Design | Done |
-| 27 | Project 1 Deep Work | Done |
-| 28 | Review + Debug | Done |
+| 22 | Docker Compose + Local Dev Stack | Next |
+| 23 | FRED + SEC EDGAR API Integration |  |
+| 24 | AWS Lambda Deployment |  |
+| 25 | S3 Storage + Data Partitioning |  |
+| 26 | PostgreSQL Setup + Schema Design |  |
+| 27 | Project 1 Deep Work |  |
+| 28 | Review + Debug |  |
 
 ### Week 5: Project 1 Part 2
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 29 | Data Transformation Pipeline | Done |
+| 29 | Data Transformation Pipeline |  |
 | 30 | Airflow DAG Basics |  |
 | 31 | Connect Airflow to Lambda + S3 |  |
 | 32 | Streamlit Dashboard Basics |  |
