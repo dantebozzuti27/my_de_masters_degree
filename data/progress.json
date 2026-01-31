@@ -8,7 +8,7 @@
     },
     "20": {
       "completedAt": "2026-01-29",
-      "summary": "Reference data architecture: database-driven config, CLI, retry decorator, 18 FRED series, 33 companies, 170k+ rows. Enhanced gold layer: full yield curve view, credit stress indicator, company filings summary."
+      "summary": "Reference data architecture: database-driven config, CLI, retry decorator, 18 FRED series, 33 companies, 170k+ rows. Gold layer: full yield curve, credit stress, company filings, daily snapshot with curve/stress status flags."
     }
   }
 }
