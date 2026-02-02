@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-01-31T18:48:11.149Z",
+  "generatedAt": "2026-02-02T02:55:03.706Z",
   "meta": {
-    "title": "6-Month Data Engineer Curriculum",
-    "goal": "Land $160-170k Role by July 2026",
-    "hoursPerWeek": 25,
+    "title": "6-Month Elite Data Engineer Curriculum",
+    "goal": "Land $180k+ Role at FAANG/Ramp/Stripe by July 2026",
+    "hoursPerWeek": 30,
     "totalDays": 168,
     "startDate": "2026-02-01"
   },
   "summary": {
     "totalDays": 168,
-    "completedDays": 21,
+    "completedDays": 22,
     "completionRate": 13
   },
   "months": {
     "1": {
-      "name": "Foundations",
+      "name": "Foundations + Project 1",
       "weeks": {
         "1": {
           "title": "Python Fundamentals",
@@ -97,7 +97,7 @@
           ]
         },
         "3": {
-          "title": "AWS + Docker Basics",
+          "title": "AWS + Docker + Project 1 Start",
           "days": [
             {
               "day": 15,
@@ -121,97 +121,137 @@
             },
             {
               "day": 19,
-              "topic": "Project 1: Credit Markets Pipeline",
+              "topic": "Project 1: Credit Markets Pipeline - Core",
               "complete": true
             },
             {
               "day": 20,
-              "topic": "Project 1: Credit Markets Pipeline",
+              "topic": "Project 1: Credit Markets Pipeline - Reference Data",
               "complete": true
             },
             {
               "day": 21,
-              "topic": "Project 1: Credit Markets Pipeline",
+              "topic": "Project 1: Credit Markets Pipeline - Parallel Processing",
               "complete": true
             }
           ]
         },
         "4": {
-          "title": "Project 1 Part 1",
+          "title": "Project 1 Deployment + CI/CD",
           "days": [
             {
               "day": 22,
-              "topic": "Docker Compose + Local Dev Stack",
-              "complete": false
+              "topic": "AWS Lambda Deployment",
+              "complete": true
             },
             {
               "day": 23,
-              "topic": "FRED + SEC EDGAR API Integration",
+              "topic": "GitHub Actions CI/CD (pytest + Docker)",
               "complete": false
             },
             {
               "day": 24,
-              "topic": "AWS Lambda Deployment",
+              "topic": "Airflow DAG Setup (Local)",
               "complete": false
             },
             {
               "day": 25,
-              "topic": "S3 Storage + Data Partitioning",
+              "topic": "Airflow Integration (Lambda + S3 Sensors)",
               "complete": false
             },
             {
               "day": 26,
-              "topic": "PostgreSQL Setup + Schema Design",
+              "topic": "Monitoring + Alerting (CloudWatch, Slack)",
               "complete": false
             },
             {
               "day": 27,
-              "topic": "Project 1 Deep Work",
+              "topic": "Scale Test (1M+ rows backfill)",
               "complete": false
             },
             {
               "day": 28,
-              "topic": "Review + Debug",
+              "topic": "Project 1 Documentation + Architecture Diagrams",
               "complete": false
             }
           ]
         },
         "5": {
-          "title": "Project 1 Part 2",
+          "title": "SQL Deep Dive",
           "days": [
             {
               "day": 29,
-              "topic": "Data Transformation Pipeline",
+              "topic": "Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE)",
               "complete": false
             },
             {
               "day": 30,
-              "topic": "Airflow DAG Basics",
+              "topic": "Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP)",
               "complete": false
             },
             {
               "day": 31,
-              "topic": "Connect Airflow to Lambda + S3",
+              "topic": "CTEs + Recursive CTEs",
               "complete": false
             },
             {
               "day": 32,
-              "topic": "Streamlit Dashboard Basics",
+              "topic": "Query Optimization (EXPLAIN ANALYZE, Indexes)",
               "complete": false
             },
             {
               "day": 33,
-              "topic": "Dashboard Data Integration",
+              "topic": "SQL Drilling - StrataScratch (10 problems)",
               "complete": false
             },
             {
               "day": 34,
-              "topic": "Project 1 Polish + Documentation",
+              "topic": "SQL Drilling - DataLemur (10 problems)",
               "complete": false
             },
             {
               "day": 35,
-              "topic": "Month 1 Review",
+              "topic": "SQL Assessment + Review",
+              "complete": false
+            }
+          ]
+        },
+        "6": {
+          "title": "Distributed Systems Theory",
+          "days": [
+            {
+              "day": 36,
+              "topic": "CAP Theorem Deep Dive",
+              "complete": false
+            },
+            {
+              "day": 37,
+              "topic": "Consistency Models (Eventual, Strong, Causal)",
+              "complete": false
+            },
+            {
+              "day": 38,
+              "topic": "Partitioning Strategies (Hash, Range, Composite)",
+              "complete": false
+            },
+            {
+              "day": 39,
+              "topic": "Replication Patterns (Leader-Follower, Multi-Leader)",
+              "complete": false
+            },
+            {
+              "day": 40,
+              "topic": "Exactly-Once Semantics (Why It's Mostly a Myth)",
+              "complete": false
+            },
+            {
+              "day": 41,
+              "topic": "Data Modeling at Scale (Star Schema, SCDs)",
+              "complete": false
+            },
+            {
+              "day": 42,
+              "topic": "Phase 1 Review + Project 1 Final Polish",
               "complete": false
             }
           ]
@@ -219,164 +259,204 @@
       }
     },
     "2": {
-      "name": "dbt Mastery",
+      "name": "dbt + Spark + Project 2",
       "weeks": {
-        "6": {
+        "7": {
           "title": "dbt Fundamentals",
           "days": [
             {
-              "day": 36,
-              "topic": "dbt Fundamentals (models, refs)",
-              "complete": false
-            },
-            {
-              "day": 37,
-              "topic": "dbt Materializations",
-              "complete": false
-            },
-            {
-              "day": 38,
-              "topic": "Staging → Intermediate → Marts",
-              "complete": false
-            },
-            {
-              "day": 39,
-              "topic": "dbt Sources and Seeds",
-              "complete": false
-            },
-            {
-              "day": 40,
-              "topic": "dbt Practice: Transform Stock Data",
-              "complete": false
-            },
-            {
-              "day": 41,
-              "topic": "dbt Deep Dive",
-              "complete": false
-            },
-            {
-              "day": 42,
-              "topic": "dbt Review + Testing Intro",
-              "complete": false
-            }
-          ]
-        },
-        "7": {
-          "title": "dbt Testing & Macros",
-          "days": [
-            {
               "day": 43,
-              "topic": "dbt Testing (schema + data tests)",
+              "topic": "dbt Project Setup, Models, Refs",
               "complete": false
             },
             {
               "day": 44,
-              "topic": "Custom dbt Tests",
+              "topic": "Materializations (Table, View, Incremental, Ephemeral)",
               "complete": false
             },
             {
               "day": 45,
-              "topic": "dbt Macros and Jinja",
+              "topic": "Staging → Intermediate → Marts Pattern",
               "complete": false
             },
             {
               "day": 46,
-              "topic": "dbt Packages + Documentation",
+              "topic": "Sources, Seeds, Snapshots",
               "complete": false
             },
             {
               "day": 47,
-              "topic": "dbt Advanced Patterns",
+              "topic": "dbt Testing (Schema + Data Tests)",
               "complete": false
             },
             {
               "day": 48,
-              "topic": "dbt Mastery Practice",
+              "topic": "Macros and Jinja Templating",
               "complete": false
             },
             {
               "day": 49,
-              "topic": "dbt Cert Prep Start",
+              "topic": "dbt Packages + Documentation Generation",
               "complete": false
             }
           ]
         },
         "8": {
-          "title": "Project 2 Part 1",
+          "title": "Spark Fundamentals",
           "days": [
             {
               "day": 50,
-              "topic": "MLB Stats API Data Ingestion",
+              "topic": "Spark Architecture (Driver, Executors, Partitions)",
               "complete": false
             },
             {
               "day": 51,
-              "topic": "Snowflake Setup",
+              "topic": "PySpark DataFrames + Transformations",
               "complete": false
             },
             {
               "day": 52,
-              "topic": "dbt Staging Models for MLB",
+              "topic": "Spark SQL + Optimization (Catalyst, Tungsten)",
               "complete": false
             },
             {
               "day": 53,
-              "topic": "dbt Intermediate Models",
+              "topic": "Partitioning + Bucketing Strategies",
               "complete": false
             },
             {
               "day": 54,
-              "topic": "dbt Marts + Dimensional Modeling",
+              "topic": "Joins at Scale (Broadcast, Shuffle, Sort-Merge)",
               "complete": false
             },
             {
               "day": 55,
-              "topic": "Project 2 Deep Work",
+              "topic": "Spark on Databricks Setup",
               "complete": false
             },
             {
               "day": 56,
-              "topic": "Project 2 Testing",
+              "topic": "Spark Performance Tuning",
               "complete": false
             }
           ]
         },
         "9": {
-          "title": "Project 2 Complete",
+          "title": "Project 2: Fraud Detection Pipeline - Part 1",
           "days": [
             {
               "day": 57,
-              "topic": "dbt Test Coverage + Docs",
+              "topic": "Synthetic Transaction Data Generation (10M+)",
               "complete": false
             },
             {
               "day": 58,
-              "topic": "Streamlit Dashboard for MLB",
+              "topic": "Feature Engineering for Fraud Signals",
               "complete": false
             },
             {
               "day": 59,
-              "topic": "Dashboard Advanced Features",
+              "topic": "Spark Ingestion + Transformation",
               "complete": false
             },
             {
               "day": 60,
-              "topic": "Project 2 Polish",
+              "topic": "dbt Staging Models",
               "complete": false
             },
             {
               "day": 61,
-              "topic": "dbt Certification Final Prep",
+              "topic": "dbt Intermediate Models (Feature Aggregations)",
               "complete": false
             },
             {
               "day": 62,
-              "topic": "dbt Cert Exam",
+              "topic": "dbt Marts (Fraud Risk Scores)",
               "complete": false
             },
             {
               "day": 63,
-              "topic": "Month 2 Review",
+              "topic": "Real-Time Scoring Architecture Design",
+              "complete": false
+            }
+          ]
+        },
+        "10": {
+          "title": "Project 2: Fraud Detection Pipeline - Part 2",
+          "days": [
+            {
+              "day": 64,
+              "topic": "Streamlit Fraud Dashboard",
+              "complete": false
+            },
+            {
+              "day": 65,
+              "topic": "dbt Testing + Data Quality Checks",
+              "complete": false
+            },
+            {
+              "day": 66,
+              "topic": "CI/CD for dbt (GitHub Actions + dbt Cloud)",
+              "complete": false
+            },
+            {
+              "day": 67,
+              "topic": "Documentation + System Design Writeup",
+              "complete": false
+            },
+            {
+              "day": 68,
+              "topic": "dbt Certification Prep",
+              "complete": false
+            },
+            {
+              "day": 69,
+              "topic": "dbt Certification Prep",
+              "complete": false
+            },
+            {
+              "day": 70,
+              "topic": "dbt Analytics Engineering Certification Exam",
+              "complete": false
+            }
+          ]
+        },
+        "11": {
+          "title": "Kafka + Streaming Basics",
+          "days": [
+            {
+              "day": 71,
+              "topic": "Kafka Architecture (Brokers, Topics, Partitions)",
+              "complete": false
+            },
+            {
+              "day": 72,
+              "topic": "Kafka Producer/Consumer in Python",
+              "complete": false
+            },
+            {
+              "day": 73,
+              "topic": "Stream Processing Concepts (Windowing, Watermarks)",
+              "complete": false
+            },
+            {
+              "day": 74,
+              "topic": "Kafka Connect Basics",
+              "complete": false
+            },
+            {
+              "day": 75,
+              "topic": "Add Streaming Component to Project 2",
+              "complete": false
+            },
+            {
+              "day": 76,
+              "topic": "Exactly-Once Semantics in Practice",
+              "complete": false
+            },
+            {
+              "day": 77,
+              "topic": "Phase 2 Review",
               "complete": false
             }
           ]
@@ -384,164 +464,204 @@
       }
     },
     "3": {
-      "name": "Airflow + Applying",
+      "name": "Production Systems + Applications",
       "weeks": {
-        "10": {
-          "title": "Airflow Fundamentals",
-          "days": [
-            {
-              "day": 64,
-              "topic": "Airflow Architecture Deep Dive",
-              "complete": false
-            },
-            {
-              "day": 65,
-              "topic": "DAG Design Patterns",
-              "complete": false
-            },
-            {
-              "day": 66,
-              "topic": "Operators and TaskFlow API",
-              "complete": false
-            },
-            {
-              "day": 67,
-              "topic": "Task Dependencies + XComs",
-              "complete": false
-            },
-            {
-              "day": 68,
-              "topic": "Airflow Connections + Hooks",
-              "complete": false
-            },
-            {
-              "day": 69,
-              "topic": "Airflow Lab: Complex DAG",
-              "complete": false
-            },
-            {
-              "day": 70,
-              "topic": "Airflow Testing Intro",
-              "complete": false
-            }
-          ]
-        },
-        "11": {
-          "title": "Airflow Production + Apply",
-          "days": [
-            {
-              "day": 71,
-              "topic": "Airflow Testing + Monitoring",
-              "complete": false
-            },
-            {
-              "day": 72,
-              "topic": "Error Handling in DAGs",
-              "complete": false
-            },
-            {
-              "day": 73,
-              "topic": "Resume + LinkedIn Polish - START APPLYING",
-              "complete": false
-            },
-            {
-              "day": 74,
-              "topic": "First 5 Applications",
-              "complete": false
-            },
-            {
-              "day": 75,
-              "topic": "More Applications + Airflow Practice",
-              "complete": false
-            },
-            {
-              "day": 76,
-              "topic": "Application Sprint (10 apps)",
-              "complete": false
-            },
-            {
-              "day": 77,
-              "topic": "Week Review + Tracking",
-              "complete": false
-            }
-          ]
-        },
         "12": {
-          "title": "Project 3 Part 1",
+          "title": "Data Quality + Great Expectations",
           "days": [
             {
               "day": 78,
-              "topic": "Multi-Source Ingestion DAGs",
+              "topic": "Great Expectations Setup + Concepts",
               "complete": false
             },
             {
               "day": 79,
-              "topic": "Great Expectations Setup",
+              "topic": "Expectation Suites Design",
               "complete": false
             },
             {
               "day": 80,
-              "topic": "Data Quality Framework",
+              "topic": "Integration with Airflow",
               "complete": false
             },
             {
               "day": 81,
-              "topic": "Quality Checks Integration",
+              "topic": "Data Contracts Pattern",
               "complete": false
             },
             {
               "day": 82,
-              "topic": "Applications + Project Work",
+              "topic": "Alerting on Quality Failures",
               "complete": false
             },
             {
               "day": 83,
-              "topic": "Project 3 Deep Work",
+              "topic": "Quality Dashboards",
               "complete": false
             },
             {
               "day": 84,
-              "topic": "Project 3 Debug + Review",
+              "topic": "Phase 3 Project Planning",
               "complete": false
             }
           ]
         },
         "13": {
-          "title": "Project 3 Complete",
+          "title": "Project 3: Real-Time Analytics Platform - Part 1",
           "days": [
             {
               "day": 85,
-              "topic": "Monitoring + Alerting Setup",
+              "topic": "Multi-Source Ingestion (APIs, Kafka, Files)",
               "complete": false
             },
             {
               "day": 86,
-              "topic": "Final Polish + Deployment",
+              "topic": "Lambda Architecture Implementation",
               "complete": false
             },
             {
               "day": 87,
-              "topic": "Project 3 Documentation",
+              "topic": "Batch Layer (Spark + S3)",
               "complete": false
             },
             {
               "day": 88,
-              "topic": "Applications (25+ total)",
+              "topic": "Speed Layer (Kafka + Real-Time Aggregations)",
               "complete": false
             },
             {
               "day": 89,
-              "topic": "More Applications",
+              "topic": "Serving Layer (PostgreSQL + Redis)",
               "complete": false
             },
             {
               "day": 90,
-              "topic": "Application Sprint + Portfolio",
+              "topic": "Airflow Orchestration (Complex DAGs)",
               "complete": false
             },
             {
               "day": 91,
-              "topic": "Month 3 Review (30+ apps)",
+              "topic": "Great Expectations Integration",
+              "complete": false
+            }
+          ]
+        },
+        "14": {
+          "title": "Project 3: Real-Time Analytics Platform - Part 2",
+          "days": [
+            {
+              "day": 92,
+              "topic": "Monitoring + Observability (Metrics, Logs, Traces)",
+              "complete": false
+            },
+            {
+              "day": 93,
+              "topic": "Alerting + Incident Response Setup",
+              "complete": false
+            },
+            {
+              "day": 94,
+              "topic": "Load Testing + Performance Optimization",
+              "complete": false
+            },
+            {
+              "day": 95,
+              "topic": "Documentation + Runbooks",
+              "complete": false
+            },
+            {
+              "day": 96,
+              "topic": "Resume Polish + LinkedIn Optimization",
+              "complete": false
+            },
+            {
+              "day": 97,
+              "topic": "START APPLYING - First 10 Applications",
+              "complete": false
+            },
+            {
+              "day": 98,
+              "topic": "Application Sprint (10 more)",
+              "complete": false
+            }
+          ]
+        },
+        "15": {
+          "title": "AWS Certification - Part 1",
+          "days": [
+            {
+              "day": 99,
+              "topic": "AWS S3 + Storage Deep Dive",
+              "complete": false
+            },
+            {
+              "day": 100,
+              "topic": "AWS Compute (Lambda, EC2, ECS, EKS)",
+              "complete": false
+            },
+            {
+              "day": 101,
+              "topic": "AWS Databases (RDS, Redshift, DynamoDB)",
+              "complete": false
+            },
+            {
+              "day": 102,
+              "topic": "AWS Networking (VPC, Security Groups, IAM)",
+              "complete": false
+            },
+            {
+              "day": 103,
+              "topic": "AWS Glue + Athena + Lake Formation",
+              "complete": false
+            },
+            {
+              "day": 104,
+              "topic": "Applications + AWS Practice Exams",
+              "complete": false
+            },
+            {
+              "day": 105,
+              "topic": "AWS Practice Exam Review",
+              "complete": false
+            }
+          ]
+        },
+        "16": {
+          "title": "AWS Certification - Part 2",
+          "days": [
+            {
+              "day": 106,
+              "topic": "AWS Weak Areas Deep Dive",
+              "complete": false
+            },
+            {
+              "day": 107,
+              "topic": "AWS Practice Exam 2",
+              "complete": false
+            },
+            {
+              "day": 108,
+              "topic": "AWS Solutions Architect Associate Exam",
+              "complete": false
+            },
+            {
+              "day": 109,
+              "topic": "Interview Prep: SQL Live Coding",
+              "complete": false
+            },
+            {
+              "day": 110,
+              "topic": "Interview Prep: System Design Basics",
+              "complete": false
+            },
+            {
+              "day": 111,
+              "topic": "Interview Prep: Python Coding",
+              "complete": false
+            },
+            {
+              "day": 112,
+              "topic": "Phase 3 Review (40+ applications)",
               "complete": false
             }
           ]
@@ -549,249 +669,124 @@
       }
     },
     "4": {
-      "name": "AWS Certification",
+      "name": "Interview Intensive",
       "weeks": {
-        "14": {
-          "title": "AWS SAA - Compute & Storage",
-          "days": [
-            {
-              "day": 92,
-              "topic": "AWS S3 Deep Dive",
-              "complete": false
-            },
-            {
-              "day": 93,
-              "topic": "AWS EC2 + Lambda",
-              "complete": false
-            },
-            {
-              "day": 94,
-              "topic": "AWS RDS + Redshift",
-              "complete": false
-            },
-            {
-              "day": 95,
-              "topic": "Applications + AWS Practice",
-              "complete": false
-            },
-            {
-              "day": 96,
-              "topic": "AWS EBS Storage",
-              "complete": false
-            },
-            {
-              "day": 97,
-              "topic": "AWS Lab Day",
-              "complete": false
-            },
-            {
-              "day": 98,
-              "topic": "AWS Review + Flashcards",
-              "complete": false
-            }
-          ]
-        },
-        "15": {
-          "title": "AWS SAA - Networking",
-          "days": [
-            {
-              "day": 99,
-              "topic": "AWS VPC Networking",
-              "complete": false
-            },
-            {
-              "day": 100,
-              "topic": "AWS IAM Deep Dive",
-              "complete": false
-            },
-            {
-              "day": 101,
-              "topic": "AWS Glue + Athena",
-              "complete": false
-            },
-            {
-              "day": 102,
-              "topic": "Applications + Interview Prep",
-              "complete": false
-            },
-            {
-              "day": 103,
-              "topic": "AWS CloudWatch",
-              "complete": false
-            },
-            {
-              "day": 104,
-              "topic": "AWS Practice Exam 1",
-              "complete": false
-            },
-            {
-              "day": 105,
-              "topic": "Review Weak Areas",
-              "complete": false
-            }
-          ]
-        },
-        "16": {
-          "title": "AWS SAA - Final Prep",
-          "days": [
-            {
-              "day": 106,
-              "topic": "AWS Practice Exam 2",
-              "complete": false
-            },
-            {
-              "day": 107,
-              "topic": "AWS Weak Areas",
-              "complete": false
-            },
-            {
-              "day": 108,
-              "topic": "AWS Practice Exam 3",
-              "complete": false
-            },
-            {
-              "day": 109,
-              "topic": "First Interviews",
-              "complete": false
-            },
-            {
-              "day": 110,
-              "topic": "AWS Final Review",
-              "complete": false
-            },
-            {
-              "day": 111,
-              "topic": "AWS Exam Day",
-              "complete": false
-            },
-            {
-              "day": 112,
-              "topic": "Celebrate + Interview Prep",
-              "complete": false
-            }
-          ]
-        },
         "17": {
-          "title": "Interview Ramp Up",
+          "title": "System Design Mastery - Part 1",
           "days": [
             {
               "day": 113,
-              "topic": "Interview SQL",
+              "topic": "System Design Framework (Requirements, Estimation, Design)",
               "complete": false
             },
             {
               "day": 114,
-              "topic": "Interview Python",
+              "topic": "Design: Data Warehouse from Scratch",
               "complete": false
             },
             {
               "day": 115,
-              "topic": "Interview System Design",
+              "topic": "Design: Real-Time Analytics Platform",
               "complete": false
             },
             {
               "day": 116,
-              "topic": "Active Interviewing 1",
+              "topic": "Design: ETL Pipeline at Scale",
               "complete": false
             },
             {
               "day": 117,
-              "topic": "Interview + Applications",
+              "topic": "Design: Data Lake Architecture",
               "complete": false
             },
             {
               "day": 118,
-              "topic": "Mock Interview Day",
+              "topic": "Design: Streaming Platform (Kafka-based)",
               "complete": false
             },
             {
               "day": 119,
-              "topic": "Month 4 Review",
+              "topic": "Design: ML Feature Store",
               "complete": false
             }
           ]
-        }
-      }
-    },
-    "5": {
-      "name": "Interview Intensive",
-      "weeks": {
+        },
         "18": {
-          "title": "System Design Practice",
+          "title": "System Design Mastery - Part 2",
           "days": [
             {
               "day": 120,
-              "topic": "System Design: Data Pipelines",
+              "topic": "Active Interviewing + Applications (50+ total)",
               "complete": false
             },
             {
               "day": 121,
-              "topic": "System Design: Data Warehouses",
+              "topic": "Mock System Design Interview 1",
               "complete": false
             },
             {
               "day": 122,
-              "topic": "System Design: Streaming",
+              "topic": "Mock System Design Interview 2",
               "complete": false
             },
             {
               "day": 123,
-              "topic": "Active Interviewing 2",
+              "topic": "Design: CDC Pipeline",
               "complete": false
             },
             {
               "day": 124,
-              "topic": "System Design: Realtime",
+              "topic": "Design: Data Mesh Architecture",
               "complete": false
             },
             {
               "day": 125,
-              "topic": "System Design Practice",
+              "topic": "Design: Multi-Region Data Replication",
               "complete": false
             },
             {
               "day": 126,
-              "topic": "Interview Debrief",
+              "topic": "System Design Review",
               "complete": false
             }
           ]
         },
         "19": {
-          "title": "Technical Interview Practice",
+          "title": "Technical Interview Drilling",
           "days": [
             {
               "day": 127,
-              "topic": "SQL Window Functions",
+              "topic": "SQL Window Functions Under Pressure",
               "complete": false
             },
             {
               "day": 128,
-              "topic": "SQL CTEs + Subqueries",
+              "topic": "SQL Complex Aggregations Timed",
               "complete": false
             },
             {
               "day": 129,
-              "topic": "Python Data Structures",
+              "topic": "SQL Optimization Problems",
               "complete": false
             },
             {
               "day": 130,
-              "topic": "Active Interviewing 3",
+              "topic": "Python Data Structures for Interviews",
               "complete": false
             },
             {
               "day": 131,
-              "topic": "Data Modeling Questions",
+              "topic": "Python Coding Problems (Data-Focused)",
               "complete": false
             },
             {
               "day": 132,
-              "topic": "Mock Interview Full",
+              "topic": "Active Interviewing (Phone Screens)",
               "complete": false
             },
             {
               "day": 133,
-              "topic": "Interview Prep Review",
+              "topic": "Mock Technical Interview 1",
               "complete": false
             }
           ]
@@ -801,122 +796,122 @@
           "days": [
             {
               "day": 134,
-              "topic": "Behavioral STAR Method",
+              "topic": "Mock Technical Interview 2",
               "complete": false
             },
             {
               "day": 135,
-              "topic": "Tell Me About Yourself",
+              "topic": "Behavioral STAR Method Prep",
               "complete": false
             },
             {
               "day": 136,
-              "topic": "Leadership + Conflict",
+              "topic": "Tell Me About Yourself Polish",
               "complete": false
             },
             {
               "day": 137,
-              "topic": "Active Interviewing 4",
+              "topic": "Leadership + Conflict Stories",
               "complete": false
             },
             {
               "day": 138,
-              "topic": "Mock Interview 1",
+              "topic": "Failure + Growth Stories",
               "complete": false
             },
             {
               "day": 139,
-              "topic": "Mock Interview 2",
+              "topic": "Mock Behavioral Interview",
               "complete": false
             },
             {
               "day": 140,
-              "topic": "Refine Answers",
+              "topic": "Phase 4 Review (60+ applications)",
               "complete": false
             }
           ]
         },
         "21": {
-          "title": "Interview Refinement",
+          "title": "Final Interview Prep",
           "days": [
             {
               "day": 141,
-              "topic": "Refine Story",
+              "topic": "Weak Area Drilling",
               "complete": false
             },
             {
               "day": 142,
-              "topic": "Technical Deep Dives",
+              "topic": "Company-Specific Research",
               "complete": false
             },
             {
               "day": 143,
-              "topic": "Negotiation Research",
+              "topic": "Salary Research + Negotiation Prep",
               "complete": false
             },
             {
               "day": 144,
-              "topic": "Active Interviewing 5",
+              "topic": "Final Mock Interview (Full Loop Simulation)",
               "complete": false
             },
             {
               "day": 145,
-              "topic": "Final Round Prep 1",
+              "topic": "Rest + Mental Prep",
               "complete": false
             },
             {
               "day": 146,
-              "topic": "Practice Final Rounds",
+              "topic": "Active Interviewing",
               "complete": false
             },
             {
               "day": 147,
-              "topic": "Month 5 Review",
+              "topic": "Phase 4 Complete",
               "complete": false
             }
           ]
         }
       }
     },
-    "6": {
+    "5": {
       "name": "Close Offers",
       "weeks": {
         "22": {
-          "title": "Final Push",
+          "title": "Final Rounds",
           "days": [
             {
               "day": 148,
-              "topic": "Final Round Prep 2",
+              "topic": "Final Round Prep",
               "complete": false
             },
             {
               "day": 149,
-              "topic": "Final Interviews 1",
+              "topic": "Final Interviews",
               "complete": false
             },
             {
               "day": 150,
-              "topic": "Final Interviews 2",
+              "topic": "Final Interviews",
               "complete": false
             },
             {
               "day": 151,
-              "topic": "Compare Offers",
+              "topic": "Final Interviews",
               "complete": false
             },
             {
               "day": 152,
-              "topic": "Negotiation Strategy",
+              "topic": "Final Interviews",
               "complete": false
             },
             {
               "day": 153,
-              "topic": "Negotiate Aggressively",
+              "topic": "Final Interviews",
               "complete": false
             },
             {
               "day": 154,
-              "topic": "Review Offer Details",
+              "topic": "Offer Comparison Framework",
               "complete": false
             }
           ]
@@ -926,27 +921,27 @@
           "days": [
             {
               "day": 155,
-              "topic": "Counter Offer Calls",
+              "topic": "Negotiation Strategy (Leverage Multiple Offers)",
               "complete": false
             },
             {
               "day": 156,
-              "topic": "Final Negotiations",
+              "topic": "Counter-Offer Calls",
               "complete": false
             },
             {
               "day": 157,
-              "topic": "Accept Offer",
+              "topic": "Final Negotiations",
               "complete": false
             },
             {
               "day": 158,
-              "topic": "Give Notice",
+              "topic": "Accept Best Offer",
               "complete": false
             },
             {
               "day": 159,
-              "topic": "Transition Planning",
+              "topic": "Give Notice",
               "complete": false
             },
             {
@@ -956,7 +951,7 @@
             },
             {
               "day": 161,
-              "topic": "Prep New Role",
+              "topic": "Transition Planning",
               "complete": false
             }
           ]
@@ -971,7 +966,7 @@
             },
             {
               "day": 163,
-              "topic": "Finish Strong",
+              "topic": "Finish Strong at Current Role",
               "complete": false
             },
             {
@@ -991,7 +986,7 @@
             },
             {
               "day": 167,
-              "topic": "Rest + Celebrate",
+              "topic": "Rest",
               "complete": false
             },
             {
@@ -1115,902 +1110,902 @@
     },
     "19": {
       "complete": true,
-      "topic": "Project 1: Credit Markets Pipeline",
+      "topic": "Project 1: Credit Markets Pipeline - Core",
       "month": 1,
       "week": 3
     },
     "20": {
       "complete": true,
-      "topic": "Project 1: Credit Markets Pipeline",
+      "topic": "Project 1: Credit Markets Pipeline - Reference Data",
       "month": 1,
       "week": 3
     },
     "21": {
       "complete": true,
-      "topic": "Project 1: Credit Markets Pipeline",
+      "topic": "Project 1: Credit Markets Pipeline - Parallel Processing",
       "month": 1,
       "week": 3
     },
     "22": {
-      "complete": false,
-      "topic": "Docker Compose + Local Dev Stack",
+      "complete": true,
+      "topic": "AWS Lambda Deployment",
       "month": 1,
       "week": 4
     },
     "23": {
       "complete": false,
-      "topic": "FRED + SEC EDGAR API Integration",
+      "topic": "GitHub Actions CI/CD (pytest + Docker)",
       "month": 1,
       "week": 4
     },
     "24": {
       "complete": false,
-      "topic": "AWS Lambda Deployment",
+      "topic": "Airflow DAG Setup (Local)",
       "month": 1,
       "week": 4
     },
     "25": {
       "complete": false,
-      "topic": "S3 Storage + Data Partitioning",
+      "topic": "Airflow Integration (Lambda + S3 Sensors)",
       "month": 1,
       "week": 4
     },
     "26": {
       "complete": false,
-      "topic": "PostgreSQL Setup + Schema Design",
+      "topic": "Monitoring + Alerting (CloudWatch, Slack)",
       "month": 1,
       "week": 4
     },
     "27": {
       "complete": false,
-      "topic": "Project 1 Deep Work",
+      "topic": "Scale Test (1M+ rows backfill)",
       "month": 1,
       "week": 4
     },
     "28": {
       "complete": false,
-      "topic": "Review + Debug",
+      "topic": "Project 1 Documentation + Architecture Diagrams",
       "month": 1,
       "week": 4
     },
     "29": {
       "complete": false,
-      "topic": "Data Transformation Pipeline",
+      "topic": "Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE)",
       "month": 1,
       "week": 5
     },
     "30": {
       "complete": false,
-      "topic": "Airflow DAG Basics",
+      "topic": "Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP)",
       "month": 1,
       "week": 5
     },
     "31": {
       "complete": false,
-      "topic": "Connect Airflow to Lambda + S3",
+      "topic": "CTEs + Recursive CTEs",
       "month": 1,
       "week": 5
     },
     "32": {
       "complete": false,
-      "topic": "Streamlit Dashboard Basics",
+      "topic": "Query Optimization (EXPLAIN ANALYZE, Indexes)",
       "month": 1,
       "week": 5
     },
     "33": {
       "complete": false,
-      "topic": "Dashboard Data Integration",
+      "topic": "SQL Drilling - StrataScratch (10 problems)",
       "month": 1,
       "week": 5
     },
     "34": {
       "complete": false,
-      "topic": "Project 1 Polish + Documentation",
+      "topic": "SQL Drilling - DataLemur (10 problems)",
       "month": 1,
       "week": 5
     },
     "35": {
       "complete": false,
-      "topic": "Month 1 Review",
+      "topic": "SQL Assessment + Review",
       "month": 1,
       "week": 5
     },
     "36": {
       "complete": false,
-      "topic": "dbt Fundamentals (models, refs)",
-      "month": 2,
+      "topic": "CAP Theorem Deep Dive",
+      "month": 1,
       "week": 6
     },
     "37": {
       "complete": false,
-      "topic": "dbt Materializations",
-      "month": 2,
+      "topic": "Consistency Models (Eventual, Strong, Causal)",
+      "month": 1,
       "week": 6
     },
     "38": {
       "complete": false,
-      "topic": "Staging → Intermediate → Marts",
-      "month": 2,
+      "topic": "Partitioning Strategies (Hash, Range, Composite)",
+      "month": 1,
       "week": 6
     },
     "39": {
       "complete": false,
-      "topic": "dbt Sources and Seeds",
-      "month": 2,
+      "topic": "Replication Patterns (Leader-Follower, Multi-Leader)",
+      "month": 1,
       "week": 6
     },
     "40": {
       "complete": false,
-      "topic": "dbt Practice: Transform Stock Data",
-      "month": 2,
+      "topic": "Exactly-Once Semantics (Why It's Mostly a Myth)",
+      "month": 1,
       "week": 6
     },
     "41": {
       "complete": false,
-      "topic": "dbt Deep Dive",
-      "month": 2,
+      "topic": "Data Modeling at Scale (Star Schema, SCDs)",
+      "month": 1,
       "week": 6
     },
     "42": {
       "complete": false,
-      "topic": "dbt Review + Testing Intro",
-      "month": 2,
+      "topic": "Phase 1 Review + Project 1 Final Polish",
+      "month": 1,
       "week": 6
     },
     "43": {
       "complete": false,
-      "topic": "dbt Testing (schema + data tests)",
+      "topic": "dbt Project Setup, Models, Refs",
       "month": 2,
       "week": 7
     },
     "44": {
       "complete": false,
-      "topic": "Custom dbt Tests",
+      "topic": "Materializations (Table, View, Incremental, Ephemeral)",
       "month": 2,
       "week": 7
     },
     "45": {
       "complete": false,
-      "topic": "dbt Macros and Jinja",
+      "topic": "Staging → Intermediate → Marts Pattern",
       "month": 2,
       "week": 7
     },
     "46": {
       "complete": false,
-      "topic": "dbt Packages + Documentation",
+      "topic": "Sources, Seeds, Snapshots",
       "month": 2,
       "week": 7
     },
     "47": {
       "complete": false,
-      "topic": "dbt Advanced Patterns",
+      "topic": "dbt Testing (Schema + Data Tests)",
       "month": 2,
       "week": 7
     },
     "48": {
       "complete": false,
-      "topic": "dbt Mastery Practice",
+      "topic": "Macros and Jinja Templating",
       "month": 2,
       "week": 7
     },
     "49": {
       "complete": false,
-      "topic": "dbt Cert Prep Start",
+      "topic": "dbt Packages + Documentation Generation",
       "month": 2,
       "week": 7
     },
     "50": {
       "complete": false,
-      "topic": "MLB Stats API Data Ingestion",
+      "topic": "Spark Architecture (Driver, Executors, Partitions)",
       "month": 2,
       "week": 8
     },
     "51": {
       "complete": false,
-      "topic": "Snowflake Setup",
+      "topic": "PySpark DataFrames + Transformations",
       "month": 2,
       "week": 8
     },
     "52": {
       "complete": false,
-      "topic": "dbt Staging Models for MLB",
+      "topic": "Spark SQL + Optimization (Catalyst, Tungsten)",
       "month": 2,
       "week": 8
     },
     "53": {
       "complete": false,
-      "topic": "dbt Intermediate Models",
+      "topic": "Partitioning + Bucketing Strategies",
       "month": 2,
       "week": 8
     },
     "54": {
       "complete": false,
-      "topic": "dbt Marts + Dimensional Modeling",
+      "topic": "Joins at Scale (Broadcast, Shuffle, Sort-Merge)",
       "month": 2,
       "week": 8
     },
     "55": {
       "complete": false,
-      "topic": "Project 2 Deep Work",
+      "topic": "Spark on Databricks Setup",
       "month": 2,
       "week": 8
     },
     "56": {
       "complete": false,
-      "topic": "Project 2 Testing",
+      "topic": "Spark Performance Tuning",
       "month": 2,
       "week": 8
     },
     "57": {
       "complete": false,
-      "topic": "dbt Test Coverage + Docs",
+      "topic": "Synthetic Transaction Data Generation (10M+)",
       "month": 2,
       "week": 9
     },
     "58": {
       "complete": false,
-      "topic": "Streamlit Dashboard for MLB",
+      "topic": "Feature Engineering for Fraud Signals",
       "month": 2,
       "week": 9
     },
     "59": {
       "complete": false,
-      "topic": "Dashboard Advanced Features",
+      "topic": "Spark Ingestion + Transformation",
       "month": 2,
       "week": 9
     },
     "60": {
       "complete": false,
-      "topic": "Project 2 Polish",
+      "topic": "dbt Staging Models",
       "month": 2,
       "week": 9
     },
     "61": {
       "complete": false,
-      "topic": "dbt Certification Final Prep",
+      "topic": "dbt Intermediate Models (Feature Aggregations)",
       "month": 2,
       "week": 9
     },
     "62": {
       "complete": false,
-      "topic": "dbt Cert Exam",
+      "topic": "dbt Marts (Fraud Risk Scores)",
       "month": 2,
       "week": 9
     },
     "63": {
       "complete": false,
-      "topic": "Month 2 Review",
+      "topic": "Real-Time Scoring Architecture Design",
       "month": 2,
       "week": 9
     },
     "64": {
       "complete": false,
-      "topic": "Airflow Architecture Deep Dive",
-      "month": 3,
+      "topic": "Streamlit Fraud Dashboard",
+      "month": 2,
       "week": 10
     },
     "65": {
       "complete": false,
-      "topic": "DAG Design Patterns",
-      "month": 3,
+      "topic": "dbt Testing + Data Quality Checks",
+      "month": 2,
       "week": 10
     },
     "66": {
       "complete": false,
-      "topic": "Operators and TaskFlow API",
-      "month": 3,
+      "topic": "CI/CD for dbt (GitHub Actions + dbt Cloud)",
+      "month": 2,
       "week": 10
     },
     "67": {
       "complete": false,
-      "topic": "Task Dependencies + XComs",
-      "month": 3,
+      "topic": "Documentation + System Design Writeup",
+      "month": 2,
       "week": 10
     },
     "68": {
       "complete": false,
-      "topic": "Airflow Connections + Hooks",
-      "month": 3,
+      "topic": "dbt Certification Prep",
+      "month": 2,
       "week": 10
     },
     "69": {
       "complete": false,
-      "topic": "Airflow Lab: Complex DAG",
-      "month": 3,
+      "topic": "dbt Certification Prep",
+      "month": 2,
       "week": 10
     },
     "70": {
       "complete": false,
-      "topic": "Airflow Testing Intro",
-      "month": 3,
+      "topic": "dbt Analytics Engineering Certification Exam",
+      "month": 2,
       "week": 10
     },
     "71": {
       "complete": false,
-      "topic": "Airflow Testing + Monitoring",
-      "month": 3,
+      "topic": "Kafka Architecture (Brokers, Topics, Partitions)",
+      "month": 2,
       "week": 11
     },
     "72": {
       "complete": false,
-      "topic": "Error Handling in DAGs",
-      "month": 3,
+      "topic": "Kafka Producer/Consumer in Python",
+      "month": 2,
       "week": 11
     },
     "73": {
       "complete": false,
-      "topic": "Resume + LinkedIn Polish - START APPLYING",
-      "month": 3,
+      "topic": "Stream Processing Concepts (Windowing, Watermarks)",
+      "month": 2,
       "week": 11
     },
     "74": {
       "complete": false,
-      "topic": "First 5 Applications",
-      "month": 3,
+      "topic": "Kafka Connect Basics",
+      "month": 2,
       "week": 11
     },
     "75": {
       "complete": false,
-      "topic": "More Applications + Airflow Practice",
-      "month": 3,
+      "topic": "Add Streaming Component to Project 2",
+      "month": 2,
       "week": 11
     },
     "76": {
       "complete": false,
-      "topic": "Application Sprint (10 apps)",
-      "month": 3,
+      "topic": "Exactly-Once Semantics in Practice",
+      "month": 2,
       "week": 11
     },
     "77": {
       "complete": false,
-      "topic": "Week Review + Tracking",
-      "month": 3,
+      "topic": "Phase 2 Review",
+      "month": 2,
       "week": 11
     },
     "78": {
       "complete": false,
-      "topic": "Multi-Source Ingestion DAGs",
+      "topic": "Great Expectations Setup + Concepts",
       "month": 3,
       "week": 12
     },
     "79": {
       "complete": false,
-      "topic": "Great Expectations Setup",
+      "topic": "Expectation Suites Design",
       "month": 3,
       "week": 12
     },
     "80": {
       "complete": false,
-      "topic": "Data Quality Framework",
+      "topic": "Integration with Airflow",
       "month": 3,
       "week": 12
     },
     "81": {
       "complete": false,
-      "topic": "Quality Checks Integration",
+      "topic": "Data Contracts Pattern",
       "month": 3,
       "week": 12
     },
     "82": {
       "complete": false,
-      "topic": "Applications + Project Work",
+      "topic": "Alerting on Quality Failures",
       "month": 3,
       "week": 12
     },
     "83": {
       "complete": false,
-      "topic": "Project 3 Deep Work",
+      "topic": "Quality Dashboards",
       "month": 3,
       "week": 12
     },
     "84": {
       "complete": false,
-      "topic": "Project 3 Debug + Review",
+      "topic": "Phase 3 Project Planning",
       "month": 3,
       "week": 12
     },
     "85": {
       "complete": false,
-      "topic": "Monitoring + Alerting Setup",
+      "topic": "Multi-Source Ingestion (APIs, Kafka, Files)",
       "month": 3,
       "week": 13
     },
     "86": {
       "complete": false,
-      "topic": "Final Polish + Deployment",
+      "topic": "Lambda Architecture Implementation",
       "month": 3,
       "week": 13
     },
     "87": {
       "complete": false,
-      "topic": "Project 3 Documentation",
+      "topic": "Batch Layer (Spark + S3)",
       "month": 3,
       "week": 13
     },
     "88": {
       "complete": false,
-      "topic": "Applications (25+ total)",
+      "topic": "Speed Layer (Kafka + Real-Time Aggregations)",
       "month": 3,
       "week": 13
     },
     "89": {
       "complete": false,
-      "topic": "More Applications",
+      "topic": "Serving Layer (PostgreSQL + Redis)",
       "month": 3,
       "week": 13
     },
     "90": {
       "complete": false,
-      "topic": "Application Sprint + Portfolio",
+      "topic": "Airflow Orchestration (Complex DAGs)",
       "month": 3,
       "week": 13
     },
     "91": {
       "complete": false,
-      "topic": "Month 3 Review (30+ apps)",
+      "topic": "Great Expectations Integration",
       "month": 3,
       "week": 13
     },
     "92": {
       "complete": false,
-      "topic": "AWS S3 Deep Dive",
-      "month": 4,
+      "topic": "Monitoring + Observability (Metrics, Logs, Traces)",
+      "month": 3,
       "week": 14
     },
     "93": {
       "complete": false,
-      "topic": "AWS EC2 + Lambda",
-      "month": 4,
+      "topic": "Alerting + Incident Response Setup",
+      "month": 3,
       "week": 14
     },
     "94": {
       "complete": false,
-      "topic": "AWS RDS + Redshift",
-      "month": 4,
+      "topic": "Load Testing + Performance Optimization",
+      "month": 3,
       "week": 14
     },
     "95": {
       "complete": false,
-      "topic": "Applications + AWS Practice",
-      "month": 4,
+      "topic": "Documentation + Runbooks",
+      "month": 3,
       "week": 14
     },
     "96": {
       "complete": false,
-      "topic": "AWS EBS Storage",
-      "month": 4,
+      "topic": "Resume Polish + LinkedIn Optimization",
+      "month": 3,
       "week": 14
     },
     "97": {
       "complete": false,
-      "topic": "AWS Lab Day",
-      "month": 4,
+      "topic": "START APPLYING - First 10 Applications",
+      "month": 3,
       "week": 14
     },
     "98": {
       "complete": false,
-      "topic": "AWS Review + Flashcards",
-      "month": 4,
+      "topic": "Application Sprint (10 more)",
+      "month": 3,
       "week": 14
     },
     "99": {
       "complete": false,
-      "topic": "AWS VPC Networking",
-      "month": 4,
+      "topic": "AWS S3 + Storage Deep Dive",
+      "month": 3,
       "week": 15
     },
     "100": {
       "complete": false,
-      "topic": "AWS IAM Deep Dive",
-      "month": 4,
+      "topic": "AWS Compute (Lambda, EC2, ECS, EKS)",
+      "month": 3,
       "week": 15
     },
     "101": {
       "complete": false,
-      "topic": "AWS Glue + Athena",
-      "month": 4,
+      "topic": "AWS Databases (RDS, Redshift, DynamoDB)",
+      "month": 3,
       "week": 15
     },
     "102": {
       "complete": false,
-      "topic": "Applications + Interview Prep",
-      "month": 4,
+      "topic": "AWS Networking (VPC, Security Groups, IAM)",
+      "month": 3,
       "week": 15
     },
     "103": {
       "complete": false,
-      "topic": "AWS CloudWatch",
-      "month": 4,
+      "topic": "AWS Glue + Athena + Lake Formation",
+      "month": 3,
       "week": 15
     },
     "104": {
       "complete": false,
-      "topic": "AWS Practice Exam 1",
-      "month": 4,
+      "topic": "Applications + AWS Practice Exams",
+      "month": 3,
       "week": 15
     },
     "105": {
       "complete": false,
-      "topic": "Review Weak Areas",
-      "month": 4,
+      "topic": "AWS Practice Exam Review",
+      "month": 3,
       "week": 15
     },
     "106": {
       "complete": false,
-      "topic": "AWS Practice Exam 2",
-      "month": 4,
+      "topic": "AWS Weak Areas Deep Dive",
+      "month": 3,
       "week": 16
     },
     "107": {
       "complete": false,
-      "topic": "AWS Weak Areas",
-      "month": 4,
+      "topic": "AWS Practice Exam 2",
+      "month": 3,
       "week": 16
     },
     "108": {
       "complete": false,
-      "topic": "AWS Practice Exam 3",
-      "month": 4,
+      "topic": "AWS Solutions Architect Associate Exam",
+      "month": 3,
       "week": 16
     },
     "109": {
       "complete": false,
-      "topic": "First Interviews",
-      "month": 4,
+      "topic": "Interview Prep: SQL Live Coding",
+      "month": 3,
       "week": 16
     },
     "110": {
       "complete": false,
-      "topic": "AWS Final Review",
-      "month": 4,
+      "topic": "Interview Prep: System Design Basics",
+      "month": 3,
       "week": 16
     },
     "111": {
       "complete": false,
-      "topic": "AWS Exam Day",
-      "month": 4,
+      "topic": "Interview Prep: Python Coding",
+      "month": 3,
       "week": 16
     },
     "112": {
       "complete": false,
-      "topic": "Celebrate + Interview Prep",
-      "month": 4,
+      "topic": "Phase 3 Review (40+ applications)",
+      "month": 3,
       "week": 16
     },
     "113": {
       "complete": false,
-      "topic": "Interview SQL",
+      "topic": "System Design Framework (Requirements, Estimation, Design)",
       "month": 4,
       "week": 17
     },
     "114": {
       "complete": false,
-      "topic": "Interview Python",
+      "topic": "Design: Data Warehouse from Scratch",
       "month": 4,
       "week": 17
     },
     "115": {
       "complete": false,
-      "topic": "Interview System Design",
+      "topic": "Design: Real-Time Analytics Platform",
       "month": 4,
       "week": 17
     },
     "116": {
       "complete": false,
-      "topic": "Active Interviewing 1",
+      "topic": "Design: ETL Pipeline at Scale",
       "month": 4,
       "week": 17
     },
     "117": {
       "complete": false,
-      "topic": "Interview + Applications",
+      "topic": "Design: Data Lake Architecture",
       "month": 4,
       "week": 17
     },
     "118": {
       "complete": false,
-      "topic": "Mock Interview Day",
+      "topic": "Design: Streaming Platform (Kafka-based)",
       "month": 4,
       "week": 17
     },
     "119": {
       "complete": false,
-      "topic": "Month 4 Review",
+      "topic": "Design: ML Feature Store",
       "month": 4,
       "week": 17
     },
     "120": {
       "complete": false,
-      "topic": "System Design: Data Pipelines",
-      "month": 5,
+      "topic": "Active Interviewing + Applications (50+ total)",
+      "month": 4,
       "week": 18
     },
     "121": {
       "complete": false,
-      "topic": "System Design: Data Warehouses",
-      "month": 5,
+      "topic": "Mock System Design Interview 1",
+      "month": 4,
       "week": 18
     },
     "122": {
       "complete": false,
-      "topic": "System Design: Streaming",
-      "month": 5,
+      "topic": "Mock System Design Interview 2",
+      "month": 4,
       "week": 18
     },
     "123": {
       "complete": false,
-      "topic": "Active Interviewing 2",
-      "month": 5,
+      "topic": "Design: CDC Pipeline",
+      "month": 4,
       "week": 18
     },
     "124": {
       "complete": false,
-      "topic": "System Design: Realtime",
-      "month": 5,
+      "topic": "Design: Data Mesh Architecture",
+      "month": 4,
       "week": 18
     },
     "125": {
       "complete": false,
-      "topic": "System Design Practice",
-      "month": 5,
+      "topic": "Design: Multi-Region Data Replication",
+      "month": 4,
       "week": 18
     },
     "126": {
       "complete": false,
-      "topic": "Interview Debrief",
-      "month": 5,
+      "topic": "System Design Review",
+      "month": 4,
       "week": 18
     },
     "127": {
       "complete": false,
-      "topic": "SQL Window Functions",
-      "month": 5,
+      "topic": "SQL Window Functions Under Pressure",
+      "month": 4,
       "week": 19
     },
     "128": {
       "complete": false,
-      "topic": "SQL CTEs + Subqueries",
-      "month": 5,
+      "topic": "SQL Complex Aggregations Timed",
+      "month": 4,
       "week": 19
     },
     "129": {
       "complete": false,
-      "topic": "Python Data Structures",
-      "month": 5,
+      "topic": "SQL Optimization Problems",
+      "month": 4,
       "week": 19
     },
     "130": {
       "complete": false,
-      "topic": "Active Interviewing 3",
-      "month": 5,
+      "topic": "Python Data Structures for Interviews",
+      "month": 4,
       "week": 19
     },
     "131": {
       "complete": false,
-      "topic": "Data Modeling Questions",
-      "month": 5,
+      "topic": "Python Coding Problems (Data-Focused)",
+      "month": 4,
       "week": 19
     },
     "132": {
       "complete": false,
-      "topic": "Mock Interview Full",
-      "month": 5,
+      "topic": "Active Interviewing (Phone Screens)",
+      "month": 4,
       "week": 19
     },
     "133": {
       "complete": false,
-      "topic": "Interview Prep Review",
-      "month": 5,
+      "topic": "Mock Technical Interview 1",
+      "month": 4,
       "week": 19
     },
     "134": {
       "complete": false,
-      "topic": "Behavioral STAR Method",
-      "month": 5,
+      "topic": "Mock Technical Interview 2",
+      "month": 4,
       "week": 20
     },
     "135": {
       "complete": false,
-      "topic": "Tell Me About Yourself",
-      "month": 5,
+      "topic": "Behavioral STAR Method Prep",
+      "month": 4,
       "week": 20
     },
     "136": {
       "complete": false,
-      "topic": "Leadership + Conflict",
-      "month": 5,
+      "topic": "Tell Me About Yourself Polish",
+      "month": 4,
       "week": 20
     },
     "137": {
       "complete": false,
-      "topic": "Active Interviewing 4",
-      "month": 5,
+      "topic": "Leadership + Conflict Stories",
+      "month": 4,
       "week": 20
     },
     "138": {
       "complete": false,
-      "topic": "Mock Interview 1",
-      "month": 5,
+      "topic": "Failure + Growth Stories",
+      "month": 4,
       "week": 20
     },
     "139": {
       "complete": false,
-      "topic": "Mock Interview 2",
-      "month": 5,
+      "topic": "Mock Behavioral Interview",
+      "month": 4,
       "week": 20
     },
     "140": {
       "complete": false,
-      "topic": "Refine Answers",
-      "month": 5,
+      "topic": "Phase 4 Review (60+ applications)",
+      "month": 4,
       "week": 20
     },
     "141": {
       "complete": false,
-      "topic": "Refine Story",
-      "month": 5,
+      "topic": "Weak Area Drilling",
+      "month": 4,
       "week": 21
     },
     "142": {
       "complete": false,
-      "topic": "Technical Deep Dives",
-      "month": 5,
+      "topic": "Company-Specific Research",
+      "month": 4,
       "week": 21
     },
     "143": {
       "complete": false,
-      "topic": "Negotiation Research",
-      "month": 5,
+      "topic": "Salary Research + Negotiation Prep",
+      "month": 4,
       "week": 21
     },
     "144": {
       "complete": false,
-      "topic": "Active Interviewing 5",
-      "month": 5,
+      "topic": "Final Mock Interview (Full Loop Simulation)",
+      "month": 4,
       "week": 21
     },
     "145": {
       "complete": false,
-      "topic": "Final Round Prep 1",
-      "month": 5,
+      "topic": "Rest + Mental Prep",
+      "month": 4,
       "week": 21
     },
     "146": {
       "complete": false,
-      "topic": "Practice Final Rounds",
-      "month": 5,
+      "topic": "Active Interviewing",
+      "month": 4,
       "week": 21
     },
     "147": {
       "complete": false,
-      "topic": "Month 5 Review",
-      "month": 5,
+      "topic": "Phase 4 Complete",
+      "month": 4,
       "week": 21
     },
     "148": {
       "complete": false,
-      "topic": "Final Round Prep 2",
-      "month": 6,
+      "topic": "Final Round Prep",
+      "month": 5,
       "week": 22
     },
     "149": {
       "complete": false,
-      "topic": "Final Interviews 1",
-      "month": 6,
+      "topic": "Final Interviews",
+      "month": 5,
       "week": 22
     },
     "150": {
       "complete": false,
-      "topic": "Final Interviews 2",
-      "month": 6,
+      "topic": "Final Interviews",
+      "month": 5,
       "week": 22
     },
     "151": {
       "complete": false,
-      "topic": "Compare Offers",
-      "month": 6,
+      "topic": "Final Interviews",
+      "month": 5,
       "week": 22
     },
     "152": {
       "complete": false,
-      "topic": "Negotiation Strategy",
-      "month": 6,
+      "topic": "Final Interviews",
+      "month": 5,
       "week": 22
     },
     "153": {
       "complete": false,
-      "topic": "Negotiate Aggressively",
-      "month": 6,
+      "topic": "Final Interviews",
+      "month": 5,
       "week": 22
     },
     "154": {
       "complete": false,
-      "topic": "Review Offer Details",
-      "month": 6,
+      "topic": "Offer Comparison Framework",
+      "month": 5,
       "week": 22
     },
     "155": {
       "complete": false,
-      "topic": "Counter Offer Calls",
-      "month": 6,
+      "topic": "Negotiation Strategy (Leverage Multiple Offers)",
+      "month": 5,
       "week": 23
     },
     "156": {
       "complete": false,
-      "topic": "Final Negotiations",
-      "month": 6,
+      "topic": "Counter-Offer Calls",
+      "month": 5,
       "week": 23
     },
     "157": {
       "complete": false,
-      "topic": "Accept Offer",
-      "month": 6,
+      "topic": "Final Negotiations",
+      "month": 5,
       "week": 23
     },
     "158": {
       "complete": false,
-      "topic": "Give Notice",
-      "month": 6,
+      "topic": "Accept Best Offer",
+      "month": 5,
       "week": 23
     },
     "159": {
       "complete": false,
-      "topic": "Transition Planning",
-      "month": 6,
+      "topic": "Give Notice",
+      "month": 5,
       "week": 23
     },
     "160": {
       "complete": false,
       "topic": "Celebrate",
-      "month": 6,
+      "month": 5,
       "week": 23
     },
     "161": {
       "complete": false,
-      "topic": "Prep New Role",
-      "month": 6,
+      "topic": "Transition Planning",
+      "month": 5,
       "week": 23
     },
     "162": {
       "complete": false,
       "topic": "Knowledge Transfer",
-      "month": 6,
+      "month": 5,
       "week": 24
     },
     "163": {
       "complete": false,
-      "topic": "Finish Strong",
-      "month": 6,
+      "topic": "Finish Strong at Current Role",
+      "month": 5,
       "week": 24
     },
     "164": {
       "complete": false,
       "topic": "Study New Stack",
-      "month": 6,
+      "month": 5,
       "week": 24
     },
     "165": {
       "complete": false,
       "topic": "Prep Day 1",
-      "month": 6,
+      "month": 5,
       "week": 24
     },
     "166": {
       "complete": false,
       "topic": "Last Day",
-      "month": 6,
+      "month": 5,
       "week": 24
     },
     "167": {
       "complete": false,
-      "topic": "Rest + Celebrate",
-      "month": 6,
+      "topic": "Rest",
+      "month": 5,
       "week": 24
     },
     "168": {
       "complete": false,
       "topic": "New Chapter Begins",
-      "month": 6,
+      "month": 5,
       "week": 24
     }
   }

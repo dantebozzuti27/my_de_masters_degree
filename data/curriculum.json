@@ -1,15 +1,37 @@
 {
   "meta": {
-    "title": "6-Month Data Engineer Curriculum",
-    "goal": "Land $160-170k Role by July 2026",
-    "hoursPerWeek": 25,
+    "title": "6-Month Elite Data Engineer Curriculum",
+    "goal": "Land $180k+ Role at FAANG/Ramp/Stripe by July 2026",
+    "hoursPerWeek": 30,
     "totalDays": 168,
     "startDate": "2026-02-01"
+  },
+  "resources": {
+    "coreBooks": [
+      "Designing Data-Intensive Applications - Martin Kleppmann",
+      "Learning Spark 2nd Ed - Damji et al.",
+      "Kafka: The Definitive Guide 2nd Ed - Shapira et al.",
+      "SQL Performance Explained - Markus Winand",
+      "System Design Interview Vol 1 & 2 - Alex Xu"
+    ],
+    "podcasts": [
+      "Data Engineering Podcast",
+      "Software Engineering Daily",
+      "The Analytics Engineering Podcast",
+      "Streaming Audio (Confluent)",
+      "AWS Podcast"
+    ],
+    "platforms": [
+      "StrataScratch",
+      "DataLemur",
+      "Databricks Academy",
+      "AWS Skill Builder"
+    ]
   },
   "months": [
     {
       "id": 1,
-      "name": "Foundations",
+      "name": "Foundations + Project 1",
       "weeks": [
         {
           "week": 1,
@@ -22,7 +44,11 @@
             { "day": 5, "topic": "List Comprehensions" },
             { "day": 6, "topic": "Dictionaries & JSON" },
             { "day": 7, "topic": "File I/O & Context Managers" }
-          ]
+          ],
+          "resources": {
+            "book": "Python for Data Analysis Ch. 1-3",
+            "podcast": "Talk Python - Getting Started"
+          }
         },
         {
           "week": 2,
@@ -35,336 +61,439 @@
             { "day": 12, "topic": "GitHub PRs & Workflows" },
             { "day": 13, "topic": "Week 2 Project: CLI Data Tool" },
             { "day": 14, "topic": "Week 2 Review" }
-          ]
+          ],
+          "resources": {
+            "book": "Python for Data Analysis Ch. 4-6",
+            "podcast": "Data Engineering Podcast - Version Control"
+          }
         },
         {
           "week": 3,
-          "title": "AWS + Docker Basics",
+          "title": "AWS + Docker + Project 1 Start",
           "days": [
             { "day": 15, "topic": "Advanced Git + Code Review" },
             { "day": 16, "topic": "AWS Account Setup (IAM, CLI)" },
             { "day": 17, "topic": "S3 Fundamentals" },
             { "day": 18, "topic": "Docker Fundamentals" },
-            { "day": 19, "topic": "Project 1: Credit Markets Pipeline" },
-            { "day": 20, "topic": "Project 1: Credit Markets Pipeline" },
-            { "day": 21, "topic": "Project 1: Credit Markets Pipeline" }
-          ]
+            { "day": 19, "topic": "Project 1: Credit Markets Pipeline - Core" },
+            { "day": 20, "topic": "Project 1: Credit Markets Pipeline - Reference Data" },
+            { "day": 21, "topic": "Project 1: Credit Markets Pipeline - Parallel Processing" }
+          ],
+          "resources": {
+            "book": "Docker Deep Dive - Nigel Poulton",
+            "youtube": "TechWorld with Nana - Docker Tutorial"
+          }
         },
         {
           "week": 4,
-          "title": "Project 1 Part 1",
+          "title": "Project 1 Deployment + CI/CD",
           "days": [
-            { "day": 22, "topic": "Docker Compose + Local Dev Stack" },
-            { "day": 23, "topic": "FRED + SEC EDGAR API Integration" },
-            { "day": 24, "topic": "AWS Lambda Deployment" },
-            { "day": 25, "topic": "S3 Storage + Data Partitioning" },
-            { "day": 26, "topic": "PostgreSQL Setup + Schema Design" },
-            { "day": 27, "topic": "Project 1 Deep Work" },
-            { "day": 28, "topic": "Review + Debug" }
-          ]
+            { "day": 22, "topic": "AWS Lambda Deployment" },
+            { "day": 23, "topic": "GitHub Actions CI/CD (pytest + Docker)" },
+            { "day": 24, "topic": "Airflow DAG Setup (Local)" },
+            { "day": 25, "topic": "Airflow Integration (Lambda + S3 Sensors)" },
+            { "day": 26, "topic": "Monitoring + Alerting (CloudWatch, Slack)" },
+            { "day": 27, "topic": "Scale Test (1M+ rows backfill)" },
+            { "day": 28, "topic": "Project 1 Documentation + Architecture Diagrams" }
+          ],
+          "resources": {
+            "book": "Python for Data Analysis Ch. 10-11",
+            "youtube": "TechWorld with Nana - AWS Lambda Tutorial",
+            "article": "AWS Well-Architected Framework - Reliability"
+          }
         },
         {
           "week": 5,
-          "title": "Project 1 Part 2",
+          "title": "SQL Deep Dive",
           "days": [
-            { "day": 29, "topic": "Data Transformation Pipeline" },
-            { "day": 30, "topic": "Airflow DAG Basics" },
-            { "day": 31, "topic": "Connect Airflow to Lambda + S3" },
-            { "day": 32, "topic": "Streamlit Dashboard Basics" },
-            { "day": 33, "topic": "Dashboard Data Integration" },
-            { "day": 34, "topic": "Project 1 Polish + Documentation" },
-            { "day": 35, "topic": "Month 1 Review" }
-          ]
+            { "day": 29, "topic": "Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE)" },
+            { "day": 30, "topic": "Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP)" },
+            { "day": 31, "topic": "CTEs + Recursive CTEs" },
+            { "day": 32, "topic": "Query Optimization (EXPLAIN ANALYZE, Indexes)" },
+            { "day": 33, "topic": "SQL Drilling - StrataScratch (10 problems)" },
+            { "day": 34, "topic": "SQL Drilling - DataLemur (10 problems)" },
+            { "day": 35, "topic": "SQL Assessment + Review" }
+          ],
+          "resources": {
+            "book": "Learning SQL Ch. 9-11, 14-16 - Beaulieu",
+            "book2": "SQL Performance Explained - Winand",
+            "platform": "StrataScratch, DataLemur",
+            "youtube": "CMU Database Group - Query Processing"
+          }
+        },
+        {
+          "week": 6,
+          "title": "Distributed Systems Theory",
+          "days": [
+            { "day": 36, "topic": "CAP Theorem Deep Dive" },
+            { "day": 37, "topic": "Consistency Models (Eventual, Strong, Causal)" },
+            { "day": 38, "topic": "Partitioning Strategies (Hash, Range, Composite)" },
+            { "day": 39, "topic": "Replication Patterns (Leader-Follower, Multi-Leader)" },
+            { "day": 40, "topic": "Exactly-Once Semantics (Why It's Mostly a Myth)" },
+            { "day": 41, "topic": "Data Modeling at Scale (Star Schema, SCDs)" },
+            { "day": 42, "topic": "Phase 1 Review + Project 1 Final Polish" }
+          ],
+          "resources": {
+            "book": "Designing Data-Intensive Applications Ch. 5-9 - Kleppmann",
+            "youtube": "Martin Kleppmann's Cambridge Lectures",
+            "article": "Jepsen.io blog posts"
+          }
         }
       ],
       "project": {
         "name": "Credit Markets Pipeline",
         "repo": "credit-markets-pipeline",
-        "stack": ["Python", "AWS Lambda", "S3", "PostgreSQL", "Airflow", "Streamlit"]
+        "stack": ["Python", "AWS Lambda", "S3", "PostgreSQL", "Airflow", "Streamlit", "GitHub Actions"],
+        "scale": "1M+ rows, 18 FRED series, 50+ companies"
       }
     },
     {
       "id": 2,
-      "name": "dbt Mastery",
+      "name": "dbt + Spark + Project 2",
       "weeks": [
         {
-          "week": 6,
+          "week": 7,
           "title": "dbt Fundamentals",
           "days": [
-            { "day": 36, "topic": "dbt Fundamentals (models, refs)" },
-            { "day": 37, "topic": "dbt Materializations" },
-            { "day": 38, "topic": "Staging → Intermediate → Marts" },
-            { "day": 39, "topic": "dbt Sources and Seeds" },
-            { "day": 40, "topic": "dbt Practice: Transform Stock Data" },
-            { "day": 41, "topic": "dbt Deep Dive" },
-            { "day": 42, "topic": "dbt Review + Testing Intro" }
-          ]
-        },
-        {
-          "week": 7,
-          "title": "dbt Testing & Macros",
-          "days": [
-            { "day": 43, "topic": "dbt Testing (schema + data tests)" },
-            { "day": 44, "topic": "Custom dbt Tests" },
-            { "day": 45, "topic": "dbt Macros and Jinja" },
-            { "day": 46, "topic": "dbt Packages + Documentation" },
-            { "day": 47, "topic": "dbt Advanced Patterns" },
-            { "day": 48, "topic": "dbt Mastery Practice" },
-            { "day": 49, "topic": "dbt Cert Prep Start" }
-          ]
+            { "day": 43, "topic": "dbt Project Setup, Models, Refs" },
+            { "day": 44, "topic": "Materializations (Table, View, Incremental, Ephemeral)" },
+            { "day": 45, "topic": "Staging → Intermediate → Marts Pattern" },
+            { "day": 46, "topic": "Sources, Seeds, Snapshots" },
+            { "day": 47, "topic": "dbt Testing (Schema + Data Tests)" },
+            { "day": 48, "topic": "Macros and Jinja Templating" },
+            { "day": 49, "topic": "dbt Packages + Documentation Generation" }
+          ],
+          "resources": {
+            "course": "dbt Fundamentals (courses.getdbt.com)",
+            "book": "The Analytics Engineering Guide (dbt Labs)",
+            "podcast": "The Analytics Engineering Podcast"
+          }
         },
         {
           "week": 8,
-          "title": "Project 2 Part 1",
+          "title": "Spark Fundamentals",
           "days": [
-            { "day": 50, "topic": "MLB Stats API Data Ingestion" },
-            { "day": 51, "topic": "Snowflake Setup" },
-            { "day": 52, "topic": "dbt Staging Models for MLB" },
-            { "day": 53, "topic": "dbt Intermediate Models" },
-            { "day": 54, "topic": "dbt Marts + Dimensional Modeling" },
-            { "day": 55, "topic": "Project 2 Deep Work" },
-            { "day": 56, "topic": "Project 2 Testing" }
-          ]
+            { "day": 50, "topic": "Spark Architecture (Driver, Executors, Partitions)" },
+            { "day": 51, "topic": "PySpark DataFrames + Transformations" },
+            { "day": 52, "topic": "Spark SQL + Optimization (Catalyst, Tungsten)" },
+            { "day": 53, "topic": "Partitioning + Bucketing Strategies" },
+            { "day": 54, "topic": "Joins at Scale (Broadcast, Shuffle, Sort-Merge)" },
+            { "day": 55, "topic": "Spark on Databricks Setup" },
+            { "day": 56, "topic": "Spark Performance Tuning" }
+          ],
+          "resources": {
+            "book": "Learning Spark 2nd Ed Ch. 1-7 - Damji et al.",
+            "course": "Databricks Academy - Data Engineer Learning Path",
+            "youtube": "Databricks YouTube - Apache Spark Core"
+          }
         },
         {
           "week": 9,
-          "title": "Project 2 Complete",
+          "title": "Project 2: Fraud Detection Pipeline - Part 1",
           "days": [
-            { "day": 57, "topic": "dbt Test Coverage + Docs" },
-            { "day": 58, "topic": "Streamlit Dashboard for MLB" },
-            { "day": 59, "topic": "Dashboard Advanced Features" },
-            { "day": 60, "topic": "Project 2 Polish" },
-            { "day": 61, "topic": "dbt Certification Final Prep" },
-            { "day": 62, "topic": "dbt Cert Exam" },
-            { "day": 63, "topic": "Month 2 Review" }
-          ]
-        }
-      ],
-      "project": {
-        "name": "MLB Analytics Platform",
-        "stack": ["Python", "Snowflake", "dbt", "Streamlit"]
-      },
-      "certification": { "name": "dbt Analytics Engineering", "day": 62 }
-    },
-    {
-      "id": 3,
-      "name": "Airflow + Applying",
-      "weeks": [
+            { "day": 57, "topic": "Synthetic Transaction Data Generation (10M+)" },
+            { "day": 58, "topic": "Feature Engineering for Fraud Signals" },
+            { "day": 59, "topic": "Spark Ingestion + Transformation" },
+            { "day": 60, "topic": "dbt Staging Models" },
+            { "day": 61, "topic": "dbt Intermediate Models (Feature Aggregations)" },
+            { "day": 62, "topic": "dbt Marts (Fraud Risk Scores)" },
+            { "day": 63, "topic": "Real-Time Scoring Architecture Design" }
+          ],
+          "resources": {
+            "book": "Practical Fraud Prevention - Caccamese & Skog",
+            "article": "Stripe Radar documentation",
+            "podcast": "Talk Python - Data Science in Finance"
+          }
+        },
         {
           "week": 10,
-          "title": "Airflow Fundamentals",
+          "title": "Project 2: Fraud Detection Pipeline - Part 2",
           "days": [
-            { "day": 64, "topic": "Airflow Architecture Deep Dive" },
-            { "day": 65, "topic": "DAG Design Patterns" },
-            { "day": 66, "topic": "Operators and TaskFlow API" },
-            { "day": 67, "topic": "Task Dependencies + XComs" },
-            { "day": 68, "topic": "Airflow Connections + Hooks" },
-            { "day": 69, "topic": "Airflow Lab: Complex DAG" },
-            { "day": 70, "topic": "Airflow Testing Intro" }
-          ]
+            { "day": 64, "topic": "Streamlit Fraud Dashboard" },
+            { "day": 65, "topic": "dbt Testing + Data Quality Checks" },
+            { "day": 66, "topic": "CI/CD for dbt (GitHub Actions + dbt Cloud)" },
+            { "day": 67, "topic": "Documentation + System Design Writeup" },
+            { "day": 68, "topic": "dbt Certification Prep" },
+            { "day": 69, "topic": "dbt Certification Prep" },
+            { "day": 70, "topic": "dbt Analytics Engineering Certification Exam" }
+          ],
+          "resources": {
+            "course": "dbt Certification Prep (courses.getdbt.com)",
+            "article": "How we structure our dbt projects (GitLab)"
+          }
         },
         {
           "week": 11,
-          "title": "Airflow Production + Apply",
+          "title": "Kafka + Streaming Basics",
           "days": [
-            { "day": 71, "topic": "Airflow Testing + Monitoring" },
-            { "day": 72, "topic": "Error Handling in DAGs" },
-            { "day": 73, "topic": "Resume + LinkedIn Polish - START APPLYING" },
-            { "day": 74, "topic": "First 5 Applications" },
-            { "day": 75, "topic": "More Applications + Airflow Practice" },
-            { "day": 76, "topic": "Application Sprint (10 apps)" },
-            { "day": 77, "topic": "Week Review + Tracking" }
-          ]
-        },
-        {
-          "week": 12,
-          "title": "Project 3 Part 1",
-          "days": [
-            { "day": 78, "topic": "Multi-Source Ingestion DAGs" },
-            { "day": 79, "topic": "Great Expectations Setup" },
-            { "day": 80, "topic": "Data Quality Framework" },
-            { "day": 81, "topic": "Quality Checks Integration" },
-            { "day": 82, "topic": "Applications + Project Work" },
-            { "day": 83, "topic": "Project 3 Deep Work" },
-            { "day": 84, "topic": "Project 3 Debug + Review" }
-          ]
-        },
-        {
-          "week": 13,
-          "title": "Project 3 Complete",
-          "days": [
-            { "day": 85, "topic": "Monitoring + Alerting Setup" },
-            { "day": 86, "topic": "Final Polish + Deployment" },
-            { "day": 87, "topic": "Project 3 Documentation" },
-            { "day": 88, "topic": "Applications (25+ total)" },
-            { "day": 89, "topic": "More Applications" },
-            { "day": 90, "topic": "Application Sprint + Portfolio" },
-            { "day": 91, "topic": "Month 3 Review (30+ apps)" }
-          ]
+            { "day": 71, "topic": "Kafka Architecture (Brokers, Topics, Partitions)" },
+            { "day": 72, "topic": "Kafka Producer/Consumer in Python" },
+            { "day": 73, "topic": "Stream Processing Concepts (Windowing, Watermarks)" },
+            { "day": 74, "topic": "Kafka Connect Basics" },
+            { "day": 75, "topic": "Add Streaming Component to Project 2" },
+            { "day": 76, "topic": "Exactly-Once Semantics in Practice" },
+            { "day": 77, "topic": "Phase 2 Review" }
+          ],
+          "resources": {
+            "book": "Kafka: The Definitive Guide 2nd Ed Ch. 1-6",
+            "book2": "Designing Data-Intensive Applications Ch. 11",
+            "podcast": "Streaming Audio (Confluent)",
+            "article": "The Log: What every engineer should know (Jay Kreps)"
+          }
         }
       ],
       "project": {
-        "name": "Data Quality Platform",
-        "stack": ["Python", "Airflow", "Great Expectations", "PostgreSQL"]
-      }
+        "name": "Fraud Detection Pipeline",
+        "repo": "fraud-detection-pipeline",
+        "stack": ["Python", "Spark", "dbt", "Snowflake/Databricks", "Kafka", "Streamlit"],
+        "scale": "10M+ transactions"
+      },
+      "certification": { "name": "dbt Analytics Engineering", "day": 70 }
     },
     {
-      "id": 4,
-      "name": "AWS Certification",
+      "id": 3,
+      "name": "Production Systems + Applications",
       "weeks": [
         {
-          "week": 14,
-          "title": "AWS SAA - Compute & Storage",
+          "week": 12,
+          "title": "Data Quality + Great Expectations",
           "days": [
-            { "day": 92, "topic": "AWS S3 Deep Dive" },
-            { "day": 93, "topic": "AWS EC2 + Lambda" },
-            { "day": 94, "topic": "AWS RDS + Redshift" },
-            { "day": 95, "topic": "Applications + AWS Practice" },
-            { "day": 96, "topic": "AWS EBS Storage" },
-            { "day": 97, "topic": "AWS Lab Day" },
-            { "day": 98, "topic": "AWS Review + Flashcards" }
-          ]
+            { "day": 78, "topic": "Great Expectations Setup + Concepts" },
+            { "day": 79, "topic": "Expectation Suites Design" },
+            { "day": 80, "topic": "Integration with Airflow" },
+            { "day": 81, "topic": "Data Contracts Pattern" },
+            { "day": 82, "topic": "Alerting on Quality Failures" },
+            { "day": 83, "topic": "Quality Dashboards" },
+            { "day": 84, "topic": "Phase 3 Project Planning" }
+          ],
+          "resources": {
+            "book": "Data Quality Fundamentals - Barr Moses et al.",
+            "course": "Great Expectations Tutorial (docs.greatexpectations.io)",
+            "article": "Data Contracts - Chad Sanderson"
+          }
+        },
+        {
+          "week": 13,
+          "title": "Project 3: Real-Time Analytics Platform - Part 1",
+          "days": [
+            { "day": 85, "topic": "Multi-Source Ingestion (APIs, Kafka, Files)" },
+            { "day": 86, "topic": "Lambda Architecture Implementation" },
+            { "day": 87, "topic": "Batch Layer (Spark + S3)" },
+            { "day": 88, "topic": "Speed Layer (Kafka + Real-Time Aggregations)" },
+            { "day": 89, "topic": "Serving Layer (PostgreSQL + Redis)" },
+            { "day": 90, "topic": "Airflow Orchestration (Complex DAGs)" },
+            { "day": 91, "topic": "Great Expectations Integration" }
+          ],
+          "resources": {
+            "book": "Streaming Systems - Akidau et al.",
+            "youtube": "Uber Engineering - Real-time Analytics talks",
+            "article": "Questioning the Lambda Architecture (Jay Kreps)"
+          }
+        },
+        {
+          "week": 14,
+          "title": "Project 3: Real-Time Analytics Platform - Part 2",
+          "days": [
+            { "day": 92, "topic": "Monitoring + Observability (Metrics, Logs, Traces)" },
+            { "day": 93, "topic": "Alerting + Incident Response Setup" },
+            { "day": 94, "topic": "Load Testing + Performance Optimization" },
+            { "day": 95, "topic": "Documentation + Runbooks" },
+            { "day": 96, "topic": "Resume Polish + LinkedIn Optimization" },
+            { "day": 97, "topic": "START APPLYING - First 10 Applications" },
+            { "day": 98, "topic": "Application Sprint (10 more)" }
+          ],
+          "resources": {
+            "article": "Uber Engineering Blog - Observability",
+            "youtube": "AWS re:Invent - Monitoring Best Practices"
+          }
         },
         {
           "week": 15,
-          "title": "AWS SAA - Networking",
+          "title": "AWS Certification - Part 1",
           "days": [
-            { "day": 99, "topic": "AWS VPC Networking" },
-            { "day": 100, "topic": "AWS IAM Deep Dive" },
-            { "day": 101, "topic": "AWS Glue + Athena" },
-            { "day": 102, "topic": "Applications + Interview Prep" },
-            { "day": 103, "topic": "AWS CloudWatch" },
-            { "day": 104, "topic": "AWS Practice Exam 1" },
-            { "day": 105, "topic": "Review Weak Areas" }
-          ]
+            { "day": 99, "topic": "AWS S3 + Storage Deep Dive" },
+            { "day": 100, "topic": "AWS Compute (Lambda, EC2, ECS, EKS)" },
+            { "day": 101, "topic": "AWS Databases (RDS, Redshift, DynamoDB)" },
+            { "day": 102, "topic": "AWS Networking (VPC, Security Groups, IAM)" },
+            { "day": 103, "topic": "AWS Glue + Athena + Lake Formation" },
+            { "day": 104, "topic": "Applications + AWS Practice Exams" },
+            { "day": 105, "topic": "AWS Practice Exam Review" }
+          ],
+          "resources": {
+            "course": "Stephane Maarek - AWS SAA-C03 (Udemy)",
+            "course2": "Tutorial Dojo Practice Exams (Udemy)",
+            "platform": "AWS Skill Builder"
+          }
         },
         {
           "week": 16,
-          "title": "AWS SAA - Final Prep",
+          "title": "AWS Certification - Part 2",
           "days": [
-            { "day": 106, "topic": "AWS Practice Exam 2" },
-            { "day": 107, "topic": "AWS Weak Areas" },
-            { "day": 108, "topic": "AWS Practice Exam 3" },
-            { "day": 109, "topic": "First Interviews" },
-            { "day": 110, "topic": "AWS Final Review" },
-            { "day": 111, "topic": "AWS Exam Day" },
-            { "day": 112, "topic": "Celebrate + Interview Prep" }
-          ]
-        },
-        {
-          "week": 17,
-          "title": "Interview Ramp Up",
-          "days": [
-            { "day": 113, "topic": "Interview SQL" },
-            { "day": 114, "topic": "Interview Python" },
-            { "day": 115, "topic": "Interview System Design" },
-            { "day": 116, "topic": "Active Interviewing 1" },
-            { "day": 117, "topic": "Interview + Applications" },
-            { "day": 118, "topic": "Mock Interview Day" },
-            { "day": 119, "topic": "Month 4 Review" }
-          ]
+            { "day": 106, "topic": "AWS Weak Areas Deep Dive" },
+            { "day": 107, "topic": "AWS Practice Exam 2" },
+            { "day": 108, "topic": "AWS Solutions Architect Associate Exam" },
+            { "day": 109, "topic": "Interview Prep: SQL Live Coding" },
+            { "day": 110, "topic": "Interview Prep: System Design Basics" },
+            { "day": 111, "topic": "Interview Prep: Python Coding" },
+            { "day": 112, "topic": "Phase 3 Review (40+ applications)" }
+          ],
+          "resources": {
+            "book": "AWS Whitepapers (Well-Architected, Security)",
+            "youtube": "AWS re:Invent Data Engineering track"
+          }
         }
       ],
-      "certification": { "name": "AWS Solutions Architect Associate", "day": 111 }
+      "project": {
+        "name": "Real-Time Analytics Platform",
+        "repo": "realtime-analytics-platform",
+        "stack": ["Python", "Spark", "Kafka", "Airflow", "PostgreSQL", "Redis", "Great Expectations"],
+        "scale": "Lambda architecture, batch + speed layers"
+      },
+      "certification": { "name": "AWS Solutions Architect Associate", "day": 108 }
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Interview Intensive",
       "weeks": [
         {
-          "week": 18,
-          "title": "System Design Practice",
+          "week": 17,
+          "title": "System Design Mastery - Part 1",
           "days": [
-            { "day": 120, "topic": "System Design: Data Pipelines" },
-            { "day": 121, "topic": "System Design: Data Warehouses" },
-            { "day": 122, "topic": "System Design: Streaming" },
-            { "day": 123, "topic": "Active Interviewing 2" },
-            { "day": 124, "topic": "System Design: Realtime" },
-            { "day": 125, "topic": "System Design Practice" },
-            { "day": 126, "topic": "Interview Debrief" }
-          ]
+            { "day": 113, "topic": "System Design Framework (Requirements, Estimation, Design)" },
+            { "day": 114, "topic": "Design: Data Warehouse from Scratch" },
+            { "day": 115, "topic": "Design: Real-Time Analytics Platform" },
+            { "day": 116, "topic": "Design: ETL Pipeline at Scale" },
+            { "day": 117, "topic": "Design: Data Lake Architecture" },
+            { "day": 118, "topic": "Design: Streaming Platform (Kafka-based)" },
+            { "day": 119, "topic": "Design: ML Feature Store" }
+          ],
+          "resources": {
+            "book": "Designing Data-Intensive Applications (full re-read)",
+            "book2": "System Design Interview Vol 1 & 2 - Alex Xu",
+            "youtube": "System Design Interview channel"
+          }
+        },
+        {
+          "week": 18,
+          "title": "System Design Mastery - Part 2",
+          "days": [
+            { "day": 120, "topic": "Active Interviewing + Applications (50+ total)" },
+            { "day": 121, "topic": "Mock System Design Interview 1" },
+            { "day": 122, "topic": "Mock System Design Interview 2" },
+            { "day": 123, "topic": "Design: CDC Pipeline" },
+            { "day": 124, "topic": "Design: Data Mesh Architecture" },
+            { "day": 125, "topic": "Design: Multi-Region Data Replication" },
+            { "day": 126, "topic": "System Design Review" }
+          ],
+          "resources": {
+            "article": "Engineering blogs: Uber, Netflix, Airbnb, LinkedIn",
+            "platform": "Excalidraw for diagramming practice"
+          }
         },
         {
           "week": 19,
-          "title": "Technical Interview Practice",
+          "title": "Technical Interview Drilling",
           "days": [
-            { "day": 127, "topic": "SQL Window Functions" },
-            { "day": 128, "topic": "SQL CTEs + Subqueries" },
-            { "day": 129, "topic": "Python Data Structures" },
-            { "day": 130, "topic": "Active Interviewing 3" },
-            { "day": 131, "topic": "Data Modeling Questions" },
-            { "day": 132, "topic": "Mock Interview Full" },
-            { "day": 133, "topic": "Interview Prep Review" }
-          ]
+            { "day": 127, "topic": "SQL Window Functions Under Pressure" },
+            { "day": 128, "topic": "SQL Complex Aggregations Timed" },
+            { "day": 129, "topic": "SQL Optimization Problems" },
+            { "day": 130, "topic": "Python Data Structures for Interviews" },
+            { "day": 131, "topic": "Python Coding Problems (Data-Focused)" },
+            { "day": 132, "topic": "Active Interviewing (Phone Screens)" },
+            { "day": 133, "topic": "Mock Technical Interview 1" }
+          ],
+          "resources": {
+            "platform": "StrataScratch Premium",
+            "platform2": "LeetCode (Easy/Medium)",
+            "article": "Glassdoor interview questions (target companies)"
+          }
         },
         {
           "week": 20,
           "title": "Behavioral + Mock Interviews",
           "days": [
-            { "day": 134, "topic": "Behavioral STAR Method" },
-            { "day": 135, "topic": "Tell Me About Yourself" },
-            { "day": 136, "topic": "Leadership + Conflict" },
-            { "day": 137, "topic": "Active Interviewing 4" },
-            { "day": 138, "topic": "Mock Interview 1" },
-            { "day": 139, "topic": "Mock Interview 2" },
-            { "day": 140, "topic": "Refine Answers" }
-          ]
+            { "day": 134, "topic": "Mock Technical Interview 2" },
+            { "day": 135, "topic": "Behavioral STAR Method Prep" },
+            { "day": 136, "topic": "Tell Me About Yourself Polish" },
+            { "day": 137, "topic": "Leadership + Conflict Stories" },
+            { "day": 138, "topic": "Failure + Growth Stories" },
+            { "day": 139, "topic": "Mock Behavioral Interview" },
+            { "day": 140, "topic": "Phase 4 Review (60+ applications)" }
+          ],
+          "resources": {
+            "book": "Cracking the Coding Interview Ch. 1-4, behavioral",
+            "youtube": "Jeff Su - Tell Me About Yourself",
+            "platform": "Pramp.com (free mock interviews)"
+          }
         },
         {
           "week": 21,
-          "title": "Interview Refinement",
+          "title": "Final Interview Prep",
           "days": [
-            { "day": 141, "topic": "Refine Story" },
-            { "day": 142, "topic": "Technical Deep Dives" },
-            { "day": 143, "topic": "Negotiation Research" },
-            { "day": 144, "topic": "Active Interviewing 5" },
-            { "day": 145, "topic": "Final Round Prep 1" },
-            { "day": 146, "topic": "Practice Final Rounds" },
-            { "day": 147, "topic": "Month 5 Review" }
-          ]
+            { "day": 141, "topic": "Weak Area Drilling" },
+            { "day": 142, "topic": "Company-Specific Research" },
+            { "day": 143, "topic": "Salary Research + Negotiation Prep" },
+            { "day": 144, "topic": "Final Mock Interview (Full Loop Simulation)" },
+            { "day": 145, "topic": "Rest + Mental Prep" },
+            { "day": 146, "topic": "Active Interviewing" },
+            { "day": 147, "topic": "Phase 4 Complete" }
+          ],
+          "resources": {
+            "book": "Never Split the Difference - Chris Voss",
+            "article": "Ten Rules for Negotiating a Job Offer (Haseeb Qureshi)",
+            "platform": "levels.fyi - Compensation data"
+          }
         }
       ]
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Close Offers",
       "weeks": [
         {
           "week": 22,
-          "title": "Final Push",
+          "title": "Final Rounds",
           "days": [
-            { "day": 148, "topic": "Final Round Prep 2" },
-            { "day": 149, "topic": "Final Interviews 1" },
-            { "day": 150, "topic": "Final Interviews 2" },
-            { "day": 151, "topic": "Compare Offers" },
-            { "day": 152, "topic": "Negotiation Strategy" },
-            { "day": 153, "topic": "Negotiate Aggressively" },
-            { "day": 154, "topic": "Review Offer Details" }
-          ]
+            { "day": 148, "topic": "Final Round Prep" },
+            { "day": 149, "topic": "Final Interviews" },
+            { "day": 150, "topic": "Final Interviews" },
+            { "day": 151, "topic": "Final Interviews" },
+            { "day": 152, "topic": "Final Interviews" },
+            { "day": 153, "topic": "Final Interviews" },
+            { "day": 154, "topic": "Offer Comparison Framework" }
+          ],
+          "resources": {
+            "article": "Blind (teamblind.com) - Compensation threads",
+            "platform": "levels.fyi - Company comp breakdowns"
+          }
         },
         {
           "week": 23,
           "title": "Negotiate + Accept",
           "days": [
-            { "day": 155, "topic": "Counter Offer Calls" },
-            { "day": 156, "topic": "Final Negotiations" },
-            { "day": 157, "topic": "Accept Offer" },
-            { "day": 158, "topic": "Give Notice" },
-            { "day": 159, "topic": "Transition Planning" },
+            { "day": 155, "topic": "Negotiation Strategy (Leverage Multiple Offers)" },
+            { "day": 156, "topic": "Counter-Offer Calls" },
+            { "day": 157, "topic": "Final Negotiations" },
+            { "day": 158, "topic": "Accept Best Offer" },
+            { "day": 159, "topic": "Give Notice" },
             { "day": 160, "topic": "Celebrate" },
-            { "day": 161, "topic": "Prep New Role" }
-          ]
+            { "day": 161, "topic": "Transition Planning" }
+          ],
+          "resources": {
+            "book": "Never Split the Difference (re-read negotiation chapters)",
+            "podcast": "Negotiate Anything"
+          }
         },
         {
           "week": 24,
           "title": "Launch",
           "days": [
             { "day": 162, "topic": "Knowledge Transfer" },
-            { "day": 163, "topic": "Finish Strong" },
+            { "day": 163, "topic": "Finish Strong at Current Role" },
             { "day": 164, "topic": "Study New Stack" },
             { "day": 165, "topic": "Prep Day 1" },
             { "day": 166, "topic": "Last Day" },
-            { "day": 167, "topic": "Rest + Celebrate" },
+            { "day": 167, "topic": "Rest" },
             { "day": 168, "topic": "New Chapter Begins" }
           ]
         }
