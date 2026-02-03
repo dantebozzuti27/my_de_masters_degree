@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**22/168 days complete**
+**23/168 days complete**
 
-**Next:** Day 23 - GitHub Actions CI/CD (pytest + Docker)
+**Next:** Day 24 - Airflow DAG Setup (Local)
 
 ---
 
@@ -62,8 +62,8 @@
 | Day | Topic | Status |
 |-----|-------|--------|
 | 22 | AWS Lambda Deployment | Done |
-| 23 | GitHub Actions CI/CD (pytest + Docker) | Next |
-| 24 | Airflow DAG Setup (Local) |  |
+| 23 | GitHub Actions CI/CD (pytest + Docker) | Done |
+| 24 | Airflow DAG Setup (Local) | Next |
 | 25 | Airflow Integration (Lambda + S3 Sensors) |  |
 | 26 | Monitoring + Alerting (CloudWatch, Slack) |  |
 | 27 | Scale Test (1M+ rows backfill) |  |
