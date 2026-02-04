@@ -1,7 +1,6 @@
 # SDE Tracker
 
-**6-Month Elite Data Engineer Curriculum**  
-**Goal:** $180k+ Data Engineer role at FAANG/Ramp/Stripe by July 2026
+**6-Month Data Engineer Learning Curriculum**
 
 ---
 
@@ -42,8 +41,7 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 1 | Foundations + Project 1 | 1-42 | Credit Markets Pipeline, SQL Deep Dive |
 | 2 | dbt + Spark + Project 2 | 43-77 | Fraud Detection Pipeline, dbt Cert |
 | 3 | Production Systems | 78-112 | Real-Time Analytics, AWS SAA Cert |
-| 4 | Interview Intensive | 113-147 | System Design, Mock Interviews |
-| 5-6 | Close Offers | 148-168 | Negotiate, Accept $180k+ |
+| 4-6 | Interview Prep | 113-168 | System Design, Mock Interviews |
 
 ---
 
@@ -74,7 +72,3 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 - `data/curriculum.json` — Full 168-day curriculum (source of truth)
 - `data/progress.json` — Completed days and notes
-
----
-
-Built for the journey to $180k+
