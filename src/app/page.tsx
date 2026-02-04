@@ -151,7 +151,7 @@ export default function Dashboard() {
               All Sessions Complete!
             </h3>
             <p className="text-green-600 dark:text-green-400">
-              You've completed the 6-month intensive program. Time to land that $160-170k role!
+              You've completed the 6-month intensive program. Time to land that Data Engineer role!
             </p>
           </div>
         )}

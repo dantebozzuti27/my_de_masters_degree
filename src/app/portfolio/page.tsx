@@ -50,7 +50,7 @@ export default function PortfolioPage() {
           My Portfolio
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          6-Month Aggressive Plan • Target: $160-170k by July 2026
+          6-Month Aggressive Plan • Target: Data Engineer by July 2026
         </p>
       </div>
 

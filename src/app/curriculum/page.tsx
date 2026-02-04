@@ -30,7 +30,7 @@ export default function CurriculumPage() {
           6-Month Aggressive Plan
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1">
-          24 weeks • 168 days • Goal: $160-170k by July 2026
+          24 weeks • 168 days • Goal: Data Engineer by July 2026
         </p>
       </div>
 

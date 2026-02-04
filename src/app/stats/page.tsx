@@ -278,7 +278,7 @@ export default function StatsPage() {
               </h4>
             </div>
             <p className="text-gray-600 dark:text-gray-400">
-              Land <span className="font-bold text-green-600 dark:text-green-400">$160-170k</span> Data Engineer role by July 2026
+              Land <span className="font-bold text-green-600 dark:text-green-400">Data Engineer</span> role by July 2026
             </p>
           </div>
         </div>

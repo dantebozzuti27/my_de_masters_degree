@@ -1,5 +1,5 @@
-# 6-MONTH ELITE DATA ENGINEER CURRICULUM
-## Goal: Land $180k+ Role at FAANG/Ramp/Stripe by July 2026
+# 6-MONTH DATA ENGINEER CURRICULUM
+## Goal: Land Data Engineer Role by July 2026
 
 **Schedule:** 30 hours/week
 **Duration:** 24 weeks (168 days)

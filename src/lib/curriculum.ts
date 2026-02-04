@@ -76,7 +76,7 @@ const MONTH_INFO: { [key: number]: { goal: string; project: string; certificatio
     project: 'Interview Practice Portfolio'
   },
   6: {
-    goal: 'Final interviews, negotiate aggressively, close deal at $160-170k.',
+    goal: 'Final interviews, negotiate aggressively, close deal.',
     project: 'Final Portfolio Polish'
   }
 };
@@ -172,20 +172,20 @@ export const CERTIFICATIONS = [
 
 export const TARGET_COMPANIES = {
   tier1: [
-    { name: 'dbt Labs', role: 'Analytics Engineer', salary: '$140-170k' },
-    { name: 'Ramp', role: 'Analytics Engineer / DE', salary: '$150-180k' },
-    { name: 'Brex', role: 'Data Engineer', salary: '$150-170k' }
+    { name: 'dbt Labs', role: 'Analytics Engineer' },
+    { name: 'Ramp', role: 'Analytics Engineer / DE' },
+    { name: 'Brex', role: 'Data Engineer' }
   ],
   tier2: [
-    { name: 'Datadog', role: 'Data Engineer', salary: '$150-180k' },
-    { name: 'Plaid', role: 'Data Engineer', salary: '$160-180k' },
-    { name: 'Affirm', role: 'Analytics Engineer', salary: '$150-170k' }
+    { name: 'Datadog', role: 'Data Engineer' },
+    { name: 'Plaid', role: 'Data Engineer' },
+    { name: 'Affirm', role: 'Analytics Engineer' }
   ],
   tier3: [
-    { name: 'Stripe', role: 'Data Engineer', salary: '$170-200k' },
-    { name: 'Capital One', role: 'Data Engineer', salary: '$140-160k' },
-    { name: 'Two Sigma', role: 'Data Infrastructure', salary: '$160-200k' },
-    { name: 'Robinhood', role: 'Data Engineer', salary: '$150-180k' }
+    { name: 'Stripe', role: 'Data Engineer' },
+    { name: 'Capital One', role: 'Data Engineer' },
+    { name: 'Two Sigma', role: 'Data Infrastructure' },
+    { name: 'Robinhood', role: 'Data Engineer' }
   ]
 };
 
