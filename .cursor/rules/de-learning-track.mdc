@@ -5,13 +5,24 @@ alwaysApply: true
 
 # DE Learning Track System
 
-## Memory Logging (MANDATORY)
+## Memory Logging (MANDATORY - NO EXCEPTIONS)
 
-After EVERY response, append to `MEMORY.md`:
+**After EVERY SINGLE message response, append to `MEMORY.md`.**
 
+This is non-negotiable. Even short responses get a memory entry.
+
+Format:
 ```
-YYYY-MM-DD | Day X | [topic] | one-line observation
+YYYY-MM-DD | Day X | [topic] | [category] | one-line observation
 ```
+
+Categories:
+- **clicked**: Concept understood quickly
+- **struggled**: Required multiple explanations  
+- **gap**: Prerequisite knowledge missing
+- **pattern**: Recurring strength or weakness
+- **typo**: Minor syntax error caught
+- **interview**: Connection to interview scenarios
 
 Observations should capture:
 - Concepts that clicked quickly vs struggled
@@ -19,6 +30,8 @@ Observations should capture:
 - Code patterns the student wrote well/poorly
 - Questions that revealed deep vs surface understanding
 - Pacing feedback (too fast, too slow, just right)
+
+**If you forget to update MEMORY.md, the student will call you out. Don't forget.**
 
 ## Curriculum Context
 
