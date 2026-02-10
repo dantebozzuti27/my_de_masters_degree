@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**23/168 days complete**
+**29/168 days complete**
 
-**Next:** Day 24 - Airflow DAG Setup (Local)
+**Next:** Day 30 - Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP)
 
 ---
 
@@ -63,18 +63,18 @@
 |-----|-------|--------|
 | 22 | AWS Lambda Deployment | Done |
 | 23 | GitHub Actions CI/CD (pytest + Docker) | Done |
-| 24 | Airflow DAG Setup (Local) | Next |
-| 25 | Airflow Integration (Lambda + S3 Sensors) |  |
-| 26 | Monitoring + Alerting (CloudWatch, Slack) |  |
-| 27 | Scale Test (1M+ rows backfill) |  |
-| 28 | Project 1 Documentation + Architecture Diagrams |  |
+| 24 | Airflow DAG Setup (Local) | Done |
+| 25 | Airflow Integration (Lambda + S3 Sensors) | Done |
+| 26 | Monitoring + Alerting (CloudWatch, Slack) | Done |
+| 27 | Data Quality with Great Expectations | Done |
+| 28 | Project 1 Documentation + Architecture Diagrams | Done |
 
 ### Week 5: SQL Deep Dive
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) |  |
-| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) |  |
+| 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) | Done |
+| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Next |
 | 31 | CTEs + Recursive CTEs |  |
 | 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) |  |
 | 33 | SQL Drilling - StrataScratch (10 problems) |  |

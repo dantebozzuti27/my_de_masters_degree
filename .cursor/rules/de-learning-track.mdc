@@ -70,3 +70,9 @@ At end of significant sessions, remind to update:
 - `data/progress.json` with day completion
 - Run `npm run generate` to update derived files
 - Commit with descriptive message
+
+## Git Commit Rules
+
+**NEVER add "Co-authored-by: Cursor" or any AI signature to commits.**
+
+All commits belong to the student. Do not sign, co-sign, or add any attribution to yourself.

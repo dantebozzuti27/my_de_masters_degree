@@ -4,16 +4,17 @@
 
 ---
 
-## Current Progress: 24/168 Days (14%)
+## Current Progress: 29/168 Days (17%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
 | 1 | 1-7 | Python Fundamentals | ✅ |
 | 2 | 8-14 | Production Python + Git | ✅ |
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
-| 4 | 22-28 | Project 1 Deployment + CI/CD | 🔄 Day 24 complete |
+| 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
+| 5 | 29-35 | SQL Deep Dive | 🔄 Day 29 complete |
 
-**Latest:** Day 24 - Airflow DAG Setup (Local). Full pipeline running through Airflow orchestration.
+**Latest:** Day 29 - Window Functions (LAG, running totals, moving averages, RANK/DENSE_RANK, NTILE).
 
 ---
 
@@ -30,7 +31,10 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | AWS Lambda | ✅ |
 | GitHub Actions CI | ✅ |
 | Airflow DAG | ✅ |
-| S3 Sensors | Next (Day 25) |
+| S3 Sensors + XCom | ✅ |
+| Slack Alerts | ✅ |
+| Great Expectations | ✅ |
+| Documentation | ✅ |
 
 ---
 
@@ -45,17 +49,31 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 ---
 
-## Week 4: Project 1 Deployment + CI/CD (Current)
+## Week 4: Project 1 Deployment + CI/CD
 
 | Day | Topic | Status |
 |-----|-------|--------|
 | 22 | AWS Lambda Deployment | ✅ |
 | 23 | GitHub Actions CI/CD | ✅ |
 | 24 | Airflow DAG Setup (Local) | ✅ |
-| 25 | Airflow Integration (Lambda + S3 Sensors) | Next |
-| 26 | Monitoring + Alerting (CloudWatch, Slack) | |
-| 27 | Scale Test (1M+ rows backfill) | |
-| 28 | Project 1 Documentation + Architecture Diagrams | |
+| 25 | Airflow Integration (Lambda + S3 Sensors) | ✅ |
+| 26 | Monitoring + Alerting (CloudWatch, Slack) | ✅ |
+| 27 | Data Quality with Great Expectations | ✅ |
+| 28 | Project 1 Documentation + Architecture Diagrams | ✅ |
+
+---
+
+## Week 5: SQL Deep Dive (Current)
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) | ✅ |
+| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Next |
+| 31 | CTEs + Recursive CTEs | |
+| 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | |
+| 33 | SQL Drilling - StrataScratch (10 problems) | |
+| 34 | SQL Drilling - DataLemur (10 problems) | |
+| 35 | SQL Assessment + Review | |
 
 ---
 
