@@ -65,11 +65,13 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 ## Week 5: SQL Deep Dive (Current)
 
+*Go deep each day: 3+ problems, edge cases, when to use / when not, interview angle.*
+
 | Day | Topic | Status |
 |-----|-------|--------|
 | 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) | ✅ |
-| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Next |
-| 31 | CTEs + Recursive CTEs | |
+| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | ✅ |
+| 31 | CTEs + Recursive CTEs | Next |
 | 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | |
 | 33 | SQL Drilling - StrataScratch (10 problems) | |
 | 34 | SQL Drilling - DataLemur (10 problems) | |

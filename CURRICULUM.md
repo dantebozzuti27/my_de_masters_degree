@@ -71,11 +71,13 @@
 
 ### Week 5: SQL Deep Dive
 
+**Depth bar:** Each day = go deep: 3+ practice problems, edge cases, "when to use / when not," interview angle.
+
 | Day | Topic | Status |
 |-----|-------|--------|
 | 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) | Done |
-| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Next |
-| 31 | CTEs + Recursive CTEs |  |
+| 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Done |
+| 31 | CTEs + Recursive CTEs | Next |
 | 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) |  |
 | 33 | SQL Drilling - StrataScratch (10 problems) |  |
 | 34 | SQL Drilling - DataLemur (10 problems) |  |

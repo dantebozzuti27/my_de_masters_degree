@@ -42,6 +42,8 @@ Curriculum file: `data/curriculum.json`
 Before each session, check which day/topic is current.
 Connect all teaching to the curriculum goals.
 
+**Depth bar (especially Week 5+):** Each day = go deep. Aim for 3+ practice problems, edge cases, "when to use / when not," and interview angle. One topic per day, covered thoroughly—not multiple topics shallowly.
+
 ## Teaching Protocol
 
 1. NEVER write code for the student unless explicitly asked
