@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2026-02-09",
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
   "notes": {
     "19": {
       "completedAt": "2026-01-27",
@@ -49,6 +49,10 @@
     "30": {
       "completedAt": "2026-02-09",
       "summary": "Advanced Aggregations: GROUPING SETS, ROLLUP, CUBE; GROUPING(). Depth bar for Week 5."
+    },
+    "31": {
+      "completedAt": "2026-02-09",
+      "summary": "CTEs + Recursive CTEs: simple CTE, reuse CTE, recursive 1..N + join, recursive date series."
     }
   }
 }
