@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 31/168 Days (18%)
+## Current Progress: 32/168 Days (19%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -12,9 +12,9 @@
 | 2 | 8-14 | Production Python + Git | ✅ |
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
 | 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
-| 5 | 29-35 | SQL Deep Dive | 🔄 Day 31 complete |
+| 5 | 29-35 | SQL Deep Dive | 🔄 Day 32 complete |
 
-**Latest:** Day 31 - CTEs + Recursive CTEs (4 problems).
+**Latest:** Day 32 - Query Optimization (EXPLAIN ANALYZE, indexes).
 
 ---
 
@@ -72,8 +72,8 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 29 | Window Functions (ROW_NUMBER, RANK, LEAD/LAG, NTILE) | ✅ |
 | 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | ✅ |
 | 31 | CTEs + Recursive CTEs | ✅ |
-| 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | Next |
-| 33 | SQL Drilling - StrataScratch (10 problems) | |
+| 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | ✅ |
+| 33 | SQL Drilling - StrataScratch (10 problems) | Next |
 | 34 | SQL Drilling - DataLemur (10 problems) | |
 | 35 | SQL Assessment + Review | |
 
