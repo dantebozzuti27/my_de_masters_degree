@@ -79,7 +79,7 @@
 | 30 | Advanced Aggregations (GROUPING SETS, CUBE, ROLLUP) | Done |
 | 31 | CTEs + Recursive CTEs | Done |
 | 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | Done |
-| 33 | SQL Drilling - StrataScratch (10 problems) | Next |
+| 33 | SQL Drilling (10 problems in-repo) | Done |
 | 34 | SQL Drilling - DataLemur (10 problems) |  |
 | 35 | SQL Assessment + Review |  |
 
