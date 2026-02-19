@@ -80,7 +80,7 @@
 | 31 | CTEs + Recursive CTEs | Done |
 | 32 | Query Optimization (EXPLAIN ANALYZE, Indexes) | Done |
 | 33 | SQL Drilling (10 problems in-repo) | Done |
-| 34 | SQL Drilling - DataLemur (10 problems) |  |
+| 34 | SQL Drilling (10 problems in-repo, day34_sql_drill.sql) | Done |
 | 35 | SQL Assessment + Review |  |
 
 ### Week 6: Distributed Systems Theory
