@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 35/168 Days (21%)
+## Current Progress: 37/168 Days (22%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -12,9 +12,10 @@
 | 2 | 8-14 | Production Python + Git | ✅ |
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
 | 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
-| 5 | 29-35 | SQL Deep Dive | ✅ Week 5 complete |
+| 5 | 29-35 | SQL Deep Dive | ✅ |
+| 6 | 36-42 | Distributed Systems Theory | 🔄 Day 37 complete |
 
-**Latest:** Day 35 - SQL Assessment + Review (structured review + interview-style Q&A).
+**Latest:** Day 37 - Consistency models (strong, eventual, causal); like-button = eventual.
 
 ---
 
@@ -63,7 +64,7 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 ---
 
-## Week 5: SQL Deep Dive (Current)
+## Week 5: SQL Deep Dive
 
 *Go deep each day: 3+ problems, edge cases, when to use / when not, interview angle.*
 
@@ -76,6 +77,20 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 33 | SQL Drilling (10 problems in-repo) | ✅ |
 | 34 | SQL Drilling (10 problems in-repo, day34_sql_drill.sql) | ✅ |
 | 35 | SQL Assessment + Review | ✅ |
+
+---
+
+## Week 6: Distributed Systems Theory (Current)
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 36 | CAP Theorem Deep Dive | ✅ |
+| 37 | Consistency Models (Eventual, Strong, Causal) | ✅ |
+| 38 | Partitioning Strategies (Hash, Range, Composite) | |
+| 39 | Replication Patterns (Leader-Follower, Multi-Leader) | |
+| 40 | Exactly-Once Semantics (Why It's Mostly a Myth) | |
+| 41 | Data Modeling at Scale (Star Schema, SCDs) | |
+| 42 | Phase 1 Review + Project 1 Final Polish | |
 
 ---
 

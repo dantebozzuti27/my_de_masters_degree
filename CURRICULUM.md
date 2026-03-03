@@ -87,8 +87,8 @@
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 36 | CAP Theorem Deep Dive |  |
-| 37 | Consistency Models (Eventual, Strong, Causal) |  |
+| 36 | CAP Theorem Deep Dive | Done |
+| 37 | Consistency Models (Eventual, Strong, Causal) | Done |
 | 38 | Partitioning Strategies (Hash, Range, Composite) |  |
 | 39 | Replication Patterns (Leader-Follower, Multi-Leader) |  |
 | 40 | Exactly-Once Semantics (Why It's Mostly a Myth) |  |
