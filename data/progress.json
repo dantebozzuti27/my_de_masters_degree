@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2026-02-03",
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
   "notes": {
     "19": {
       "completedAt": "2026-01-27",
@@ -85,6 +85,10 @@
     "39": {
       "completedAt": "2026-02-03",
       "summary": "Replication Patterns: leader-follower (single writer, strong consistency, sync vs async durability/latency); multi-leader (conflict handling, multi-region); when to use each."
+    },
+    "40": {
+      "completedAt": "2026-02-03",
+      "summary": "Exactly-Once Semantics: at-most / at-least / effectively-once; idempotent processing + natural key (upsert); not a single system flag; read-process-write; interview angle."
     }
   }
 }
