@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 38/168 Days (23%)
+## Current Progress: 39/168 Days (23%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -13,9 +13,9 @@
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
 | 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
 | 5 | 29-35 | SQL Deep Dive | ✅ |
-| 6 | 36-42 | Distributed Systems Theory | 🔄 Day 38 complete |
+| 6 | 36-42 | Distributed Systems Theory | 🔄 Day 39 complete |
 
-**Latest:** Day 38 - Partitioning (hash, range, composite); events-by-user-last-30d = composite.
+**Latest:** Day 39 - Replication (leader-follower, multi-leader); sync vs async durability/latency.
 
 ---
 
@@ -87,7 +87,7 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 36 | CAP Theorem Deep Dive | ✅ |
 | 37 | Consistency Models (Eventual, Strong, Causal) | ✅ |
 | 38 | Partitioning Strategies (Hash, Range, Composite) | ✅ |
-| 39 | Replication Patterns (Leader-Follower, Multi-Leader) | |
+| 39 | Replication Patterns (Leader-Follower, Multi-Leader) | ✅ |
 | 40 | Exactly-Once Semantics (Why It's Mostly a Myth) | |
 | 41 | Data Modeling at Scale (Star Schema, SCDs) | |
 | 42 | Phase 1 Review + Project 1 Final Polish | |
