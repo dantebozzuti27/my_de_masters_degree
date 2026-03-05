@@ -1,6 +1,6 @@
 {
   "lastUpdated": "2026-02-03",
-  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38],
   "notes": {
     "19": {
       "completedAt": "2026-01-27",
@@ -77,6 +77,10 @@
     "37": {
       "completedAt": "2026-02-03",
       "summary": "Consistency Models: strong (linearizable), eventual, causal; when to use each; like-button = eventual example; interview framing."
+    },
+    "38": {
+      "completedAt": "2026-02-03",
+      "summary": "Partitioning Strategies: hash (key lookup, even spread), range (range scans, time), composite (time + key spread); when to use each; events-by-user-last-30d = composite."
     }
   }
 }
