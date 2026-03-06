@@ -92,7 +92,7 @@
 | 38 | Partitioning Strategies (Hash, Range, Composite) | Done |
 | 39 | Replication Patterns (Leader-Follower, Multi-Leader) | Done |
 | 40 | Exactly-Once Semantics (Why It's Mostly a Myth) | Done |
-| 41 | Data Modeling at Scale (Star Schema, SCDs) |  |
+| 41 | Data Modeling at Scale (Star Schema, SCDs) | Done |
 | 42 | Phase 1 Review + Project 1 Final Polish |  |
 
 ---

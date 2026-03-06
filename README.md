@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 40/168 Days (24%)
+## Current Progress: 41/168 Days (24%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -13,9 +13,9 @@
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
 | 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
 | 5 | 29-35 | SQL Deep Dive | ✅ |
-| 6 | 36-42 | Distributed Systems Theory | 🔄 Day 40 complete |
+| 6 | 36-42 | Distributed Systems Theory | 🔄 Day 41 complete |
 
-**Latest:** Day 40 - Exactly-once semantics; effectively-once via idempotent processing + natural key.
+**Latest:** Day 41 - Star schema, SCDs (Type 1/2/3); Type 2 for history / as-of reporting.
 
 ---
 
@@ -89,7 +89,7 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 38 | Partitioning Strategies (Hash, Range, Composite) | ✅ |
 | 39 | Replication Patterns (Leader-Follower, Multi-Leader) | ✅ |
 | 40 | Exactly-Once Semantics (Why It's Mostly a Myth) | ✅ |
-| 41 | Data Modeling at Scale (Star Schema, SCDs) | |
+| 41 | Data Modeling at Scale (Star Schema, SCDs) | ✅ |
 | 42 | Phase 1 Review + Project 1 Final Polish | |
 
 ---
