@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 42/172 Days (24%) — Month 1 complete
+## Current Progress: 43/172 Days (25%)
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -13,9 +13,10 @@
 | 3 | 15-21 | AWS + Docker + Project 1 Start | ✅ |
 | 4 | 22-28 | Project 1 Deployment + CI/CD | ✅ |
 | 5 | 29-35 | SQL Deep Dive | ✅ |
-| 6 | 36-42 | Distributed Systems Theory | ✅ Week 6 complete |
+| 6 | 36-42 | Distributed Systems Theory | ✅ |
+| 7 | 43-49 | dbt Fundamentals | 🔄 Day 43 complete |
 
-**Latest:** Day 42 - Phase 1 review, Project 1 polish; Month 1 complete. Next: Day 43 (dbt).
+**Latest:** Day 43 - dbt project setup, models, ref(); dbt run against Postgres. Next: Day 44 (materializations).
 
 ---
 
@@ -80,7 +81,7 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 ---
 
-## Week 6: Distributed Systems Theory (Current)
+## Week 6: Distributed Systems Theory
 
 | Day | Topic | Status |
 |-----|-------|--------|
@@ -91,6 +92,18 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | 40 | Exactly-Once Semantics (Why It's Mostly a Myth) | ✅ |
 | 41 | Data Modeling at Scale (Star Schema, SCDs) | ✅ |
 | 42 | Phase 1 Review + Project 1 Final Polish | ✅ |
+
+## Week 7: dbt Fundamentals (Current)
+
+| Day | Topic | Status |
+|-----|-------|--------|
+| 43 | dbt Project Setup, Models, Refs | ✅ |
+| 44 | Materializations (Table, View, Incremental, Ephemeral) | |
+| 45 | Staging → Intermediate → Marts Pattern | |
+| 46 | Sources, Seeds, Snapshots | |
+| 47 | dbt Testing (Schema + Data Tests) | |
+| 48 | Macros and Jinja Templating | |
+| 49 | dbt Packages + Documentation Generation | |
 
 ---
 

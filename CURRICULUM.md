@@ -10,9 +10,9 @@
 
 ## Current Progress
 
-**42/172 days complete**
+**43/172 days complete**
 
-**Next:** Day 43 - dbt Project Setup, Models, Refs
+**Next:** Day 44 - Materializations (Table, View, Incremental, Ephemeral)
 
 ---
 
@@ -110,7 +110,7 @@
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| 43 | dbt Project Setup, Models, Refs |  |
+| 43 | dbt Project Setup, Models, Refs | Done |
 | 44 | Materializations (Table, View, Incremental, Ephemeral) |  |
 | 45 | Staging → Intermediate → Marts Pattern |  |
 | 46 | Sources, Seeds, Snapshots |  |
