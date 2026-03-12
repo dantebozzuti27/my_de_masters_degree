@@ -4,7 +4,7 @@
 
 ---
 
-## Current Progress: 42/168 Days (25%) — Month 1 complete
+## Current Progress: 42/172 Days (24%) — Month 1 complete
 
 | Week | Days | Focus | Status |
 |------|------|-------|--------|
@@ -44,9 +44,9 @@ Production-grade data pipeline for treasury yields and SEC filings.
 | Month | Focus | Days | Key Deliverables |
 |-------|-------|------|------------------|
 | 1 | Foundations + Project 1 | 1-42 | Credit Markets Pipeline, SQL Deep Dive |
-| 2 | dbt + Spark + Project 2 | 43-77 | Fraud Detection Pipeline, dbt Cert |
-| 3 | Production Systems | 78-112 | Real-Time Analytics, AWS SAA Cert |
-| 4-6 | Interview Prep | 113-168 | System Design, Mock Interviews |
+| 2 | dbt + Foundry + Spark + Project 2 | 43-81 | Foundry & Ontology, Fraud Detection, dbt Cert |
+| 3 | Production Systems | 82-116 | Real-Time Analytics, AWS SAA Cert |
+| 4-6 | Interview Prep | 117-172 | System Design, Mock Interviews |
 
 ---
 
@@ -98,12 +98,14 @@ Production-grade data pipeline for treasury yields and SEC filings.
 
 | Certification | Target Day |
 |--------------|------------|
-| dbt Analytics Engineering | Day 70 |
-| AWS Solutions Architect Associate | Day 108 |
+| dbt Analytics Engineering | Day 74 |
+| AWS Solutions Architect Associate | Day 112 |
+
+**Target companies:** See `TARGETS.md` (e.g. Palantir Foundry tailoring in Week 7b and callouts).
 
 ---
 
 ## Data Files
 
-- `data/curriculum.json` — Full 168-day curriculum (source of truth)
+- `data/curriculum.json` — Full curriculum (see CURRICULUM.md; 172 days with Palantir block)
 - `data/progress.json` — Completed days and notes
